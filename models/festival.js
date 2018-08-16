@@ -6,9 +6,9 @@ const festivalSchema = mongoose.Schema({
   endDate: { type: Date, required: true},
   location: { type: String, required: true },
   camping: { type: String, required: true },
-  Headlining: [{ type: String }],
+  headlining: [{ type: String }],
   photoUrl: { type: String, required: true },
-  organizer: [{ type: mongoose.schema.userId, ref: 'user.id' }]
+  createdBy: [{ type: mongoose.schema.ObjectId, ref: 'Users' }]
 });
 
 module.exports= mongoose.model('Festival', festivalSchema);
