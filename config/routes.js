@@ -9,6 +9,7 @@ const authController = require();
 const festivalController = require();
 const userController = require();
 const carShareController = require();
+const commentController = require();
 const friendController = require();
 const searchController = require();
 
@@ -41,36 +42,55 @@ router.route('/festivals/:id')
 
 ////////////////////////////// Car share routes ///////////////////////////////
 
-router.route('/festivals/:id/carshare')
+router.route('/festivals/:id/carShares')
   .get(carShareController.index)
   .post(carShareController.create);
 
-router.route('/festivals/:id/carshare/:id')
+router.route('/festivals/:festivalId/carShares/:carShareId')
   .get(carShareController.show)
   .put(carShareController.update)
   .delete(carShareController.delete);
 //maybe on delete, it can send out a message to all passengers that 'this
 //car share has been removed.'
 
-////////////////////////////// User routes ////////////////////////////////
-
-router.route('/festivals/:id/carshare/:id/passengers')
+router.route('/festivals/:festivalId/carShares/:carShareId/passengers')
   .get(userController.index);
 
+router.route('/festivals/:festivalId/carShares/:carShareId/comments')
+  .post(commentController.getToken, commentController.create);
+
+router.route('/festivals/:festivalId/carShares/:carShareId/comments/:commentId')
+  .delete(commentController.delete);
+
+////////////////////////////// User routes ////////////////////////////////
 
 router.route('/user/:id')
   .get(userController.show)
   .put(userController.update)
   .delete(userController.delete);
 
+
+
+
+////////////////////////////// Pending friends routes //////////////////////////
+
+router.route('/user/:id/pendingFriends')
+  .get(friendController.index);
+
+router.route('/user/:userId/pendingFriends/:friendId')
+  .delete(friendController.delete);
+
 ////////////////////////////// Friends routes ////////////////////////////////
 
 router.route('/user/:id/friends')
   .get(friendController.index);
 
+router.route('/user/:userId/friends/:friendId')
+  .delete(friendController.delete);
+
 /////////////////// Festivals attending /Carshare - passenger ///////////////
 
-router.route('/user/:id/festivalsattending')
+router.route('/user/:id/festivalsAttending')
   .get(userController.index);
 
 router.route('/user/:id/passenger')
