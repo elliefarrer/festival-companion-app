@@ -2,5 +2,4 @@
 
 ## README change
 
-
-Hello world
+Curtis smells good.
