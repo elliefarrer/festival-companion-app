@@ -26,18 +26,20 @@ const carShareSchema = mongoose.Schema({
   }],
   price: Number,
   totalSeats: { type: Number, required: true },
-  numOfPassengers: { type: Number, required: true },
-  passengerNames: [{ type: String }],
+  passengers: [{
+    passengerInfo: { type: mongoose.Schema.ObjectId, ref: 'User' }
+  }],
   comments: [{
     createdBy: { type: mongoose.Schema.ObjectId, ref: 'User' },
     content: String,
-    timeStamp: String
-  }]
+    timeStamps: String
+  }],
+  timeStamps: String
 });
 
 carShareSchema.virtual('seatsRemaining')
   .get(function() {
-    return this.totalSeats - this.numOfPassengers;
+    return this.totalSeats - this.passengers.length;
   });
 
 
