@@ -1,4 +1,4 @@
-const CarShare = require('../models.car-share');
+const CarShare = require('../models/car-share');
 
 function carSharesIndex(req, res, next) {
   CarShare
