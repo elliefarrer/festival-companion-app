@@ -21,13 +21,22 @@ function festivalsCreate(req, res, next) {
     .catch(next);
 }
 
-function festivalsUpdate(req, res, next) {
+function festivalsUpdate(req, res) {
   Festival
     .findById(req.params.id)
-    .then(festival => festival.set(req.body))
-    .then(festival => festival.save())
-    .catch(next);
+    .then(festival => {
+      if(!festival) return res.status(401).json({ message: 'No festival found'});
+
+      for(const field in req.body) {
+        festival[field] = req.body[field];
+      }
+
+      return festival.save();
+    })
+    .then(festival => res.json(festival))
+    .catch(() => res.status(500).json({ message: 'Something went wrong'}));
 }
+
 
 function festivalsDelete(req, res, next) {
   Festival
