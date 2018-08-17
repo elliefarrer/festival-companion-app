@@ -48,7 +48,7 @@ const festivalData = [{
 
 const carShareData = [{
   createdBy: '',
-  name: 'Lovebox',
+  festival: '',
   festivalStartDate: '13th July',
   festivalEndDate: '14th July',
   rideStartTime: '12.00PM',
@@ -60,7 +60,7 @@ const carShareData = [{
   }
 }, {
   createdBy: '',
-  name: 'Citadel Festival',
+  festival: '',
   festivalStartDate: '15th July',
   festivalEndDate: '15th July',
   rideStartTime: '11.30AM',
@@ -72,7 +72,7 @@ const carShareData = [{
   }
 }, {
   createdBy: '',
-  name: 'British Summer Time',
+  festival: '',
   festivalStartDate: '6th July',
   festivalEndDate: '15th July',
   rideStartTime: '10.00AM',
@@ -95,9 +95,12 @@ User
   })
   .then(festivals => {
     console.log(`Created ${festivals.length} festivals.`);
-    carShareData[0].createdBy = festivals.createdBy;
-    carShareData[1].createdBy = festivals.createdBy;
-    carShareData[2].createdBy = festivals.createdBy;
+    carShareData[0].createdBy = festivals[0].createdBy;
+    carShareData[1].createdBy = festivals[1].createdBy;
+    carShareData[2].createdBy = festivals[0].createdBy;
+    carShareData[0].createdBy = festivals[1].createdBy;
+    carShareData[1].createdBy = festivals[0].createdBy;
+    carShareData[2].createdBy = festivals[1].createdBy;
     return carShare.create(carShareData);
   })
   .then(console.log(`Created ${carShare.length} carshares`))
