@@ -37,6 +37,7 @@ function festivalsUpdate(req, res) {
     .catch(() => res.status(500).json({ message: 'Something went wrong'}));
 }
 
+
 function festivalsDelete(req, res, next) {
   Festival
     .findById(req.params.id)

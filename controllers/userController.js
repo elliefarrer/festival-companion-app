@@ -12,7 +12,7 @@ function usersUpdate(req, res) {
   User
     .findById(req.params.id)
     .then(user => {
-      if(!user) return res.status(401).json({ message: 'No user found'});
+      if(!user) return res.status(401).json({ message: 'No wonder found'});
 
       for(const field in req.body) {
         user[field] = req.body[field];
@@ -23,7 +23,6 @@ function usersUpdate(req, res) {
     .then(user => res.json(user))
     .catch(() => res.status(500).json({ message: 'Something went wrong'}));
 }
-
 
 function usersDelete(req, res, next) {
   User
