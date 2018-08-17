@@ -1,7 +1,7 @@
 // Requires
 const express = require('express');
 const bodyParser = require('body-parser');
-const router = require('./config/environment');
+const router = require('./config/routes');
 const errorHandler = require('./lib/error-handler');
 
 //Environment

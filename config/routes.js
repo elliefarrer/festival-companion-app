@@ -12,9 +12,10 @@ const carShareController = require('../controllers/carShareController');
 const commentController = require('../controllers/commentController');
 const friendController = require('../controllers/friendController');
 const pendingFriendRequestController = require('../controllers/pendingFriendRequestController');
-const searchController = require();
-const attendeeController = require();
-const pendingPassengerRequestController = require();
+// const searchController = require();
+const attendeeController = require('../controllers/attendeeController');
+const pendingPassengerRequestController = require('../controllers/pendingPassengerRequestController');
+// const passengerController = require('../controllers/passengerController');
 
 
 
@@ -50,7 +51,7 @@ router.route('/festivals/:festivalId/attendees')
 
 router.route('/festivals/:festivalId/attendees/:attendeeId')
   .delete(attendeeController.delete);
-  
+
 ////////////////////////////// Car share routes ///////////////////////////////
 
 router.route('/festivals/:id/carShares')
@@ -64,8 +65,8 @@ router.route('/festivals/:festivalId/carShares/:carShareId')
 //maybe on delete, it can send out a message to all passengers that 'this
 //car share has been removed.'
 
-router.route('/festivals/:festivalId/carShares/:carShareId/passengers')
-  .get(carShareController.passengerIndex);
+// router.route('/festivals/:festivalId/carShares/:carShareId/passengers')
+//   .get(carShareController.passengerIndex);
 
 router.route('/festivals/:festivalId/carShares/:carShareId/comments')
   .post(commentController.getToken, commentController.create);
@@ -105,33 +106,33 @@ router.route('/user/:userId/friends/:friendId')
 
 /////////// Festivals attending /Carshare - passenger/ Organised ///////////////
 
-router.route('/user/:id/festivalsAttending') //Shows festivals user is attending
-  .get(userController.festivalsIndex);
+// router.route('/user/:id/festivalsAttending') //Shows festivals user is attending
+// .get(userController.festivalsIndex);
 
-router.route('user/:id/festivalsOrganised') //Shows festivals organised
-  .get(userController.festivalsOrganisedIndex);
-
-router.route('/user/:id/passenger') // Shows car shares user is passenger on
-  .get(userController.passengersIndex);
-
-router.route('user/:id/carSharesOrganised') // Shows car shares the user has organised
-  .get(userController.carSharesOrganisedIndex);
-
-router.route('user/:id/carSharesOrganised/pendingPassengers') //Shows pending passengers to user's car shares
-  .get(pendingPassengerRequestController.index);
-
-router.route('user/:userId/carSharesOrganised/pendingPassengers/:passengerId') //rejects request
-  .delete(pendingPassengerRequestController.delete); //We can change the route of this if necessary
+// router.route('user/:id/festivalsOrganised') //Shows festivals organised
+//   .get(userController.festivalsOrganisedIndex);
+//
+// router.route('/user/:id/passenger') // Shows car shares user is passenger on
+//   .get(userController.passengersIndex);
+//
+// router.route('user/:id/carSharesOrganised') // Shows car shares the user has organised
+//   .get(userController.carSharesOrganisedIndex);
+//
+// router.route('user/:id/carSharesOrganised/pendingPassengers') //Shows pending passengers to user's car shares
+//   .get(pendingPassengerRequestController.index);
+//
+// router.route('user/:userId/carSharesOrganised/pendingPassengers/:passengerId') //rejects request
+//   .delete(pendingPassengerRequestController.delete); //We can change the route of this if necessary
 
 ///////////////////////////// Search routes /////////////////////////////////
 
-router.route('/search/users')
-  .get(searchController);
+// router.route('/search/users')
+//   .get(searchController);
 
 // might not be necessary if we can filter the front end (ng-filter);
 
-router.route('/search/festivals')
-  .get(searchController);
+// router.route('/search/festivals')
+//   .get(searchController);
 
 // might not be necessary if we can filter the front end (ng-filter);
 

@@ -94,7 +94,7 @@ User
     return Festival.create(festivalData);
   })
   .then(festivals => {
-    console.log(`Created ${festivals.length}.`);
+    console.log(`Created ${festivals.length} festivals.`);
     carShareData[0].createdBy = festivals.createdBy;
     carShareData[1].createdBy = festivals.createdBy;
     carShareData[2].createdBy = festivals.createdBy;
