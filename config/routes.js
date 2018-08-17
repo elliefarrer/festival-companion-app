@@ -48,6 +48,9 @@ router.route('/festivals/:festivalId/attendees')
   .post(attendeeController.create); //this adds the festival to the users list, and
 // the user to the attendees list of the festival
 
+router.route('/festivals/:festivalId/attendees/:attendeeId')
+  .delete(attendeeController.delete);
+  
 ////////////////////////////// Car share routes ///////////////////////////////
 
 router.route('/festivals/:id/carShares')
