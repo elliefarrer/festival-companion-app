@@ -2,18 +2,17 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 
 const userSchema = mongoose.Schema({
-  firstName: { type: String, required: true },
-  profilePic: { type: String, required: true },
-  lastName: { type: String, required: true },
-  userName: { type: String, required: true },
-  email: { type: String, required: true },
-  mobileNumber: { type: Number, required: true },
-  password: { type: String, required: true },
-  passwordConfirmation: { type: String, required: true },
-  userFriends: [{ type: mongoose.schema.ObjectId, ref: 'Users'}],
-  pendingFriends: [{ type: mongoose.schema.ObjectId, ref: 'Users'}],
-  carShare: [{ type: mongoose.schema.car, ref: 'carShares.id'}],
-  carSharesOrganised: [{ type: mongoose.schema.ObjectId, ref: 'carShares.id'}],
+  firstName: { type: String },
+  profilePic: { type: String },
+  lastName: { type: String },
+  userName: { type: String },
+  email: { type: String },
+  mobileNumber: { type: Number },
+  password: { type: String },
+  userFriends: [{ type: mongoose.Schema.ObjectId, ref: 'Users'}],
+  pendingFriends: [{ type: mongoose.Schema.ObjectId, ref: 'Users'}],
+  carShare: [{ type: mongoose.Schema.ObjectId, ref: 'carShares'}],
+  carSharesOrganised: [{ type: mongoose.Schema.ObjectId, ref: 'carShares'}],
   comments: [{ name: String, content: String, profilePic: String }]
 });
 
