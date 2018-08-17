@@ -1,12 +1,40 @@
+// Requires
 const express = require('express');
+const bodyParser = require('body-parser');
+const router = require('./config/environment');
+const errorHandler = require('./lib/error-handler');
+
+//Environment
+const { port, dbURI } = require('./config/environment');
+
+//Mongoose/Mongo
+const mongoose = require('mongoose');
+mongoose.Promise = require('bluebird');
+mongoose.connect(dbURI);
+
+// Initialise app
 const app = express();
 
-const { port } = require('./config/environment');
-
+//Static folder
 app.use(express.static(`${__dirname}/public`));
 
-app.get('/*', (req, res) => res.sendFile(`${__dirname}/public/index.html`));
+//Middleware
+app.use(bodyParser.json()); // Allows other HTTP methods
 
-app.listen(port, () => console.log(`Express is listening on port ${port}`));
+app.use((req, res, next) => {
+  res.append('Access-Control-Allow-Origin', ['*']);
+  res.append('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.append('Access-Control-Allow-Header', 'Content-Type');
+  next();
+});
 
-module.exports = app;
+app.use('/api', router); // Allows use of router
+
+app.use(errorHandler);
+
+
+app.listen(port, () => console.log(`Expess is listening to port ${port}`));
+
+
+
+module.exports = app; // Exported to be used in tests
