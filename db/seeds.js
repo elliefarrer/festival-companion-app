@@ -3,10 +3,12 @@ mongoose.Promise = require('bluebird');
 const { dbURI } = require('../config/environment');
 const User = require('../models/user');
 const Festival = require('../models/festival');
+const carShare = require('../models/car-share');
 
 mongoose.connect(dbURI);
 Festival.collection.drop();
 User.collection.drop();
+carShare.collection.drop();
 
 const userData = [
   {firstName: 'Ellie', lastName: 'Farrer', userName: 'ellie', email: 'ellie@email.com', mobileNumber: '07770077070', password: 'pass', passwordConfirmation: 'pass'},
@@ -21,32 +23,32 @@ const festivalData = [{
   endDate: '14th July',
   location: 'Gunnersbury Park',
   camping: 'No',
-  headlining: 'Childish Gambino, Skepta, SZA',
+  headlining: ['Childish Gambino', 'Skepta', 'SZA'],
   photoUrl: 'https://24e8e3b95851cffc9b46-ce987c743c8a722dc56cea7f8eb55a8f.ssl.cf3.rackcdn.com/LBXLogoSimple.svg',
-  createdBy: 'max'
+  createdBy: ''
 }, {
   name: 'Citadel Festival',
   startDate: '15th July',
   endDate: '15th July',
   location: 'Gunnersbury Park',
   camping: 'No',
-  headlining: 'Tame Impala, Leon Bridges, Honne',
+  headlining: ['Tame Impala', 'Leon Bridges', 'Honne'],
   photoUrl: 'https://e0af4153dabf8f9d6b2b-0afdb671d2fada65aba92528a1f1e10d.ssl.cf3.rackcdn.com/wp-content/uploads/2017/01/Citadel-white.png',
-  createdBy: 'max'
+  createdBy: ''
 },{
   name: 'British Summer Time',
   startDate: '6th July',
   endDate: '15th July',
   location: 'Hyde Park',
   camping: 'No',
-  headlining: 'The Cure, Paul Simon, Bruno Mars',
+  headlining: ['The Cure', 'Paul Simon', 'Bruno Mars'],
   photoUrl: 'https://www.bst-hydepark.com/assets/img/33-29429fc891.jpg',
-  createdBy: 'max'
+  createdBy: ''
 }];
 
-const carSharesData = [{
-  createdBy: 'ellie',
-  festival: 'Lovebox',
+const carShareData = [{
+  createdBy: '',
+  name: 'Lovebox',
   festivalStartDate: '13th July',
   festivalEndDate: '14th July',
   rideStartTime: '12.00PM',
@@ -57,8 +59,8 @@ const carSharesData = [{
     lng: '0.1769'
   }
 }, {
-  createdBy: 'curtis',
-  festival: 'Citadel Festival',
+  createdBy: '',
+  name: 'Citadel Festival',
   festivalStartDate: '15th July',
   festivalEndDate: '15th July',
   rideStartTime: '11.30AM',
@@ -69,8 +71,8 @@ const carSharesData = [{
     lng: '0.1769'
   }
 }, {
-  createdBy: 'max',
-  festival: 'British Summer Time',
+  createdBy: '',
+  name: 'British Summer Time',
   festivalStartDate: '6th July',
   festivalEndDate: '15th July',
   rideStartTime: '10.00AM',
@@ -88,19 +90,16 @@ User
     console.log(`Created ${users.length} users.`);
     festivalData[0].createdBy = users[0].id;
     festivalData[1].createdBy = users[0].id;
+    festivalData[2].createdBy = users[0].id;
     return Festival.create(festivalData);
   })
   .then(festivals => {
     console.log(`Created ${festivals.length}.`);
+    carShareData[0].createdBy = festivals.createdBy;
+    carShareData[1].createdBy = festivals.createdBy;
+    carShareData[2].createdBy = festivals.createdBy;
+    return carShare.create(carShareData);
   })
-  .catch(err => console.log(err))
-  .finally(() => mongoose.connection.close());
-
-
-carSharesData
-  .create(carSharesData)
-  .then(carShares => {
-    console.log(`Created ${carShares.length} car shares`);
-  })
+  .then(console.log(`Created ${carShare.length} carshares`))
   .catch(err => console.log(err))
   .finally(() => mongoose.connection.close());
