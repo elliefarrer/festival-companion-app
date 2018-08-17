@@ -1,6 +1,9 @@
-// TODO: change create to send friend info
+// TODO: Not finished
+
+// This controller will add and remove attendees from festivals. No pending required?
 
 const User = require('../models/user');
+const Festival = require('../models/festival');
 const jwt = require('jsonwebtoken');
 const { secret } = require('../config/environment');
 let token;
@@ -25,57 +28,57 @@ function getTokenFromHttpRequest(req, res, next) {
 
 
 
-function friendsIndex(req, res, next) {
-  User
-    .findById(userId)
-    .then(user => res.json(user.friends))
+function attendeeIndex(req, res, next) {
+  Festival
+    .findById(req.params.festivalId)
+    .then(festival => res.json(festival.attendees))
     .catch(next);
 }
 
-// This is the user sending a friend request. This adds that friend to the user's
+// This is the user sending an attendee request. This adds that friend to the user's
 // friend list, but the user only to the friend's pending list until they accept
 // in the pendingFriendsController??
 
-function friendsCreate(req, res, next) {
+function attendeeCreate(req, res, next) {
   User
     .findById(userId)
     .then(user => {
-      user.friends.push(req.params.friendId);
+      user.festivals.push(req.params.festivalId);
       return user.save();
     })
     .then(() => {
-      return User
-        .findById(req.params.friendId)
-        .then(friend => {
-          friend.pendingFriends.push(userId);
-          friend.save();
+      return Festival
+        .findById(req.params.festivalId)
+        .then(festival => {
+          festival.push(userId);
+          festival.save();
         });
     })
     .then(() => {
       return User
-        .findById(userId); // Send friends profile info instead
+        .findById(userId);
     })
     .then(user => res.json(user))
     .catch(next);
 }
 
 
-function friendsDelete(req, res, next) {
+function attendeeDelete(req, res, next) {
   User
     .findById(userId)
     .then(user => {
-      user.friends = user.friends.filter(friend => {
-        friend !== req.params.friendId;
+      user.festival = user.festival.filter(festival => {
+        festival !== req.params.festivalId;
       }); //need to test if friend === req.params.friendId / may need toString().
       return user.save();
     })
     .then(() => {
-      return User
-        .findById(req.params.friendId)
-        .then(friend => {
-          friend.friends = friend.friends.filter(friendId => {
-            friendId !== userId;
-            friend.save();
+      return Festival
+        .findById(req.params.festivalId)
+        .then(festival => {
+          festival.attendees = festival.attendees.filter(attendeeId => {
+            attendeeId !== userId;
+            festival.save();
           }); //need to test if friendId === userId / may need toString().
         }); //could probably add this to the userSchema method
     })
@@ -84,8 +87,8 @@ function friendsDelete(req, res, next) {
 }
 
 module.exports = {
-  index: friendsIndex,
-  delete: friendsDelete,
-  create: friendsCreate,
+  index: attendeeIndex,
+  delete: attendeeDelete,
+  create: attendeeCreate,
   getToken: getTokenFromHttpRequest
 };
