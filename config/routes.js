@@ -5,13 +5,16 @@ const secureRoute = require('../lib/secure-route');
 
 // Require controllers here
 
-const authController = require();
-const festivalController = require();
-const userController = require();
-const carShareController = require();
-const commentController = require();
-const friendController = require();
+const authController = require('../controllers/authController');
+const festivalController = require('../controllers/festivalController');
+const userController = require('../controllers/userController');
+const carShareController = require('../controllers/carShareController');
+const commentController = require('../controllers/commentController');
+const friendController = require('../controllers/friendController');
+const pendingFriendRequestController = require('../controllers/pendingFriendRequestController');
 const searchController = require();
+const attendeeController = require();
+const pendingPassengerRequestController = require();
 
 
 
@@ -40,6 +43,11 @@ router.route('/festivals/:id')
   .put(festivalController.update)
   .delete(festivalController.delete);
 
+router.route('/festivals/:festivalId/attendees')
+  .get(attendeeController.index)
+  .post(attendeeController.create); //this adds the festival to the users list, and
+// the user to the attendees list of the festival
+
 ////////////////////////////// Car share routes ///////////////////////////////
 
 router.route('/festivals/:id/carShares')
@@ -54,7 +62,7 @@ router.route('/festivals/:festivalId/carShares/:carShareId')
 //car share has been removed.'
 
 router.route('/festivals/:festivalId/carShares/:carShareId/passengers')
-  .get(userController.index);
+  .get(carShareController.passengerIndex);
 
 router.route('/festivals/:festivalId/carShares/:carShareId/comments')
   .post(commentController.getToken, commentController.create);
@@ -70,31 +78,47 @@ router.route('/user/:id')
   .delete(userController.delete);
 
 
-
-
 ////////////////////////////// Pending friends routes //////////////////////////
 
 router.route('/user/:id/pendingFriends')
-  .get(friendController.index);
+  .get(pendingFriendRequestController.getToken, pendingFriendRequestController.index); // Lists pending friends.
 
 router.route('/user/:userId/pendingFriends/:friendId')
-  .delete(friendController.delete);
+  .delete(pendingFriendRequestController.getToken, pendingFriendRequestController.delete); // When you accept a pending friend request.
 
 ////////////////////////////// Friends routes ////////////////////////////////
 
 router.route('/user/:id/friends')
-  .get(friendController.index);
+  .all(friendController.getToken)
+  .get(friendController.index)
+  .post(friendController.create); //This adds to users friends
+//list, but the friends pending list. User cannot
+// view page until friend accepts. When showing index, can make it so that
+// You cannot see their profile page unless you are both in each others friends
+// lists
 
 router.route('/user/:userId/friends/:friendId')
-  .delete(friendController.delete);
+  .delete(friendController.getToken, friendController.delete); //removing friend
 
-/////////////////// Festivals attending /Carshare - passenger ///////////////
+/////////// Festivals attending /Carshare - passenger/ Organised ///////////////
 
-router.route('/user/:id/festivalsAttending')
-  .get(userController.index);
+router.route('/user/:id/festivalsAttending') //Shows festivals user is attending
+  .get(userController.festivalsIndex);
 
-router.route('/user/:id/passenger')
-  .get(userController.index);
+router.route('user/:id/festivalsOrganised') //Shows festivals organised
+  .get(userController.festivalsOrganisedIndex);
+
+router.route('/user/:id/passenger') // Shows car shares user is passenger on
+  .get(userController.passengersIndex);
+
+router.route('user/:id/carSharesOrganised') // Shows car shares the user has organised
+  .get(userController.carSharesOrganisedIndex);
+
+router.route('user/:id/carSharesOrganised/pendingPassengers') //Shows pending passengers to user's car shares
+  .get(pendingPassengerRequestController.index);
+
+router.route('user/:userId/carSharesOrganised/pendingPassengers/:passengerId') //rejects request
+  .delete(pendingPassengerRequestController.delete); //We can change the route of this if necessary
 
 ///////////////////////////// Search routes /////////////////////////////////
 

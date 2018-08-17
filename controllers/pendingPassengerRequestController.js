@@ -1,5 +1,3 @@
-// TODO: change create to send friend info
-
 const User = require('../models/user');
 const jwt = require('jsonwebtoken');
 const { secret } = require('../config/environment');
@@ -24,49 +22,27 @@ function getTokenFromHttpRequest(req, res, next) {
 }
 
 
-
-function friendsIndex(req, res, next) {
+function pendingPassengersIndex(req, res, next) { //shows pending passengers for the users carShare
   User
     .findById(userId)
-    .then(user => res.json(user.friends))
+    .populate('carSharesOrganised')
+    .then(user => res.json(user.carSharesOrganised.pendingPassengers)) //can change this to just carShares so that we can access event information too. Will need to populate! Maybe use carShare Model instead
     .catch(next);
 }
 
-// This is the user sending a friend request. This adds that friend to the user's
-// friend list, but the user only to the friend's pending list until they accept
-// in the pendingFriendsController??
-
-function friendsCreate(req, res, next) {
+// rejects the passenger request and deletes from pending list
+function pendingPassengersDelete(req, res, next) {
   User
     .findById(userId)
+    .populate('carSharesOrganised')
     .then(user => {
-      user.friends.push(req.params.friendId);
-      return user.save();
-    })
-    .then(() => {
-      return User
-        .findById(req.params.friendId)
-        .then(friend => {
-          friend.pendingFriends.push(userId);
-          friend.save();
-        });
-    })
-    .then(() => {
-      return User
-        .findById(userId); // Send friends profile info instead
-    })
-    .then(user => res.json(user))
-    .catch(next);
-}
-
-
-function friendsDelete(req, res, next) {
-  User
-    .findById(userId)
-    .then(user => {
-      user.friends = user.friends.filter(friend => {
-        friend !== req.params.friendId;
-      }); //need to test if friend === req.params.friendId / may need toString().
+      user.carSharesOrganised.forEach(carShare => {
+        if(carShare === req.params.carShareId) {
+          carShare.pendingPassengers = carShare.pendingPassengers.filter(passenger => {
+            passenger !== req.params.passengerId;
+          });
+        }
+      }); //need to test
       return user.save();
     })
     .then(() => {
@@ -84,8 +60,7 @@ function friendsDelete(req, res, next) {
 }
 
 module.exports = {
-  index: friendsIndex,
-  delete: friendsDelete,
-  create: friendsCreate,
+  index: pendingPassengersIndex,
+  delete: pendingPassengersDelete,
   getToken: getTokenFromHttpRequest
 };

@@ -1,5 +1,3 @@
-// TODO: change create to send friend info
-
 const User = require('../models/user');
 const jwt = require('jsonwebtoken');
 const { secret } = require('../config/environment');
@@ -24,47 +22,19 @@ function getTokenFromHttpRequest(req, res, next) {
 }
 
 
-
-function friendsIndex(req, res, next) {
+function pendingFriendsIndex(req, res, next) {
   User
     .findById(userId)
-    .then(user => res.json(user.friends))
+    .then(user => res.json(user.pendingFriends))
     .catch(next);
 }
 
-// This is the user sending a friend request. This adds that friend to the user's
-// friend list, but the user only to the friend's pending list until they accept
-// in the pendingFriendsController??
-
-function friendsCreate(req, res, next) {
+// rejects the friend request and deletes from friends friend list
+function pendingFriendsDelete(req, res, next) {
   User
     .findById(userId)
     .then(user => {
-      user.friends.push(req.params.friendId);
-      return user.save();
-    })
-    .then(() => {
-      return User
-        .findById(req.params.friendId)
-        .then(friend => {
-          friend.pendingFriends.push(userId);
-          friend.save();
-        });
-    })
-    .then(() => {
-      return User
-        .findById(userId); // Send friends profile info instead
-    })
-    .then(user => res.json(user))
-    .catch(next);
-}
-
-
-function friendsDelete(req, res, next) {
-  User
-    .findById(userId)
-    .then(user => {
-      user.friends = user.friends.filter(friend => {
+      user.pendingFriends = user.pendingFriends.filter(friend => {
         friend !== req.params.friendId;
       }); //need to test if friend === req.params.friendId / may need toString().
       return user.save();
@@ -84,8 +54,7 @@ function friendsDelete(req, res, next) {
 }
 
 module.exports = {
-  index: friendsIndex,
-  delete: friendsDelete,
-  create: friendsCreate,
+  index: pendingFriendsIndex,
+  delete: pendingFriendsDelete,
   getToken: getTokenFromHttpRequest
 };
