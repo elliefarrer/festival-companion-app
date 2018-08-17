@@ -19,7 +19,7 @@
 =======
     "bcrypt": "^3.0.0",
     "express": "^4.16.3",
->>>>>>> User
+>>>>>>> 95f2cc1b4fb92ca0b0fe9e59fcc592d225a572ca
     "mongoose": "^5.2.8"
   },
   "devDependencies": {
