@@ -44,9 +44,43 @@ const festivalData = [{
   createdBy: 'max'
 }];
 
-carShares = [{
-  
-}]
+const carSharesData = [{
+  createdBy: 'ellie',
+  festival: 'Lovebox',
+  festivalStartDate: '13th July',
+  festivalEndDate: '14th July',
+  rideStartTime: '12.00PM',
+  estimatedRideEndTime: '3.30PM',
+  from: {
+    postcode: 'W2 1HQ',
+    lat: '51.5167',
+    lng: '0.1769'
+  }
+}, {
+  createdBy: 'curtis',
+  festival: 'Citadel Festival',
+  festivalStartDate: '15th July',
+  festivalEndDate: '15th July',
+  rideStartTime: '11.30AM',
+  estimatedRideEndTime: '12.30PM',
+  from: {
+    postcode: 'W2 1HQ',
+    lat: '51.5167',
+    lng: '0.1769'
+  }
+}, {
+  createdBy: 'max',
+  festival: 'British Summer Time',
+  festivalStartDate: '6th July',
+  festivalEndDate: '15th July',
+  rideStartTime: '10.00AM',
+  estimatedRideEndTime: '12.30PM',
+  from: {
+    postcode: 'EC3N 1AH',
+    lat: '51.5167',
+    lng: '0.1769'
+  }
+}];
 
 User
   .create(userData)
@@ -57,7 +91,16 @@ User
     return Festival.create(festivalData);
   })
   .then(festivals => {
-    console.log(`Created ${festivals.length} whiskeys.`);
+    console.log(`Created ${festivals.length}.`);
+  })
+  .catch(err => console.log(err))
+  .finally(() => mongoose.connection.close());
+
+
+carSharesData
+  .create(carSharesData)
+  .then(carShares => {
+    console.log(`Created ${carShares.length} car shares`);
   })
   .catch(err => console.log(err))
   .finally(() => mongoose.connection.close());
