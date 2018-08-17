@@ -44,6 +44,10 @@ const festivalData = [{
   createdBy: 'max'
 }];
 
+carShares = [{
+  
+}]
+
 User
   .create(userData)
   .then(users => {

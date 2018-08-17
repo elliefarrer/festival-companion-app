@@ -10,9 +10,10 @@ const userSchema = mongoose.Schema({
   mobileNumber: { type: Number, required: true },
   password: { type: String, required: true },
   passwordConfirmation: { type: String, required: true },
-  userFriends: [{ type: mongoose.schema.ObjectId, ref: 'user.id'}],
-  friendsPending: [{ type: mongoose.schema.ObjectId, ref: 'user.id'}],
-  carShare: [{ type: mongoose.schema.car, ref: 'carShare.id'}],
+  userFriends: [{ type: mongoose.schema.ObjectId, ref: 'Users'}],
+  pendingFriends: [{ type: mongoose.schema.ObjectId, ref: 'Users'}],
+  carShare: [{ type: mongoose.schema.car, ref: 'carShares.id'}],
+  carSharesOrganised: [{ type: mongoose.schema.ObjectId, ref: 'carShares.id'}],
   comments: [{ name: String, content: String, profilePic: String }]
 });
 
