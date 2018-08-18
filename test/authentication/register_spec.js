@@ -18,7 +18,7 @@ describe('POST /register', () => {
 
   beforeEach(done => {
     User.remove({})
-      .then(User.create(existingUserData))
+      .then(User.create(existingUserData));
     done();
   });
 
