@@ -49,38 +49,32 @@ const festivalData = [{
 const carShareData = [{
   createdBy: '',
   festival: '',
-  festivalStartDate: '13th July',
-  festivalEndDate: '14th July',
   rideStartTime: '12.00PM',
   estimatedRideEndTime: '3.30PM',
   from: {
     postcode: 'W2 1HQ',
-    lat: '51.5167',
-    lng: '0.1769'
+    lat: 51.5167,
+    lng: 0.1769
   }
 }, {
   createdBy: '',
   festival: '',
-  festivalStartDate: '15th July',
-  festivalEndDate: '15th July',
   rideStartTime: '11.30AM',
   estimatedRideEndTime: '12.30PM',
   from: {
     postcode: 'W2 1HQ',
-    lat: '51.5167',
-    lng: '0.1769'
+    lat: 51.5167,
+    lng: 0.1769
   }
 }, {
   createdBy: '',
   festival: '',
-  festivalStartDate: '6th July',
-  festivalEndDate: '15th July',
   rideStartTime: '10.00AM',
   estimatedRideEndTime: '12.30PM',
   from: {
     postcode: 'EC3N 1AH',
-    lat: '51.5167',
-    lng: '0.1769'
+    lat: 51.5167,
+    lng: 0.1769
   }
 }];
 

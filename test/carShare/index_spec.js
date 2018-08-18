@@ -4,34 +4,28 @@ const CarShare = require('../../models/car-share');
 const Festival = require('../../models/festival');
 
 const carShareData = [{
-  festivalStartDate: '13th July',
-  festivalEndDate: '14th July',
   rideStartTime: '12.00PM',
   estimatedRideEndTime: '3.30PM',
   from: {
     postcode: 'W2 1HQ',
-    lat: '51.5167',
-    lng: '0.1769'
+    lat: 51.5167,
+    lng: 0.1769
   }
 }, {
-  festivalStartDate: '15th July',
-  festivalEndDate: '15th July',
   rideStartTime: '11.30AM',
   estimatedRideEndTime: '12.30PM',
   from: {
     postcode: 'W2 1HQ',
-    lat: '51.5167',
-    lng: '0.1769'
+    lat: 51.5167,
+    lng: 0.1769
   }
 }, {
-  festivalStartDate: '6th July',
-  festivalEndDate: '15th July',
   rideStartTime: '10.00AM',
   estimatedRideEndTime: '12.30PM',
   from: {
     postcode: 'EC3N 1AH',
-    lat: '51.5167',
-    lng: '0.1769'
+    lat: 51.5167,
+    lng: 0.1769
   }
 }];
 
@@ -104,21 +98,26 @@ describe('GET /carShares', () => {
           res.body.forEach(carShare => {
             expect(carShare).to.be.an('object');
           });
+          expect(res.body).to.be.an('array');
           done();
         });
     });
-  //This is the last test for index - finish it later.
-  // it('should return the correct data', done => {
-  //   api.get(`/api/festivals/${festivalId}/carShares`)
-  //     .end((err, res) => {
-  //       res.body.forEach(carShare => {
-  //         const correspondingCarShare = carShareData.filter(chosenCarShare => {
-  //           chosenCarShare.id === carShare[0]
-  //         })
-  //       expect()
-  //       });
-  //
-  //   })
-  // })
+  // This is the last test for index - finish it later.
+  it('should return the correct data', done => {
+    api.get(`/api/festivals/${festivalId}/carShares`)
+      .end((err, res) => {
+        res.body.forEach(carShare => {
+
+          const correspondingCarShare = carShareData.filter(chosenCarShare =>
+            chosenCarShare.rideStartTime === carShare.rideStartTime)[0];
+
+          expect(correspondingCarShare.estimatedRideEndTime).to.eq(carShare.estimatedRideEndTime);
+          for (const locationInfo in carShare.from) {
+            expect(carShare.from[locationInfo]).to.eq(correspondingCarShare.from[locationInfo]);
+          }
+        });
+        done();
+      });
+  });
 
 });
