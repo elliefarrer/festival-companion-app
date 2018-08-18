@@ -7,7 +7,7 @@ const userSchema = mongoose.Schema({
   lastName: { type: String },
   userName: { type: String },
   email: { type: String },
-  mobileNumber: { type: Number },
+  mobileNumber: { type: String },
   password: { type: String },
   userFriends: [{ type: mongoose.Schema.ObjectId, ref: 'Users'}],
   pendingFriends: [{ type: mongoose.Schema.ObjectId, ref: 'Users'}],

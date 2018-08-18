@@ -33,9 +33,8 @@ const festivalData = {
 
 };
 
-describe('DELETE /carShares', () => {
+describe('POST /carShares', () => {
   let festivalId;
-  let carShareId;
   beforeEach(done => {
 
     // Festival.remove({})
@@ -55,10 +54,7 @@ describe('DELETE /carShares', () => {
         carShareData.festival = festivalId;
         return CarShare.create(carShareData);
       })
-      .then((carShare) => {
-        carShareId = carShare._id;
-        return User.create(userData);
-      })
+      .then(() => User.create(userData))
       .then(user => {
         token = jwt.sign({ sub: user.id }, secret, {expiresIn: '1hr'});
         done();
@@ -66,29 +62,45 @@ describe('DELETE /carShares', () => {
   });
 
   it('should return a 401 without a token', done => {
-    api.delete(`/api/festivals/${festivalId}/carShares/${carShareId}`)
+    api.post(`/api/festivals/${festivalId}/carShares`)
       .end((err, res) => {
         expect(res.status).to.eq(401);
         done();
       });
   });
 
-  it('should return a 204 with a token', done => {
-    api.delete(`/api/festivals/${festivalId}/carShares/${carShareId}`)
+  it('should return a 201 with a token', done => {
+    api.post(`/api/festivals/${festivalId}/carShares`)
       .set('Authorization', `Bearer ${token}`) // Create an authorization header
+      .send(carShareData)
       .end((err, res) => {
-        expect(res.status).to.eq(204);
+        expect(res.status).to.eq(201);
         done();
       });
   });
 
-  it('should delete the carShare', done => {
-    api.delete(`/api/festivals/${festivalId}/carShares/${carShareId}`)
+  it('should return an object', done => {
+    api.post(`/api/festivals/${festivalId}/carShares`)
       .set('Authorization', `Bearer ${token}`) // Create an authorization header
-      .then(() => CarShare.find())
-      .then(carShare => {
-        expect(carShare.length).to.eq(0);
+      .send(carShareData)
+      .end((err, res) => {
+        expect(res.body).to.be.an('object');
         done();
       });
   });
+
+  it('should return the correct data', done => {
+    api.post(`/api/festivals/${festivalId}/carShares`)
+      .set('Authorization', `Bearer ${token}`) // Create an authorization header
+      .send(carShareData)
+      .end((err, res) => {
+        expect(res.body.rideStartTime).to.eq(carShareData.rideStartTime);
+        expect(res.body.estimatedRideEndTime).to.eq(carShareData.estimatedRideEndTime);
+        for (const locationInfo in res.body.from) {
+          expect(res.body.from[locationInfo]).to.eq(carShareData.from[locationInfo]);
+        }
+        done();
+      });
+  });
+
 });

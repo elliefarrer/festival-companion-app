@@ -56,9 +56,10 @@ router.route('/festivals/:festivalId/attendees/:attendeeId')
 
 router.route('/festivals/:id/carShares')
   .get(carShareController.index)
-  .post(carShareController.create);
+  .post(secureRoute, carShareController.create);
 
 router.route('/festivals/:festivalId/carShares/:carShareId')
+  .all(secureRoute)
   .get(carShareController.show)
   .put(carShareController.update)
   .delete(carShareController.delete);
