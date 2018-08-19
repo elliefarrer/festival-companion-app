@@ -1,11 +1,12 @@
 /* global api, expect, describe, it, beforeEach */
-const Festival = require('../../models/festival');
+const Comment = require('../../models/festival');
 const User = require('../../models/user');
 const jwt = require('jsonwebtoken');
 const { secret } = require('../../config/environment');
 
-let token; // token is global
-let festivalId;
+let token;
+let commentId;
+
 
 const userData = {
   firstName: 'Max',
@@ -15,50 +16,40 @@ const userData = {
   passwordConfirmation: 'pass'
 };
 
-const festivalData = {
-  name: 'bestival',
-  location: 'Huddersfield'
+const commentsData = {
+  name: 'Max',
+  content: 'This is a great place to be!'
 };
 
 
-describe('DELETE /festival/:id', () => {
+describe('DELETE /comment/:id', () => {
   beforeEach(done => {
     User.remove({})
       .then(() => User.create(userData))
       .then(user => {
         token = jwt.sign({ sub: user.id }, secret, { expiresIn: '1hr' });
-        return Festival.remove({});
+        return Comment.remove({});
       })
-      .then(() => Festival.create(festivalData))
-      .then(festival => {
-        festivalId = festival.id;
+      .then(() => Comment.create(commentsData))
+      .then(comment => {
+        commentId = comment.id;
         done();
       });
   });
-
-  it('should return a 401 without a token', done => {
-    api.delete(`/api/festivals/${festivalId}`)
-      .end((err, res) => {
-        expect(res.status).to.eq(401);
-        done();
-      });
-  });
-
   it('should return a 204 with a token', done => {
-    api.delete(`/api/festivals/${festivalId}`)
+    api.delete(`/api/festivals/${commentId}`)
       .set('Authorization', `Bearer ${token}`) // Create an authorization header
       .end((err, res) => {
         expect(res.status).to.eq(204);
         done();
       });
   });
-
-  it('should delete the festival', done => {
-    api.delete(`/api/festivals/${festivalId}`)
+  it('should delete the comment', done => {
+    api.delete(`/api/festivals/${commentId}`)
       .set('Authorization', `Bearer ${token}`) // Create an authorization header
-      .then(() => Festival.find())
-      .then(festivals => {
-        expect(festivals.length).to.eq(0);
+      .then(() => Comment.find())
+      .then(comments => {
+        expect(comments.length).to.eq(0);
         done();
       });
   });

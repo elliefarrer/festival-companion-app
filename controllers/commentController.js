@@ -59,8 +59,21 @@ function commentDelete(req, res, next) {
     .catch(next);
 }
 
+// function commentUpdate(req, res, next) {
+//   CarShare
+//     .findById(req.params.carShareId)
+//     .then({
+//       req.body.comment = commentId;
+//       carShare.comments.push(req.body);
+//       return carShare.save();
+//     })
+//     .then(carShare => res.json(carShare))
+//     .catch(next);
+//   }
+
 module.exports = {
   create: commentCreate,
   delete: commentDelete,
   getToken: getTokenFromHttpRequest
+  // update: commentUpdate
 };

@@ -25,7 +25,10 @@ const festivalData = [{
   camping: 'No',
   headlining: ['Childish Gambino', 'Skepta', 'SZA'],
   photoUrl: 'https://24e8e3b95851cffc9b46-ce987c743c8a722dc56cea7f8eb55a8f.ssl.cf3.rackcdn.com/LBXLogoSimple.svg',
-  createdBy: ''
+  createdBy: '',
+  comments: [
+    {name: 'max', content: 'love this place go every year!'}
+  ]
 }, {
   name: 'Citadel Festival',
   startDate: '15th July',

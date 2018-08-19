@@ -8,7 +8,8 @@ const festivalSchema = mongoose.Schema({
   camping: { type: String},
   headlining: [{ type: String }],
   photoUrl: { type: String},
-  createdBy: [{ type: mongoose.Schema.ObjectId, ref: 'Users' }]
+  createdBy: [{ type: mongoose.Schema.ObjectId, ref: 'Users' }],
+  comments: [{ name: String, content: String }]
 });
 
 module.exports= mongoose.model('Festival', festivalSchema);
