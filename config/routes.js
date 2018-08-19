@@ -84,7 +84,6 @@ router.route('/festivals/:festivalId/carShares/:carShareId')
 
 
 router.route('/festivals/:festivalId/carShares/:carShareId/passengers')
-  .all(secureRoute)
   .get(passengerController.index)
   .post(passengerController.create);
 

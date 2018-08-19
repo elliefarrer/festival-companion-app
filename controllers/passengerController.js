@@ -54,15 +54,11 @@ function passengerCreate(req, res, next) {
       return CarShare
         .findById(req.params.carShareId)
         .then(carShare => {
-          carShare.pendingPassenger.push(userId);
-          carShare.save();
+          carShare.pendingPassengers.push(userId);
+          return carShare.save();
         });
     })
-    .then(() => {
-      return User
-        .findById(userId);
-    })
-    .then(user => res.json(user))
+    .then((carShare) => res.json(carShare.pendingPassengers))
     .catch(next);
 }
 

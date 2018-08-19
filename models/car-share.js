@@ -26,6 +26,8 @@ const carShareSchema = mongoose.Schema({
   totalSeats: { type: Number},
   passengers: [{ type: mongoose.Schema.ObjectId, ref: 'User' }
   ],
+  pendingPassengers: [{ type: mongoose.Schema.ObjectId, ref: 'User' }
+  ],
   comments: [{
     createdBy: { type: mongoose.Schema.ObjectId, ref: 'User' },
     content: String,

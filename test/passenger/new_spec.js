@@ -37,7 +37,7 @@ const festivalData = {
 
 };
 
-describe('GET /festivals/:festivalId/carShares/:carShareId/passengers', () => {
+describe('POST /festivals/:festivalId/carShares/:carShareId/passengers', () => {
   let festivalId;
   let carShareId;
   const userId = [];
@@ -63,13 +63,13 @@ describe('GET /festivals/:festivalId/carShares/:carShareId/passengers', () => {
       })
       .then((carShare) => {
         carShareId = carShare._id;
-        // console.log('carshare id is', carShareId);
+        console.log('carshare id is', carShareId);
         return User.create(userData);
       })
       .then(users => {
 
         loggedInId = users[0].id; //why does filter not work? Index 0?
-        // console.log('user is', users[0]);
+        console.log('user is', users[0]);
         token = jwt.sign({ sub: loggedInId }, secret, { expiresIn: '1hr' });
         userId[0] = loggedInId;
 
@@ -91,7 +91,7 @@ describe('GET /festivals/:festivalId/carShares/:carShareId/passengers', () => {
   });
 
   xit('should return a 401 without a token', done => {
-    api.get(`/api/festivals/${festivalId}/carShares/${carShareId}/passengers`)
+    api.post(`/api/festivals/${festivalId}/carShares/${carShareId}/passengers`)
       .end((err, res) => {
         expect(res.status).to.eq(401);
         done();
@@ -99,21 +99,21 @@ describe('GET /festivals/:festivalId/carShares/:carShareId/passengers', () => {
   });
 
   xit('should return a 200 with a token', done => {
-    api.get(`/api/festivals/${festivalId}/carShares/${carShareId}/passengers`)
+    api.post(`/api/festivals/${festivalId}/carShares/${carShareId}/passengers`)
       .set('Authorization', `Bearer ${token}`) // Create an authorization header
       .end((err, res) => {
-        // console.log('this is the response', res.body);
+        console.log('this is the response', res.body);
         expect(res.status).to.eq(200);
         done();
       });
   });
   //doesn't work - need to get past this. Works in insomnia
 
-  it('should return an array', done => {
+  xit('should return an array', done => {
     api.get(`/api/festivals/${festivalId}/carShares/${carShareId}/passengers`)
       .set('Authorization', `Bearer ${token}`) // Create an authorization header
       .end((err, res) => {
-        // console.log('this is the response', res.body);
+        console.log('this is the response', res.body);
         expect(res.body).to.be.an('array');
         done();
       });
@@ -137,7 +137,7 @@ describe('GET /festivals/:festivalId/carShares/:carShareId/passengers', () => {
         res.body.forEach(carShare => {
           expect(userId.includes(carShare.passenger)).to.eq(true);
         });
-        expect(res.body.length).to.eq(userId.length);
+        expect(res.body.length).to.eq(1);
       });
     done();
   });
