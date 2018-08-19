@@ -53,7 +53,7 @@ function friendsCreate(req, res, next) {
     })
     .then(() => {
       return User
-        .findById(userId); // Send friends profile info instead
+        .findById(req.params.friendId);
     })
     .then(user => res.json(user))
     .catch(next);

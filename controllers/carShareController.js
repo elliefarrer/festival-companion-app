@@ -1,3 +1,5 @@
+// if statement on front end will filter car shares according to the festival.
+
 const CarShare = require('../models/car-share');
 
 function carSharesIndex(req, res, next) {

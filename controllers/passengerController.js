@@ -5,7 +5,7 @@
 // friend system - pending required
 
 const User = require('../models/user');
-const CarShare = require('../models/carShare');
+const CarShare = require('../models/car-share');
 const jwt = require('jsonwebtoken');
 const { secret } = require('../config/environment');
 let token;
@@ -30,9 +30,11 @@ function getTokenFromHttpRequest(req, res, next) {
 
 
 
-function passengerIndex(req, res, next) {
+function passengerIndex(req, res, next) { //shows the passengers of the car
+  //share user is currently on.
   CarShare
     .findById(req.params.carShareId)
+    .populate('passengers')
     .then(carShare => res.json(carShare.passengers))
     .catch(next);
 }
