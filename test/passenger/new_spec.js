@@ -135,7 +135,7 @@ describe('POST /festivals/:festivalId/carShares/:carShareId/passengers', () => {
       .set('Authorization', `Bearer ${token}`) // Create an authorization header
       .end((err, res) => {
         res.body.forEach(carShare => {
-          expect(userId.includes(carShare.passenger)).to.eq(true);
+          expect(carShare.pendingPassenger[0].id).to.eq(loggedInId);
         });
         expect(res.body.length).to.eq(1);
       });
