@@ -14,4 +14,4 @@ function pendingPassengersIndexCtrl($http, $scope, $state) {
   };
 }
 
-export default pendingPassengersIndexCtrl;
+export default PendingPassengersIndexCtrl;

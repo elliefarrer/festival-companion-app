@@ -39,7 +39,7 @@ function Router($stateProvider, $urlRouterProvider) {
     .state('festivalsShow', {
       templateUrl: './views/festivals/show.html',
       url: '/festivals/:id', // id is now a parameter of the state
-      controller: 'festivalsShowCtrl'
+      controller: 'FestivalsShowCtrl'
     })
     .state('festivalsNew', {
       templateUrl: './views/festivals/new.html',
@@ -79,40 +79,40 @@ function Router($stateProvider, $urlRouterProvider) {
     .state('friend', {
       templateUrl: './views/friends/index.html',
       url: '/user/:userId/friends/:friendId',
-      controller: 'friendsIndexCtrl'
+      controller: 'FriendsIndexCtrl'
     })
     .state('friendPending', {
       templateUrl: './views/friendsPending/index.html',
       url: '/user/:userId/friendspending/:pendingFriendId',
-      controller: 'friendsPendingCtrl'
+      controller: 'FriendsPendingCtrl'
     })
     .state('passengers', {
       templateUrl: './views/passengers/index.html',
       url: '/festivals/:festivalId/carshare/:carShareId/passengers/:passengerId',
-      controller: 'passengersCtrl'
+      controller: 'PassengersCtrl'
     })
     .state('pendingPassengers', {
       templateUrl: './views/passengerspending/index.html',
       url: '/festivals/:festivalId/carShares/:carShareId/pendingPassengers',
-      controller: 'carSharesShowCtrl'
+      controller: 'CarSharesShowCtrl'
     })
 
     .state('attendeesIndex', {
       templateUrl: './views/attendees/index.html',
       url: '/festivals/:id/attendees',
-      controller: 'attendeesIndexCtrl'
+      controller: 'AttendeesIndexCtrl'
     })
 
     .state('usersShow', {
       templateUrl: './views/users/index.html',
       url: '/users/:userId',
-      controller: 'usersShowCtrl'
+      controller: 'UsersShowCtrl'
     })
 
     .state('usersEdit', {
       templateUrl: './views/user/edit.html',
       url: '/users/:userId/edit',
-      controller: 'usersEditCtrl'
+      controller: 'UsersEditCtrl'
     });
 
   $urlRouterProvider.otherwise('/');

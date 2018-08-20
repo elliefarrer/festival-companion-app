@@ -1,4 +1,4 @@
-function passengersIndexCtrl($http, $scope, $state) {
+function PassengersIndexCtrl($http, $scope, $state) {
   $http({
     method: 'GET',
     url: `/api/festival/${$state.params.festivalId}/carShares/${$state.params.carShareId}/passengers`
@@ -8,4 +8,4 @@ function passengersIndexCtrl($http, $scope, $state) {
     });
 }
 
-export default passengersIndexCtrl;
+export default PassengersIndexCtrl;

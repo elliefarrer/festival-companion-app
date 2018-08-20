@@ -15,4 +15,4 @@ function pendingFriendsIndexCtrl($http, $scope, $state) {
   };
 }
 
-export default pendingFriendsIndexCtrl;
+export default PendingFriendsIndexCtrl;

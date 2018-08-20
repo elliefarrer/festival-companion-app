@@ -27,4 +27,4 @@ function friendsIndexCtrl($http, $scope, $state) {
 
 
 
-export default friendsIndexCtrl;
+export default FriendsIndexCtrl;
