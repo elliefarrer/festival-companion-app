@@ -1,7 +1,24 @@
-<div class="container">
-  <h1>This works</h1>
+<div class="container is-mobile">
   <div ng-repeat="event in festivals">
-    <h1>{{ event.name }}</h1>
     <img ng-src={{event.photoUrl}} alt="{{ event.name }}">
+    <div class="columns">
+      <div class="column is-5">
+        <h2 class="title is-2">{{ event.name }}</h2>
+        <p>{{ event.startDate }}-{{ event.endDate }}</p>
+      </div>
+      <div class="column is-6">
+        <p>Friends attending</p>
+        <div ng-repeat="attending in festivals.attendees">
+          <img class="image is-24x24" ng-src={{attending.profilePic}} alt={{attending.name}}>
+          <img class="image is-24x24" ng-src={{attending.profilePic}} alt={{attending.name}}>
+          <img class="image is-24x24" ng-src={{attending.profilePic}} alt={{attending.name}}>
+          <img class="image is-24x24" ng-src={{attending.profilePic}} alt={{attending.name}}>
+          <img class="image is-24x24" ng-src={{attending.profilePic}} alt={{attending.name}}>
+        </div>
+      </div>
+      <div class="column is-1">
+        <p><i class="fas fa-share-alt"></i></p>
+      </div>
+    </div>
   </div>
 </div>
