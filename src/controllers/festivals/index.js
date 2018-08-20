@@ -6,6 +6,7 @@ function FestivalsIndexCtrl($http, $scope) {
     .then(res => {
       console.log('Festivals are', res.data);
       $scope.festivals = res.data;
+      console.log('Attendees are', res.data.attendees);
     });
 }
 
