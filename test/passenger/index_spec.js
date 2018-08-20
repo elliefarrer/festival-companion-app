@@ -47,8 +47,8 @@
 //         carShareData.festival = festival.id;
 //         return CarShare.create(carShareData);
 //       })
-//       .then(() => User.create(userData));
-//     done();
+//       .then(() => User.create(userData))
+//      .then(() => done());
 //   });
 //
 //   it('should return a 401 without a token', done => {
