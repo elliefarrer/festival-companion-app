@@ -39,7 +39,7 @@ router.route('/login')
 
 router.route('/festivals')
   .get(festivalController.index)
-  .post(secureRoute, festivalController.create);
+  .post(festivalController.create);
 
 router.route('/festivals/:id')
   .get(festivalController.show)
