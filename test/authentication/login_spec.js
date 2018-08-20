@@ -18,28 +18,28 @@ const faultyPasswordData =
 
 describe('POST /login', () => {
 
-  // let token;
+  let token;
 
   beforeEach(done => {
     User.remove({})
-      .then(() => User.create(existingUserData));
-      // .then(user => {
-      //   token = jwt.sign({ sub: user.id }, secret, {expiresIn: '1hr'});
-      // });
+      .then(() => User.create(existingUserData))
+      .then(user => {
+        token = jwt.sign({ sub: user.id }, secret, {expiresIn: '1hr'});
+      });
     done();
   });
 
-  xit('should return a 200 response', done => {
+  it('should return a 200 response', done => {
     api.post('/api/login')
       .send(goodLoginData)
-      // .set('Authorization', `Bearer ${token}`)
+      .set('Authorization', `Bearer ${token}`)
       .end((err, res) => {
         expect(res.status).to.equal(200);
       });
     done();
   });
 
-  xit('should return a 401 response if email address is not connected to an existing user', done => {
+  it('should return a 401 response if email address is not connected to an existing user', done => {
     api.post('/api/login')
       .send(faultyEmailData)
       .then((err, res) => {
@@ -48,7 +48,7 @@ describe('POST /login', () => {
     done();
   });
 
-  xit('should return a 401 respone if password does not match', done => {
+  it('should return a 401 respone if password does not match', done => {
     api.post('/api/login')
       .send(faultyPasswordData)
       .then((err, res) => {
