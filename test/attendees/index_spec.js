@@ -27,8 +27,8 @@ describe('GET /attendees', () => {
       .then(() => User.create(userData))
       .then(user => {
         token = jwt.sign({ sub: user.id }, secret, {expiresIn: '1hr'});
+        done();
       });
-    done();
   });
 
   it('should return a 401 token without a token', done => {

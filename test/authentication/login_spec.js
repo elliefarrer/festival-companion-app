@@ -25,8 +25,8 @@ describe('POST /login', () => {
       .then(() => User.create(existingUserData))
       .then(user => {
         token = jwt.sign({ sub: user.id }, secret, {expiresIn: '1hr'});
+        done();
       });
-    done();
   });
 
   it('should return a 200 response', done => {
