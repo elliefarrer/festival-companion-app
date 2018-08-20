@@ -19,6 +19,7 @@ describe('PUT /user/:id', () => {
       });
   });
 
+
   it('should return a 200 response', done => {
     api.put(`/api/user/${userId}`)
       .send(updateData)
@@ -57,9 +58,11 @@ describe('PUT /user/:id', () => {
 
   it('should keep the user id the same', done => {
     api.put(`/api/user/${userId}`)
+      .send(updateData)
       .end((err, res) => {
         expect(userData.id).to.eq(updateData.id);
         done();
       });
   });
+
 });
