@@ -39,7 +39,7 @@ function Router($stateProvider, $urlRouterProvider) {
     .state('festivalsShow', {
       templateUrl: './views/festivals/show.html',
       url: '/festivals/:id', // id is now a parameter of the state
-      controller: 'festivalsShowCtrl'
+      controller: 'FestivalsShowCtrl'
     })
     .state('festivalsNew', {
       templateUrl: './views/festivals/new.html',
