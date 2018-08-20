@@ -8,7 +8,7 @@ const festivalSchema = mongoose.Schema({
   camping: { type: String},
   headlining: [{ type: String }],
   photoUrl: { type: String},
-  createdBy: [{ type: mongoose.Schema.ObjectId, ref: 'Users' }],
+  createdBy: { type: mongoose.Schema.ObjectId, ref: 'User' },
   comments: [{ name: String, content: String }]
 });
 

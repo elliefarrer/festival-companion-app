@@ -12,7 +12,7 @@ function usersUpdate(req, res) {
   User
     .findById(req.params.id)
     .then(user => {
-      if(!user) return res.status(401).json({ message: 'No wonder found'});
+      if(!user) return res.status(401).json({ message: 'No user found'});
 
       for(const field in req.body) {
         user[field] = req.body[field];

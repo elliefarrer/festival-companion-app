@@ -5,23 +5,15 @@ let token;
 let userId;
 
 
-function getTokenFromHttpRequest(req, res, next) {
-  if(!req.headers.authorization) {
-    return res.status(401).json({ message: 'No token sent'});
-  }
+function getTokenFromHttpRequest(req) {
   token = req.headers.authorization.replace('Bearer ', '');
-
   function retrieveUserIdFromToken(err, result) {
-    if (err) {
-      return res.status(401).json({ message: err});
-    }
     userId = result.sub;
-    return next();
   }
   jwt.verify(token, secret, retrieveUserIdFromToken);
 }
 
-
+//Shows your pending friend requests
 function pendingFriendsIndex(req, res, next) {
   User
     .findById(userId)
