@@ -14,14 +14,14 @@ function login(req, res, next) {
     .findOne({ userName: req.body.userName }) //had to change this from user to userName to work.
     //Change back if this causes problems in the future.
     .then(user => {
-      console.log(user.validatePassword(req.body.password));
-      console.log(user);
+      // console.log(user.validatePassword(req.body.password));
+      // console.log(user);
       if(!user || !user.validatePassword(req.body.password)) {
         return res.status(401).json({ message: 'Unauthorised or User not found, please try again!' });
       }
       // USER IS AUTHENTICATED
       const token = jwt.sign({ sub: user.id, admin: false }, secret, { expiresIn: '1hr' });
-      console.log('Created token!!', token);
+      // console.log('Created token!!', token);
       return res.json({ message: `Welcome back ${user.firstName}. Where's the party today?`, token });
     })
     .catch(next);
