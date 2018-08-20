@@ -36,7 +36,7 @@ const festivalData = [{
   location: 'Gunnersbury Park',
   camping: 'No',
   headlining: ['Tame Impala', 'Leon Bridges', 'Honne'],
-  photoUrl: 'https://e0af4153dabf8f9d6b2b-0afdb671d2fada65aba92528a1f1e10d.ssl.cf3.rackcdn.com/wp-content/uploads/2017/01/Citadel-white.png',
+  photoUrl: 'https://cdn.shopify.com/s/files/1/0601/5089/files/FB_header_2_1024x1024.jpg',
   createdBy: ''
 },{
   name: 'British Summer Time',
