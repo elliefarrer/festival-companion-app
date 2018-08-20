@@ -5,7 +5,7 @@ function CarSharesNewCtrl($http, $scope, $state) {
       api: `/api/festivals/${$state.params.festivals.id}/carShares`,
       data: $scope.carShare
     })
-      .then(() => $state.go('carSharesShow'));
+      .then(() => $state.go('carShareShow'));
   };
 }
 

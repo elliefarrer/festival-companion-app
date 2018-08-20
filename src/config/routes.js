@@ -100,6 +100,16 @@ function Router($stateProvider, $urlRouterProvider) {
       templateUrl: './views/festivals/attendees/index.html',
       url: '/festivals/:id/attendees',
       controller: 'attendeesCtrl'
+    })
+    .state('usersShow', {
+      templateUrl: './views/users/index.html',
+      url: '/users/:id',
+      controller: 'usersShowCtrl'
+    })
+    .state('usersEdit', {
+      templateUrl: './views/user/edit.html',
+      url: '/users/:id/edit',
+      controller: 'usersEditCtrl'
     });
   $urlRouterProvider.otherwise('/');
 }
