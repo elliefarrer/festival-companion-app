@@ -1,4 +1,4 @@
-function pendingPassengersIndexCtrl($http, $scope, $state) {
+function PendingPassengersIndexCtrl($http, $scope, $state) {
 
   $http({
     method: 'GET',

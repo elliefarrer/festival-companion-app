@@ -1,4 +1,4 @@
-function pendingFriendsIndexCtrl($http, $scope, $state) {
+function PendingFriendsIndexCtrl($http, $scope, $state) {
 
   $http({
     method: 'GET',

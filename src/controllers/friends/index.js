@@ -1,4 +1,4 @@
-function friendsIndexCtrl($http, $scope, $state) {
+function FriendsIndexCtrl($http, $scope, $state) {
   $http({
     method: 'GET',
     url: `/user/${$state.params.id}/friends`
