@@ -12,18 +12,10 @@ let userId;
 // make userId for comments required?
 
 
-function getTokenFromHttpRequest(req, res, next) {
-  if(!req.headers.authorization) {
-    return res.status(401).json({ message: 'No token sent'});
-  }
+function getTokenFromHttpRequest(req) {
   token = req.headers.authorization.replace('Bearer ', '');
-
   function retrieveUserIdFromToken(err, result) {
-    if (err) {
-      return res.status(401).json({ message: err});
-    }
     userId = result.sub;
-    return next();
   }
   jwt.verify(token, secret, retrieveUserIdFromToken);
 }
@@ -33,6 +25,7 @@ function getTokenFromHttpRequest(req, res, next) {
 ///which function runs first... is the userId saved for use?
 
 function commentCreate(req, res, next) { // This needs testing
+  getTokenFromHttpRequest(req);
   CarShare
     .findById(req.params.carShareId) //carShareId is from the params as per the routes.js.
     .then( carShare => {
@@ -73,7 +66,6 @@ function commentDelete(req, res, next) {
 
 module.exports = {
   create: commentCreate,
-  delete: commentDelete,
-  getToken: getTokenFromHttpRequest
+  delete: commentDelete
   // update: commentUpdate
 };
