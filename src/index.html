@@ -1,10 +1,31 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html ng-app="festival-companian-app">
   <head>
     <meta charset="utf-8">
-    <title>WDI Project 3</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css"
+  integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
+  crossorigin=""/>
+  <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js"
+  integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="
+  crossorigin=""></script>
   </head>
-  <body>
-    <h1>Hello World!</h1>
+  <body class="container" ng-controller="MainCtrl">
+    <nav class="navbar-container">
+      <div class="navbar-brand">
+        <a role="button" class="navbar-burger navbar-start" aria-label="menu" aria-expanded="false" <span><span></span><span></span><span></span></span></a>
+      </div>
+        <div class="navbar-menu">
+          <div class="navbar-dropdown">            
+            <a ui-sref-active="is-active" ui-sref="home" class="navbar-item">Home</a>
+            <a ui-sref-active="is-active" ui-sref="about" class="navbar-item">About</a>
+            <a ui-sref-active="is-active" ui-sref="festivals" class="navbar-item" ng-if="isAuthenticated()">Festivals</a>
+            <a ui-sref-active="is-active" ui-sref="profile" class="navbar-item" ng-if="isAuthenticated()">Profile</a>
+            <a ui-sref-active="is-active" ui-sref="login" class="navbar-item" ng-if="!isAuthenticated()">Login</a>
+            <a ui-sref-active="is-active" ui-sref="register" class="navbar-item" ng-if="!isAuthenticated()">Register</a>
+            <a ui-sref-active="is-active" ui-sref="" class="navbar-item" ng-if="isAuthenticated()">Log Out</a>
+          </div>
+        </div>
+      </nav>
+      <div ui-view></div>
   </body>
 </html>
