@@ -10,7 +10,7 @@ function pendingPassengersIndex(req, res, next) { //shows pending passengers for
     .findById(req.params.carShareId)
     .populate('pendingPassengers')
     .then(carShare => {
-      console.log(carShare);
+      // console.log(carShare);
       res.json(carShare.pendingPassengers);
     }) //can change this to just carShares so that we can access event information too. Will need to populate! Maybe use carShare Model instead
     .catch(next);
@@ -30,7 +30,7 @@ function pendingPassengersDelete(req, res, next) {
     })
     .then(() => User.findById(passengerId)) //This bit needs testing
     .then(rejectedPassenger => {
-      console.log('the rejected passenger is', rejectedPassenger);
+      // console.log('the rejected passenger is', rejectedPassenger);
       rejectedPassenger.carShares = rejectedPassenger.carShares.filter(passengerOn =>
         passengerOn.toString() !== carShareId);
       return rejectedPassenger.save();

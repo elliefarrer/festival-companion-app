@@ -15,31 +15,30 @@ function getTokenFromHttpRequest(req) {
 
 //Shows your pending friend requests
 function pendingFriendsIndex(req, res, next) {
+  getTokenFromHttpRequest(req);
   User
     .findById(userId)
+    .populate('pendingFriends')
     .then(user => res.json(user.pendingFriends))
     .catch(next);
 }
 
-// rejects the friend request and deletes from friends friend list
+// rejects the friend request and deletes from requester's friend list
 function pendingFriendsDelete(req, res, next) {
+  getTokenFromHttpRequest(req);
+  const friendId = req.params.friendId;
   User
     .findById(userId)
     .then(user => {
-      user.pendingFriends = user.pendingFriends.filter(friend => {
-        friend !== req.params.friendId;
-      }); //need to test if friend === req.params.friendId / may need toString().
+      user.pendingFriends = user.pendingFriends.filter(friend =>
+        friend.toString() !== friendId);
       return user.save();
     })
-    .then(() => {
-      return User
-        .findById(req.params.friendId)
-        .then(friend => {
-          friend.friends = friend.friends.filter(friendId => {
-            friendId !== userId;
-            friend.save();
-          }); //need to test if friendId === userId / may need toString().
-        }); //could probably add this to the userSchema method
+    .then(() => User.findById(friendId))
+    .then(friend => {
+      friend.userFriends = friend.userFriends.filter(id =>
+        id.toString() !== userId);
+      return friend.save();
     })
     .then(() => res.sendStatus(204))
     .catch(next);
@@ -47,6 +46,5 @@ function pendingFriendsDelete(req, res, next) {
 
 module.exports = {
   index: pendingFriendsIndex,
-  delete: pendingFriendsDelete,
-  getToken: getTokenFromHttpRequest
+  delete: pendingFriendsDelete
 };
