@@ -15,9 +15,11 @@ import FestivalsNewCtrl from './controllers/festivals/new';
 import FestivalsEditCtrl from './controllers/festivals/edit';
 import UsersShowCtrl from './controllers/users/show';
 import UsersEditCtrl from './controllers/users/edit';
+import AuthLoginCtrl from './controllers/auth/login';
+import AuthRegisterCtrl from './controllers/auth/register';
 
 angular.module('Festival Companion App', [
-  'ui.router'
+  'ui.router', 'satellizer'
 ])
   .controller('CarSharesIndexCtrl', CarSharesIndexCtrl)
   .controller('CarSharesShowCtrl', CarSharesShowCtrl)
@@ -29,4 +31,10 @@ angular.module('Festival Companion App', [
   .controller('FestivalsEditCtrl', FestivalsEditCtrl)
   .controller('UsersShowCtrl', UsersShowCtrl)
   .controller('UsersEditCtrl', UsersEditCtrl)
-  .config(Router);
+  .controller('AuthLoginCtrl', AuthLoginCtrl)
+  .controller('AuthRegisterCtrl', AuthRegisterCtrl)
+  .config(Router)
+  .config(function($authProvider){
+    $authProvider.loginUrl = '/api/login';
+    $authProvider.registerUrl = '/api/register';
+  });
