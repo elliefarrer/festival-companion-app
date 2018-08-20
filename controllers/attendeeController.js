@@ -24,7 +24,6 @@ function getTokenFromHttpRequest(req) {
 function attendeeIndex(req, res, next) {
   Festival
     .findById(req.params.festivalId)
-    .populate('attendees')
     .then(festival => res.json(festival.attendees))
     .catch(next);
 }
