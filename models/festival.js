@@ -5,10 +5,16 @@ const festivalSchema = mongoose.Schema({
   startDate: { type: String},
   endDate: { type: String},
   location: { type: String},
-  camping: { type: String},
+  camping: { type: String },
+  markers: [{
+    placeOfInterest: { type: String }, // put into Nominatim
+    lat: Number, // get from Nominatim
+    lng: Number
+  }],
   headlining: [{ type: String }],
   photoUrl: { type: String},
   createdBy: { type: mongoose.Schema.ObjectId, ref: 'User' },
+  attendees: [{ type: mongoose.Schema.ObjectId, ref: 'User' }],
   comments: [{ name: String, content: String }]
 });
 

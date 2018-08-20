@@ -13,6 +13,8 @@ const userSchema = mongoose.Schema({
   pendingFriends: [{ type: mongoose.Schema.ObjectId, ref: 'User'}],
   carShares: [{ type: mongoose.Schema.ObjectId, ref: 'CarShare'}],
   carSharesOrganised: [{ type: mongoose.Schema.ObjectId, ref: 'CarShare'}],
+  festivalsOrganised: [{ type: mongoose.Schema.ObjectId, ref: 'Festival'}],
+  festivalsAttending: [{ type: mongoose.Schema.ObjectId, ref: 'Festival'}],
   comments: [{ name: String, content: String, profilePic: String }]
 });
 

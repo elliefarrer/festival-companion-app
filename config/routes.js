@@ -52,12 +52,9 @@ router.route('/festivals/:id')
 
 router.route('/festivals/:festivalId/attendees')
   .get(attendeeController.index)
-  .post(attendeeController.create); //this adds the festival to the users list, and
-// the user to the attendees list of the festival
-
-router.route('/festivals/:festivalId/attendees/:attendeeId')
+  .post(attendeeController.create) //this adds the festival to the users list, and
   .delete(attendeeController.delete);
-
+// the user to the attendees list of the festival
 
 
 ////////////////////////////// Car share routes ///////////////////////////////
@@ -112,7 +109,7 @@ router.route('/festivals/:festivalId/carShares/:carShareId/pendingPassengers/:pa
 
 
 router.route('/festivals/:festivalId/carShares/:carShareId/comments')
-  .post(commentController.getToken, commentController.create);
+  .post(commentController.create);
 
 router.route('/festivals/:festivalId/carShares/:carShareId/comments/:commentId')
   .delete(commentController.delete);
