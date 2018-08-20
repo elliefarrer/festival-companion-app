@@ -18,8 +18,8 @@ describe('POST /register', () => {
 
   beforeEach(done => {
     User.remove({})
-      .then(User.create(existingUserData));
-    done();
+      .then(() => User.create(existingUserData))
+      .then(() => done());
   });
 
   it('should return a 200 response', done => {
