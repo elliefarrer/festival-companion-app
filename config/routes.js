@@ -134,27 +134,26 @@ router.route('/user/:id')
 
 
 router.route('/user/:id/pendingFriends')
-  .get(pendingFriendRequestController.getToken, pendingFriendRequestController.index); // Lists pending friends.
+  .get(pendingFriendRequestController.index); // Lists pending friends.
 
 router.route('/user/:userId/pendingFriends/:friendId')
-  .delete(pendingFriendRequestController.getToken, pendingFriendRequestController.delete); // When you accept a pending friend request.
+  .delete(pendingFriendRequestController.delete); // When you accept a pending friend request.
 
 
 
 ////////////////////////////// Friends routes ////////////////////////////////
 
 router.route('/user/:id/friends')
-  .all(friendController.getToken)
-  .get(friendController.index)
+  .get(friendController.index);
+
+
+router.route('/user/:userId/friends/:friendId')
+  .delete(friendController.delete) //removing friend
   .post(friendController.create); //This adds to users friends
 //list, but the friends pending list. User cannot
 // view page until friend accepts. When showing index, can make it so that
 // You cannot see their profile page unless you are both in each others friends
 // lists
-
-router.route('/user/:userId/friends/:friendId')
-  .delete(friendController.getToken, friendController.delete); //removing friend
-
 
 
 /////////// Festivals attending /Carshare - passenger/ Organised ///////////////
