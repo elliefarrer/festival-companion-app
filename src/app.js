@@ -13,6 +13,8 @@ import FestivalsIndexCtrl from './controllers/festivals/index';
 import FestivalsShowCtrl from './controllers/festivals/show';
 import FestivalsNewCtrl from './controllers/festivals/new';
 import FestivalsEditCtrl from './controllers/festivals/edit';
+import UsersShowCtrl from './controllers/users/show';
+import UsersEditCtrl from './controllers/users/edit';
 
 angular.module('Festival Companion App', [
   'ui.router'
@@ -25,4 +27,6 @@ angular.module('Festival Companion App', [
   .controller('FestivalsShowCtrl', FestivalsShowCtrl)
   .controller('FestivalsNewCtrl', FestivalsNewCtrl)
   .controller('FestivalsEditCtrl', FestivalsEditCtrl)
+  .controller('UsersShowCtrl', UsersShowCtrl)
+  .controller('UsersEditCtrl', UsersEditCtrl)
   .config(Router);
