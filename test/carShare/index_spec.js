@@ -39,9 +39,10 @@ const festivalData = [{
   photoUrl: 'https://24e8e3b95851cffc9b46-ce987c743c8a722dc56cea7f8eb55a8f.ssl.cf3.rackcdn.com/LBXLogoSimple.svg'
 
 }];
+let festivalId;
 
 describe('GET /carShares', () => {
-  let festivalId;
+
   beforeEach(done => {
 
     // Festival.remove({})
@@ -98,6 +99,7 @@ describe('GET /carShares', () => {
           res.body.forEach(carShare => {
             expect(carShare).to.be.an('object');
           });
+          console.log('festivalId is', festivalId);
           expect(res.body).to.be.an('array');
           done();
         });

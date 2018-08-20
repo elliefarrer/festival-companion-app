@@ -24,9 +24,10 @@ const carShareSchema = mongoose.Schema({
   }],
   price: Number,
   totalSeats: { type: Number},
-  passengers: [{
-    passengerInfo: { type: mongoose.Schema.ObjectId, ref: 'User' }
-  }],
+  passengers: [{ type: mongoose.Schema.ObjectId, ref: 'User' }
+  ],
+  pendingPassengers: [{ type: mongoose.Schema.ObjectId, ref: 'User' }
+  ],
   comments: [{
     createdBy: { type: mongoose.Schema.ObjectId, ref: 'User' },
     content: String,

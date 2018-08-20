@@ -15,6 +15,7 @@ function login(req, res, next) {
     //Change back if this causes problems in the future.
     .then(user => {
       console.log(user.validatePassword(req.body.password));
+      console.log(user);
       if(!user || !user.validatePassword(req.body.password)) {
         return res.status(401).json({ message: 'Unauthorised or User not found, please try again!' });
       }

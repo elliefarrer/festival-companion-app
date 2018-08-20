@@ -9,10 +9,10 @@ const userSchema = mongoose.Schema({
   email: { type: String, unique: true },
   mobileNumber: { type: String },
   password: { type: String },
-  userFriends: [{ type: mongoose.Schema.ObjectId, ref: 'Users'}],
-  pendingFriends: [{ type: mongoose.Schema.ObjectId, ref: 'Users'}],
-  carShare: [{ type: mongoose.Schema.ObjectId, ref: 'carShares'}],
-  carSharesOrganised: [{ type: mongoose.Schema.ObjectId, ref: 'carShares'}],
+  userFriends: [{ type: mongoose.Schema.ObjectId, ref: 'User'}],
+  pendingFriends: [{ type: mongoose.Schema.ObjectId, ref: 'User'}],
+  carShares: [{ type: mongoose.Schema.ObjectId, ref: 'CarShare'}],
+  carSharesOrganised: [{ type: mongoose.Schema.ObjectId, ref: 'CarShare'}],
   comments: [{ name: String, content: String, profilePic: String }]
 });
 
@@ -24,8 +24,10 @@ userSchema
 
 
 userSchema.pre('validate', function checkPassword(next) {
-  if(!this._passwordConfirmation || this._passwordConfirmation !== this.password) {
-    this.invalidate('passwordConfirmation', 'does not match');
+  if(this.isModified('password')) { // Added this to get past validation on save user.
+    if(!this._passwordConfirmation || this._passwordConfirmation !== this.password) {
+      this.invalidate('passwordConfirmation', 'does not match');
+    }
   }
   next();
 });

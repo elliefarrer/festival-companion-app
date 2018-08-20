@@ -43,7 +43,7 @@ const festivalData = {
 
 };
 
-describe('DELETE /carShares', () => {
+describe('PUT /carShares', () => {
   let festivalId;
   let carShareId;
   beforeEach(done => {
@@ -73,15 +73,6 @@ describe('DELETE /carShares', () => {
         token = jwt.sign({ sub: user.id }, secret, {expiresIn: '1hr'});
         done();
       });
-  });
-
-  afterEach( done => { //attempt to remove error on user test.
-    Promise.all([
-      Festival.remove({}),
-      CarShare.remove({}),
-      User.remove({})
-    ])
-      .then(() => done());
   });
 
   it('should return a 401 without a token', done => {
