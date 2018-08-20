@@ -3,7 +3,7 @@ function AuthRegisterCtrl($auth, $scope, $state) {
     $auth
       .signup($scope.user)
       .then(() => $auth.login($scope.user))
-      .then(() => $state.go('login'));
+      .then(() => $state.go('festivalsIndex'));
   };
 }
 
