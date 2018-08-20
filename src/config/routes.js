@@ -64,21 +64,21 @@ function Router($stateProvider, $urlRouterProvider) {
     .state('carShareIndex', {
       templateUrl: './views/carShares/index.html',
       url: '/festivals/:id/carshares',
-      controller: 'CarShareCtrl'
+      controller: 'CarSharesIndexCtrl'
     })
     .state('carShareShow', {
       templateUrl: './views/carShares/show.html',
-      url: '/festivals/:id/carshares/:id',
-      controller: 'CarShareCtrl'
+      url: '/festivals/:festivalId/carShares/:carShareid',
+      controller: 'CarShareShowCtrl'
     })
     .state('carShareEdit', {
       templateUrl: './views/carShares/edit.html',
-      url: '/festivals/:id/carshares/:id',
+      url: '/festivals/:festivalId/carShares/:carShareid',
       controller: 'CarShareCtrl'
     })
     .state('friend', {
       templateUrl: './views/friends/index.html',
-      url: '/user/:id/friends/:id',
+      url: '/user/:userId/friends/:friendId',
       controller: 'friendsCtrl'
     })
     .state('friendPending', {
@@ -96,10 +96,10 @@ function Router($stateProvider, $urlRouterProvider) {
       url: '/festivals/:id/carshare/:id/passengerspending/:id',
       controller: 'passengersPendingCtrl'
     })
-    .state('attendees', {
-      templateUrl: './views/festivals/attendees/index.html',
+    .state('attendeesIndex', {
+      templateUrl: './views/attendees/index.html',
       url: '/festivals/:id/attendees',
-      controller: 'attendeesCtrl'
+      controller: 'attendeesIndexCtrl'
     });
   $urlRouterProvider.otherwise('/');
 }

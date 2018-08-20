@@ -14,6 +14,27 @@ function FestivalsShowCtrl($http, $scope, $state) {
       console.log('Found a festival', res.data);
       $scope.festival = res.data;
     });
+
+  $scope.attending = function() {
+    $http({
+      method: 'POST',
+      url: `/api/festival/${$state.params.id}/attendee`
+    })
+      .then(() => $state.go('carShareShow', {
+        festivalId: $state.params.festivalId
+      }));
+  };
+
+  $scope.notAttending = function() {
+    $http({
+      method: 'DELETE',
+      url: `/api/festival/${$state.params.id}/attendee`
+    })
+      .then(() => $state.go('carShareShow', {
+        festivalId: $state.params.festivalId
+      }));
+  };
 }
+
 
 export default FestivalsShowCtrl;
