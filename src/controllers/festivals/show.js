@@ -2,13 +2,13 @@ function FestivalsShowCtrl($http, $scope, $state) {
   $scope.deleteFestival = function() {
     $http({
       method: 'DELETE',
-      url: `/api/festivals/${$state.params.id}`
+      url: `/api/festivals/${$state.params.festivalId}`
     })
       .then(() => $state.go('festivalsIndex'));
   };
   $http({
     method: 'GET',
-    url: `/api/festivals/${$state.params.id}`
+    url: `/api/festivals/${$state.params.festivalId}`
   })
     .then(res => {
       console.log('Found a festival', res.data);

@@ -2,13 +2,13 @@ function CarSharesShowCtrl($http, $scope, $state) {
   $scope.deleteCarShare = function() {
     $http({
       method: 'DELETE',
-      url: `/api/festivals/${$state.params.festivals.id}/carShares/${$state.params.carShares.id}`
+      url: `/api/festivals/${$state.params.festivalId}/carShares/${$state.params.carShareId}`
     })
       .then(() => $state.go('festivalsShow'));
   };
   $http({
     method: 'GET',
-    url: `/api/festivals/${$state.params.festivals.id}/carShares/${$state.params.carShares.id}`
+    url: `/api/festivals/${$state.params.festivalId}/carShares/${$state.params.carShareId}`
   })
     .then(res => {
       console.log('Car share is', res.data);

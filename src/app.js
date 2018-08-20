@@ -5,6 +5,7 @@ import 'bulma';
 
 import Router from './config/routes';
 
+import MainCtrl from './controllers/main';
 import CarSharesIndexCtrl from './controllers/carShares/index';
 import CarSharesShowCtrl from './controllers/carShares/show';
 import CarSharesNewCtrl from './controllers/carShares/new';
@@ -21,6 +22,7 @@ import AuthRegisterCtrl from './controllers/auth/register';
 angular.module('Festival Companion App', [
   'ui.router', 'satellizer'
 ])
+  .controller('MainCtrl', MainCtrl)
   .controller('CarSharesIndexCtrl', CarSharesIndexCtrl)
   .controller('CarSharesShowCtrl', CarSharesShowCtrl)
   .controller('CarSharesNewCtrl', CarSharesNewCtrl)
