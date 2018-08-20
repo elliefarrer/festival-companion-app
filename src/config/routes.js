@@ -38,7 +38,11 @@ function Router($stateProvider, $urlRouterProvider) {
     })
     .state('festivalsShow', {
       templateUrl: './views/festivals/show.html',
+<<<<<<< HEAD
       url: '/festivals/:festivalId', // id is now a parameter of the state
+=======
+      url: '/festivals/:id', // id is now a parameter of the state
+>>>>>>> 5c4a787e5066b1c8f28537400828fce023884640
       controller: 'festivalsShowCtrl'
     })
     .state('festivalsNew', {
