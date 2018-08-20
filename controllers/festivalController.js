@@ -15,6 +15,7 @@ function getTokenFromHttpRequest(req) {
 function festivalsIndex(req, res, next) {
   Festival
     .find()
+    .populate('attendees')
     .then(festivals => res.json(festivals))
     .catch(next);
 }

@@ -1,17 +1,17 @@
 function Router($stateProvider, $urlRouterProvider) {
 
-  function secureState($auth, $q, $state, $rootScope) {
-    return new $q(resolve => {
-      if($auth.isAuthenticated()) return resolve();
-      // User not logged in
-      // Create a flash message
-      $rootScope.$broadcast('flashMessage',{ //Doesn't have to be called flash message, just has to be same as $on
-        type: 'warning',
-        content: 'Please log in to continue'
-      });
-      $state.go('login');
-    });
-  }
+  // function secureState($auth, $q, $state, $rootScope) {
+  //   return new $q(resolve => {
+  //     if($auth.isAuthenticated()) return resolve();
+  //     // User not logged in
+  //     // Create a flash message
+  //     $rootScope.$broadcast('flashMessage',{ //Doesn't have to be called flash message, just has to be same as $on
+  //       type: 'warning',
+  //       content: 'Please log in to continue'
+  //     });
+  //     $state.go('login');
+  //   });
+  // }
   $stateProvider
     .state('about', {
       templateUrl: './views/about.html',
@@ -23,22 +23,22 @@ function Router($stateProvider, $urlRouterProvider) {
     })
     .state('festivalsIndex', {
       templateUrl: './views/festivals/index.html',
-      url: '/whiskeys',
-      controller: 'FestivalsIndexCtrl',
-      resolve: {
-        secureState, //result block!
-        festivals: function($http) {
-          return $http({
-            method: 'GET',
-            url: '/api/festivals'
-          })
-            .then(res => res.data);
-        }
-      }
+      url: '/festivals',
+      controller: 'FestivalsIndexCtrl'
+      // resolve: {
+      //   secureState, //result block!
+      //   festivals: function($http) {
+      //     return $http({
+      //       method: 'GET',
+      //       url: '/api/festivals'
+      //     })
+      //       .then(res => res.data);
+      //   }
+      // }
     })
     .state('festivalsShow', {
       templateUrl: './views/festivals/show.html',
-      url: '/festivals/:id', // id is now a parameter of the state
+      url: '/festivals/festivalId', // id is now a parameter of the state
       controller: 'festivalsShowCtrl'
     })
     .state('festivalsNew', {
@@ -48,7 +48,7 @@ function Router($stateProvider, $urlRouterProvider) {
     })
     .state('festivalsEdit', {
       templateUrl: './views/festivals/edit.html',
-      url: '/festivals/:id/edit',
+      url: '/festivals/:festivalId/edit',
       controller: 'FestivalsEditCtrl'
     })
     .state('login', {
@@ -63,18 +63,18 @@ function Router($stateProvider, $urlRouterProvider) {
     })
     .state('carShareIndex', {
       templateUrl: './views/carShares/index.html',
-      url: '/festivals/:id/carshares',
+      url: '/festivals/:festivalId/carshares',
       controller: 'CarSharesIndexCtrl'
     })
     .state('carShareShow', {
       templateUrl: './views/carShares/show.html',
-      url: '/festivals/:festivalId/carShares/:carShareid',
-      controller: 'CarShareShowCtrl'
+      url: '/festivals/:festivalId/carshares/:carShareId',
+      controller: 'CarSharesShowCtrl'
     })
     .state('carShareEdit', {
       templateUrl: './views/carShares/edit.html',
-      url: '/festivals/:festivalId/carShares/:carShareid',
-      controller: 'CarShareCtrl'
+      url: '/festivals/:festivalId/carshares/:carShareId',
+      controller: 'CarSharesEditCtrl'
     })
     .state('friend', {
       templateUrl: './views/friends/index.html',
@@ -83,24 +83,39 @@ function Router($stateProvider, $urlRouterProvider) {
     })
     .state('friendPending', {
       templateUrl: './views/friendsPending/index.html',
-      url: '/user/:id/friendspending/:id',
+      url: '/user/:userId/friendspending/:pendingFriendId',
       controller: 'friendsPendingCtrl'
     })
     .state('passengers', {
       templateUrl: './views/passengers/index.html',
-      url: '/festivals/:id/carshare/:id/passengers/:id',
+      url: '/festivals/:festivalId/carshare/:carShareId/passengers/:passengerId',
       controller: 'passengersCtrl'
     })
     .state('pendingPassengers', {
       templateUrl: './views/passengerspending/index.html',
-      url: '/festivals/:id/carshare/:id/passengerspending/:id',
+      url: '/festivals/:festivalId/carshare/:carShareId/passengerspending/:pendingPassengerId',
       controller: 'passengersPendingCtrl'
     })
+
     .state('attendeesIndex', {
       templateUrl: './views/attendees/index.html',
       url: '/festivals/:id/attendees',
       controller: 'attendeesIndexCtrl'
+    })
+    
+    .state('usersShow', {
+      templateUrl: './views/users/index.html',
+      url: '/users/:userId',
+      controller: 'usersShowCtrl'
+    })
+
+    .state('usersEdit', {
+      templateUrl: './views/user/edit.html',
+      url: '/users/:userId/edit',
+      controller: 'usersEditCtrl'
     });
+
   $urlRouterProvider.otherwise('/');
 }
+
 export default Router;
