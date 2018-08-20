@@ -18,9 +18,8 @@ function getTokenFromHttpRequest(req) {
 
 
 function friendsIndex(req, res, next) {
-  getTokenFromHttpRequest(req);
   User
-    .findById(userId)
+    .findById(req.params.id)
     .populate('userFriends')
     .then(user => res.json(user.userFriends))
     .catch(next);

@@ -28,6 +28,7 @@ function CarSharesShowCtrl($http, $scope, $state) {
       }));
   };
 
+
   $scope.cancelRide = function() {
     $http({
       method: 'DELETE',

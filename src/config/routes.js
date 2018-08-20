@@ -38,11 +38,7 @@ function Router($stateProvider, $urlRouterProvider) {
     })
     .state('festivalsShow', {
       templateUrl: './views/festivals/show.html',
-<<<<<<< HEAD
-      url: '/festivals/:festivalId', // id is now a parameter of the state
-=======
       url: '/festivals/:id', // id is now a parameter of the state
->>>>>>> 5c4a787e5066b1c8f28537400828fce023884640
       controller: 'festivalsShowCtrl'
     })
     .state('festivalsNew', {
@@ -83,7 +79,7 @@ function Router($stateProvider, $urlRouterProvider) {
     .state('friend', {
       templateUrl: './views/friends/index.html',
       url: '/user/:userId/friends/:friendId',
-      controller: 'friendsCtrl'
+      controller: 'friendsIndexCtrl'
     })
     .state('friendPending', {
       templateUrl: './views/friendsPending/index.html',
@@ -97,8 +93,8 @@ function Router($stateProvider, $urlRouterProvider) {
     })
     .state('pendingPassengers', {
       templateUrl: './views/passengerspending/index.html',
-      url: '/festivals/:festivalId/carshare/:carShareId/passengerspending/:pendingPassengerId',
-      controller: 'passengersPendingCtrl'
+      url: '/festivals/:festivalId/carShares/:carShareId/pendingPassengers',
+      controller: 'carSharesShowCtrl'
     })
 
     .state('attendeesIndex', {

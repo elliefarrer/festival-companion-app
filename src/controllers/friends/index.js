@@ -1,18 +1,11 @@
-function UsersShowCtrl($http, $scope, $state) {
-  $scope.deleteUser = function() {
-    $http({
-      method: 'DELETE',
-      url: `/api/users/${$state.params.userId}`
-    })
-      .then(() => $state.go('login'));
-  };
+function friendsIndexCtrl($http, $scope, $state) {
   $http({
     method: 'GET',
-    url: `/api/users/${$state.params.userId}`
+    url: `/user/${$state.params.id}/friends`
   })
-    .then(res => {
-      console.log('Found a user', res.data);
-      $scope.user = res.data;
+    .then(res =>   {
+      console.log('The friends are', res.data);
+      $scope.friends = res.data;
     });
 
   $scope.sendFriendRequest = function() {
@@ -32,4 +25,6 @@ function UsersShowCtrl($http, $scope, $state) {
   };
 }
 
-export default UsersShowCtrl;
+
+
+export default friendsIndexCtrl;
