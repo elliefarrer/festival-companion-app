@@ -2,7 +2,8 @@ function CarSharesEditCtrl($http, $scope, $state) {
   $scope.updateCarShare = function() {
     $http({
       method: 'PUT',
-      url: `/api/festivals/${$state.params.festivalId}/carShares/${$state.params.carShareId}`
+      url: `/api/festivals/${$state.params.festivalId}/carShares/${$state.params.carShareId}`,
+      data: $scope.carShare
     })
       .then(() => $state.go('carSharesShow', { festivalId: $state.params.festivalId, carShareId: $state.params.carShareId }));
   };

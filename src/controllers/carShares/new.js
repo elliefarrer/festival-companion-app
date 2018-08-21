@@ -7,7 +7,12 @@ function CarSharesNewCtrl($http, $scope, $state) {
       url: `/api/festivals/${$state.params.festivalId}/carShares`,
       data: $scope.carShare
     })
-      .then(() => $state.go('carSharesShow'));
+      .then(res => {
+        $state.go('carSharesShow', {
+          festivalId: $state.params.festivalId,
+          carShareId: res.data._id
+        });
+      });
   };
 
   $http({
@@ -17,6 +22,9 @@ function CarSharesNewCtrl($http, $scope, $state) {
     .then((res) => {
       console.log('festival is', res.data);
       $scope.festival = res.data;
+      // Prepopulate the form with festival data
+      $scope.carShare.to.postcode = res.data.location.postcode;
+      // TODO: Add festival start date to the ride share form
     });
 }
 

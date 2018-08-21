@@ -4,7 +4,7 @@ function CarSharesShowCtrl($http, $scope, $state, $auth) {
       method: 'DELETE',
       url: `/api/festivals/${$state.params.festivalId}/carShares/${$state.params.carShareId}`
     })
-      .then(() => $state.go('festivalsShow', {festivalId: $state.params.festivalId}));
+      .then(() => $state.go('festivalsShow', { id: $state.params.festivalId }));
   };
 
   $http({
@@ -12,9 +12,7 @@ function CarSharesShowCtrl($http, $scope, $state, $auth) {
     url: `/api/festivals/${$state.params.festivalId}/carShares/${$state.params.carShareId}`
   })
     .then(res => {
-      console.log('this is the sub', $auth.getPayload().sub);
       $scope.idCheck = $auth.getPayload().sub;
-      console.log('Car share is', res.data);
       $scope.carShare = res.data;
     });
 
