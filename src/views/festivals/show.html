@@ -1,5 +1,10 @@
 <div class="section">
   <img ng-src={{festival.photoUrl}} alt={{festival.name}}>
+  <ul ng-repeat="artist in festival.headlining">
+    <li>{{ artist }}</li>
+  </ul>
+  <p>{{ festival.location }}</p>
+  <p>Camping: {{ festival.camping }}</p>
 </div>
 
 <div class="section">
@@ -17,6 +22,11 @@
 
 <div class="section">
   <p>Map</p>
+</div>
+
+<div class="section">
+  <button class="button" ui-sref="festivalsEdit({ id: festival._id })">Edit {{ festival.name }}</button>
+  <button class="button" ng-click="deleteFestival()">Delete {{ festival.name }}</button>
 </div>
 
 <footer div="footer">

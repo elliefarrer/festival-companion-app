@@ -39,12 +39,12 @@ router.route('/login')
 
 router.route('/festivals')
   .get(festivalController.index)
-  .post(secureRoute, festivalController.create);
+  .post(festivalController.create);
 
 router.route('/festivals/:id')
   .get(festivalController.show)
-  .put(secureRoute, festivalController.update)
-  .delete(secureRoute, festivalController.delete);
+  .put(festivalController.update)
+  .delete(festivalController.delete);
 
 
 ////////////////////////// Attendee routes ///////////////////////////////////
