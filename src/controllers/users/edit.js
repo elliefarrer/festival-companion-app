@@ -10,6 +10,12 @@ function UsersEditCtrl($http, $scope, $state) {
     method: 'GET',
     url: `/api/users/${$state.params.userId}`
   })
+    .then(res => {
+      const splitStartDate = res.data.festival.startDate.slice(9);
+      const splitEndDate = res.data.festival.endDate.slice(9);
+      console.log('New start date is ', splitStartDate);
+      console.log('New end date is ', splitEndDate);
+    })
     .then(res => $scope.user = res.data);
 }
 
