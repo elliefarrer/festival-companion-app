@@ -52,7 +52,7 @@ const festivalData = [{
   endDate: '15th July',
   location: {
     address: 'Hyde Park',
-    postcode: 'W22LG'
+    postcode: 'W2 2LG'
   },
   camping: 'No',
   headlining: ['The Cure', 'Paul Simon', 'Bruno Mars'],
