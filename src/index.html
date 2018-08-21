@@ -44,10 +44,10 @@
                 <div><a ui-sref-active="is-active" ui-sref="about" class="navbar-item">About</a></div>
               </div> -->
               <div class="navbar-item">
-                <div><a ui-sref-active="is-active" ui-sref="festivals" class="navbar-item" ng-if="isAuthenticated()">Festivals</a></div>
+                <div><a ui-sref-active="is-active" ui-sref="festivalsIndex" class="navbar-item" ng-if="isAuthenticated()">Festivals</a></div>
               </div>
               <div class="navbar-item">
-                <div><a ui-sref-active="is-active" ui-sref="profile" class="navbar-item" ng-if="isAuthenticated()">Profile</a></div>
+                <div><a ui-sref-active="is-active" ui-sref="profileShow" class="navbar-item" ng-if="isAuthenticated()">Profile</a></div>
               </div>
               <div class="navbar-item">
                 <div><a ui-sref-active="is-active" ui-sref="login" class="navbar-item" ng-if="!isAuthenticated()">Login</a></div>
@@ -56,7 +56,7 @@
                 <div><a ui-sref-active="is-active" ui-sref="register" class="navbar-item" ng-if="!isAuthenticated()">Register</a></div>
               </div>
               <div class="navbar-item">
-                <div><a ui-sref-active="is-active" ui-sref="" class="navbar-item" ng-if="isAuthenticated()">Log Out</a></div>
+                <div><a ui-sref-active="is-active" ng-click="logout()" class="navbar-item" ng-if="isAuthenticated()">Log Out</a></div>
               </div>
             </div>
           </div>
