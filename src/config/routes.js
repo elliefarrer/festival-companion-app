@@ -48,7 +48,7 @@ function Router($stateProvider, $urlRouterProvider) {
     })
     .state('festivalsEdit', {
       templateUrl: './views/festivals/edit.html',
-      url: '/festivals/:festivalId/edit',
+      url: '/festivals/:id/edit',
       controller: 'FestivalsEditCtrl'
     })
     .state('login', {

@@ -43,8 +43,8 @@ router.route('/festivals')
 
 router.route('/festivals/:id')
   .get(festivalController.show)
-  .put(secureRoute, festivalController.update)
-  .delete(secureRoute, festivalController.delete);
+  .put(festivalController.update)
+  .delete(festivalController.delete);
 
 
 ////////////////////////// Attendee routes ///////////////////////////////////

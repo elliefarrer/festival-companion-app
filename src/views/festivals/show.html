@@ -19,6 +19,11 @@
   <p>Map</p>
 </div>
 
+<div class="section">
+  <button class="button" ui-sref="festivalsEdit({ id: festival._id })">Edit {{ festival.name }}</button>
+  <button class="button" ng-click="deleteFestival()">Delete {{ festival.name }}</button>
+</div>
+
 <footer div="footer">
   <p class="subtitle is-3">{{ festival.name }}</p>
   <div class="columms">
