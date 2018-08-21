@@ -1,7 +1,6 @@
 function MainCtrl($auth, $scope, $state, $rootScope, $timeout) {
   // NOTE: isAuthenticated is a FUNCTION
   $scope.isAuthenticated = $auth.isAuthenticated; // Now avaliable in every view & the controller
-  $scope.loggedInUser = $auth.isAuthenticated() && $auth.getPayload().sub;
 
   $rootScope.$on('flashMessage', (e, data) => {
     $scope.flashMessage = data;
@@ -12,8 +11,9 @@ function MainCtrl($auth, $scope, $state, $rootScope, $timeout) {
   $scope.logout = function() {
     $auth.logout().then(() => {
       console.log('LOGGED USER OUT!!!');
+      $rootScope.loggedInUser = null;
     });
-    $state.go('festivalIndex');
+    $state.go('festivalsIndex');
   };
 }
 

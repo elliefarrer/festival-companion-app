@@ -6,6 +6,10 @@ function UsersShowCtrl($http, $scope, $state) {
     })
       .then(() => $state.go('login'));
   };
+
+  // GET /users/:id
+  console.log('We have arrived in the show controller');
+  console.log('state.params.id is', $state.params.id);
   $http({
     method: 'GET',
     url: `/api/user/${$state.params.id}`

@@ -1,7 +1,10 @@
-function AuthLoginCtrl($auth, $http, $scope, $state) {
+function AuthLoginCtrl($auth, $http, $scope, $state, $rootScope) {
   $scope.login = function() {
     $auth.login($scope.user)
-      .then(() => $state.go('festivalsIndex'))
+      .then(() => {
+        $rootScope.loggedInUser = $auth.getPayload().sub;
+        $state.go('festivalsIndex');
+      })
       .catch(err => console.log('There was an error', err));
   };
 }
