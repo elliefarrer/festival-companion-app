@@ -8,7 +8,7 @@
     <p>{{ carShares[0].festival.startDate }}-{{ carShares[0].festival.endDate }}</p>
   </div>
   <div ng-if="carShares[0].festival.startDate === carShares[0].festival.endDate">
-    <p>{{ event.startDate }}</p>
+    <p>{{ carShares[0].festival.startDate }}</p>
   </div>
   <div class="column">
     <p>
@@ -27,6 +27,7 @@ Set up a car share
 <div class="container">
   <div ng-repeat="ride in carShares">
     <a ui-sref="carSharesShow({ festivalId: ride.festival._id, carShareId: ride._id })">
+      <img ng-src="{{ ride.createdBy.profilePic}}" alt="{{ ride.createdBy.firstName}}">
       <p> Grab a ride with {{ ride.createdBy.firstName }}
     </a>
   </div>

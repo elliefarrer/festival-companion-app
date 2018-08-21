@@ -3,3 +3,25 @@ Hello I'm the carShareShow
 Hello I'm the carShareShow
 Hello I'm the carShareShow
 Hello I'm the carShareShow
+<div class="container section">
+  <h2 class="title is-4">{{ carShare.festival.name }}</h2>
+  <div ng-if="carShare.festival.startDate !== carShare.festival.endDate">
+    <p>{{ carShare.festival.startDate }}-{{ carShare.festival.endDate }}</p>
+  </div>
+  <div ng-if="carShare.festival.startDate === carShare.festival.endDate">
+    <p>{{ carShare.festival.startDate }}</p>
+  </div>
+  <div class="column">
+    <p>
+      <span><i class="fab fa-youtube"></i></span>
+      <span><i class="fab fa-vimeo-v"></i></span>
+      <span><i class="fab fa-instagram"></i></span>
+      <span><i class="fab fa-twitter"></i></span>
+      <span><i class="fab fa-facebook"></i></span>
+      <span><i class="fas fa-share-alt"></i></span>
+    </p>
+  </div>
+</div>
+<div class="container">
+      <p> Grab a ride with {{ carShare.createdBy.firstName }}
+</div>
