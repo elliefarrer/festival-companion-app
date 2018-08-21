@@ -1,6 +1,7 @@
 function MainCtrl($auth, $scope, $state, $rootScope, $timeout) {
   // NOTE: isAuthenticated is a FUNCTION
   $scope.isAuthenticated = $auth.isAuthenticated; // Now avaliable in every view & the controller
+  $scope.loggedInUser = $auth.getPayload().sub;
 
   $rootScope.$on('flashMessage', (e, data) => {
     $scope.flashMessage = data;

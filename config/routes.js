@@ -12,6 +12,7 @@ const carShareController = require('../controllers/carShareController');
 const commentController = require('../controllers/commentController');
 const friendController = require('../controllers/friendController');
 const pendingFriendRequestController = require('../controllers/pendingFriendRequestController');
+const sessionController = require('../controllers/sessionController');
 // const searchController = require();
 const attendeeController = require('../controllers/attendeeController');
 const pendingPassengerRequestController = require('../controllers/pendingPassengerRequestController');
@@ -32,6 +33,14 @@ router.route('/register')
 
 router.route('/login')
   .post(authController.login);
+
+router.route('/sessions/new')
+  .get(sessionController.new); // Show the form
+router.route('/sessions')
+  .post(sessionController.create); // Create the user
+
+router.route('/sessions/delete')
+  .get(sessionController.delete);
 
 ////////////////////////////// Festival routes ///////////////////////////////
 
