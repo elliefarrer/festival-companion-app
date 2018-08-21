@@ -11,16 +11,15 @@ function Map($http) {
       // const map = L.mapquest.map(domElement);
       $scope.$watch('festival', function() {
         if($scope.festival) {
+          const searchPostcode = $scope.festival.location.postcode;
+          console.log('Search for', searchPostcode);
           const API_KEY = 'DmK3IjydVb4R9lDw3X08xjNBNVV0WOks';
           L.mapquest.key = API_KEY;
-          console.log('Festival scope is', $scope.festival.location);
           $http({
             method: 'GET',
-            url: `http://www.mapquestapi.com/geocoding/v1/address?key=${API_KEY}&location=${$scope.festival.location}`
+            url: `http://www.mapquestapi.com/geocoding/v1/address?key=${API_KEY}&location=${searchPostcode}`
           })
             .then(res => {
-              const place = res.data;
-              console.log('res data is', place);
               L.mapquest.map('map', {
                 center: [res.data.results[0].locations[0].latLng.lat,     res.data.results[0].locations[0].latLng.lng],
                 layers: L.mapquest.tileLayer('map'),
