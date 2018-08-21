@@ -9,8 +9,10 @@ function MainCtrl($auth, $scope, $state, $rootScope, $timeout) {
   });
 
   $scope.logout = function() {
-    $auth.logout();
-    $state.go('home');
+    $auth.logout().then(() => {
+      console.log('LOGGED USER OUT!!!');
+    });
+    $state.go('festivalIndex');
   };
 }
 

@@ -42,5 +42,5 @@ angular.module('Festival Companion App', [
   .config(Router)
   .config(function($authProvider){
     $authProvider.loginUrl = '/api/login';
-    $authProvider.registerUrl = '/api/register';
+    $authProvider.signupUrl = '/api/register';
   });

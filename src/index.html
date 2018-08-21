@@ -4,20 +4,26 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+
   <link type="text/css" rel="stylesheet" href="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.css"/>
   <script src="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js"></script>
-</head>
-<body class="container" ng-controller="MainCtrl">
-  <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
-    <div class="container">
-      <div class="mobile">
-        <nav class="navbar mobile" role="navigation" aria-label="main navigation">
-          <div class="navbar-brand">
-            <div class="navbar-item search-Bar">
-              <form class="/search/index" method="POST">
-                <div class="field has-addons">
-                  <div class="control">
-                    <input class="input" type="text" name="searchTerm" placeholder="search tag">
+
+  </head>
+  <body class="container" ng-controller="MainCtrl">
+    <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+      <div class="container">
+        <div class="mobile">
+          <nav class="navbar mobile" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+              <div class="navbar-item search-Bar">
+                <form class="/search/index" method="POST">
+                  <div class="field has-addons">
+                    <div class="control">
+                      <input ng-if="isAuthenticated()" class="input" type="text" name="searchTerm" placeholder="search tag">
+                    </div>
+                    <div class="control">
+                      <button ng-if="isAuthenticated()" class="button search-bar-button">Search</button>
+                    </div>
                   </div>
                   <div class="control">
                     <button class="button search-bar-button">Search</button>
@@ -32,27 +38,28 @@
             </a>
           </div>
 
-          <div class="navbar-menu dropdown">
-            <div class="navbar-item">
-              <div><a ui-sref-active="is-active" ui-sref="home" class="navbar-item">Home</a></div>
-            </div>
-            <div class="navbar-item">
-              <div><a ui-sref-active="is-active" ui-sref="about" class="navbar-item">About</a></div>
-            </div>
-            <div class="navbar-item">
-              <div><a ui-sref-active="is-active" ui-sref="festivals" class="navbar-item" ng-if="isAuthenticated()">Festivals</a></div>
-            </div>
-            <div class="navbar-item">
-              <div><a ui-sref-active="is-active" ui-sref="profile" class="navbar-item" ng-if="isAuthenticated()">Profile</a></div>
-            </div>
-            <div class="navbar-item">
-              <div><a ui-sref-active="is-active" ui-sref="login" class="navbar-item" ng-if="!isAuthenticated()">Login</a></div>
-            </div>
-            <div class="navbar-item">
-              <div><a ui-sref-active="is-active" ui-sref="register" class="navbar-item" ng-if="!isAuthenticated()">Register</a></div>
-            </div>
-            <div class="navbar-item">
-              <div><a ui-sref-active="is-active" ui-sref="" class="navbar-item" ng-if="isAuthenticated()">Log Out</a></div>
+            <div class="navbar-menu dropdown">
+              <!-- <div class="navbar-item">
+                <div><a ui-sref-active="is-active" ui-sref="home" class="navbar-item">Home</a></div>
+              </div>
+              <div class="navbar-item">
+                <div><a ui-sref-active="is-active" ui-sref="about" class="navbar-item">About</a></div>
+              </div> -->
+              <div class="navbar-item">
+                <div><a ui-sref-active="is-active" ui-sref="festivalsIndex" class="navbar-item" ng-if="isAuthenticated()">Festivals</a></div>
+              </div>
+              <div class="navbar-item">
+                <div><a ui-sref-active="is-active" ui-sref="profileShow" class="navbar-item" ng-if="isAuthenticated()">Profile</a></div>
+              </div>
+              <div class="navbar-item">
+                <div><a ui-sref-active="is-active" ui-sref="login" class="navbar-item" ng-if="!isAuthenticated()">Login</a></div>
+              </div>
+              <div class="navbar-item">
+                <div><a ui-sref-active="is-active" ui-sref="register" class="navbar-item" ng-if="!isAuthenticated()">Register</a></div>
+              </div>
+              <div class="navbar-item">
+                <div><a ui-sref-active="is-active" ng-click="logout()" class="navbar-item" ng-if="isAuthenticated()">Log Out</a></div>
+              </div>
             </div>
           </div>
         </div>
