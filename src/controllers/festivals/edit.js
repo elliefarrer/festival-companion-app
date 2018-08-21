@@ -2,7 +2,8 @@ function FestivalsEditCtrl($http, $scope, $state) {
   $scope.updateFestival = function() {
     $http({
       method: 'PUT',
-      url: `/api/festivals/${$state.params.id}`
+      url: `/api/festivals/${$state.params.id}`,
+      data: $scope.festival
     })
       .then(res => {
         console.log('Updating festival', res.data);
