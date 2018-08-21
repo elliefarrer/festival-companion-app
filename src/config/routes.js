@@ -13,14 +13,14 @@ function Router($stateProvider, $urlRouterProvider) {
   //   });
   // }
   $stateProvider
-    .state('about', {
-      templateUrl: './views/about.html',
-      url: '/about'
-    })
-    .state('home', {
-      templateUrl: './views/home.html',
-      url: '/'
-    })
+    // .state('about', {
+    //   templateUrl: './views/about.html',
+    //   url: '/about'
+    // })
+    // .state('home', {
+    //   templateUrl: './views/home.html',
+    //   url: '/'
+    // })
     .state('festivalsIndex', {
       templateUrl: './views/festivals/index.html',
       url: '/festivals',
@@ -53,7 +53,7 @@ function Router($stateProvider, $urlRouterProvider) {
     })
     .state('login', {
       templateUrl: './views/auth/login.html',
-      url: '/login',
+      url: '/',
       controller: 'AuthLoginCtrl'
     })
     .state('register', {
