@@ -110,7 +110,7 @@ function Router($stateProvider, $urlRouterProvider) {
 
     .state('mapsNew', {
       templateUrl: './views/maps/new.html',
-      url: '/festivals/:id/markers',
+      url: '/festivals/:id/markers/new',
       controller: 'MapsNewCtrl'
     })
 
