@@ -3,7 +3,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const router = require('./config/routes');
 const errorHandler = require('./lib/error-handler');
-
+const morgan = require('morgan');
 //Environment
 const { port, dbURI } = require('./config/environment');
 
@@ -19,6 +19,7 @@ const app = express();
 app.use(express.static(`${__dirname}/public`));
 
 //Middleware
+app.use(morgan('dev'));
 app.use(bodyParser.json()); // Allows other HTTP methods
 
 app.use((req, res, next) => {

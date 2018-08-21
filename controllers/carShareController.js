@@ -16,12 +16,10 @@ function getTokenFromHttpRequest(req) {
 }
 
 function carSharesIndex(req, res, next) { //Only brings back carShares related to that festival.
-  let relevantCarShares;
   CarShare
-    .find()
-    .then(carShares => relevantCarShares = carShares.filter(carShare =>
-      carShare.festival.toString() === req.params.id))
-    .then(() => res.json(relevantCarShares))
+    .find({festival: req.params.id})
+    .populate('createdBy festival')
+    .then(carShare => res.json(carShare))
     .catch(next);
 }
 

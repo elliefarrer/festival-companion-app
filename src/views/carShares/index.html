@@ -1,0 +1,13 @@
+<p> Hello carSHaressss </p>
+{{ carShares[0].festival.name }}
+<a ui-sref="carSharesNew({ festivalId: ride.festival })">
+Set up a car share
+</a>
+<div class="container">
+  <div ng-repeat="ride in carShares">
+    <a ui-sref="carSharesShow({ festivalId: ride.festival, carShareId: ride._id })">
+      <p> Grab a ride with {{ ride.createdBy.firstName }}
+    </a>
+  </div>
+
+</div>
