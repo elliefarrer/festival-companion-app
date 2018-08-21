@@ -6,8 +6,10 @@
   <p>{{ festival.location.address }}</p>
   <p>Camping: {{ festival.camping }}</p>
 </div>
-
-<a class="button" ng-if="!festival.attendees.includes(loggedInUser)"ng-click="attending()">Attend</a>
+<div class="section">
+  <a class="button" ng-if="!attendance" ng-click="attending()">Come along!</a>
+  <a class="button" ng-if="attendance" ng-click="notAttending()">Attending</a>
+<div>
 <div class="section">
   <p>Instagram</p>
 </div>

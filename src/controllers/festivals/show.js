@@ -1,4 +1,6 @@
-function FestivalsShowCtrl($http, $scope, $state) {
+function FestivalsShowCtrl($http, $scope, $state, $auth) {
+
+  $scope.loggedInUser = $auth.getPayload().sub;
 
   $scope.deleteFestival = function() {
     $http({
@@ -17,27 +19,40 @@ function FestivalsShowCtrl($http, $scope, $state) {
     .then(res => {
       console.log('Found a festival', res.data);
       $scope.festival = res.data;
+      $scope.attendance = $scope.festival.attendees.map(attendee => attendee._id).includes($scope.loggedInUser);
     });
+
+
+
+
+
+
 
   $scope.attending = function() {
     $http({
       method: 'POST',
       url: `/api/festivals/${$state.params.id}/attendees`
     })
-      .then(() => $state.go('festivalsIndex', {
-        // id: $state.params.id
-      }));
+      .then(res=> {
+        // console.log(res.data);
+        $scope.attendance = res.data.festivalsAttending.toString().includes($scope.festival._id);
+        // console.log('this is the attendance', $scope.attendance);
+      });
   };
 
   $scope.notAttending = function() {
     $http({
       method: 'DELETE',
-      url: `/api/festival/${$state.params.id}/attendee`
+      url: `/api/festivals/${$state.params.id}/attendees`
     })
-      .then(() => $state.go('carShareShow', {
-        festivalId: $state.params.festivalId
-      }));
+      .then(res => {
+        // console.log(res.data);
+        $scope.attendance = res.data.festivalsAttending.toString().includes($scope.festival._id);
+        // console.log('this is the attendance', $scope.attendance);
+      });
+
   };
+
 }
 
 

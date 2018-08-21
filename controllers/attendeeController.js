@@ -66,6 +66,8 @@ function attendeeDelete(req, res, next) {
         festival.save();
       });
     })
+    .then(() => User.findById(userId))
+    .then(user => res.json(user))
     .then(() => res.sendStatus(204))
     .catch(next);
 }
