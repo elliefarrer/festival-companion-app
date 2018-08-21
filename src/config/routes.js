@@ -61,19 +61,24 @@ function Router($stateProvider, $urlRouterProvider) {
       url: '/register',
       controller: 'AuthRegisterCtrl'
     })
-    .state('carShareIndex', {
+    .state('carSharesIndex', {
       templateUrl: './views/carShares/index.html',
-      url: '/festivals/:festivalId/carshares',
+      url: '/festivals/:festivalId/carShares',
       controller: 'CarSharesIndexCtrl'
     })
-    .state('carShareShow', {
+    .state('carSharesNew', {
+      templateUrl: './views/carShares/new.html',
+      url: '/festivals/:festivalId/carShares/new',
+      controller: 'CarSharesNewCtrl'
+    })
+    .state('carSharesShow', {
       templateUrl: './views/carShares/show.html',
-      url: '/festivals/:festivalId/carshares/:carShareId',
+      url: '/festivals/:festivalId/carShares/:carShareId',
       controller: 'CarSharesShowCtrl'
     })
-    .state('carShareEdit', {
+    .state('carSharesEdit', {
       templateUrl: './views/carShares/edit.html',
-      url: '/festivals/:festivalId/carshares/:carShareId',
+      url: '/festivals/:festivalId/carShares/:carShareId',
       controller: 'CarSharesEditCtrl'
     })
     .state('friend', {
