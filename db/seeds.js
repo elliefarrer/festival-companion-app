@@ -101,9 +101,9 @@ User
     carShareData[0].createdBy = festivals[0].createdBy;
     carShareData[1].createdBy = festivals[1].createdBy;
     carShareData[2].createdBy = festivals[0].createdBy;
-    carShareData[0].festival = festivals[1].id;
-    carShareData[1].festival = festivals[0].id;
-    carShareData[2].festival = festivals[1].id;
+    carShareData[0].festival = festivals[1];
+    carShareData[1].festival = festivals[0];
+    carShareData[2].festival = festivals[1];
     return carShare.create(carShareData);
   })
   .then(console.log(`Created ${carShare.length} carshares`))
