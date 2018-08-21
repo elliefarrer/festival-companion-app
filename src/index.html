@@ -56,7 +56,7 @@
                 <div><a ui-sref-active="is-active" ui-sref="register" class="navbar-item" ng-if="!isAuthenticated()">Register</a></div>
               </div>
               <div class="navbar-item">
-                <div><a ui-sref-active="is-active" ng-click="logout()" class="navbar-item" ng-if="isAuthenticated()">Log Out</a></div>
+                <div><a ui-sref-active="is-active" ng-click="logout()" class="navbar-item" ng-if="isAuthenticated()">Log Out {{ loggedInFirstName }}</a></div>
               </div>
             </div>
           </div>

@@ -20,7 +20,7 @@ function login(req, res, next) {
         return res.status(401).json({ message: 'Unauthorised or User not found, please try again!' });
       }
       // USER IS AUTHENTICATED
-      const token = jwt.sign({ sub: user.id, admin: false }, secret, { expiresIn: '1hr' });
+      const token = jwt.sign({ sub: user.id, admin: false, firstName: user.firstName}, secret, { expiresIn: '1hr' });
       // console.log('Created token!!', token);
       return res.json({ message: `Welcome back ${user.firstName}. Where's the party today?`, token });
     })

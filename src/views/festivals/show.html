@@ -7,6 +7,7 @@
   <p>Camping: {{ festival.camping }}</p>
 </div>
 
+<a class="button" ng-if="!festival.attendees.includes(loggedInUser)"ng-click="attending()">Attend</a>
 <div class="section">
   <p>Instagram</p>
 </div>

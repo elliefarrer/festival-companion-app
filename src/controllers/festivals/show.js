@@ -1,4 +1,5 @@
 function FestivalsShowCtrl($http, $scope, $state) {
+
   $scope.deleteFestival = function() {
     $http({
       method: 'DELETE',
@@ -18,25 +19,25 @@ function FestivalsShowCtrl($http, $scope, $state) {
       $scope.festival = res.data;
     });
 
-  // $scope.attending = function() {
-  //   $http({
-  //     method: 'POST',
-  //     url: `/api/festival/${$state.params.id}/attendee`
-  //   })
-  //     .then(() => $state.go('carShareShow', {
-  //       festivalId: $state.params.festivalId
-  //     }));
-  // };
-  //
-  // $scope.notAttending = function() {
-  //   $http({
-  //     method: 'DELETE',
-  //     url: `/api/festival/${$state.params.id}/attendee`
-  //   })
-  //     .then(() => $state.go('carShareShow', {
-  //       festivalId: $state.params.festivalId
-  //     }));
-  // };
+  $scope.attending = function() {
+    $http({
+      method: 'POST',
+      url: `/api/festivals/${$state.params.id}/attendees`
+    })
+      .then(() => $state.go('festivalsIndex', {
+        // id: $state.params.id
+      }));
+  };
+
+  $scope.notAttending = function() {
+    $http({
+      method: 'DELETE',
+      url: `/api/festival/${$state.params.id}/attendee`
+    })
+      .then(() => $state.go('carShareShow', {
+        festivalId: $state.params.festivalId
+      }));
+  };
 }
 
 
