@@ -1,10 +1,13 @@
 import angular from 'angular';
 import '@uirouter/angularjs';
 import 'satellizer';
+import './scss/style.scss';
 import 'bulma';
 import './scss/style.scss';
 
 import Router from './config/routes';
+
+import Map from './directives/map';
 
 import MainCtrl from './controllers/main';
 import CarSharesIndexCtrl from './controllers/carShares/index';
@@ -23,6 +26,7 @@ import AuthRegisterCtrl from './controllers/auth/register';
 angular.module('Festival Companion App', [
   'ui.router', 'satellizer'
 ])
+  .directive('ngMap', Map)
   .controller('MainCtrl', MainCtrl)
   .controller('CarSharesIndexCtrl', CarSharesIndexCtrl)
   .controller('CarSharesShowCtrl', CarSharesShowCtrl)
