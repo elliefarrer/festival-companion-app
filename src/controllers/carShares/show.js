@@ -1,4 +1,4 @@
-function CarSharesShowCtrl($http, $scope, $state) {
+function CarSharesShowCtrl($http, $scope, $state, $auth) {
   $scope.deleteCarShare = function() {
     $http({
       method: 'DELETE',
@@ -12,6 +12,8 @@ function CarSharesShowCtrl($http, $scope, $state) {
     url: `/api/festivals/${$state.params.festivalId}/carShares/${$state.params.carShareId}`
   })
     .then(res => {
+      console.log('this is the sub', $auth.getPayload().sub);
+      $scope.idCheck = $auth.getPayload().sub;
       console.log('Car share is', res.data);
       $scope.carShare = res.data;
     });
