@@ -6,6 +6,8 @@ import 'bulma';
 
 import Router from './config/routes';
 
+import Map from './directives/map';
+
 import MainCtrl from './controllers/main';
 import CarSharesIndexCtrl from './controllers/carShares/index';
 import CarSharesShowCtrl from './controllers/carShares/show';
@@ -23,6 +25,7 @@ import AuthRegisterCtrl from './controllers/auth/register';
 angular.module('Festival Companion App', [
   'ui.router', 'satellizer'
 ])
+  .directive('ngMap', Map)
   .controller('MainCtrl', MainCtrl)
   .controller('CarSharesIndexCtrl', CarSharesIndexCtrl)
   .controller('CarSharesShowCtrl', CarSharesShowCtrl)
