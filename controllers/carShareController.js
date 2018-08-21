@@ -35,6 +35,7 @@ function carSharesCreate(req, res, next) {
   let carShareId;
   getTokenFromHttpRequest(req);
   req.body.createdBy = userId;
+  req.body.festival = req.params.id;
   CarShare
     .create(req.body)
     .then(carShare => {
