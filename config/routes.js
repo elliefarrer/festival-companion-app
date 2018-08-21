@@ -17,7 +17,7 @@ const sessionController = require('../controllers/sessionController');
 const attendeeController = require('../controllers/attendeeController');
 const pendingPassengerRequestController = require('../controllers/pendingPassengerRequestController');
 const passengerController = require('../controllers/passengerController');
-
+const markerController = require('../controllers/markerController');
 
 
 
@@ -54,6 +54,12 @@ router.route('/festivals/:id')
   .get(festivalController.show)
   .put(festivalController.update)
   .delete(festivalController.delete);
+
+
+//////////////////////////// Map marker routes ////////////////////////////////
+
+router.route('/festivals/:id/markers')
+  .post(markerController.create);
 
 
 ////////////////////////// Attendee routes ///////////////////////////////////
