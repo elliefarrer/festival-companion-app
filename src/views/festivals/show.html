@@ -1,5 +1,10 @@
 <div class="section">
   <img ng-src={{festival.photoUrl}} alt={{festival.name}}>
+  <ul ng-repeat="artist in festival.headlining">
+    <li>{{ artist }}</li>
+  </ul>
+  <p>{{ festival.location }}</p>
+  <p>Camping: {{ festival.camping }}</p>
 </div>
 
 <div class="section">
