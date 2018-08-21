@@ -17,12 +17,17 @@
 
   <div class="field">
     <label class="label" for="to">End location (enter postcode) </label>
-    <input ng-model="carShare.to.postcode" class="input" type="text" name="to" value="{{ festival.location.postcode }}">
+    <input ng-model="carShare.to.postcode" class="input" type="text" name="to" >
   </div>
 
   <div class="field">
-    <label class="label" for="price">Seat price</label>
-    <input ng-model="price" class="input" type="text" name="price" placeholder="">
+    <label class="label" for="rideStartTime">Seat price</label>
+    <input ng-model="carShare.rideStartTime" class="input" type="text" name="rideStartTime" placeholder="">
+  </div>
+
+  <div class="field">
+    <label class="label" for="price">Seat price (£)</label>
+    <input ng-model="carShare.price" class="input" type="text" name="price" placeholder="">
   </div>
 
 <button class="button">Set up car share</button>
