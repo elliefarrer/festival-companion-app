@@ -18,7 +18,7 @@
           <nav class="navbar mobile" role="navigation" aria-label="main navigation">
             <div class="navbar-brand">
               <div class="navbar-item search-Bar">
-                <form class="/search/index" method="POST">
+                <form class="/search/festivals/index" method="POST">
                   <div class="field has-addons">
                     <div class="control">
                       <input ng-if="isAuthenticated()" class="input" type="text" name="searchTerm" placeholder="search tag">
@@ -36,7 +36,7 @@
               </a>
             </div>
 
-            <div class="navbar-menu dropdown">
+            <div style="padding-bottom: 10px;" class="navbar-menu dropdown">
               <!-- <div class="navbar-item">
                 <div><a ui-sref-active="is-active" ui-sref="home" class="navbar-item">Home</a></div>
               </div>
@@ -47,7 +47,7 @@
                 <div><a ui-sref-active="is-active" ui-sref="festivalsIndex" class="navbar-item" ng-if="isAuthenticated()">Festivals</a></div>
               </div>
               <div class="navbar-item">
-                <div><a ui-sref-active="is-active" ui-sref="profileShow" class="navbar-item" ng-if="isAuthenticated()">Profile</a></div>
+                <div><a ui-sref-active="is-active" ui-sref="userShow/:id" class="navbar-item" ng-if="isAuthenticated()">Profile</a></div>
               </div>
               <div class="navbar-item">
                 <div><a ui-sref-active="is-active" ui-sref="login" class="navbar-item" ng-if="!isAuthenticated()">Login</a></div>
