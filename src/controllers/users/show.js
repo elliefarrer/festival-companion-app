@@ -2,13 +2,13 @@ function UsersShowCtrl($http, $scope, $state) {
   $scope.deleteUser = function() {
     $http({
       method: 'DELETE',
-      url: `/api/users/${$state.params.userId}`
+      url: `/api/user/${$state.params.id}`
     })
       .then(() => $state.go('login'));
   };
   $http({
     method: 'GET',
-    url: `/api/users/${$state.params.userId}`
+    url: `/api/user/${$state.params.id}`
   })
     .then(res => {
       console.log('Found a user', res.data);
