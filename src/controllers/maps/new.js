@@ -5,7 +5,10 @@ function MapsNewCtrl($http, $scope, $state) {
       url: `/api/festivals/${$state.params.id}/markers`,
       data: $scope.marker
     })
-      .then(() => $state.go('festivalsShow', { id: $state.params.id }));
+      .then(() => {
+        $state.go('festivalsShow', { id: $state.params.id });
+      });
+
   };
 }
 

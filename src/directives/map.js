@@ -21,22 +21,41 @@ function Map($http) {
             method: 'GET',
             url: `http://www.mapquestapi.com/geocoding/v1/address?key=${API_KEY}&location=${searchPostcode}`
           })
-            .then(res => {
-              placeLat = res.data.results[0].locations[0].latLng.lat;
-              placeLng = res.data.results[0].locations[0].latLng.lng;
-              const map = L.mapquest.map('map', {
-                center: [placeLat, placeLng],
-                layers: L.mapquest.tileLayer('map'),
-                zoom: 13
-              });
-              const marker = L.marker([placeLat, placeLng]).addTo(map);
-              marker.bindPopup(`<img src=${$scope.festival.photoUrl} alt=${$scope.festival.name} /><p>${$scope.festival.name}, ${$scope.festival.location.address}</p>`).openPopup();
+          .then(res => {
+            placeLat = res.data.results[0].locations[0].latLng.lat;
+            placeLng = res.data.results[0].locations[0].latLng.lng;
+            const map = L.mapquest.map('map', {
+              center: [placeLat, placeLng],
+              layers: L.mapquest.tileLayer('map'),
+              zoom: 13
             });
+            const marker = L.marker([placeLat, placeLng]).addTo(map);
+            marker.bindPopup(`<img src=${$scope.festival.photoUrl} alt=${$scope.festival.name} /><p>${$scope.festival.name}, ${$scope.festival.location.address}</p>`).openPopup();
+          });
         }
       });
+      // marker is currently on a POST request so won't be on $scope at this time
+      $scope.$watch('marker', function() {
+        if($scope.marker) {
+          const API_KEY = 'DmK3IjydVb4R9lDw3X08xjNBNVV0WOks';
+          L.mapquest.key = API_KEY;
+          $http({
+            method: 'GET',
+            url: `http://www.mapquestapi.com/geocoding/v1/address?key=${API_KEY}&location=E32AX`
+          })
+        .then(res => {
+          placeLat = res.data.results[0].locations[0].latLng.lat;
+          placeLng = res.data.results[0].locations[0].latLng.lng;
+          const map = L.mapquest.map('map', {
+            center: [placeLat, placeLng],
+            layers: L.mapquest.tileLayer('hybrid'),
+            zoom: 13
+          });
+        });
+        }
+      });
+      // const marker = L
     }
   };
-  // const marker = L
 }
-
 export default Map;
