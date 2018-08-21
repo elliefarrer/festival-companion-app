@@ -8,9 +8,7 @@
   </div>
 
 
-  <a class="button"  ng-if=" idCheck === carShare.createdBy._id " ui-sref="carSharesEdit({ festivalId: carShare.festival._id, carShareId: carShare._id})"><i class="far fa-edit"></i></a>
 
-  <a class="button" ng-click="deleteCarShare()" > <i class="far fa-trash-alt"></i></a>
   <div class="column">
     <p>
       <span><i class="fab fa-youtube"></i></span>
@@ -23,5 +21,11 @@
   </div>
 </div>
 <div class="container">
-      <p> Grab a ride with {{ carShare.createdBy.firstName }}
+    <p> Grab a ride with {{ carShare.createdBy.firstName }}</p>
+
+    <a class="button"  ng-if=" idCheck === carShare.createdBy._id " ui-sref="carSharesEdit({ festivalId: carShare.festival._id, carShareId: carShare._id})"><i class="far fa-edit"></i></a>
+
+    <a class="button" ng-if=" idCheck === carShare.createdBy._id " ng-click="deleteCarShare()({festivalId: carShare.festival._id, carShareId: carShare._id})" > <i class="far fa-trash-alt"></i></a>
+
+    <p> Seats available {{ carShare.totalSeats - carShare.passenger.length }}</p>
 </div>
