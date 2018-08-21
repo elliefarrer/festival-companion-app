@@ -1,14 +1,10 @@
-<p> Hello carSHaressss </p>
-<p> Hello carSHaressss </p>
-<p> Hello carSHaressss </p>
-<p> Hello carSHaressss </p>
 <div class="container section">
-  <h2 class="title is-4">{{ carShares[0].festival.name }}</h2>
-  <div ng-if="carShares[0].festival.startDate !== carShares[0].festival.endDate">
-    <p>{{ carShares[0].festival.startDate }}-{{ carShares[0].festival.endDate }}</p>
+  <h2 class="title is-4">{{ festival.name }}</h2>
+  <div ng-if="festival.startDate !== festival.endDate">
+    <p>{{ festival.startDate }}-{{ festival.endDate }}</p>
   </div>
-  <div ng-if="carShares[0].festival.startDate === carShares[0].festival.endDate">
-    <p>{{ carShares[0].festival.startDate }}</p>
+  <div ng-if="festival.startDate === festival.endDate">
+    <p>{{ festival.startDate }}</p>
   </div>
   <div class="column">
     <p>
@@ -21,15 +17,17 @@
     </p>
   </div>
 </div>
-<a ui-sref="carSharesNew({ festivalId: carShares[0].festival._id })">
-Set up a car share
-</a>
+<div class="section">
+  <a ui-sref="carSharesNew({ festivalId: festival._id })">
+    Set up a car share
+  </a>
 <div class="container">
   <div ng-repeat="ride in carShares">
-    <a ui-sref="carSharesShow({ festivalId: ride.festival._id, carShareId: ride._id })">
+    <a ui-sref="carSharesShow({ festivalId: festival._id, carShareId: ride._id })">
       <img ng-src="{{ ride.createdBy.profilePic}}" alt="{{ ride.createdBy.firstName}}">
       <p> Grab a ride with {{ ride.createdBy.firstName }}
     </a>
   </div>
 
+</div>
 </div>

@@ -21,7 +21,10 @@ const festivalData = [{
   name: 'LoveBox',
   startDate: '13th July',
   endDate: '14th July',
-  location: 'Gunnersbury Park',
+  location: {
+    address: 'Gunnersbury Park',
+    postcode: 'W3 8LQ'
+  },
   camping: 'No',
   headlining: ['Childish Gambino', 'Skepta', 'SZA'],
   photoUrl: 'https://24e8e3b95851cffc9b46-ce987c743c8a722dc56cea7f8eb55a8f.ssl.cf3.rackcdn.com/LBXLogoSimple.svg',
@@ -34,7 +37,10 @@ const festivalData = [{
   name: 'Citadel Festival',
   startDate: '15th July',
   endDate: '15th July',
-  location: 'Gunnersbury Park',
+  location: {
+    address: 'Gunnersbury Park',
+    postcode: 'W3 8LQ'
+  },
   camping: 'No',
   headlining: ['Tame Impala', 'Leon Bridges', 'Honne'],
   photoUrl: 'https://cdn.shopify.com/s/files/1/0601/5089/files/FB_header_2_1024x1024.jpg',
@@ -44,7 +50,10 @@ const festivalData = [{
   name: 'British Summer Time',
   startDate: '6th July',
   endDate: '15th July',
-  location: 'Hyde Park',
+  location: {
+    address: 'Hyde Park',
+    postcode: 'W22LG'
+  },
   camping: 'No',
   headlining: ['The Cure', 'Paul Simon', 'Bruno Mars'],
   photoUrl: 'https://www.bst-hydepark.com/assets/img/33-29429fc891.jpg',

@@ -1,7 +1,30 @@
+<div class="section">
+
+
 <form ng-submit="createCarShare()">
-  <!-- carShare to...  need to find out how to access state params--
+
+   Arrange a car share to {{ festival.name }}:
+
+   <div class="field">
+     <label class="label" for="from">Seats available</label>
+     <input ng-model="totalSeats" class="input" type="text" name="totalSeats" placeholder="">
+   </div>
+
   <div class="field">
-    <label class="label" for="name">Name</label>
-    <input ng-model="whiskey.name" class="input" type="text" name="name" placeholder="e.g. Tullibardine">
+    <label class="label" for="from">Start location (enter postcode)</label>
+    <input ng-model="carShare.from.postcode" class="input" type="text" name="from" placeholder="">
   </div>
+
+  <div class="field">
+    <label class="label" for="to">End location (enter postcode) </label>
+    <input ng-model="carShare.to.postcode" class="input" type="text" name="to" value="{{ festival.location.postcode }}">
+  </div>
+
+  <div class="field">
+    <label class="label" for="price">Seat price</label>
+    <input ng-model="price" class="input" type="text" name="price" placeholder="">
+  </div>
+
+<button class="button">Set up car share</button>
 </form>
+</div>

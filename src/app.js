@@ -2,6 +2,7 @@ import angular from 'angular';
 import '@uirouter/angularjs';
 import 'satellizer';
 import 'bulma';
+import './scss/style.scss';
 
 import Router from './config/routes';
 
@@ -38,5 +39,5 @@ angular.module('Festival Companion App', [
   .config(Router)
   .config(function($authProvider){
     $authProvider.loginUrl = '/api/login';
-    $authProvider.registerUrl = '/api/register';
+    $authProvider.signupUrl = '/api/register';
   });

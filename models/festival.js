@@ -4,7 +4,10 @@ const festivalSchema = mongoose.Schema({
   name: { type: String },
   startDate: { type: String},
   endDate: { type: String},
-  location: { type: String},
+  location: {
+    address: { type: String},
+    postcode: { type: String}
+  },
   camping: { type: String },
   markers: [{
     placeOfInterest: { type: String }, // put into Nominatim

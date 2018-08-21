@@ -7,9 +7,11 @@
   integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
   crossorigin=""/>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+
   <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js"
   integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="
   crossorigin=""></script>
+
   </head>
   <body class="container" ng-controller="MainCtrl">
     <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
@@ -38,7 +40,7 @@
 
             <div class="navbar-menu dropdown">
               <div class="navbar-item">
-                <div><a ui-sref-active="is-active" ui-sref="home" class="navbar-item">Home</a></div>
+                <div><a ui-sref-active="is-active" ui-sref="festivalsIndex" class="navbar-item">Home</a></div>
               </div>
               <div class="navbar-item">
                 <div><a ui-sref-active="is-active" ui-sref="about" class="navbar-item">About</a></div>
@@ -78,6 +80,8 @@
         options[i].addEventListener('click', ToggleDropdown)
       }
     </script>
+    <div class="main-body">
       <div ui-view></div>
+    </div>
   </body>
 </html>
