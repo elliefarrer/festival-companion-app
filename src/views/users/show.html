@@ -1,6 +1,6 @@
 <!-- 5b7a7f6461c78610c5153d8a -->
-<section class="container" ng-controller="UsersShowCtrl">
+<section ng-if="isAuthenticated()" class="container" ng-controller="UsersShowCtrl">
 
   <h1 class="title is-1">This works</h1>
-  <h2 class="title is-2">{{ user.userName }}</h2>
+  <h2 class="title is-2">{{ user.firstName }}</h2>
 </section>
