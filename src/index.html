@@ -11,22 +11,72 @@
   crossorigin=""></script>
   </head>
   <body class="container" ng-controller="MainCtrl">
-    <nav class="navbar-container">
-      <div class="navbar-brand">
-        <a role="button" class="navbar-burger navbar-start" aria-label="menu" aria-expanded="false" <span><span></span><span></span><span></span></span></a>
-      </div>
-        <div class="navbar-menu">
-          <div class="navbar-dropdown">
-            <a ui-sref-active="is-active" ui-sref="home" class="navbar-item">Home</a>
-            <a ui-sref-active="is-active" ui-sref="about" class="navbar-item">About</a>
-            <a ui-sref-active="is-active" ui-sref="festivals" class="navbar-item" ng-if="isAuthenticated()">Festivals</a>
-            <a ui-sref-active="is-active" ui-sref="profile" class="navbar-item" ng-if="isAuthenticated()">Profile</a>
-            <a ui-sref-active="is-active" ui-sref="login" class="navbar-item" ng-if="!isAuthenticated()">Login</a>
-            <a ui-sref-active="is-active" ui-sref="register" class="navbar-item" ng-if="!isAuthenticated()">Register</a>
-            <a ui-sref-active="is-active" ui-sref="" class="navbar-item" ng-if="isAuthenticated()">Log Out</a>
+    <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+      <div class="container">
+        <div class="mobile">
+          <nav class="navbar mobile" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+              <div class="navbar-item search-Bar">
+                <form class="/search/index" method="POST">
+                  <div class="field has-addons">
+                    <div class="control">
+                      <input class="input" type="text" name="searchTerm" placeholder="search tag">
+                    </div>
+                    <div class="control">
+                      <button class="button search-bar-button">Search</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"  data-target="navMenu">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+              </a>
+            </div>
+
+            <div class="navbar-menu dropdown">
+              <div class="navbar-item">
+                <div><a ui-sref-active="is-active" ui-sref="home" class="navbar-item">Home</a></div>
+              </div>
+              <div class="navbar-item">
+                <div><a ui-sref-active="is-active" ui-sref="about" class="navbar-item">About</a></div>
+              </div>
+              <div class="navbar-item">
+                <div><a ui-sref-active="is-active" ui-sref="festivals" class="navbar-item" ng-if="isAuthenticated()">Festivals</a></div>
+              </div>
+              <div class="navbar-item">
+                <div><a ui-sref-active="is-active" ui-sref="profile" class="navbar-item" ng-if="isAuthenticated()">Profile</a></div>
+              </div>
+              <div class="navbar-item">
+                <div><a ui-sref-active="is-active" ui-sref="login" class="navbar-item" ng-if="!isAuthenticated()">Login</a></div>
+              </div>
+              <div class="navbar-item">
+                <div><a ui-sref-active="is-active" ui-sref="register" class="navbar-item" ng-if="!isAuthenticated()">Register</a></div>
+              </div>
+              <div class="navbar-item">
+                <div><a ui-sref-active="is-active" ui-sref="" class="navbar-item" ng-if="isAuthenticated()">Log Out</a></div>
+              </div>
+            </div>
           </div>
         </div>
       </nav>
+
+
+
+      <script type="text/javascript">
+      const burger = document.getElementsByClassName('navbar-burger')[0];
+      const dropdown = document.getElementsByClassName('dropdown')[0];
+      const options = document.getElementsByClassName('navbar-item');
+      ToggleDropdown = function() {
+        burger.classList.toggle("is-active");
+        dropdown.classList.toggle("is-active")
+      }
+      burger.addEventListener('click', ToggleDropdown);
+      for (let i=0; i < options.length; i++ ) {
+        options[i].addEventListener('click', ToggleDropdown)
+      }
+    </script>
       <div ui-view></div>
   </body>
 </html>
