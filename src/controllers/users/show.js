@@ -15,21 +15,21 @@ function UsersShowCtrl($http, $scope, $state) {
       $scope.user = res.data;
     });
 
-  $scope.sendFriendRequest = function() {
-    $http({
-      method: 'POST',
-      url: `/user/${$state.params.userId}/friends/${$state.params.friendId}`
-    })
-      .then(() => $state.go(`/user/${$state.params.id}`));
-  };
-
-  $scope.removeFriend = function() {
-    $http({
-      method: 'DELETE',
-      url: `/user/${$state.params.userId}/friends/${$state.params.friendId}`
-    })
-      .then(() => $state.go(`/user/${$state.params.id}`));
-  };
+//   $scope.sendFriendRequest = function() {
+//     $http({
+//       method: 'POST',
+//       url: `/user/${$state.params.userId}/friends/${$state.params.friendId}`
+//     })
+//       .then(() => $state.go(`/user/${$state.params.id}`));
+//   };
+//
+//   $scope.removeFriend = function() {
+//     $http({
+//       method: 'DELETE',
+//       url: `/user/${$state.params.userId}/friends/${$state.params.friendId}`
+//     })
+//       .then(() => $state.go(`/user/${$state.params.id}`));
+//   };
+// }
 }
-
 export default UsersShowCtrl;

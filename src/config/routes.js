@@ -104,13 +104,13 @@ function Router($stateProvider, $urlRouterProvider) {
     })
 
     .state('usersShow', {
-      templateUrl: './views/users/index.html',
+      templateUrl: './views/users/show.html',
       url: '/users/:userId',
       controller: 'UsersShowCtrl'
     })
 
     .state('usersEdit', {
-      templateUrl: './views/user/edit.html',
+      templateUrl: './views/users/edit.html',
       url: '/users/:userId/edit',
       controller: 'UsersEditCtrl'
     });
