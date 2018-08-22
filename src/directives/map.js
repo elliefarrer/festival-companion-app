@@ -5,6 +5,9 @@ function Map($http) {
   let placeLat;
   let placeLng;
   let searchMap;
+  let popupImg;
+  let popupName;
+  let popupAddress;
   return {
     restrict: 'A',
     link($scope, $element) {
@@ -12,6 +15,8 @@ function Map($http) {
       console.log('The map element is', domElement);
       console.log('The scope is', $scope);
       // const map = L.mapquest.map(domElement);
+
+
       $scope.$watch('festival', function() {
         if($scope.festival) {
           searchMap = $scope.festival.location.postcode;
@@ -30,8 +35,11 @@ function Map($http) {
                 layers: L.mapquest.tileLayer('map'),
                 zoom: 13
               });
+              popupImg = $scope.festival.photoUrl;
+              popupName = $scope.festival.name;
+              popupAddress = $scope.festival.location.address;
               const marker = L.marker([placeLat, placeLng]).addTo(map);
-              marker.bindPopup(`<img src=${$scope.festival.photoUrl} alt=${$scope.festival.name}  /><p>${$scope.festival.name}, ${$scope.festival.location.address}</p>`).openPopup();
+              marker.bindPopup(`<img src=${popupImg} alt=${popupName}  /><p>${popupName}, ${popupAddress}</p>`).openPopup();
             });
         }
       });
@@ -55,7 +63,7 @@ function Map($http) {
                 zoom: 16
               });
               const marker = L.marker([placeLat, placeLng]).addTo(map);
-              marker.bindPopup(`<img src=${$scope.festival.photoUrl} alt=${$scope.festival.name}  /><p>${$scope.festival.name}, ${$scope.festival.location.address}</p>`).openPopup();
+              marker.bindPopup(`<img src=${popupImg} alt=${popupName}  /><p>${popupName}, ${popupAddress}</p>`).openPopup();
             });
         }
       });
