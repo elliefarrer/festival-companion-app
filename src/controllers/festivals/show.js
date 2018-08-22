@@ -47,6 +47,19 @@ function FestivalsShowCtrl($http, $scope, $state, $auth) {
       });
   }
 
+  $scope.$watch('festival', function() {
+    if($scope.festival) {
+      $http({
+        method: 'GET',
+        url: `https://nominatim.openstreetmap.org/search/${$scope.festival.location.postcode}?format=json`
+      })
+        .then(res => {
+          const searchCoords = res.data.sort((a, b) => a.importance < b.importance)[0];
+          console.log('Found them', searchCoords);
+          $scope.searchCoords = searchCoords;
+        });
+    }
+  });
 
   $scope.attending = function() {
     $http({
