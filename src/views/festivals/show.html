@@ -1,0 +1,62 @@
+<div class="section">
+  <img ng-src={{festival.photoUrl}} alt={{festival.name}}>
+  <ul ng-repeat="artist in festival.headlining">
+    <li>{{ artist }}</li>
+  </ul>
+  <p>{{ festival.location.address }}</p>
+  <p>Camping: {{ festival.camping }}</p>
+</div>
+<div class="section">
+  <a class="button" ng-if="!attendance" ng-click="attending()">Come along!</a>
+  <a class="button" ng-if="attendance" ng-click="notAttending()">Attending</a>
+<div>
+<div class="section">
+  <p>Instagram</p>
+</div>
+
+<div class="section">
+  <a class="button" ui-sref="carSharesIndex({ festivalId: festival._id })">Find a Ride Here</a>
+  <a class="button" ui-sref="publicTransportIndex">Public Transport</a>
+</div>
+
+<div class="section">
+  <p>Weather</p>
+</div>
+
+<div class="section">
+  <hr>
+  <div class="map" id="map" ng-map>
+
+  </div>
+  <a ui-sref="mapsNew({id: festival._id})">Add points of interest</a>
+  <hr>
+</div>
+
+<div class="section">
+  <button class="button" ui-sref="festivalsEdit({ id: festival._id })">Edit {{ festival.name }}</button>
+  <button class="button" ng-click="deleteFestival()">Delete {{ festival.name }}</button>
+</div>
+
+<footer div="footer">
+  <p class="subtitle is-3">{{ festival.name }}</p>
+  <div class="columms">
+    <div class="column is-5">
+      <div ng-if="festival.startDate !== festival.endDate">
+        <p>{{ festival.startDate }}-{{ festival.endDate }}</p>
+      </div>
+      <div ng-if="festival.startDate === festival.endDate">
+        <p>{{ festival.startDate }}</p>
+      </div>
+    </div>
+    <div class="column is-7">
+      <p>
+        <span><i class="fab fa-youtube"></i></span>
+        <span><i class="fab fa-vimeo-v"></i></span>
+        <span><i class="fab fa-instagram"></i></span>
+        <span><i class="fab fa-twitter"></i></span>
+        <span><i class="fab fa-facebook"></i></span>
+        <span><i class="fas fa-share-alt"></i></span>
+      </p>
+    </div>
+  </div>
+</footer>

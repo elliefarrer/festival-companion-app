@@ -12,8 +12,21 @@
     "test": "nyc mocha test/**/*_spec.js --require test/spec_helper --recursive --exit"
   },
   "dependencies": {
-    "angular": "^1.7.1",
-    "express": "^4.16.3"
+    "@uirouter/angular": "ui-router/angular",
+    "@uirouter/angularjs": "^1.0.20",
+    "angular": "^1.7.3",
+    "bcrypt": "^3.0.0",
+    "bluebird": "^3.5.1",
+    "body-parser": "^1.18.3",
+    "bulma": "^0.7.1",
+    "express": "^4.16.3",
+    "global": "^4.3.2",
+    "jsonwebtoken": "^8.3.0",
+    "mongoose": "^5.2.8",
+    "morgan": "^1.9.0",
+    "nodemon": "^1.18.3",
+    "request-promise": "^4.2.2",
+    "satellizer": "^0.15.5"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",

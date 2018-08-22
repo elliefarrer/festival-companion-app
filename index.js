@@ -1,6 +1,7 @@
 // Requires
 const express = require('express');
 const bodyParser = require('body-parser');
+<<<<<<< HEAD
 const router = require('./config/environment');
 const errorHandler = require('./lib/error-handler');
 
@@ -15,10 +16,30 @@ mongoose.connect(dbURI);
 // Initialise app
 const app = express();
 
+=======
+const router = require('./config/routes');
+const errorHandler = require('./lib/error-handler');
+const morgan = require('morgan');
+//Environment
+const { port, dbURI } = require('./config/environment');
+
+//Mongoose/Mongo
+const mongoose = require('mongoose');
+mongoose.Promise = require('bluebird');
+mongoose.connect(dbURI);
+
+// Initialise app
+const app = express();
+
+>>>>>>> development
 //Static folder
 app.use(express.static(`${__dirname}/public`));
 
 //Middleware
+<<<<<<< HEAD
+=======
+app.use(morgan('dev'));
+>>>>>>> development
 app.use(bodyParser.json()); // Allows other HTTP methods
 
 app.use((req, res, next) => {

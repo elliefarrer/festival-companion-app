@@ -1,0 +1,33 @@
+<div class="container section">
+  <h2 class="title is-4">{{ festival.name }}</h2>
+  <div ng-if="festival.startDate !== festival.endDate">
+    <p>{{ festival.startDate }}-{{ festival.endDate }}</p>
+  </div>
+  <div ng-if="festival.startDate === festival.endDate">
+    <p>{{ festival.startDate }}</p>
+  </div>
+  <div class="column">
+    <p>
+      <span><i class="fab fa-youtube"></i></span>
+      <span><i class="fab fa-vimeo-v"></i></span>
+      <span><i class="fab fa-instagram"></i></span>
+      <span><i class="fab fa-twitter"></i></span>
+      <span><i class="fab fa-facebook"></i></span>
+      <span><i class="fas fa-share-alt"></i></span>
+    </p>
+  </div>
+</div>
+<div class="section">
+  <a ui-sref="carSharesNew({ festivalId: festival._id })">
+    Set up a car share
+  </a>
+<div class="container">
+  <div ng-repeat="ride in carShares">
+    <a ui-sref="carSharesShow({ festivalId: festival._id, carShareId: ride._id })">
+      <img ng-src="{{ ride.createdBy.profilePic}}" alt="{{ ride.createdBy.firstName}}">
+      <p> Grab a ride with {{ ride.createdBy.firstName }}
+    </a>
+  </div>
+
+</div>
+</div>

@@ -1,0 +1,67 @@
+<h3 class="title is-3">Edit Festival</h3>
+<form ng-submit="updateFestival()">
+  <div class="field">
+    <label class="label" for="name">Festival Name</label>
+    <input class="input" ng-model="festival.name" type="text" name="name">
+  </div>
+
+  <div class="field">
+    <label class="label" for="startDate">Start Date</label>
+    <input class="input" ng-model="festival.startDate" type="date" name="startDate" value="festival.startDate">
+  </div>
+
+  <div class="field">
+    <label class="label" for="endDate">End Date</label>
+    <input class="input" ng-model="festival.endDate" type="date" name="endDate" value="festival.endDate">
+  </div>
+
+  <hr>
+
+  <div class="field">
+    <label class="label" for="address">Address</label>
+    <input class="input" ng-model="festival.location.address" type="text" name="address">
+  </div>
+
+  <div class="field">
+    <label class="label" for="postcode">Postcode</label>
+    <input class="input" ng-model="festival.location.postcode" type="text" name="postcode">
+  </div>
+
+  <!-- <div class="field">
+    <label class="label" for="location">Address Line 2</label>
+    <input class="input" ng.model="festival.location" type="text" name="location">
+  </div>
+
+  <div class="field">
+    <label class="label" for="location">Town/City</label>
+    <input class="input" ng.model="festival.location" type="text" name="location">
+  </div>
+
+  <div class="field">
+    <label class="label" for="location">Postcode</label>
+    <input class="input" ng.model="festival.location" type="text" name="location">
+  </div> -->
+
+  <hr>
+
+  <div class="field">
+    <label class="label" for="camping">Camping</label>
+    <input ng-model="festival.camping" type="radio" name="camping">Yes
+    <input ng-model="festival.camping" type="radio" name="camping">No
+  </div>
+
+  <div class="field">
+    <label class="label" for="headlining">Headlining Artists</label>
+    <input class="input" ng-model="festival.headlining" type="text" name="headlining" value="">
+    <!-- <input class="input" ng.model="festival.headlining" type="text" name="headlining" value="">
+    <input class="input" ng.model="festival.headlining" type="text" name="headlining" value=""> -->
+  </div>
+
+  <div class="field">
+    <label class="label" for="photoUrl">Photo</label>
+    <input class="input" ng-model="festival.photoUrl" type="text" name="photoUrl" value="">
+  </div>
+
+  <button class="button">Submit</button>
+
+</form>
