@@ -35,8 +35,8 @@ function Map($http) {
         }
       });
       // marker is currently on a POST request so won't be on $scope at this time
-      $scope.$watch('marker', function() {
-        if($scope.marker) {
+      $scope.$watch('createMap', function() {
+        if($scope.createMap) {
           const API_KEY = 'DmK3IjydVb4R9lDw3X08xjNBNVV0WOks';
           L.mapquest.key = API_KEY;
           $http({
@@ -48,8 +48,8 @@ function Map($http) {
           placeLng = res.data.results[0].locations[0].latLng.lng;
           const map = L.mapquest.map('map', {
             center: [placeLat, placeLng],
-            layers: L.mapquest.tileLayer('hybrid'),
-            zoom: 13
+            layers: L.mapquest.tileLayer('map'),
+            zoom: 17
           });
         });
         }
