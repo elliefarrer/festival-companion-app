@@ -1,7 +1,6 @@
 import angular from 'angular';
 import '@uirouter/angularjs';
 import 'satellizer';
-import './scss/style.scss';
 import 'bulma';
 import './scss/style.scss';
 
@@ -18,11 +17,11 @@ import FestivalsIndexCtrl from './controllers/festivals/index';
 import FestivalsShowCtrl from './controllers/festivals/show';
 import FestivalsNewCtrl from './controllers/festivals/new';
 import FestivalsEditCtrl from './controllers/festivals/edit';
-import MapsNewCtrl from './controllers/maps/new';
 import UsersShowCtrl from './controllers/users/show';
 import UsersEditCtrl from './controllers/users/edit';
 import AuthLoginCtrl from './controllers/auth/login';
 import AuthRegisterCtrl from './controllers/auth/register';
+import PassengersIndexCtrl from './controllers/passengers/index';
 
 angular.module('Festival Companion App', [
   'ui.router', 'satellizer'
@@ -37,11 +36,11 @@ angular.module('Festival Companion App', [
   .controller('FestivalsShowCtrl', FestivalsShowCtrl)
   .controller('FestivalsNewCtrl', FestivalsNewCtrl)
   .controller('FestivalsEditCtrl', FestivalsEditCtrl)
-  .controller('MapsNewCtrl', MapsNewCtrl)
   .controller('UsersShowCtrl', UsersShowCtrl)
   .controller('UsersEditCtrl', UsersEditCtrl)
   .controller('AuthLoginCtrl', AuthLoginCtrl)
   .controller('AuthRegisterCtrl', AuthRegisterCtrl)
+  .controller('PassengersIndexCtrl', PassengersIndexCtrl)
   .config(Router)
   .config(function($authProvider){
     $authProvider.loginUrl = '/api/login';

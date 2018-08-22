@@ -14,6 +14,14 @@ function CarSharesShowCtrl($http, $scope, $state, $auth) {
     .then(res => {
       $scope.idCheck = $auth.getPayload().sub;
       $scope.carShare = res.data;
+
+      if($scope.carShare.passengers.map(passenger => passenger._id).includes($scope.idCheck)) {
+        $scope.passengerStatus = 'passenger';
+      } else if ($scope.carShare.pendingPassengers.map(passenger => passenger._id).includes($scope.idCheck)) {
+        $scope.passengerStatus = 'pending';
+      } else {
+        $scope.passengerStatus = 'nonPassenger';
+      }
     });
 
 
@@ -22,22 +30,22 @@ function CarSharesShowCtrl($http, $scope, $state, $auth) {
       method: 'POST',
       url: `/api/festivals/${$state.params.festivalId}/carShares/${$state.params.carShareId}/passengers`
     })
-      .then(() => $state.go('carShareShow', {
-        festivalId: $state.params.festivalId,
-        carShareId: $state.params.carShareId
-      }));
+      .then(res => {
+        console.log(res.data);
+        $scope.passengerStatus = 'pending';
+      });
   };
 
-
+  //cancels the logged in user's ride
   $scope.cancelRide = function() {
     $http({
       method: 'DELETE',
-      url: `/api/festivals/${$state.params.festivalId}/carShares/${$state.params.carShareId}/passengers`
+      url: `/api/festivals/${$state.params.festivalId}/carShares/${$state.params.carShareId}/passengers/${$scope.idCheck}`
     })
-      .then(() => $state.go('carShareShow', {
-        festivalId: $state.params.festivalId,
-        carShareId: $state.params.carShareId
-      }));
+      .then(res => {
+        console.log(res.data);
+        $scope.passengerStatus = 'nonPassenger';
+      });
   };
 
 }
