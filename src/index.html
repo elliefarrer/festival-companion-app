@@ -29,12 +29,18 @@
                   </div>
                 </form>
               </div>
+              <section ng-if="isAuthenticated()" class="container" ng-controller="UsersShowCtrl">
+                <div class="">
+                  <img class="headerImage" ng-src="{{ user.image }}" alt="{{ user.name }}" ng-controller="UsersShowCtrl">                  
+                </div>
+              </section>
               <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"  data-target="navMenu">
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
               </a>
             </div>
+
 
             <div style="padding-bottom: 10px;" class="navbar-menu dropdown">
               <!-- <div class="navbar-item">

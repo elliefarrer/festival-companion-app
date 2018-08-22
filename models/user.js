@@ -8,6 +8,8 @@ const userSchema = mongoose.Schema({
   userName: { type: String },
   email: { type: String },
   mobileNumber: { type: String },
+  image: { type: String },
+  currentLocation: { type: String },
   password: { type: String },
   userFriends: [{ type: mongoose.Schema.ObjectId, ref: 'User'}],
   pendingFriends: [{ type: mongoose.Schema.ObjectId, ref: 'User'}],
