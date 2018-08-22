@@ -121,7 +121,7 @@ function Router($stateProvider, $urlRouterProvider) {
     })
 
     .state('usersEdit', {
-      templateUrl: './views/user/edit.html',
+      templateUrl: './views/users/edit.html',
       url: '/users/:userId/edit',
       controller: 'UsersEditCtrl'
     });

@@ -31,13 +31,13 @@
               </div>
               <section ng-if="isAuthenticated()" class="container">
                 <div class="">
-                  <img class="headerImage" ng-src="{{ currentUser().image }}" alt="{{ user.name }}">
+                  <img style="border-radius: 100%; margin-top: 5px;" class="headerImage" ng-src="{{ currentUser().image }}" alt="{{ user.name }}">
                 </div>
               </section>
               <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"  data-target="navMenu">
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
+                <span class="burger-color" aria-hidden="true"></span>
+                <span class="burger-color" aria-hidden="true"></span>
+                <span class="burger-color" aria-hidden="true"></span>
               </a>
             </div>
 

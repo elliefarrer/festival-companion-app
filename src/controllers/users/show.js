@@ -1,6 +1,8 @@
 /* global L */
 function UsersShowCtrl($http, $scope, $state) {
   $scope.deleteUser = function() {
+    console.log('we are in delete');
+    console.log('url =>', `/api/user/${$state.params.id}`);
     $http({
       method: 'DELETE',
       url: `/api/user/${$state.params.id}`

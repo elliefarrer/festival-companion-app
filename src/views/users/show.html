@@ -2,23 +2,30 @@
 <section ng-if="isAuthenticated()" class="container" ng-controller="UsersShowCtrl">
 <div class="topHalf">
   <div class="">
-    <h1 style="margin-top: 50px;" class="title is-1">{{ user.firstName }}</h1>
-    <img class="profileImage" ng-src="{{ user.image }}" alt="{{ user.name }}">
-    <h2>{{ user.userFriends }}</h2>
+    <div class="profileNamePosition">
+      <img style="border-radius: 100%;" class="profileImage" ng-src="{{ user.image }}" alt="{{ user.name }}">
+      <h1 class="white title is-1">{{ user.firstName }}</h1>
+      <h2 class="emailPosition subtitle is-7">Email: {{ user.email }}</h2>
+      <h2 class="emailPosition subtitle is-7 white">Mobile: {{ user.mobileNumber }}</h2>
+      <h2 class="currentLocation subtitle is-7">Current Location</h2>
+      <div class="userMap">
+        <section class="userMap">
+          <div class="map" ng-map></div>
+
+        </section>
+
+      </div>
+    </div>
+    <h2 class="white">{{ user.userFriends }}</h2>
   </div>
   <div class="contact">
-    <h2 style="margin-bottom: 0px;" class="subtitle is-7">{{ user.email }}</h2>
-    <h2 class="subtitle is-7">{{ user.mobileNumber }}</h2>
   </div>
   <div class="currentLocation">
-    <h2 class="subtitle is-7">Current Location</h2>
-    <section>
-      <div class="map" ng-map></div>
-
-    </section>
   </div>
   <div class="festivalsAttending">
     <h2 class="subtitle is-7">Festivals Attending</h2>
     <h2>{{ user.festivalsAttending }}</h2>
   </div>
-</section>
+
+<button class="button" ui-sref="usersEdit({ userId: currentUser()._id })">Edit Profile</button></section>
+<button class="button" ng-click="deleteUser()">Delete Account</button></section>
