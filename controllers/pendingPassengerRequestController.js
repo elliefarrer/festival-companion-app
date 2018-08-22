@@ -11,12 +11,36 @@ function pendingPassengersIndex(req, res, next) { //shows pending passengers for
     .populate('pendingPassengers')
     .then(carShare => {
       // console.log(carShare);
-      res.json(carShare.pendingPassengers);
+      res.json(carShare);
     }) //can change this to just carShares so that we can access event information too. Will need to populate! Maybe use carShare Model instead
     .catch(next);
 }
 
-// rejects the passenger request and deletes from pending list
+//organiser accepting request
+
+function pendingPassengersCreate(req, res, next) {
+  const carShareId = req.params.carShareId;
+  const passengerId = req.params.passengerId;
+  CarShare
+    .findById(carShareId)
+    .then(carShare => {
+      carShare.pendingPassengers = carShare.pendingPassengers.filter(pendingPassenger =>
+        pendingPassenger.toString() !== passengerId
+      );
+      carShare.passengers.push(passengerId);
+      return carShare.save();
+    })
+    .then(() => User.findById(passengerId)) //This bit needs testing
+    .then(acceptedPassenger => {
+      // console.log('the rejected passenger is', rejectedPassenger);
+      acceptedPassenger.carShares.push(carShareId);
+      return acceptedPassenger.save();
+    })
+    .then(() => res.sendStatus(201))
+    .catch(next);
+}
+
+// rejects the passenger request and deletes from pending list - may not need this.
 function pendingPassengersDelete(req, res, next) {
   const carShareId = req.params.carShareId;
   const passengerId = req.params.passengerId;
@@ -24,6 +48,9 @@ function pendingPassengersDelete(req, res, next) {
     .findById(carShareId)
     .then(carShare => {
       carShare.pendingPassengers = carShare.pendingPassengers.filter(pendingPassenger =>
+        pendingPassenger.toString() !== passengerId
+      );
+      carShare.passengers = carShare.passengers.filter(pendingPassenger =>
         pendingPassenger.toString() !== passengerId
       );
       return carShare.save();
@@ -41,5 +68,6 @@ function pendingPassengersDelete(req, res, next) {
 
 module.exports = {
   index: pendingPassengersIndex,
+  create: pendingPassengersCreate,
   delete: pendingPassengersDelete
 };
