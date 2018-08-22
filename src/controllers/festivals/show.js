@@ -65,8 +65,8 @@ function FestivalsShowCtrl($http, $scope, $state, $auth) {
 
       $http({
         method: 'GET',
-        url: 'https://api.darksky.net/forecast/',
-        params: { lat: $scope.searchCoords.lat, lng: $scope.searchCoords.lng }
+        url: '/api/weather',
+        params: { lat: 51.51, lng: -0.09 }
       })
       .then(res => {
         console.log('The weather is', res.data);
