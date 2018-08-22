@@ -8,6 +8,17 @@
   </div>
 
 
+  <div class="section" ng-if="carShare.createdBy._id !== idCheck && carShare.seatsRemaining">
+    <a class="button" ng-if="passengerStatus === 'nonPassenger'" ng-click="requestRide()">Request a seat!</a>
+    <a class="button" ng-if="passengerStatus === 'pending'" ng-click="cancelRide()">Pending - cancel?</a>
+    <a class="button" ng-if="passengerStatus === 'Passenger'" ng-click="cancelRide()">Cancel ride</a>
+  </div>
+
+  <a ui-sref="passengersIndex({festivalId: carShare.festival._id, carShareId: carShare._id})">This is the index - place this link ver the images of passengers</a>
+
+<div class="section" ng-if="carShare.createdBy._id === idCheck">
+  Organiser - See pending button index here - should go through to accept or reject.
+</div>
 
   <div class="column">
     <p>
@@ -27,5 +38,5 @@
 
     <a class="button" ng-if=" idCheck === carShare.createdBy._id " ng-click="deleteCarShare()({festivalId: carShare.festival._id, carShareId: carShare._id})" > <i class="far fa-trash-alt"></i></a>
 
-    <p> Seats available {{ carShare.totalSeats - carShare.passenger.length }}</p>
+    <p> Seats available {{ carShare.seatsRemaining }}</p>
 </div>

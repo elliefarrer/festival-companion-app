@@ -17,6 +17,7 @@
     </p>
   </div>
 </div>
+
 <div class="section">
   <a ui-sref="carSharesNew({ festivalId: festival._id })">
     Set up a car share
@@ -26,6 +27,7 @@
     <a ui-sref="carSharesShow({ festivalId: festival._id, carShareId: ride._id })">
       <img ng-src="{{ ride.createdBy.profilePic}}" alt="{{ ride.createdBy.firstName}}">
       <p> Grab a ride with {{ ride.createdBy.firstName }}
+        <p> Seats available {{ ride.seatsRemaining }}</p>
     </a>
   </div>
 

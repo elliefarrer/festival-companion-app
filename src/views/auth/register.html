@@ -1,5 +1,7 @@
 <p style="padding: 50px;">Welcome to your best festival companion! Already got an account? <a ui-sref="login">Log in!</a>Please register bellow</a>)</p>
 <form style="padding-left: 50px; padding-right: 50px"; ng-submit="register()" name="form" novalidate>
+
+
   <div style="padding-top: 10px;" class="field">
     <label class="label" for="firstName">First Name</label>
     <input required minLength="2" ng-model="user.firstName" class="input" type="text" name="firstName"placeholder="">
@@ -9,6 +11,7 @@
     <!-- <small ng-message="required">Please add first name</small> -->
     <!-- <small ng-message="minlength">That name is to short</small> -->
   <!-- </div> -->
+
 
   <div class="field">
     <label class="label" for="lastName">Last Name</label>

@@ -92,10 +92,11 @@ router.route('/festivals/:festivalId/carShares/:carShareId')
 router.route('/festivals/:festivalId/carShares/:carShareId/passengers')
   .all(secureRoute)
   .get(passengerController.index)
-  .post(passengerController.create)
+  .post(passengerController.create);
+
+
+router.route('/festivals/:festivalId/carShares/:carShareId/passengers/:passengerId')
   .delete(secureRoute, passengerController.delete);
-
-
 
 
 
@@ -106,9 +107,10 @@ router.route('/festivals/:festivalId/carShares/:carShareId/passengers')
 router.route('/festivals/:festivalId/carShares/:carShareId/pendingPassengers') //Shows pending passengers to user's car shares, only organiser can see this.
   .get(pendingPassengerRequestController.index);
 
-router.route('/festivals/:festivalId/carShares/:carShareId/pendingPassengers/:passengerId') //rejects request
-//only organiser can do this.
-  .delete(pendingPassengerRequestController.delete); //We can change the route of this if necessary
+router.route('/festivals/:festivalId/carShares/:carShareId/pendingPassengers/:passengerId')
+  .post(pendingPassengerRequestController.create)//accepts request
+// only organiser can do this.
+  .delete(pendingPassengerRequestController.delete); //We can change the route of this if necessary,rejects request - only organiser can do this.
 
 
 

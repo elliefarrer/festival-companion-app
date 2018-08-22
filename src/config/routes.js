@@ -91,17 +91,11 @@ function Router($stateProvider, $urlRouterProvider) {
       url: '/user/:userId/friendspending/:pendingFriendId',
       controller: 'FriendsPendingCtrl'
     })
-    .state('passengers', {
+    .state('passengersIndex', {
       templateUrl: './views/passengers/index.html',
-      url: '/festivals/:festivalId/carshare/:carShareId/passengers/:passengerId',
-      controller: 'PassengersCtrl'
+      url: '/festivals/:festivalId/carShares/:carShareId/passengers',
+      controller: 'PassengersIndexCtrl'
     })
-    .state('pendingPassengers', {
-      templateUrl: './views/passengerspending/index.html',
-      url: '/festivals/:festivalId/carShares/:carShareId/pendingPassengers',
-      controller: 'CarSharesShowCtrl'
-    })
-
     .state('attendeesIndex', {
       templateUrl: './views/attendees/index.html',
       url: '/festivals/:id/attendees',
