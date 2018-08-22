@@ -6,6 +6,9 @@ function FestivalsNewCtrl($http, $scope, $state) {
       url: '/api/festivals',
       data: $scope.festival
     })
+      .then(festival => {
+        $scope.festival.headlining = festival.headling.split(',');
+      })
       .then(() => $state.go('festivalsIndex'));
   };
 }
