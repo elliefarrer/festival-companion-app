@@ -1,7 +1,7 @@
 /* global L */
 const moment = require('moment');
 
-function FestivalsShowCtrl($http, $scope, $state, $auth) {
+function FestivalsShowCtrl($http, $scope, $state, $auth, $timeout) {
 
   $scope.loggedInUser = $auth.getPayload().sub;
 
@@ -92,6 +92,53 @@ function FestivalsShowCtrl($http, $scope, $state, $auth) {
           $scope.dayThreeCelsius = Math.round(((res.data.daily.data[2].temperatureHigh - 32) * 5) / 9);
           $scope.dayFourCelsius = Math.round(((res.data.daily.data[3].temperatureHigh - 32) * 5) / 9);
           $scope.dayFiveCelsius = Math.round(((res.data.daily.data[4].temperatureHigh - 32) * 5) / 9);
+
+          ////////////////// ICONS /////////////////////////////////
+          $scope.todayIcon = res.data.daily.data[0].icon;
+          $scope.tomorrowIcon = res.data.daily.data[1].icon;
+          $scope.dayThreeIcon = res.data.daily.data[2].icon;
+          $scope.dayFourIcon = res.data.daily.data[3].icon;
+          $scope.dayFiveIcon = res.data.daily.data[4].icon;
+
+
+          function getIcon() {
+            const icons = new Skycons({ 'color': '#36223B' });
+            const list = [ 'clear-day', 'clear-night', 'partly-cloudy-day','partly-cloudy-night', 'cloudy', 'rain', 'sleet', 'snow', 'wind', 'fog' ];
+            for(let i = list.length; i--; ){
+              icons.set(list[i], list[i]);
+            }
+            icons.play();
+          }
+
+            $scope.$watch('todayIcon', function() {
+              if($scope.todayIcon) {
+                getIcon();
+              }
+            });
+
+            $scope.$watch('tomorrowIcon', function() {
+              if($scope.tomorrowIcon) {
+                getIcon();
+              }
+            });
+
+            $scope.$watch('dayThreeIcon', function() {
+              if($scope.dayThreeIcon) {
+                getIcon();
+              }
+            });
+
+            $scope.$watch('dayFourIcon', function() {
+              if($scope.dayFourIcon) {
+                getIcon();
+              }
+            });
+
+            $scope.$watch('dayFiveIcon', function() {
+              if($scope.dayFiveIcon) {
+                getIcon();
+              }
+            });
         });
       });
 
