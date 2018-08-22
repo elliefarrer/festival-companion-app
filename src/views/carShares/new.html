@@ -21,8 +21,18 @@
   </div>
 
   <div class="field">
+    <label class="label" for="departureDate">Date departing:</label>
+    <input ng-model="carShare.departureDate" class="input" type="text" name="departureDate" placeholder="">
+  </div>
+
+  <div class="field">
+    <label class="label" for="returnDate">Date returning:</label>
+    <input ng-model="carShare.returnDate" class="input" type="text" name="returnDate" placeholder="">
+  </div>
+
+  <div class="field">
     <label class="label" for="rideStartTime">Ride start time</label>
-    <input ng-model="carShare.rideStartTime" class="input" type="text" name="rideStartTime" placeholder="">
+    <input ng-model="carShare.rideStartTime" class="input" type="time" name="rideStartTime" placeholder="">
   </div>
 
   <div class="field">

@@ -4,6 +4,8 @@ const carShareSchema = mongoose.Schema({
   createdBy: { type: mongoose.Schema.ObjectId, ref: 'User' },
   festival: { type: mongoose.Schema.ObjectId, ref: 'Festival' },
   rideStartTime: { type: String },
+  departureDate: { type: String},
+  returnDate: { type: String},
   estimatedRideEndTime: { type: String }, // get from MapQuest/Direction API
   from: {
     postcode: { type: String }, // put into Nominatim
