@@ -26,8 +26,8 @@ function passengerIndex(req, res, next) { //shows the passengers of the car
   //share user is currently on.
   CarShare
     .findById(req.params.carShareId)
-    .populate('passengers')
-    .then(carShare => res.json(carShare.passengers))
+    .populate('passengers pendingPassengers')
+    .then(carShare => res.json(carShare))
     .catch(next);
 }
 
@@ -53,20 +53,18 @@ function passengerCreate(req, res, next) {
           return carShare.save();
         });
     })
-    .then((carShare) => res.json(carShare.pendingPassengers))
+    .then((carShare) => res.json(carShare))
     .catch(next);
 }
 
-// removing a passenger from the carShare (organiser only), deletes from both existing and pending.
+// cancelling passenger status, deletes from both existing and pending.
 function passengerDelete(req, res, next) {
   const carShareId = req.params.carShareId;
-  getTokenFromHttpRequest(req);
+  const passengerId = req.params.passengerId;
   User
-    .findById(userId)
+    .findById(passengerId)
     .then(user => {
-      user.carShares = user.carShares.filter(carShare => {
-        carShare !== carShareId;
-      });
+      user.carShares = user.carShares.filter(carShare =>  carShare.toString() !== carShareId);
       console.log(user);
       return user.save();
     })
@@ -75,19 +73,16 @@ function passengerDelete(req, res, next) {
         .findById(carShareId)
         .then(carShare => {
 
-          carShare.passengers = carShare.passengers.filter(passengerId => {
-            passengerId !== userId;
-          });
+          carShare.passengers = carShare.passengers.filter(passenger => passenger.toString() !== passengerId);
 
-          carShare.pendingPassengers = carShare.pendingPassengers.filter(passengerId => {
-            passengerId !== userId;
-          });
+          carShare.pendingPassengers = carShare.pendingPassengers.filter(passenger => passenger.toString() !== passengerId);
           return carShare.save();
         });
     })
-    .then(() => res.sendStatus(204))
+    .then((carShare) => res.sendStatus(204).json(carShare))
     .catch(next);
 }
+
 
 module.exports = {
   index: passengerIndex,

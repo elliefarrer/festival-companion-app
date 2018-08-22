@@ -17,7 +17,7 @@ const sessionController = require('../controllers/sessionController');
 const attendeeController = require('../controllers/attendeeController');
 const pendingPassengerRequestController = require('../controllers/pendingPassengerRequestController');
 const passengerController = require('../controllers/passengerController');
-const markerController = require('../controllers/markerController');
+
 
 
 
@@ -56,12 +56,6 @@ router.route('/festivals/:id')
   .delete(festivalController.delete);
 
 
-//////////////////////////// Map marker routes ////////////////////////////////
-
-router.route('/festivals/:id/markers')
-  .post(markerController.create);
-
-
 ////////////////////////// Attendee routes ///////////////////////////////////
 
 
@@ -98,10 +92,11 @@ router.route('/festivals/:festivalId/carShares/:carShareId')
 router.route('/festivals/:festivalId/carShares/:carShareId/passengers')
   .all(secureRoute)
   .get(passengerController.index)
-  .post(passengerController.create)
+  .post(passengerController.create);
+
+
+router.route('/festivals/:festivalId/carShares/:carShareId/passengers/:passengerId')
   .delete(secureRoute, passengerController.delete);
-
-
 
 
 
@@ -112,9 +107,10 @@ router.route('/festivals/:festivalId/carShares/:carShareId/passengers')
 router.route('/festivals/:festivalId/carShares/:carShareId/pendingPassengers') //Shows pending passengers to user's car shares, only organiser can see this.
   .get(pendingPassengerRequestController.index);
 
-router.route('/festivals/:festivalId/carShares/:carShareId/pendingPassengers/:passengerId') //rejects request
-//only organiser can do this.
-  .delete(pendingPassengerRequestController.delete); //We can change the route of this if necessary
+router.route('/festivals/:festivalId/carShares/:carShareId/pendingPassengers/:passengerId')
+  .post(pendingPassengerRequestController.create)//accepts request
+// only organiser can do this.
+  .delete(pendingPassengerRequestController.delete); //We can change the route of this if necessary,rejects request - only organiser can do this.
 
 
 

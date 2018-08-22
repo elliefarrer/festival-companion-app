@@ -20,14 +20,18 @@ function CarSharesNewCtrl($http, $scope, $state) {
     url: `/api/festivals/${$state.params.festivalId}`
   })
     .then((res) => {
-      console.log('festival is', res.data);
+      // console.log('festival is', res.data);
       $scope.festival = res.data;
       // Prepopulate the form with festival data
       $scope.carShare = {};
       $scope.carShare.to = {};
+<<<<<<< HEAD
       $scope.carShare.departureDate = res.data.startDate;
       $scope.carShare.returnDate = res.data.endDate;
+=======
+>>>>>>> development
       $scope.carShare.to.postcode = res.data.location.postcode;
+
       // TODO: Add festival start date to the ride share form
     });
 }
