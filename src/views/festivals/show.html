@@ -20,7 +20,53 @@
 </div>
 
 <div class="section">
-  <p>Weather</p>
+<div class="columns is-mobile">
+  <div class="column is-one-fifth">
+    <figure>
+      <canvas class="weathericon" id="{{todayIcon}}" width="50" height="50"></canvas>
+    </figure>
+    <p>Today</p>
+    <p>{{ todayCelsius }}ºC</p>
+    <p>{{ weather.currently.summary }}</p>
+    <p>Chance of rain: {{ todayRain }}%</p>
+  </div>
+  <div class="column is-one-fifth">
+    <figure>
+      <canvas id="{{tomorrowIcon}}" width="50" height="50"></canvas>
+    </figure>
+    <p>Tomorrow</p>
+    <p>{{ tomorrowCelsius }}ºC</p>
+    <p>{{ tomorrowWeather.summary }}</p>
+    <p>Chance of rain: {{ tomorrowRain }}%</p>
+  </div>
+  <div class="column is-one-fifth">
+    <figure>
+      <canvas id="{{dayThreeIcon}}" width="50" height="50"></canvas>
+    </figure>
+    <p>{{ dayThreeDate }}</p>
+    <p>{{ dayThreeCelsius }}ºC</p>
+    <p>{{ dayThreeWeather.summary }}</p>
+    <p>Chance of rain: {{ dayThreeRain }}%</p>
+  </div>
+  <div class="column is-one-fifth">
+    <figure>
+      <canvas id="{{dayFourIcon}}" width="50" height="50"></canvas>
+    </figure>
+    <p>{{ dayFourDate }}</p>
+    <p>{{ dayFourCelsius }}ºC</p>
+    <p>{{ dayFourWeather.summary }}</p>
+    <p>Chance of rain: {{ dayFourRain }}%</p>
+  </div>
+  <div class="column is-one-fifth">
+    <figure>
+      <canvas id="{{dayFiveIcon}}" width="50" height="50"></canvas>
+    </figure>
+    <p>{{ dayFiveDate }}</p>
+    <p>{{ dayFiveCelsius }}ºC</p>
+    <p>{{ dayFiveWeather.summary }}</p>
+    <p>Chance of rain: {{ dayFiveRain }}%</p>
+  </div>
+</div>
 </div>
 
 <div class="section">

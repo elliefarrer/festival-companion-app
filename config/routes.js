@@ -17,8 +17,7 @@ const sessionController = require('../controllers/sessionController');
 const attendeeController = require('../controllers/attendeeController');
 const pendingPassengerRequestController = require('../controllers/pendingPassengerRequestController');
 const passengerController = require('../controllers/passengerController');
-
-
+const weatherController = require('../controllers/weatherController');
 
 
 
@@ -54,6 +53,12 @@ router.route('/festivals/:id')
   .get(festivalController.show)
   .put(festivalController.update)
   .delete(festivalController.delete);
+
+
+/////////////////////////////// Weather //////////////////////////////////////////////
+
+router.route('/weather')
+  .get(weatherController.forecast);
 
 
 ////////////////////////// Attendee routes ///////////////////////////////////
@@ -161,6 +166,8 @@ router.route('/user/:userId/friends/:friendId')
 // view page until friend accepts. When showing index, can make it so that
 // You cannot see their profile page unless you are both in each others friends
 // lists
+
+
 
 
 /////////// Festivals attending /Carshare - passenger/ Organised ///////////////
