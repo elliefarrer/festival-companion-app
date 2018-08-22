@@ -15,6 +15,7 @@ function MainCtrl($auth, $scope, $state, $rootScope, $timeout) {
   $scope.logout = function() {
     $auth.logout().then(() => {
       console.log('LOGGED USER OUT!!!');
+      localStorage.setItem('currentUser', null);
       $rootScope.loggedInUser = null;
       $rootScope.loggedInfirstName = null;
     });
