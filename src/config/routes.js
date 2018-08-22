@@ -102,6 +102,12 @@ function Router($stateProvider, $urlRouterProvider) {
       controller: 'AttendeesIndexCtrl'
     })
 
+    .state('mapsNew', {
+      templateUrl: './views/maps/new.html',
+      url: '/festivals/:id/markers/new',
+      controller: 'MapsNewCtrl'
+    })
+
     .state('usersShow', {
       templateUrl: './views/users/show.html',
       url: '/usersShow/:id',
