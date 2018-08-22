@@ -25,11 +25,8 @@ function CarSharesNewCtrl($http, $scope, $state) {
       // Prepopulate the form with festival data
       $scope.carShare = {};
       $scope.carShare.to = {};
-<<<<<<< HEAD
       $scope.carShare.departureDate = res.data.startDate;
       $scope.carShare.returnDate = res.data.endDate;
-=======
->>>>>>> development
       $scope.carShare.to.postcode = res.data.location.postcode;
 
       // TODO: Add festival start date to the ride share form
