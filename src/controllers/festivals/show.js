@@ -1,4 +1,6 @@
 /* global L */
+const moment = require('moment');
+
 function FestivalsShowCtrl($http, $scope, $state, $auth) {
 
   $scope.loggedInUser = $auth.getPayload().sub;
@@ -8,21 +10,21 @@ function FestivalsShowCtrl($http, $scope, $state, $auth) {
       method: 'DELETE',
       url: `/api/festivals/${$state.params.id}`
     })
-      .then(res => {
-        console.log('Deleted festival', res.data);
-        $state.go('festivalsIndex');
-      });
+    .then(res => {
+      console.log('Deleted festival', res.data);
+      $state.go('festivalsIndex');
+    });
   };
   $http({
     method: 'GET',
     url: `/api/festivals/${$state.params.id}`
   })
-    .then(res => {
-      console.log('Found a festival', res.data);
-      $scope.festival = res.data;
-      $scope.attendance = $scope.festival.attendees.map(attendee => attendee._id).includes($scope.loggedInUser);
-      festivalMap(res.data);
-    });
+  .then(res => {
+    console.log('Found a festival', res.data);
+    $scope.festival = res.data;
+    $scope.attendance = $scope.festival.attendees.map(attendee => attendee._id).includes($scope.loggedInUser);
+    festivalMap(res.data);
+  });
 
   function festivalMap(festival) {
     const postcode = festival.location.postcode;
@@ -35,17 +37,19 @@ function FestivalsShowCtrl($http, $scope, $state, $auth) {
         location: postcode
       }
     })
-      .then(res => {
-        const placeLat = res.data.results[0].locations[0].latLng.lat;
-        const placeLng = res.data.results[0].locations[0].latLng.lng;
-        $scope.map.setView([placeLat, placeLng], 13);
-        const popupImg = $scope.festival.photoUrl;
-        const popupName = $scope.festival.name;
-        const popupAddress = $scope.festival.location.address;
-        const marker = L.marker([placeLat, placeLng]).addTo($scope.map);
-        marker.bindPopup(`<img src=${popupImg} alt=${popupName}  /><p>${popupName}, ${popupAddress}</p>`).openPopup();
-      });
+    .then(res => {
+      const placeLat = res.data.results[0].locations[0].latLng.lat;
+      const placeLng = res.data.results[0].locations[0].latLng.lng;
+      $scope.map.setView([placeLat, placeLng], 13);
+      const popupImg = $scope.festival.photoUrl;
+      const popupName = $scope.festival.name;
+      const popupAddress = $scope.festival.location.address;
+      const marker = L.marker([placeLat, placeLng]).addTo($scope.map);
+      marker.bindPopup(`<img src=${popupImg} alt=${popupName}  /><p>${popupName}, ${popupAddress}</p>`).openPopup();
+    });
   }
+
+  let searchCoords;
 
   $scope.$watch('festival', function() {
     if($scope.festival) {
@@ -53,11 +57,20 @@ function FestivalsShowCtrl($http, $scope, $state, $auth) {
         method: 'GET',
         url: `https://nominatim.openstreetmap.org/search/${$scope.festival.location.postcode}?format=json`
       })
-        .then(res => {
-          const searchCoords = res.data.sort((a, b) => a.importance < b.importance)[0];
-          console.log('Found them', searchCoords);
-          $scope.searchCoords = searchCoords;
-        });
+      .then(res => {
+        searchCoords = res.data.sort((a, b) => a.importance < b.importance)[0];
+        console.log('Found them', searchCoords);
+        $scope.searchCoords = searchCoords;
+      });
+
+      $http({
+        method: 'GET',
+        url: 'https://api.darksky.net/forecast/',
+        params: { lat: $scope.searchCoords.lat, lng: $scope.searchCoords.lng }
+      })
+      .then(res => {
+        console.log('The weather is', res.data);
+      });
     }
   });
 
@@ -66,11 +79,11 @@ function FestivalsShowCtrl($http, $scope, $state, $auth) {
       method: 'POST',
       url: `/api/festivals/${$state.params.id}/attendees`
     })
-      .then(res=> {
-        // console.log(res.data);
-        $scope.attendance = res.data.festivalsAttending.toString().includes($scope.festival._id);
-        // console.log('this is the attendance', $scope.attendance);
-      });
+    .then(res=> {
+      // console.log(res.data);
+      $scope.attendance = res.data.festivalsAttending.toString().includes($scope.festival._id);
+      // console.log('this is the attendance', $scope.attendance);
+    });
   };
 
   $scope.notAttending = function() {
@@ -78,11 +91,11 @@ function FestivalsShowCtrl($http, $scope, $state, $auth) {
       method: 'DELETE',
       url: `/api/festivals/${$state.params.id}/attendees`
     })
-      .then(res => {
-        // console.log(res.data);
-        $scope.attendance = res.data.festivalsAttending.toString().includes($scope.festival._id);
-        // console.log('this is the attendance', $scope.attendance);
-      });
+    .then(res => {
+      // console.log(res.data);
+      $scope.attendance = res.data.festivalsAttending.toString().includes($scope.festival._id);
+      // console.log('this is the attendance', $scope.attendance);
+    });
 
   };
 

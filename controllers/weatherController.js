@@ -1,7 +1,7 @@
 const rp = require('request-promise');
 const { darkskiesApiKey } = require('../config/environment');
 
-function getWeather(req, res, next) {
+function forecast(req, res, next) {
   const reqQuery = req.query;
   rp({
     method: 'GET',
@@ -12,4 +12,6 @@ function getWeather(req, res, next) {
     .catch(next);
 }
 
-module.exports = getWeather;
+module.exports = {
+  forecast: forecast
+};
