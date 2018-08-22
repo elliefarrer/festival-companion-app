@@ -73,6 +73,7 @@ function FestivalsShowCtrl($http, $scope, $state, $auth) {
           console.log('Y u still no work', $scope.searchCoords);
           $scope.weather = res.data
           console.log('The weather is', $scope.weather);
+          $scope.celsius = Math.round(((res.data.currently.temperature - 32) * 5) / 9);
         });
       });
 

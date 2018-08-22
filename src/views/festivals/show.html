@@ -20,7 +20,10 @@
 </div>
 
 <div class="section">
-  <p>Weather</p>
+  <p>Summary: {{ weather.currently.summary }}</p>
+  <p>Temperature: {{ celsius }}ºC</p>
+  <p>Chance of rain: {{ weather.currently.precipProbability }}%</p>
+  <p>UV Index: {{ weather.currently.uvIndex }}</p>
 </div>
 
 <div class="section">
