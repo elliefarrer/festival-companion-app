@@ -102,6 +102,12 @@ function Router($stateProvider, $urlRouterProvider) {
       controller: 'AttendeesIndexCtrl'
     })
 
+    .state('searchIndex', {
+      templateUrl: './views/search/index.html',
+      url: '/search',
+      controller: 'SearchCtrl'
+    })
+
     .state('usersShow', {
       templateUrl: './views/users/show.html',
       url: '/usersShow/:id',

@@ -1,7 +1,7 @@
 /* global L */
 const moment = require('moment');
 
-function FestivalsShowCtrl($http, $scope, $state, $auth) {
+function FestivalsShowCtrl($http, $scope, $state, $auth, $timeout) {
 
   $scope.loggedInUser = $auth.getPayload().sub;
 
@@ -119,31 +119,31 @@ function FestivalsShowCtrl($http, $scope, $state, $auth) {
 
               $scope.$watch('todayIcon', function() {
                 if($scope.todayIcon) {
-                  getIcon();
+                  $timeout(getIcon, 1);
                 }
               });
 
               $scope.$watch('tomorrowIcon', function() {
                 if($scope.tomorrowIcon) {
-                  getIcon();
+                  $timeout(getIcon, 1);
                 }
               });
 
               $scope.$watch('dayThreeIcon', function() {
                 if($scope.dayThreeIcon) {
-                  getIcon();
+                  $timeout(getIcon, 1);
                 }
               });
 
               $scope.$watch('dayFourIcon', function() {
                 if($scope.dayFourIcon) {
-                  getIcon();
+                  $timeout(getIcon, 1);
                 }
               });
 
               $scope.$watch('dayFiveIcon', function() {
                 if($scope.dayFiveIcon) {
-                  getIcon();
+                  $timeout(getIcon, 1);
                 }
               });
             });

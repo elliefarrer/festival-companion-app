@@ -18,9 +18,16 @@
         <div class="mobile">
           <nav class="navbar mobile" role="navigation" aria-label="main navigation">
             <div class="navbar-brand">
-              <div class="navbar-item search-Bar">
-                <form class="/search/festivals/index" method="POST">
-                  <div class="field has-addons">
+
+
+              <input type="text" ng-model="searchBox">
+
+
+
+              <!-- <div class="navbar-item search-Bar"> -->
+                <!-- <form class="/search/festivals/index" method="POST"> -->
+                <!-- <form>
+                  <div class="field has-addons search">
                     <div class="control">
                       <input ng-if="isAuthenticated()" class="input" type="text" name="searchTerm" placeholder="search festival">
                     </div>
@@ -29,7 +36,8 @@
                     </div>
                   </div>
                 </form>
-              </div>
+              </div> -->
+
               <section ng-if="isAuthenticated()" class="container">
                 <div class="">
                   <img class="headerImage" ng-src="{{ currentUser().image }}" alt="{{ user.name }}">
