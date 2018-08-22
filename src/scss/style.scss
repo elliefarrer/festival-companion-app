@@ -1,3 +1,5 @@
+$footer-background-color: #36223B;
+
 body {
   background: url('https://i.imgur.com/pOeWpw2.png') fixed center/cover;
   min-height: 700px;
@@ -25,6 +27,7 @@ body {
 .map {
   height: 300px;
   width: 90vw;
+  z-index: 0;
 
 }
 
@@ -45,6 +48,7 @@ body {
 .userMap {
   height: 150px;
   width: 90vw;
+  z-index: 0;
 }
 /////////// car share index /////////
 .car-share-title {
@@ -305,4 +309,28 @@ body {
   left: -10px;
   border: 4px solid #36223B;
 
+}
+
+////////////////// FESTIVAL SHOW //////////////////
+
+.festival-show-button {
+  margin-bottom: 8rem;
+}
+
+footer {
+  background-color: $footer-background-color;
+  color: #ffffff;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+  .subtitle {
+    color: #ffffff;
+    text-transform: uppercase;
+    margin: 0.5rem 0 0 0.5rem;
+  }
+  .columns {
+    margin: 0.5 0 0 0.5rem;
+  }
 }
