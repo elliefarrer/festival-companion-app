@@ -1,27 +1,39 @@
-<p> I am at the passengers index </p>
-<p> I am at the passengers index </p>
-<p> I am at the passengers index </p>
-<p> I am at the passengers index </p>
-<p> I am at the passengers index </p>
+<div class="section passenger-section passenger-wrapper">
 
-<p>the pending passengers will be at the top - only the organiser can see these and choose to reject or accept.</p>
+  <a  class="button festival-button update-button" ng-if="carShare.passengers.length > 0 || carShare.pendingPassengers.length > 0" ng-click=reloadRoute()>Update</a>
 
-<button  ng-if="carShare.passengers.length > 0 || carShare.pendingPassengers.length > 0" ng-click=reloadRoute()>Update</button>
+  <div class="passenger-panels" ng-if="carShare.createdBy === idCheck" ng-repeat="pendingPassenger in carShare.pendingPassengers">
+    <div class="passenger-text-wrapper">
+      <img class="passenger-profile-picture-2" ng-src="{{ pendingPassenger.image }}" alt="{{ pendingPassenger.firstName }}">
+      <p class="has-text-white passenger-index-text indent"><b>{{ pendingPassenger.firstName }} {{ pendingPassenger.lastName }}</b> has requested a seat!</p>
 
-<div class="" ng-if="carShare.createdBy === idCheck" ng-repeat="pendingPassenger in carShare.pendingPassengers">
-  <p>{{ pendingPassenger.firstName }}</p>
-<a ng-if="pendingPassenger.carShares.includes(carShare._id)" ng-click="acceptPassengerRequest(pendingPassenger._id)" class="button">Accept</a>
-<a ng-if="pendingPassenger.carShares.includes(carShare._id)"  ng-click="rejectPassengerRequest(pendingPassenger._id)" class="button">Reject</a>
-</div>
+    </div>
 
 
-<div class="" ng-repeat="passenger in carShare.passengers">
-  <p>{{ passenger.firstName }}</p>
-  need to link to their user profile
-  <a ng-click="removePassenger(passenger._id)" class="button">Remove</a>
-</div>
+    <a ng-if="pendingPassenger.carShares.includes(carShare._id)" ng-click="acceptPassengerRequest(pendingPassenger._id)" class="button festival-button accept-button">Accept</a>
+
+    <a ng-if="pendingPassenger.carShares.includes(carShare._id)"  ng-click="rejectPassengerRequest(pendingPassenger._id)" class="button festival-button reject-button">Reject</a>
+
+  </div>
+
+
+  <div class="passenger-panels" ng-repeat="passenger in carShare.passengers">
+    <div class="passenger-text-wrapper-2">
+
+    <p class="has-text-white passenger-index-text indent"><b>{{ passenger.firstName }} {{ passenger.lastName }}</b> is currently a passenger on this car share</p>
+
+
+    <img class="passenger-profile-picture-2" ng-src="{{ passenger.image }}">
+
+    <a ng-if="carShare.createdBy === idCheck" ng-click="removePassenger(passenger._id)" class="button festival-button remove-button">Remove</a>
+
+    <a ng-if="carShare.createdBy !== idCheck" ng-click="removePassenger(passenger._id)" class="button festival-button">Cancel</a>
+    </div>
+  </div>
 
 
 
+
+  </div>
 
 </div>

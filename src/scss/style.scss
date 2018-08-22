@@ -220,4 +220,83 @@ body {
 
 //////////////////////////////
 
-/////////// Car share new /////////
+////////// Passenger Index /////////
+
+.festival-button {
+  background: rgb(50, 203, 136);
+  color: white;
+  text-transform: uppercase;
+  margin-top: -9px;
+  font-size: 0.7em;
+}
+
+.passenger-section {
+  padding: 20px 10px;
+
+}
+
+.passenger-wrapper {
+  position: relative;
+}
+.update-button {
+  position: absolute;
+  right: 20px;
+}
+.passenger-index-text{
+  font-size: 0.8em;
+}
+
+.passenger-panels {
+  border-radius: 5px;
+  background-color: #36223B;
+  margin: 25px 10px;
+  position: relative;
+  padding: 10px 10px 10px 30px;
+
+}
+
+.accept-button {
+  position: absolute;
+  right: 60px;
+  width: 50px;
+  top: 25px;
+}
+
+.reject-button {
+  position: absolute;
+  right: 5px;
+  width: 50px;
+  top: 25px;
+}
+
+.remove-button {
+  position: absolute;
+  right: 5px;
+  width: 50px;
+  top: 25px;
+}
+
+.passenger-text-wrapper {
+  width: 195px;
+}
+
+.passenger-text-wrapper-2 {
+  width: 245px;
+}
+
+.indent {
+  text-indent: 10px;
+}
+
+.passenger-profile-picture-2 {
+  height: 50px;
+  min-height: 50px;
+  width: 50px;
+  min-width: 50px;
+  border-radius: 50%;
+  position: absolute;
+  top: -20px;
+  left: -10px;
+  border: 4px solid #36223B;
+
+}
