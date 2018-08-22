@@ -1,3 +1,4 @@
+/* global L */
 function FestivalsShowCtrl($http, $scope, $state, $auth) {
 
   $scope.loggedInUser = $auth.getPayload().sub;
@@ -20,12 +21,31 @@ function FestivalsShowCtrl($http, $scope, $state, $auth) {
       console.log('Found a festival', res.data);
       $scope.festival = res.data;
       $scope.attendance = $scope.festival.attendees.map(attendee => attendee._id).includes($scope.loggedInUser);
+      festivalMap(res.data);
     });
 
-
-
-
-
+  function festivalMap(festival) {
+    const postcode = festival.location.postcode;
+    console.log('Search for', postcode);
+    $http({
+      method: 'GET',
+      url: 'http://www.mapquestapi.com/geocoding/v1/address',
+      params: {
+        key: $scope.API_KEY,
+        location: postcode
+      }
+    })
+      .then(res => {
+        const placeLat = res.data.results[0].locations[0].latLng.lat;
+        const placeLng = res.data.results[0].locations[0].latLng.lng;
+        $scope.map.setView([placeLat, placeLng], 13);
+        const popupImg = $scope.festival.photoUrl;
+        const popupName = $scope.festival.name;
+        const popupAddress = $scope.festival.location.address;
+        const marker = L.marker([placeLat, placeLng]).addTo($scope.map);
+        marker.bindPopup(`<img src=${popupImg} alt=${popupName}  /><p>${popupName}, ${popupAddress}</p>`).openPopup();
+      });
+  }
 
 
   $scope.attending = function() {

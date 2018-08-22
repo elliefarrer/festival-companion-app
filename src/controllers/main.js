@@ -8,6 +8,10 @@ function MainCtrl($auth, $scope, $state, $rootScope, $timeout) {
     $timeout(() => $scope.flashMessage = null, 4000);
   });
 
+  $scope.currentUser = function() {
+    return JSON.parse(localStorage.getItem('currentUser'));
+  };
+
   $scope.logout = function() {
     $auth.logout().then(() => {
       console.log('LOGGED USER OUT!!!');
