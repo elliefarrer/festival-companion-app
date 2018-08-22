@@ -28,7 +28,7 @@
     <p>Today</p>
     <p>{{ todayCelsius }}ºC</p>
     <p>{{ weather.currently.summary }}</p>
-    <p>Chance of rain: {{ weather.currently.precipProbability }}%</p>
+    <p>Chance of rain: {{ todayRain }}%</p>
   </div>
   <div class="column is-one-fifth">
     <figure>
@@ -37,7 +37,7 @@
     <p>Tomorrow</p>
     <p>{{ tomorrowCelsius }}ºC</p>
     <p>{{ tomorrowWeather.summary }}</p>
-    <p>Chance of rain: {{ tomorrowWeather.precipProbability }}%</p>
+    <p>Chance of rain: {{ tomorrowRain }}%</p>
   </div>
   <div class="column is-one-fifth">
     <figure>
@@ -46,7 +46,7 @@
     <p>{{ dayThreeDate }}</p>
     <p>{{ dayThreeCelsius }}ºC</p>
     <p>{{ dayThreeWeather.summary }}</p>
-    <p>Chance of rain: {{ dayThreeWeather.precipProbability }}%</p>
+    <p>Chance of rain: {{ dayThreeRain }}%</p>
   </div>
   <div class="column is-one-fifth">
     <figure>
@@ -55,7 +55,7 @@
     <p>{{ dayFourDate }}</p>
     <p>{{ dayFourCelsius }}ºC</p>
     <p>{{ dayFourWeather.summary }}</p>
-    <p>Chance of rain: {{ dayFourWeather.precipProbability }}%</p>
+    <p>Chance of rain: {{ dayFourRain }}%</p>
   </div>
   <div class="column is-one-fifth">
     <figure>
@@ -64,14 +64,9 @@
     <p>{{ dayFiveDate }}</p>
     <p>{{ dayFiveCelsius }}ºC</p>
     <p>{{ dayFiveWeather.summary }}</p>
-    <p>Chance of rain: {{ dayFiveWeather.precipProbability }}%</p>
+    <p>Chance of rain: {{ dayFiveRain }}%</p>
   </div>
 </div>
-  <!-- <p>Tomorrow date: {{ tomorrow }}</p>
-  <p>Summary: {{ weather.currently.summary }}</p>
-  <p>Temperature: {{ celsius }}ºC</p>
-  <p>Chance of rain: {{ weather.currently.precipProbability }}%</p>
-  <p>UV Index: {{ weather.currently.uvIndex }}</p> -->
 </div>
 
 <div class="section">

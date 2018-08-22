@@ -86,6 +86,13 @@ function FestivalsShowCtrl($http, $scope, $state, $auth, $timeout) {
           $scope.dayFourWeather = res.data.daily.data[3];
           $scope.dayFiveWeather = res.data.daily.data[4];
 
+          ////////////////////// CHANCE OF RAIN ////////////////////////////////
+          $scope.todayRain = (res.data.currently.precipProbability) * 100;
+          $scope.tomorrowRain = (res.data.daily.data[1].precipProbability) * 100;
+          $scope.dayThreeRain = (res.data.daily.data[2].precipProbability) * 100;
+          $scope.dayFourRain = (res.data.daily.data[3].precipProbability) * 100;
+          $scope.dayFiveRain = (res.data.daily.data[4].precipProbability) * 100;
+
           /////////////// CELSIUS TEMPERATURES //////////////////////
           $scope.todayCelsius = Math.round(((res.data.currently.temperature - 32) * 5) / 9);
           $scope.tomorrowCelsius = Math.round(((res.data.daily.data[1].temperatureHigh - 32) * 5) / 9);
