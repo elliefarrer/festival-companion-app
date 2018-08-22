@@ -20,10 +20,43 @@
 </div>
 
 <div class="section">
+<div class="columns is-mobile">
+  <div class="column is-one-fifth">
+    <p>Today</p>
+    <p>{{ todayCelsius }}ºC</p>
+    <p>{{ weather.currently.summary }}</p>
+    <p>Chance of rain: {{ weather.currently.precipProbability }}%</p>
+  </div>
+  <div class="column is-one-fifth">
+    <p>Tomorrow</p>
+    <p>{{ tomorrowCelsius }}ºC</p>
+    <p>{{ tomorrowWeather.summary }}</p>
+    <p>Chance of rain: {{ tomorrowWeather.precipProbability }}%</p>
+  </div>
+  <div class="column is-one-fifth">
+    <p>{{ dayThreeDate }}</p>
+    <p>{{ dayThreeCelsius }}ºC</p>
+    <p>{{ dayThreeWeather.summary }}</p>
+    <p>Chance of rain: {{ dayThreeWeather.precipProbability }}%</p>
+  </div>
+  <div class="column is-one-fifth">
+    <p>{{ dayFourDate }}</p>
+    <p>{{ dayFourCelsius }}ºC</p>
+    <p>{{ dayFourWeather.summary }}</p>
+    <p>Chance of rain: {{ dayFourWeather.precipProbability }}%</p>
+  </div>
+  <div class="column is-one-fifth">
+    <p>{{ dayFiveDate }}</p>
+    <p>{{ dayFiveCelsius }}ºC</p>
+    <p>{{ dayFiveWeather.summary }}</p>
+    <p>Chance of rain: {{ dayFiveWeather.precipProbability }}%</p>
+  </div>
+</div>
+  <!-- <p>Tomorrow date: {{ tomorrow }}</p>
   <p>Summary: {{ weather.currently.summary }}</p>
   <p>Temperature: {{ celsius }}ºC</p>
   <p>Chance of rain: {{ weather.currently.precipProbability }}%</p>
-  <p>UV Index: {{ weather.currently.uvIndex }}</p>
+  <p>UV Index: {{ weather.currently.uvIndex }}</p> -->
 </div>
 
 <div class="section">

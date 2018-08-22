@@ -73,7 +73,25 @@ function FestivalsShowCtrl($http, $scope, $state, $auth) {
           console.log('Y u still no work', $scope.searchCoords);
           $scope.weather = res.data
           console.log('The weather is', $scope.weather);
-          $scope.celsius = Math.round(((res.data.currently.temperature - 32) * 5) / 9);
+
+
+          //////////// DATES ///////////////
+          $scope.dayThreeDate = moment.unix(res.data.daily.data[2].time).format('dddd');
+          $scope.dayFourDate = moment.unix(res.data.daily.data[3].time).format('dddd');
+          $scope.dayFiveDate = moment.unix(res.data.daily.data[4].time).format('dddd');
+
+          //////////// FUTURE FORECAST DATA ////////////////////
+          $scope.tomorrowWeather = res.data.daily.data[1];
+          $scope.dayThreeWeather = res.data.daily.data[2];
+          $scope.dayFourWeather = res.data.daily.data[3];
+          $scope.dayFiveWeather = res.data.daily.data[4];
+
+          /////////////// CELSIUS TEMPERATURES //////////////////////
+          $scope.todayCelsius = Math.round(((res.data.currently.temperature - 32) * 5) / 9);
+          $scope.tomorrowCelsius = Math.round(((res.data.daily.data[1].temperatureHigh - 32) * 5) / 9);
+          $scope.dayThreeCelsius = Math.round(((res.data.daily.data[2].temperatureHigh - 32) * 5) / 9);
+          $scope.dayFourCelsius = Math.round(((res.data.daily.data[3].temperatureHigh - 32) * 5) / 9);
+          $scope.dayFiveCelsius = Math.round(((res.data.daily.data[4].temperatureHigh - 32) * 5) / 9);
         });
       });
 
