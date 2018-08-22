@@ -19,8 +19,8 @@
           <nav class="navbar mobile" role="navigation" aria-label="main navigation">
             <div class="navbar-brand">
 
-              <div>
-                <input class="input" type="text" placeholder="Search" ng-model="searchBox">
+              <div ng-if="isAuthenticated()">
+                <input class="input" type="text" placeholder="Search" ng-model="$parent.searchBox">
               </div>
 
 
