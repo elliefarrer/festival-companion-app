@@ -24,6 +24,7 @@ function festivalsIndex(req, res, next) {
 function festivalsShow(req, res, next) {
   Festival
     .findById(req.params.id)
+    .populate('attendees')
     .then(festival => res.json(festival))
     .catch(next);
 }

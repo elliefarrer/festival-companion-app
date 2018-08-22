@@ -12,6 +12,7 @@ function MainCtrl($auth, $scope, $state, $rootScope, $timeout) {
     $auth.logout().then(() => {
       console.log('LOGGED USER OUT!!!');
       $rootScope.loggedInUser = null;
+      $rootScope.loggedInfirstName = null;
     });
     $state.go('festivalsIndex');
   };

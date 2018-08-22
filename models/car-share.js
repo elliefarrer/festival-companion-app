@@ -41,5 +41,7 @@ carShareSchema.virtual('seatsRemaining')
     return this.totalSeats - this.passengers.length;
   });
 
+carShareSchema.set('toJSON', { virtuals: true });
+
 
 module.exports = mongoose.model('CarShare', carShareSchema);
