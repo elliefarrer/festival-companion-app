@@ -20,24 +20,8 @@
             <div class="navbar-brand">
 
               <div ng-if="isAuthenticated()">
-                <input class="input" type="text" placeholder="Search" ng-model="$parent.searchBox">
+                <input class="input search" type="text" placeholder="Search" ng-model="$parent.searchBox">
               </div>
-
-
-
-              <!-- <div class="navbar-item search-Bar"> -->
-                <!-- <form class="/search/festivals/index" method="POST"> -->
-                <!-- <form>
-                  <div class="field has-addons search">
-                    <div class="control">
-                      <input ng-if="isAuthenticated()" class="input" type="text" name="searchTerm" placeholder="search festival">
-                    </div>
-                    <div class="control">
-                      <button ng-if="isAuthenticated()" class="button search-bar-button">Search</button>
-                    </div>
-                  </div>
-                </form>
-              </div> -->
 
               <section ng-if="isAuthenticated()" class="container">
                 <div class="">
