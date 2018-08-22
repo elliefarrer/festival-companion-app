@@ -8,6 +8,9 @@ function Map($http) {
   let popupImg;
   let popupName;
   let popupAddress;
+  let marker = L.popup(),
+    geocode,
+    map;
   return {
     restrict: 'A',
     link($scope, $element) {
@@ -33,8 +36,10 @@ function Map($http) {
               const map = L.mapquest.map('map', {
                 center: [placeLat, placeLng],
                 layers: L.mapquest.tileLayer('map'),
-                zoom: 13
-              });
+                zoom: 13})
+                $scope.$on('click', function(e) {
+                  marker.setLatLng(e.latLng).openOn(this);
+                });
               popupImg = $scope.festival.photoUrl;
               popupName = $scope.festival.name;
               popupAddress = $scope.festival.location.address;
@@ -64,6 +69,8 @@ function Map($http) {
               });
               const marker = L.marker([placeLat, placeLng]).addTo(map);
               marker.bindPopup(`<img src=${popupImg} alt=${popupName}  /><p>${popupName}, ${popupAddress}</p>`).openPopup();
+
+
             });
         }
       });
