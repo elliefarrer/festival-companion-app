@@ -49,7 +49,8 @@ function FestivalsShowCtrl($http, $scope, $state, $auth) {
     });
   }
 
-  let searchCoords;
+  let searchCoordsLat;
+  let searchCoordsLng;
 
   $scope.$watch('festival', function() {
     if($scope.festival) {
@@ -58,19 +59,23 @@ function FestivalsShowCtrl($http, $scope, $state, $auth) {
         url: `https://nominatim.openstreetmap.org/search/${$scope.festival.location.postcode}?format=json`
       })
       .then(res => {
-        searchCoords = res.data.sort((a, b) => a.importance < b.importance)[0];
+        const searchCoords = res.data.sort((a, b) => a.importance < b.importance)[0];
         console.log('Found them', searchCoords);
         $scope.searchCoords = searchCoords;
+
+        console.log('Y u no work', searchCoords.lat, searchCoords.lon);
+        $http({
+          method: 'GET',
+          url: '/api/weather',
+          params: { lat: searchCoords.lat, lon: searchCoords.lon }
+        })
+        .then(res => {
+          console.log('Y u still no work', $scope.searchCoords);
+          $scope.weather = res.data
+          console.log('The weather is', $scope.weather);
+        });
       });
 
-      $http({
-        method: 'GET',
-        url: '/api/weather',
-        params: { lat: 51.51, lng: -0.09 }
-      })
-      .then(res => {
-        console.log('The weather is', res.data);
-      });
     }
   });
 
