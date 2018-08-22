@@ -8,7 +8,7 @@
 
 <button  ng-if="carShare.passengers.length > 0 || carShare.pendingPassengers.length > 0" ng-click=reloadRoute()>Update</button>
 
-<div class="" ng-if="carShare.createdBy === idCheck" ng-repeat="pendingPassenger in carShare.pendingPassengers">
+<div ng-if="carShare.createdBy === idCheck" ng-repeat="pendingPassenger in carShare.pendingPassengers">
   <p>{{ pendingPassenger.firstName }}</p>
 <a ng-if="pendingPassenger.carShares.includes(carShare._id)" ng-click="acceptPassengerRequest(pendingPassenger._id)" class="button">Accept</a>
 <a ng-if="pendingPassenger.carShares.includes(carShare._id)"  ng-click="rejectPassengerRequest(pendingPassenger._id)" class="button">Reject</a>

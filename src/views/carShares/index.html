@@ -24,16 +24,19 @@
 
   </div>
 </div>
-<div class="section car-share-section column is-12 has-text-centered">
+
+<div class="section car-share-section  has-text-centered">
+
   <a class="button set-up-car-share" ui-sref="carSharesNew({ festivalId: festival._id })">
     Set up a car share
   </a>
+  
 <div class="container">
   <div class="ride-panels" ng-repeat="ride in carShares">
     <a class="has-text-white" ui-sref="carSharesShow({ festivalId: festival._id, carShareId: ride._id })">
       <div class="columns is-mobile is-multiline ride-info-wrap">
 
-        <img class="car-share-profile-picture" ng-src="{{ ride.createdBy.profilePic}}" alt="{{ ride.createdBy.firstName}}">
+        <img class="car-share-profile-picture" ng-src="{{ ride.createdBy.image}}" alt="{{ ride.createdBy.firstName}}">
 
         <div class="column is-12 has-text-centered">
           <p class="ride-panel-title" > Grab a ride with {{ ride.createdBy.firstName }}</p>
