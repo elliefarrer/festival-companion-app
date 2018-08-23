@@ -62,6 +62,7 @@ function UsersShowCtrl($http, $scope, $state, $auth) {
         console.log('user data is', res.data);
         $scope.friendStatus = 'pending';
         $scope.user = res.data;
+        console.log('this is the friends status', $scope.friendStatus);
       });
   };
 

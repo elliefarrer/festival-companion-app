@@ -13,10 +13,10 @@ function FriendsIndexCtrl($http, $scope, $state) {
       $scope.user = res.data;
     });
 
-  $scope.sendFriendRequest = function() {
+  $scope.sendFriendRequest = function(friendId) {
     $http({
       method: 'POST',
-      url: `/api/user/${$scope.currentUser()._id}/friends/${$state.params.friendId}`
+      url: `/api/user/${$scope.currentUser()._id}/friends/${friendId}`
     })
       .then(res => {
         console.log('user data is', res.data);
@@ -24,10 +24,10 @@ function FriendsIndexCtrl($http, $scope, $state) {
       });
   };
 
-  $scope.removeFriend = function() {
+  $scope.removeFriend = function(friendId) {
     $http({
       method: 'DELETE',
-      url: `/api/user/$${$scope.currentUser()._id}/friends/${$state.params.friendId}`
+      url: `/api/user/$${$scope.currentUser()._id}/friends/${friendId}`
     })
       .then(res => {
         console.log('user data is', res.data);
@@ -52,7 +52,7 @@ function FriendsIndexCtrl($http, $scope, $state) {
       method: 'POST',
       url: `/api/user/${$scope.currentUser()._id}/pendingFriends/${pendingFriendId}`
     })
-      .then(res => console.log('pendingFriends are', res.data));
+      .then(res => console.log('pendingfriend is', res.data));
   };
 
 
@@ -62,7 +62,7 @@ function FriendsIndexCtrl($http, $scope, $state) {
       method: 'DELETE',
       url: `/api/user/${$scope.currentUser()._id}/pendingFriends/${pendingFriendId}`
     })
-      .then(res => console.log('pendingFriends are', res.data));
+      .then(res => console.log('pendingFriends is', res.data));
   };
 }
 

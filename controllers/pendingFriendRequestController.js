@@ -19,7 +19,7 @@ function pendingFriendsIndex(req, res, next) {
   User
     .findById(userId)
     .populate('pendingFriends')
-    .then(user => res.json(user.pendingFriends))
+    .then(user => res.json(user))
     .catch(next);
 }
 function pendingFriendsCreate(req, res, next) {
@@ -31,11 +31,11 @@ function pendingFriendsCreate(req, res, next) {
       user.pendingFriends = user.pendingFriends.filter(pendingFriend =>
         pendingFriend.toString() !== friendId
       );
-      user.pendingFriends.push(friendId);
+      user.userFriends.push(friendId);
       return user.save();
     })
     .then(() => User.findById(friendId)) //This bit needs testing
-    .then(() => res.sendStatus(201))
+    .then((friend) => res.json(friend))
     .catch(next);
 }
 

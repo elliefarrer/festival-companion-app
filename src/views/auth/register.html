@@ -1,4 +1,4 @@
-<div style="margin-top: -10px;" class="backgroundImage">
+<div style="margin-top: -10px;">
   <div class="registerIntro">
     <p style="color: white;" style="padding: 50px;">Welcome to your best festival companion!</p>
     <p style="color: white;" style="padding: 50px;">Already got an account? <a ui-sref="login">Log in!</p>
@@ -8,7 +8,7 @@
 
     <div class="field">
       <a class="button" ng-click="uploadImage()" ng-if="!imageUploaded">Pick an image</a>
-      <a class="button" ng-click="uploadImage()" ng-if="imageUploaded">?!</a>
+      <a class="button" ng-click="uploadImage()" ng-if="imageUploaded">Image uploaded</a>
       <label class="label has-text-white"  for="profilePicture" >Profile Picture (URL)</label>
       <div class="control">
         <input ng-model="user.image" class="input" type="text" id="profilePicture" name="profilePicture">

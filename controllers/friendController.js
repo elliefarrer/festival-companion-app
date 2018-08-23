@@ -21,7 +21,10 @@ function friendsIndex(req, res, next) {
   User
     .findById(req.params.id)
     .populate('userFriends pendingFriends')
-    .then(user => res.json(user))
+    .then(user => {
+      console.log('the user is', user);
+      res.json(user);
+    })
     .catch(next);
 }
 
