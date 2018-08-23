@@ -3,33 +3,43 @@
 
 <form ng-submit="updateCarShare()">
 
-   Arrange a car share to {{ festival.name }}:
+  <h2 class="title is-5 has-text-white"> Make changes to your car share to {{ carShare.festival.name }}: </h2>
 
-   <div class="field">
-     <label class="label" for="from">Seats available</label>
+   <div class="field ">
+     <label class="label has-text-white" for="from">Seats available</label>
      <input ng-model="carShare.totalSeats" class="input" type="text" name="totalSeats" placeholder="">
    </div>
 
   <div class="field">
-    <label class="label" for="from">Start location (enter postcode)</label>
+    <label class="label has-text-white" for="from">Start location (enter postcode)</label>
     <input ng-model="carShare.from.postcode" class="input" type="text" name="from" placeholder="">
   </div>
 
   <div class="field">
-    <label class="label" for="to">End location (enter postcode) </label>
+    <label class="label has-text-white" for="to">End location (enter postcode) </label>
     <input ng-model="carShare.to.postcode" class="input" type="text" name="to" >
   </div>
 
   <div class="field">
-    <label class="label" for="rideStartTime">Ride start time</label>
-    <input ng-model="carShare.rideStartTime" class="input" type="text" name="rideStartTime" placeholder="">
+    <label class="label has-text-white" for="departureDate">Date departing:</label>
+    <input ng-model="carShare.departureDate" class="input" type="text" name="departureDate" placeholder="">
   </div>
 
   <div class="field">
-    <label class="label" for="price">Seat price (£)</label>
+    <label class="label has-text-white" for="returnDate">Date returning:</label>
+    <input ng-model="carShare.returnDate" class="input" type="text" name="returnDate" placeholder="">
+  </div>
+
+  <div class="field">
+    <label class="label has-text-white" for="rideStartTime">Ride start time</label>
+    <input ng-model="carShare.rideStartTime" class="input" type="time" name="rideStartTime" placeholder="">
+  </div>
+
+  <div class="field">
+    <label class="label has-text-white" for="price">Seat price (£)</label>
     <input ng-model="carShare.price" class="input" type="text" name="price" placeholder="">
   </div>
 
-<button class="button">Save</button>
+<button class="button set-up-car-share">Save</button>
 </form>
 </div>

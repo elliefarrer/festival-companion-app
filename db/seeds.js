@@ -11,8 +11,8 @@ User.collection.drop();
 carShare.collection.drop();
 
 const userData = [
-  {firstName: 'Ellie', lastName: 'Farrer', userName: 'ellie', email: 'ellie@email.com', mobileNumber: '07770077070', password: 'pass', passwordConfirmation: 'pass'},
-  {firstName: 'Curtis', lastName: 'Burns', userName: 'curtis', email: 'curtis@email.com', mobileNumber: '07770077070', password: 'pass', passwordConfirmation: 'pass'},
+  {firstName: 'Ellie', lastName: 'Farrer', userName: 'ellie', email: 'ellie@email.com', mobileNumber: '07770077070', password: 'pass', passwordConfirmation: 'pass', image: 'https://i.imgur.com/N38uXKG.jpg'},
+  {firstName: 'Curtis', lastName: 'Burns', userName: 'curtis', email: 'curtis@email.com', mobileNumber: '07770077070', password: 'pass', passwordConfirmation: 'pass', image: 'https://i.imgur.com/dudZjsL.jpg'},
   {firstName: 'Max', lastName: 'Cramer', userName: 'max', email: 'max@email.com', currentLocation: 'W11 4PE', mobileNumber: '07770077070', password: 'pass', passwordConfirmation: 'pass', image: 'https://media.licdn.com/dms/image/C4D03AQFvQx1ZhFlX7Q/profile-displayphoto-shrink_200_200/0?e=1540425600&v=beta&t=7RkDFoQXRITS0S9A21Urami1OgIRXf3or8plFOthJTQ'}
 ];
 

@@ -26,7 +26,7 @@ function carSharesIndex(req, res, next) { //Only brings back carShares related t
 function carSharesShow(req, res, next) {
   CarShare
     .findById(req.params.carShareId)
-    .populate('createdBy festival')
+    .populate('createdBy festival passengers pendingPassengers')
     .then(carShare => res.json(carShare))
     .catch(next);
 }

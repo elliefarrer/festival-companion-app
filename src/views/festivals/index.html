@@ -1,5 +1,5 @@
 <div class="container is-mobile">
-  <div ng-repeat="event in festivals">
+  <div ng-repeat="event in festivals | filter: searchBox">
     <a ui-sref="festivalsShow({ id: event._id })">
       <div class="box">
         <img ng-src={{event.photoUrl}} alt="{{ event.name }}">

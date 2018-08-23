@@ -1,31 +1,59 @@
-<div class="container section">
-  <h2 class="title is-4">{{ festival.name }}</h2>
-  <div ng-if="festival.startDate !== festival.endDate">
-    <p>{{ festival.startDate }}-{{ festival.endDate }}</p>
-  </div>
-  <div ng-if="festival.startDate === festival.endDate">
-    <p>{{ festival.startDate }}</p>
-  </div>
-  <div class="column">
-    <p>
-      <span><i class="fab fa-youtube"></i></span>
-      <span><i class="fab fa-vimeo-v"></i></span>
-      <span><i class="fab fa-instagram"></i></span>
-      <span><i class="fab fa-twitter"></i></span>
-      <span><i class="fab fa-facebook"></i></span>
-      <span><i class="fas fa-share-alt"></i></span>
-    </p>
+<div class="section car-share-section">
+  <div class="columns is-mobile car-share-festival-panel">
+
+    <div class="column is-7-mobile car-share-title-wrapper">
+      <h2 class="car-share-title title is-6 has-text-white">{{ festival.name }}</h2>
+      <div class="subtitle is-7 has-text-white" ng-if="festival.startDate !== festival.endDate">
+        <p>{{ festival.startDate }}-{{ festival.endDate }}</p>
+      </div>
+      <div class="subtitle is-7 has-text-white" ng-if="festival.startDate === festival.endDate">
+        <p>{{ festival.startDate }}</p>
+      </div>
+    </div>
+
+    <div class="column is-5-mobile icon-wrapper">
+      <p class="icon-bar">
+        <span><i class="fab fa-youtube car-share-icon"></i></span>
+        <span><i class="fab fa-vimeo-v car-share-icon"></i></span>
+        <span><i class="fab fa-instagram car-share-icon"></i></span>
+        <span><i class="fab fa-twitter car-share-icon"></i></span>
+        <span><i class="fab fa-facebook car-share-icon"></i></span>
+        <span><i class="fas fa-share-alt car-share-icon"></i></span>
+      </p>
+    </div>
+
   </div>
 </div>
-<div class="section">
-  <a ui-sref="carSharesNew({ festivalId: festival._id })">
+
+<div class="section car-share-section  has-text-centered">
+
+  <a class="button set-up-car-share" ui-sref="carSharesNew({ festivalId: festival._id })">
     Set up a car share
   </a>
+
 <div class="container">
-  <div ng-repeat="ride in carShares">
-    <a ui-sref="carSharesShow({ festivalId: festival._id, carShareId: ride._id })">
-      <img ng-src="{{ ride.createdBy.profilePic}}" alt="{{ ride.createdBy.firstName}}">
-      <p> Grab a ride with {{ ride.createdBy.firstName }}
+  <div class="ride-panels" ng-repeat="ride in carShares | filter: searchBox">
+    <a class="has-text-white" ui-sref="carSharesShow({ festivalId: festival._id, carShareId: ride._id })">
+      <div class="columns is-mobile is-multiline ride-info-wrap">
+
+        <img class="car-share-profile-picture" ng-src="{{ ride.createdBy.image}}" alt="{{ ride.createdBy.firstName}}">
+
+        <div class="column is-12 has-text-centered">
+          <p class="ride-panel-title" > Grab a ride with {{ ride.createdBy.firstName }}</p>
+        </div>
+
+        <div class="column is-6">
+          <p class="subtitle is-7 has-text-white line-height remove-margin" >{{ride.departureDate}} - {{ride.returnDate}}</p>
+          <p class="subtitle is-7 has-text-white line-height remove-margin" >Price: £{{ ride.price}}</p>
+        </div>
+        <div class="column is-6">
+          <p class="subtitle is-7 has-text-white line-height remove-margin" >Seats remaining: {{ride.seatsRemaining}}</p>
+          <p class="subtitle is-7 has-text-white line-height remove-margin" >From: {{ ride.from.postcode}}</p>
+        </div>
+
+      </div>
+
+      <span><i class="car-share-alt-icon fas fa-share-alt car-share-icon"></i></span>
     </a>
   </div>
 
