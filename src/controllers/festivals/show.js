@@ -10,21 +10,24 @@ function FestivalsShowCtrl($http, $scope, $state, $auth, $timeout) {
       method: 'DELETE',
       url: `/api/festivals/${$state.params.id}`
     })
-      .then(res => {
-        console.log('Deleted festival', res.data);
-        $state.go('festivalsIndex');
-      });
+    .then(res => {
+      console.log('Deleted festival', res.data);
+      $state.go('festivalsIndex');
+    });
   };
   $http({
     method: 'GET',
     url: `/api/festivals/${$state.params.id}`
   })
-    .then(res => {
-      console.log('Found a festival', res.data);
-      $scope.festival = res.data;
-      $scope.attendance = $scope.festival.attendees.map(attendee =>   attendee._id).includes($scope.loggedInUser);
-      festivalMap(res.data);
-    });
+  .then(res => {
+    console.log('Found a festival', res.data);
+    $scope.festival = res.data;
+    $scope.festival.startDate = moment($scope.festival.startDate).format('Do MMMM YYYY');
+    $scope.festival.endDate = moment($scope.festival.endDate).format('Do MMMM YYYY');
+
+    $scope.attendance = $scope.festival.attendees.map(attendee =>   attendee._id).includes($scope.loggedInUser);
+    festivalMap(res.data);
+  });
 
   function festivalMap(festival) {
     const postcode = festival.location.postcode;
@@ -37,20 +40,18 @@ function FestivalsShowCtrl($http, $scope, $state, $auth, $timeout) {
         location: postcode
       }
     })
-      .then(res => {
-        const placeLat = res.data.results[0].locations[0].latLng.lat;
-        const placeLng = res.data.results[0].locations[0].latLng.lng;
-        $scope.map.setView([placeLat, placeLng], 13);
-        const popupImg = $scope.festival.photoUrl;
-        const popupName = $scope.festival.name;
-        const popupAddress = $scope.festival.location.address;
-        const marker = L.marker([placeLat, placeLng]).addTo($scope.map);
-        marker.bindPopup(`<img src=${popupImg} alt=${popupName}  /><p>${popupName},   ${popupAddress}</p>`).openPopup();
-      });
+    .then(res => {
+      const placeLat = res.data.results[0].locations[0].latLng.lat;
+      const placeLng = res.data.results[0].locations[0].latLng.lng;
+      $scope.map.setView([placeLat, placeLng], 13);
+      const popupImg = $scope.festival.photoUrl;
+      const popupName = $scope.festival.name;
+      const popupAddress = $scope.festival.location.address;
+      const marker = L.marker([placeLat, placeLng]).addTo($scope.map);
+      marker.bindPopup(`<img src=${popupImg} alt=${popupName}  /><p>${popupName},   ${popupAddress}</p>`).openPopup();
+    });
   }
 
-  let searchCoordsLat;
-  let searchCoordsLng;
 
   $scope.$watch('festival', function() {
     if($scope.festival) {
@@ -74,78 +75,23 @@ function FestivalsShowCtrl($http, $scope, $state, $auth, $timeout) {
               $scope.weather = res.data;
               console.log('The weather is', $scope.weather);
 
+              const weatherDays = [
+                {}, {}, {}, {}, {}
+              ];
 
               //////////// DATES ///////////////
-              $scope.dayThreeDate = moment.unix(res.data.daily.data[2].time).format('dddd');
-              $scope.dayFourDate = moment.unix(res.data.daily.data[3].time).format('dddd');
-              $scope.dayFiveDate = moment.unix(res.data.daily.data[4].time).format('dddd');
-
-              //////////// FUTURE FORECAST DATA ////////////////////
-              $scope.tomorrowWeather = res.data.daily.data[1];
-              $scope.dayThreeWeather = res.data.daily.data[2];
-              $scope.dayFourWeather = res.data.daily.data[3];
-              $scope.dayFiveWeather = res.data.daily.data[4];
-
-              ////////////////////// CHANCE OF RAIN ////////////////////////////////
-              $scope.todayRain = parseInt((res.data.currently.precipProbability) * 100);
-              $scope.tomorrowRain = parseInt((res.data.daily.data[1].precipProbability) * 100);
-              $scope.dayThreeRain = parseInt((res.data.daily.data[2].precipProbability) * 100);
-              $scope.dayFourRain = parseInt((res.data.daily.data[3].precipProbability) * 100);
-              $scope.dayFiveRain = parseInt((res.data.daily.data[4].precipProbability) * 100);
-
-              /////////////// CELSIUS TEMPERATURES //////////////////////
-              $scope.todayCelsius = Math.round(((res.data.currently.temperature - 32) * 5) / 9);
-              $scope.tomorrowCelsius = Math.round(((res.data.daily.data[1].temperatureHigh - 32) * 5) / 9);
-              $scope.dayThreeCelsius = Math.round(((res.data.daily.data[2].temperatureHigh - 32) * 5) / 9);
-              $scope.dayFourCelsius = Math.round(((res.data.daily.data[3].temperatureHigh - 32) * 5) / 9);
-              $scope.dayFiveCelsius = Math.round(((res.data.daily.data[4].temperatureHigh - 32) * 5) / 9);
-
-              ////////////////// ICONS /////////////////////////////////
-              $scope.todayIcon = res.data.daily.data[0].icon;
-              $scope.tomorrowIcon = res.data.daily.data[1].icon;
-              $scope.dayThreeIcon = res.data.daily.data[2].icon;
-              $scope.dayFourIcon = res.data.daily.data[3].icon;
-              $scope.dayFiveIcon = res.data.daily.data[4].icon;
-
-
-              function getIcon() {
-                const icons = new Skycons({ 'color': '#36223B' });
-                const list = [ 'clear-day', 'clear-night', 'partly-cloudy-day','partly-cloudy-night',   'cloudy', 'rain', 'sleet', 'snow', 'wind', 'fog' ];
-                for(let i = list.length; i--; ){
-                  icons.set(list[i], list[i]);
-                }
-                icons.play();
+              for (let day = 0; day < 5; day++) {
+                const dataOnDay = res.data.daily.data[day];
+                weatherDays[day].date = moment.unix(res.data.daily.data[day].time).format('dddd');
+                weatherDays[day].weather = dataOnDay;
+                weatherDays[day].chanceOfRain = parseInt((dataOnDay.precipProbability) * 100);
+                weatherDays[day].uvIndex = dataOnDay.uvIndex;
+                weatherDays[day].temperature = Math.round(((dataOnDay.temperatureHigh - 32) * 5) / 9);
+                weatherDays[day].icon = dataOnDay.icon;
               }
 
-              $scope.$watch('todayIcon', function() {
-                if($scope.todayIcon) {
-                  $timeout(getIcon, 1);
-                }
-              });
+              $scope.weatherDays = weatherDays;
 
-              $scope.$watch('tomorrowIcon', function() {
-                if($scope.tomorrowIcon) {
-                  $timeout(getIcon, 1);
-                }
-              });
-
-              $scope.$watch('dayThreeIcon', function() {
-                if($scope.dayThreeIcon) {
-                  $timeout(getIcon, 1);
-                }
-              });
-
-              $scope.$watch('dayFourIcon', function() {
-                if($scope.dayFourIcon) {
-                  $timeout(getIcon, 1);
-                }
-              });
-
-              $scope.$watch('dayFiveIcon', function() {
-                if($scope.dayFiveIcon) {
-                  $timeout(getIcon, 1);
-                }
-              });
             });
         });
 
@@ -167,11 +113,11 @@ function FestivalsShowCtrl($http, $scope, $state, $auth, $timeout) {
       method: 'POST',
       url: `/api/festivals/${$state.params.id}/attendees`
     })
-      .then(res=> {
+    .then(res=> {
       // console.log(res.data);
-        $scope.attendance = res.data.festivalsAttending.toString().includes($scope.festival._id);
+      $scope.attendance = res.data.festivalsAttending.toString().includes($scope.festival._id);
       // console.log('this is the attendance', $scope.attendance);
-      });
+    });
   };
 
   $scope.notAttending = function() {
@@ -179,11 +125,11 @@ function FestivalsShowCtrl($http, $scope, $state, $auth, $timeout) {
       method: 'DELETE',
       url: `/api/festivals/${$state.params.id}/attendees`
     })
-      .then(res => {
+    .then(res => {
       // console.log(res.data);
-        $scope.attendance = res.data.festivalsAttending.toString().includes($scope.festival._id);
+      $scope.attendance = res.data.festivalsAttending.toString().includes($scope.festival._id);
       // console.log('this is the attendance', $scope.attendance);
-      });
+    });
 
   };
 

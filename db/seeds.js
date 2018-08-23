@@ -11,7 +11,7 @@ User.collection.drop();
 carShare.collection.drop();
 
 const userData = [
-  {firstName: 'Ellie', lastName: 'Farrer', userName: 'ellie', email: 'ellie@email.com', mobileNumber: '07770077070', password: 'pass', passwordConfirmation: 'pass', image: 'https://i.imgur.com/N38uXKG.jpg'},
+  {firstName: 'Ellie', lastName: 'Farrer', userName: 'ellie', email: 'ellie@email.com', mobileNumber: '07770077070', password: 'pass', passwordConfirmation: 'pass', image: 'https://i.imgur.com/cgUj7q6.png'},
   {firstName: 'Curtis', lastName: 'Burns', userName: 'curtis', email: 'curtis@email.com', mobileNumber: '07770077070', password: 'pass', passwordConfirmation: 'pass', image: 'https://i.imgur.com/dudZjsL.jpg'},
   {firstName: 'Max', lastName: 'Cramer', userName: 'max', email: 'max@email.com', currentLocation: 'W11 4PE', mobileNumber: '07770077070', password: 'pass', passwordConfirmation: 'pass', image: 'https://media.licdn.com/dms/image/C4D03AQFvQx1ZhFlX7Q/profile-displayphoto-shrink_200_200/0?e=1540425600&v=beta&t=7RkDFoQXRITS0S9A21Urami1OgIRXf3or8plFOthJTQ'}
 ];
@@ -19,8 +19,8 @@ const userData = [
 
 const festivalData = [{
   name: 'LoveBox',
-  startDate: '13th July',
-  endDate: '14th July',
+  startDate: '2018-07-13',
+  endDate: '2018-07-14',
   location: {
     address: 'Gunnersbury Park',
     postcode: 'W3 8LQ'
@@ -35,8 +35,8 @@ const festivalData = [{
   ]
 }, {
   name: 'Citadel Festival',
-  startDate: '15th July',
-  endDate: '15th July',
+  startDate: '2018-07-15',
+  endDate: '2018-07-15',
   location: {
     address: 'Gunnersbury Park',
     postcode: 'W3 8LQ'
@@ -48,8 +48,8 @@ const festivalData = [{
   attendees: []
 },{
   name: 'British Summer Time',
-  startDate: '6th July',
-  endDate: '15th July',
+  startDate: '2018-07-06',
+  endDate: '2018-07-15',
   location: {
     address: 'Hyde Park',
     postcode: 'W2 2LG'
@@ -100,9 +100,9 @@ User
     festivalData[0].createdBy = users[0].id;
     festivalData[1].createdBy = users[0].id;
     festivalData[2].createdBy = users[0].id;
-    festivalData[0].attendees.push(users[0].id);
-    festivalData[1].attendees.push(users[1].id);
-    festivalData[2].attendees.push(users[2].id);
+    // festivalData[0].attendees.push(users[0].id);
+    // festivalData[1].attendees.push(users[1].id);
+    // festivalData[2].attendees.push(users[2].id);
     return Festival.create(festivalData);
   })
   .then(festivals => {
