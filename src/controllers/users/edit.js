@@ -12,6 +12,33 @@ function UsersEditCtrl($http, $scope, $state) {
       });
   };
 
+  $scope.imageUploaded = false;
+
+  const fp = filestack.init('AexgdNExkS7KW6EtgRtLPz'); /* global filestack */
+
+  $scope.uploadImage = function() {
+    fp.pick({
+      accept: 'image/jpeg',
+      transformations: {
+        crop: {
+          aspectRatio: 1,
+          force: true
+        }
+      }
+    })
+      .then(res => {
+        // console.log('files are', res.filesUploaded[0].url);
+        $scope.user.image = res.filesUploaded[0].url;
+        console.log('User is now', $scope.user);
+        // console.log(fp);
+        if ($scope.user.image) {
+          $scope.imageUploaded = true;
+        }
+        $scope.$apply();
+      })
+      .catch(err => console.log(err));
+  };
+
 
   $http({
     method: 'GET',
