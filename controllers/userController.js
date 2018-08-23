@@ -27,7 +27,10 @@ function usersUpdate(req, res) {
 function usersDelete(req, res, next) {
   User
     .findById(req.params.id)
-    .then(user => user.remove())
+    .then(user => {
+      console.log('This is the User', user);
+      user.remove();
+    })
     .then(() => res.sendStatus(204))
     .catch(next);
 }

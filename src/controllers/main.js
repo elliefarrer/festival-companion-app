@@ -12,6 +12,10 @@ function MainCtrl($auth, $scope, $state, $rootScope, $timeout) {
     return JSON.parse(localStorage.getItem('currentUser'));
   };
 
+  $scope.storeCurrentUser = function(user) {
+    localStorage.setItem('currentUser', JSON.stringify(user));
+  };
+
   $scope.logout = function() {
     $auth.logout().then(() => {
       console.log('LOGGED USER OUT!!!');

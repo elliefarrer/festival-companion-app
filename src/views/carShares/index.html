@@ -1,5 +1,5 @@
 <div class="section car-share-section">
-  <div class="columns is-mobile car-share-festival-panel">
+  <div class="columns is-mobile car-share-festival-panel add-shadow">
 
     <div class="column is-7-mobile car-share-title-wrapper">
       <h2 class="car-share-title title is-6 has-text-white">{{ festival.name }}</h2>
@@ -32,7 +32,7 @@
   </a>
 
 <div class="container">
-  <div class="ride-panels" ng-repeat="ride in carShares | filter: searchBox">
+  <div class="ride-panels add-shadow" ng-repeat="ride in carShares | filter: searchBox">
     <a class="has-text-white" ui-sref="carSharesShow({ festivalId: festival._id, carShareId: ride._id })">
       <div class="columns is-mobile is-multiline ride-info-wrap">
 

@@ -152,6 +152,16 @@ function FestivalsShowCtrl($http, $scope, $state, $auth, $timeout) {
     }
   });
 
+  $scope.expand = false;
+  $scope.toggleExpand = function() {
+    console.log('im firing');
+    if($scope.expand) {
+      $scope.expand = false;
+    } else {
+      $scope.expand = true;
+    }
+  };
+
   $scope.attending = function() {
     $http({
       method: 'POST',

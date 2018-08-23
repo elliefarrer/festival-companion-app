@@ -60,9 +60,9 @@
 
   <div class="columns is-mobile is-multiline ride-show-panel has-text-white">
 
-
-    <img class="car-share-show-profile-picture" ng-src="{{ carShare.createdBy.image }}" alt="{{ carShare.createdBy.firstName }}">
-
+    <a ui-sref="usersShow({ id: carShare.createdBy._id })">
+      <img class="car-share-show-profile-picture" ng-src="{{ carShare.createdBy.image }}" alt="{{ carShare.createdBy.firstName }}">
+    </a>
 
 
       <div class="column is-12 has-text-centered">
