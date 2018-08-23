@@ -149,7 +149,9 @@ router.route('/user/:id/pendingFriends')
   .get(pendingFriendRequestController.index); // Lists pending friends.
 
 router.route('/user/:userId/pendingFriends/:friendId')
-  .delete(pendingFriendRequestController.delete); // When you accept a pending friend request.
+  .delete(pendingFriendRequestController.delete)
+  .post(pendingFriendRequestController.create); // When you accept a pending friend request.
+// When you accept a pending friend request.
 
 
 

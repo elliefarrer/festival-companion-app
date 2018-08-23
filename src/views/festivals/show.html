@@ -119,11 +119,18 @@
         </div>
       </div>
     </div>
+    <div class="columns is-mobile is-multiline">
+      <div class="column is-6-mobile">
+        <button class="button festival-show-edit" ui-sref="festivalsEdit({ id: festival._id })">Edit {{ festival.name }}</button>
+      </div>
+      <div class="column is-6-mobile">
+          <button class="button festival-show-delete" ng-click="deleteFestival()">Delete {{ festival.name }}</button>
+      </div>
+    </div>
 
-<div class="section">
-  <button class="button festival-show-button" ui-sref="festivalsEdit({ id: festival._id })">Edit {{ festival.name }}</button>
-  <button class="button festival-show-button" ng-click="deleteFestival()">Delete {{ festival.name }}</button>
-</div>
+
+
+
 
 
 
@@ -135,18 +142,18 @@
 
 
 <footer div="footer">
-  <div class="section festival-index-section has-text-white">
-  <p class="subtitle is-3 has-text-white">{{ festival.name }}</p>
+  <div class="has-text-white">
+  <h3 class="subtitle is-4 has-text-white">{{ festival.name }}</h3>
   <div class="columms">
     <div class="column is-5">
       <div ng-if="festival.startDate !== festival.endDate">
-        <p>{{ festival.startDate }}-{{ festival.endDate }}</p>
+        <p class="footer-date" >{{ festival.startDate }}-{{ festival.endDate }}</p>
       </div>
       <div ng-if="festival.startDate === festival.endDate">
         <p>{{ festival.startDate }}</p>
       </div>
     </div>
-    <div class="column is-half">
+    <div class="column is-half footer-icons">
       <p>
         <span><i class="fab fa-youtube"></i></span>
         <span><i class="fab fa-vimeo-v"></i></span>

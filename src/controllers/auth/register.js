@@ -1,4 +1,5 @@
 function AuthRegisterCtrl($auth, $scope, $state) {
+
   $scope.register = function() {
     $auth
       .signup($scope.user)
@@ -9,19 +10,31 @@ function AuthRegisterCtrl($auth, $scope, $state) {
       });
   };
 
-  $scope.uploadImage = function() {
-    filepicker.pick({
-      mimetype: 'image/*',
-      container: 'modal',
-      services: ['COMPUTER', 'FACEBOOK', 'INSTAGRAM']
-    },
-    function(result){
-      $scope.user.image = result.url.substring(result.url.lastIndexOf('/') + 1);
-    },
-    function(FPError){
+  $scope.imageUploaded = false;
 
-    }
-    );
+  const fp = filestack.init('AexgdNExkS7KW6EtgRtLPz'); /* global filestack */
+
+  $scope.uploadImage = function() {
+    fp.pick({
+      accept: 'image/jpeg',
+      transformations: {
+        crop: {
+          aspectRatio: 1,
+          force: true
+        }
+      }
+    })
+      .then(res => {
+        // console.log('files are', res.filesUploaded[0].url);
+        $scope.user = {};
+        $scope.user.image = res.filesUploaded[0].url;
+        console.log($scope.user.image);
+        // console.log(fp);
+        if ($scope.user.image) {
+          $scope.imageUploaded = true;
+        }
+      })
+      .catch(err => console.log(err));
   };
 
 }

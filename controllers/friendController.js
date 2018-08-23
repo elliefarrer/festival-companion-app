@@ -20,8 +20,8 @@ function getTokenFromHttpRequest(req) {
 function friendsIndex(req, res, next) {
   User
     .findById(req.params.id)
-    .populate('userFriends')
-    .then(user => res.json(user.userFriends))
+    .populate('userFriends pendingFriends')
+    .then(user => res.json(user))
     .catch(next);
 }
 
@@ -45,7 +45,8 @@ function friendsCreate(req, res, next) {
       console.log('this is the friend', friend);
       return friend.save();
     })
-    .then(pendingFriend => res.status(201).json(pendingFriend))
+    .then(() => User.findById(userId))
+    .then(user => res.status(201).json(user))
     .catch(next);
 }
 
@@ -70,7 +71,8 @@ function friendsDelete(req, res, next) {
         unfriendId.toString() !== userId);
       return friend.save();
     })
-    .then(() => res.sendStatus(204))
+    .then(() => User.findById(userId))
+    .then(user => res.json(user))
     .catch(next);
 }
 

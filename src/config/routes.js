@@ -81,9 +81,9 @@ function Router($stateProvider, $urlRouterProvider) {
       url: '/festivals/:festivalId/carShares/:carShareId',
       controller: 'CarSharesEditCtrl'
     })
-    .state('friend', {
+    .state('friendsIndex', {
       templateUrl: './views/friends/index.html',
-      url: '/user/:userId/friends/:friendId',
+      url: '/user/:id/friends/',
       controller: 'FriendsIndexCtrl'
     })
     .state('friendPending', {

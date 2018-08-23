@@ -25,6 +25,7 @@ import UsersEditCtrl from './controllers/users/edit';
 import AuthLoginCtrl from './controllers/auth/login';
 import AuthRegisterCtrl from './controllers/auth/register';
 import PassengersIndexCtrl from './controllers/passengers/index';
+import FriendsIndexCtrl from './controllers/friends/index';
 
 angular.module('Festival Companion App', [
   'ui.router', 'satellizer'
@@ -45,6 +46,7 @@ angular.module('Festival Companion App', [
   .controller('AuthLoginCtrl', AuthLoginCtrl)
   .controller('AuthRegisterCtrl', AuthRegisterCtrl)
   .controller('PassengersIndexCtrl', PassengersIndexCtrl)
+  .controller('FriendsIndexCtrl', FriendsIndexCtrl)
   .config(Router)
   .config(function($authProvider){
     $authProvider.loginUrl = '/api/login';
