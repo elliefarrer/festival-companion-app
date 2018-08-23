@@ -6,7 +6,7 @@
   "scripts": {
     "start:server": "nodemon",
     "start:client": "webpack-dev-server",
-    "build": "webpack -p",
+    "build": "webpack",
     "seed": "node db/seeds",
     "start": "yarn build && node index",
     "test": "nyc mocha test/**/*_spec.js --require test/spec_helper --recursive --exit"
@@ -22,6 +22,7 @@
     "express": "^4.16.3",
     "global": "^4.3.2",
     "jsonwebtoken": "^8.3.0",
+    "moment": "^2.22.2",
     "mongoose": "^5.2.8",
     "morgan": "^1.9.0",
     "nodemon": "^1.18.3",

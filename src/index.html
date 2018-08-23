@@ -6,10 +6,17 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css"
   integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
   crossorigin=""/>
+
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
     <link type="text/css" rel="stylesheet" href="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.css"/>
     <script src="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js"></script>
     <script src="https://www.mapquestapi.com/sdk/leaflet/v2.2/mq-map.js?key=DmK3IjydVb4R9lDw3X08xjNBNVV0WOks"></script>
+     <script src="https://rawgit.com/darkskyapp/skycons/master/skycons.js"></script>
+     <script type="text/javascript" src="https://static.filestackapi.com/v3/filestack.js"></script>
+     <script>
+          filepicker.setKey('AexgdNExkS7KW6EtgRtLPz');
+     </script>
+
   </head>
   <body class="container" ng-controller="MainCtrl">
     <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
@@ -17,32 +24,25 @@
         <div class="mobile">
           <nav class="navbar mobile" role="navigation" aria-label="main navigation">
             <div class="navbar-brand">
-              <div class="navbar-item search-Bar">
-                <form class="/search/festivals/index" method="POST">
-                  <div class="field has-addons">
-                    <div class="control">
-                      <input ng-if="isAuthenticated()" class="input" type="text" name="searchTerm" placeholder="search tag">
-                    </div>
-                    <div class="control">
-                      <button ng-if="isAuthenticated()" class="button search-bar-button">Search</button>
-                    </div>
-                  </div>
-                </form>
+
+              <div ng-if="isAuthenticated()">
+                <input class="input search" type="text" placeholder="Search" ng-model="$parent.searchBox">
               </div>
+
               <section ng-if="isAuthenticated()" class="container">
                 <div class="">
-                  <img class="headerImage" ng-src="{{ currentUser().image }}" alt="{{ user.name }}">
+                  <img style="border-radius: 100%; margin-top: 5px;" class="headerImage" ng-src="{{ currentUser().image }}" alt="{{ user.name }}">
                 </div>
               </section>
               <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"  data-target="navMenu">
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
+                <span class="burger-color" aria-hidden="true"></span>
+                <span class="burger-color" aria-hidden="true"></span>
+                <span class="burger-color" aria-hidden="true"></span>
               </a>
             </div>
 
 
-            <div style="padding-bottom: 10px;" class="navbar-menu dropdown">
+            <div class="navbar-menu dropdown">
               <!-- <div class="navbar-item">
                 <div><a ui-sref-active="is-active" ui-sref="home" class="navbar-item">Home</a></div>
               </div>
@@ -50,19 +50,19 @@
                 <div><a ui-sref-active="is-active" ui-sref="about" class="navbar-item">About</a></div>
               </div> -->
               <div class="navbar-item">
-                <div><a ui-sref-active="is-active" ui-sref="festivalsIndex" class="navbar-item" ng-if="isAuthenticated()">Festivals</a></div>
+                <div><a style="color: white;" ui-sref-active="is-active" ui-sref="festivalsIndex" class="navbar-item" ng-if="isAuthenticated()">Festivals</a></div>
               </div>
               <div class="navbar-item">
-                <div><a ui-sref-active="is-active" ui-sref="usersShow({ id: currentUser()._id })" class="navbar-item" ng-if="isAuthenticated()">Profile</a></div>
+                <div><a style="color: white;"  ui-sref-active="is-active" ui-sref="usersShow({ id: currentUser()._id })" class="navbar-item" ng-if="isAuthenticated()">Profile</a></div>
               </div>
               <div class="navbar-item">
-                <div><a ui-sref-active="is-active" ui-sref="login" class="navbar-item" ng-if="!isAuthenticated()">Login</a></div>
+                <div><a style="color: white;"  ui-sref-active="is-active" ui-sref="login" class="navbar-item" ng-if="!isAuthenticated()">Login</a></div>
               </div>
               <div class="navbar-item">
-                <div><a ui-sref-active="is-active" ui-sref="register" class="navbar-item" ng-if="!isAuthenticated()">Register</a></div>
+                <div><a style="color: white;"  ui-sref-active="is-active" ui-sref="register" class="navbar-item" ng-if="!isAuthenticated()">Register</a></div>
               </div>
               <div class="navbar-item">
-                <div><a ui-sref-active="is-active" ng-click="logout()" class="navbar-item" ng-if="isAuthenticated()">Log Out {{ currentUser().firstName }}</a></div>
+                <div><a style="color: white;"  ui-sref-active="is-active" ng-click="logout()" class="navbar-item" ng-if="isAuthenticated()">Log Out {{ currentUser().firstName }}</a></div>
               </div>
             </div>
           </div>
@@ -84,6 +84,9 @@
         options[i].addEventListener('click', ToggleDropdown)
       }
     </script>
+
+
       <div class="main-body" ui-view></div>
+
   </body>
 </html>

@@ -1,13 +1,12 @@
 /*global L*/
 
+// const { mapquestApiKey } = require('../../config/environment');
+// console.log('API key in directive is', mapquestApiKey);
+
+const { mapquestApiKey } = require('../../config/environment');
+console.log('API key in directive is', mapquestApiKey);
+
 function Map() {
-  // const API_KEY = 'DmK3IjydVb4R9lDw3X08xjNBNVV0WOks';
-  // let placeLat;
-  // let placeLng;
-  // let searchMap;
-  // let popupImg;
-  // let popupName;
-  // let popupAddress;
 
   return {
     restrict: 'A',

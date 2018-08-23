@@ -1,18 +1,5 @@
 const Festival = require('../models/festival');
-const User = require('../models/user');
-// const jwt = require('jsonwebtoken');
-// const { secret } = require('../config/environment');
-// let token;
-let userId;
-let festivalId;
 
-// function getTokenFromHttpRequest(req) {
-//   token = req.headers.authorization.replace('Bearer ', '');
-//   function retrieveUserIdFromToken(err, result) {
-//     userId = result.sub;
-//   }
-//   jwt.verify(token, secret, retrieveUserIdFromToken);
-// }
 function festivalsIndex(req, res, next) {
   Festival
     .find()
@@ -29,24 +16,6 @@ function festivalsShow(req, res, next) {
     .catch(next);
 }
 
-// function festivalsCreate(req, res, next) {
-  // getTokenFromHttpRequest(req);
-  // let festivalId;
-  // req.body.createdBy = userId;
-  // Festival
-  //   .create(req.body)
-  //   .then((festival) => {
-  //     festivalId = festival.id;
-      // return User.findById(userId);
-    // })
-    // .then(user => {
-    //   user.festivalsOrganised.push(festivalId);
-    //   return user.save();
-    // })
-//     .then(() => Festival.findById(festivalId))
-//     .then(festival => res.status(201).json(festival))
-//     .catch(next);
-// }
 
 function festivalsCreate(req, res, next) {
   Festival

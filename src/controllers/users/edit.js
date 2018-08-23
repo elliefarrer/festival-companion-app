@@ -1,21 +1,22 @@
 function UsersEditCtrl($http, $scope, $state) {
   $scope.updateUser = function() {
+    console.log('this is user data ',$scope.user, 'this is the url', `/api/user/${$state.params.userId}`);
     $http({
       method: 'PUT',
-      url: `/api/users/${$state.params.userId}`
+      url: `/api/user/${$state.params.userId}`,
+      data: $scope.user
     })
-      .then(() => $state.go('usersShow', { id: $state.params.userId }));
+      .then(res => {
+        $scope.storeCurrentUser(res.data);
+        $state.go('usersShow', { id: res.data._id });
+      });
   };
+
+
   $http({
     method: 'GET',
-    url: `/api/users/${$state.params.userId}`
+    url: `/api/user/${$state.params.userId}`
   })
-    .then(res => {
-      const splitStartDate = res.data.festival.startDate.slice(9);
-      const splitEndDate = res.data.festival.endDate.slice(9);
-      console.log('New start date is ', splitStartDate);
-      console.log('New end date is ', splitEndDate);
-    })
     .then(res => $scope.user = res.data);
 }
 

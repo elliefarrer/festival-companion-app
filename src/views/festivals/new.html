@@ -1,29 +1,35 @@
-<h3 class="title is-3">Add a Festival</h3>
+<div class="section">
+
+
 <form ng-submit="createFestival()">
+
+  <h2 class="title is-5 has-text-white"> Add a Festival </h2>
+
+
   <div class="field">
-    <label class="label" for="name">Festival Name</label>
+    <label class="label has-text-white" for="name">Festival Name</label>
     <input class="input" ng-model="festival.name" type="text" name="name">
   </div>
 
   <div class="field">
-    <label class="label" for="startDate">Start Date</label>
+    <label class="label has-text-white" for="startDate">Start Date</label>
     <input class="input" ng-model="festival.startDate" type="date" name="startDate">
   </div>
 
   <div class="field">
-    <label class="label" for="endDate">End Date</label>
+    <label class="label has-text-white" for="endDate">End Date</label>
     <input class="input" ng-model="festival.endDate" type="date" name="endDate">
   </div>
 
   <hr>
 
   <div class="field">
-    <label class="label" for="address">Address</label>
+    <label class="label has-text-white" for="address">Address</label>
     <input class="input" ng-model="festival.location.address" type="text" name="address">
   </div>
 
   <div class="field">
-    <label class="label" for="postcode">Postcode</label>
+    <label class="label has-text-white" for="postcode">Postcode</label>
     <input class="input" ng-model="festival.location.postcode" type="text" name="postcode">
   </div>
 
@@ -45,23 +51,23 @@
   <hr>
 
   <div class="field">
-    <label class="label" for="camping">Camping</label>
-    <input ng-model="festival.camping" type="radio" name="camping">Yes
-    <input ng-model="festival.camping" type="radio" name="camping">No
+    <label class="label has-text-white" for="camping">Camping</label>
+    <input ng-model="festival.camping" type="radio" name="camping" value="yes">Yes
+    <input ng-model="festival.camping" type="radio" name="camping" value="no">No
   </div>
 
   <div class="field">
-    <label class="label" for="headlining">Headlining Artists (separated with ,)</label>
+    <label class="label has-text-white" for="headlining">Headlining Artists</label>
     <input class="input" ng-model="festival.headlining" type="text" name="headlining">
     <!-- <input class="input" ng.model="festival.headlining" type="text" name="headlining" value="">
     <input class="input" ng.model="festival.headlining" type="text" name="headlining" value=""> -->
   </div>
 
   <div class="field">
-    <label class="label" for="photoUrl">Photo</label>
+    <label class="label has-text-white" for="photoUrl">Photo</label>
     <input class="input" ng-model="festival.photoUrl" type="text" name="photoUrl">
   </div>
 
-  <button class="button">Submit</button>
+  <button class="button set-up-car-share">Submit</button>
 
 </form>
