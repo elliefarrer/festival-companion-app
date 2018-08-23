@@ -63,7 +63,7 @@ function CarSharesShowCtrl($http, $scope, $state, $auth) {
       const endPoint = $scope.carShare.festival.location.postcode;
       $http({
         method: 'GET',
-        url: 'http://www.mapquestapi.com/directions/v2/route',
+        url: 'http://www.mapquestapi.com/directions/v2/optimizedroute',
         params: {
           key: $scope.API_KEY,
           from: startPoint,
@@ -79,6 +79,23 @@ function CarSharesShowCtrl($http, $scope, $state, $auth) {
           $scope.map.setView([startLat, startLng], 8);
           const startMarker = L.marker([startLat, startLng]).addTo($scope.map);
           const endMarker = L.marker([endLat, endLng]).addTo($scope.map);
+
+          const pointOneLat = res.data.route.legs[0].maneuvers[0].startPoint.lat;
+          const pointOneLng = res.data.route.legs[0].maneuvers[0].startPoint.lng;
+          const pointTwoLat = res.data.route.legs[0].maneuvers[1].startPoint.lat;
+          const pointTwoLng = res.data.route.legs[0].maneuvers[1].startPoint.lng;
+          const pointThreeLat = res.data.route.legs[0].maneuvers[2].startPoint.lat;
+          const pointThreeLng = res.data.route.legs[0].maneuvers[2].startPoint.lng;
+          const pointFourLat = res.data.route.legs[0].maneuvers[3].startPoint.lat;
+          const pointFourLng = res.data.route.legs[0].maneuvers[3].startPoint.lng;
+          const pointFiveLat = res.data.route.legs[0].maneuvers[4].startPoint.lat;
+          const pointFiveLng = res.data.route.legs[0].maneuvers[4].startPoint.lng;
+          const pointSixLat = res.data.route.legs[0].maneuvers[5].startPoint.lat;
+          const pointSixLng = res.data.route.legs[0].maneuvers[5].startPoint.lng;
+          const pointSevenLat = res.data.route.legs[0].maneuvers[6].startPoint.lat;
+          const pointSevenLng = res.data.route.legs[0].maneuvers[6].startPoint.lng;
+
+          L.polyline([[startLat, startLng],[pointOneLat, pointOneLng], [pointTwoLat, pointTwoLng], [pointThreeLat, pointThreeLng], [pointFourLat, pointFourLng], [pointFiveLat, pointFiveLng], [pointSixLat, pointSixLng], [pointSevenLat, pointSevenLng], [endLat, endLng]]).addTo($scope.map);
         });
     }
   });
