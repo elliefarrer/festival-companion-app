@@ -11,7 +11,7 @@ function AuthLoginCtrl($auth, $http, $scope, $state, $rootScope) {
           .then(res => {
             console.log('Found a user', res.data);
             $scope.user = res.data;
-            localStorage.setItem('currentUser', JSON.stringify(res.data));
+            $scope.storeCurrentUser(res.data);
             $state.go('festivalsIndex');
           });
       })

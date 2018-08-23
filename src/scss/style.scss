@@ -1,17 +1,186 @@
+$footer-background-color: #36223B;
+
+body {
+  background: url('https://i.imgur.com/pOeWpw2.png') fixed center/cover;
+  min-height: 700px;
+}
+
+
+.navbar {
+  background-color: #36223B;
+  .navbar-brand {
+    input {
+      margin: 0.5rem;
+      width: 40vw;
+    }
+    .navbar-burger {
+      height: 50px;
+      width: 50px;
+    }
+  }
+}
+
+.add-shadow {
+  box-shadow: 0 5px 30px 2px rgba(20,20,20,.9);
+}
+
 .main-body {
-  margin-top: 100px;
+  margin-top: 50px;
 }
 
 .map {
   height: 300px;
-  width: 90vw;
+  width: 100%;
+  z-index: 0;
 
 }
 
+#currentLocation {
+  font-style: 200px;
+  left: 30px;
+}
+
+.profileButton {
+  align-items: center;
+  position: absolute;
+  text-align: center;
+  width: 100px;
+  height: 50px;
+  font-size: 15px;
+  margin-top: 50px;
+  margin-bottom: 30px;
+  margin-left: 80px;
+  background-color: #36223B;
+  color: white;
+  border: none
+}
+
+.deleteButton {
+  align-items: center;
+  position: absolute;
+  text-align: center;
+  width: 100px;
+  height: 50px;
+  font-size: 15px;
+  margin-top: 50px;
+  margin-bottom: 30px;
+  margin-left: 250px;
+  background-color: #36223B;
+  color: white;
+  border: none
+}
+
+.saveButton {
+  background-color: #36223B;
+  color: white;
+  width: 100px;
+  height: 50px;
+  border: none;
+  font-size: 15px;
+}
+
+.headingAlign {
+  padding-left: 70px;
+}
+
+.inputSize {
+  width: 300px;
+  height: 30px;
+}
+
+.alignProfileEdit {
+  padding-left: 70px;
+}
+
+.color {
+  color: white;
+}
+
+#atfestdiv {
+  height: 50px;
+  margin-bottom: 10px;
+  margin-left: 40px;
+  background-color: #36223B;
+  width: 85%
+}
+
+#atfest {
+  color: white;
+  font-size: 20px;
+  margin-left: 42px;
+  padding-top: 15px;
+  margin-bottom: 1px;
+}
+
+.friendlist {
+  margin-top: 17px;
+}
+
+.loginPage {
+  color: white;
+  padding-left: 20px;
+}
+
+.registerIntro {
+  text-align: center;
+  padding-top: 10px;
+  font-size: 20px;
+}
+
+.backgroundImage {
+  background-image: url(https://i.imgur.com/Hk6NTtl.png);
+  background-size: 100%;
+}
+
+.topHalf {
+  padding-top: 20px;
+}
+
+.profileNamePosition {
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  flex-direction: row;
+  background-color: #36223B;
+  height: 355px;
+  width: 85%;
+  margin-left: 38px;
+  .white{
+    color: white;
+    font-family: sans-serif;
+    text-align: left;
+    padding-top: 50px;
+    padding-right: 50px;
+    position: absolute;
+    right: 20px;
+  }
+  .emailPosition {
+    color: white;
+    font-family: sans-serif;
+    text-align: left;
+    padding-top: 70px;
+    padding-right: 50px;
+    position: absolute;
+    right: 20px;
+    top: 50px;
+  }
+  .userMap {
+    color: white;
+    position: absolute;
+    right: 15px;
+    padding-top: 160px;
+    height: 150px;
+    width: 70vw;
+  }
+}
+
+
 
 .profileImage {
-  height: 150px;
-  width: 150px;
+  padding-top: 10px;
+  padding-left: 10px;
+  height: 160px;
+  width: 160px;
 }
 
 .headerImage {
@@ -19,14 +188,454 @@
   width: 50px;
 }
 
-
-.navbar-burger {
-  height: 50px;
-  width: 50px;
+.navbar-brand {
+  background-color: #36223B;
 }
+.dropdown.is-active {
+    background-color: #36223B;
+
+  }
+
+
+
+.burger-color {
+  color: white;
+}
+
 
 
 .userMap {
   height: 150px;
   width: 90vw;
+  z-index: 0;
+}
+/////////// car share index /////////
+.car-share-title {
+  text-transform: uppercase;
+}
+
+.car-share-title-wrapper{
+    margin-left: -8px;
+}
+
+.car-share-section {
+  padding: 10px;
+}
+.icon-wrapper {
+  position: relative;
+}
+
+.icon-bar {
+  position: absolute;
+  transform: translateY(50%);
+  bottom: 50%;
+  right: -2px;
+}
+
+.car-share-festival-panel {
+  background-color: #36223B;
+  margin: 10px;
+}
+
+.set-up-car-share {
+  background: rgb(50, 203, 136);
+  color: white;
+  text-transform: uppercase;
+}
+
+.car-share-profile-picture {
+  border-radius: 50%;
+  position: absolute;
+  left: 5px;
+  top: 12px;
+  height: 30px;
+  width: 30px;
+}
+
+.ride-panels {
+  border-radius: 5px;
+  background-color: #36223B;
+  margin: 20px 10px;
+  position: relative;
+}
+
+.ride-panel-title {
+  text-transform: uppercase;
+  margin-top: -10px;
+  margin-bottom: -8px;
+}
+.ride-info-wrap{
+  padding: 0 40px;
+}
+.car-share-icon {
+  color: white;
+}
+
+.car-share-alt-icon {
+  position: absolute;
+  top: 20px;
+  right: 5px;
+}
+
+.remove-margin {
+  padding: -50px;
+  margin: -15px 0 -10px 0;
+
+}
+.line-height {
+  line-height: 0.6em;
+}
+//////////////////////////////
+
+/////////// car share show /////////
+
+.request-seat-wrapper {
+  padding: 10px;
+  position: relative;
+  height: 55px;
+}
+.request-seat-1 {
+  background: rgb(50, 203, 136);
+  color: white;
+  text-transform: uppercase;
+  margin-top: -9px;
+}
+.request-seat-2 {
+  background: rgb(50, 203, 136);
+  color: white;
+  text-transform: uppercase;
+  margin-top: -10px;
+
+}
+
+.car-share-show-profile-picture {
+  border-radius: 50%;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  height: 50px;
+  width: 50px;
+}
+
+
+.ride-show-panel-title {
+  text-transform: uppercase;
+  margin-top: -10px;
+  margin-bottom: -8px;
+}
+
+.ride-show-panel {
+  border-radius: 5px;
+  background-color: #36223B;
+  margin: -7px 10px;
+  position: relative;
+  height: 140px;
+  padding-top: 25px;
+  padding: 25px 40px 0 40px;
+}
+
+.ride-show-info-wrap{
+  padding: 0 10px;
+  margin: 0 auto;
+}
+.remove-margin-sides{
+  margin-left: -10px;
+  margin-right: -10px;
+}
+.img-wrapper {
+  position:relative;
+}
+.passenger-profile-picture{
+  height: 45px;
+  min-height: 45px;
+  width: 45px;
+  min-width: 45px;
+  border-radius: 50%;
+  position: absolute;
+  top: 12px;
+}
+
+.passengers-index-link {
+  margin-top: -27px;
+}
+
+.car-share-show-edit {
+  position: absolute;
+  right: 10px;
+  top: 50px;
+  width: 41px;
+}
+
+.car-share-show-delete {
+  position: absolute;
+  right: 10px;
+  top: 95px;
+}
+
+.car-share-show-alt-icon-1 {
+  position: absolute;
+  right: 20px;
+  top: 13px;
+  font-size: 25px;
+}
+
+.car-share-show-alt-icon-2 {
+  position: absolute;
+  right: 20px;
+  top: 53px;
+  font-size: 25px;
+}
+
+//////////////////////////////
+
+////////// Passenger Index /////////
+
+.festival-button {
+  background: rgb(50, 203, 136);
+  color: white;
+  text-transform: uppercase;
+  margin-top: -9px;
+  font-size: 0.7em;
+}
+
+.passenger-section {
+  padding: 20px 10px;
+
+}
+
+.passenger-wrapper {
+  position: relative;
+}
+.update-button {
+  position: absolute;
+  right: 20px;
+}
+.passenger-index-text{
+  font-size: 0.8em;
+}
+
+.passenger-panels {
+  border-radius: 5px;
+  background-color: #36223B;
+  margin: 25px 10px;
+  position: relative;
+  padding: 10px 10px 10px 30px;
+
+}
+
+.accept-button {
+  position: absolute;
+  right: 60px;
+  width: 50px;
+  top: 25px;
+}
+
+.reject-button {
+  position: absolute;
+  right: 5px;
+  width: 50px;
+  top: 25px;
+}
+
+.remove-button {
+  position: absolute;
+  right: 5px;
+  width: 50px;
+  top: 25px;
+}
+
+.passenger-text-wrapper {
+  width: 195px;
+}
+
+.passenger-text-wrapper-2 {
+  width: 245px;
+}
+
+.indent {
+  text-indent: 10px;
+}
+
+.passenger-profile-picture-2 {
+  height: 50px;
+  min-height: 50px;
+  width: 50px;
+  min-width: 50px;
+  border-radius: 50%;
+  position: absolute;
+  top: -20px;
+  left: -10px;
+  border: 4px solid #36223B;
+}
+////////////////////////////////////
+
+////////// Passenger Index /////////
+
+.festival-index-section {
+  padding-top: 30px;
+  margin-top: 10px;
+}
+
+.festival-panel {
+  background-color: #36223B;
+  margin: 0;
+  position: relative;
+}
+
+.festival-title {
+  text-transform: uppercase;
+}
+
+.festival-title-wrapper{
+    margin-left: -8px;
+}
+
+.festival-alt-icon {
+  position: absolute;
+  top: 15px;
+  right: 10px;
+  font-size: 1.2em;
+  color: white;
+}
+
+.attendees-index-link {
+  margin-top: 10px;
+}
+
+.festival-text {
+  padding-top: 20px;
+}
+
+.festival-show-artists {
+  letter-spacing: 0.3em;
+  font-weight: 400;
+  text-transform: uppercase;
+  border-left: rgb(50, 203, 136) 3px solid;
+  padding: 2px;
+  line-height: 1.2em;
+  font-size: 0.7em;
+}
+
+.artist-overlay {
+  position: relative;
+  background-color: rgba(0,0,0, .4);
+  padding: 10px 4px;
+  margin-top: 15px;
+  border-top: rgba(255,255,255, .6) solid 1px;
+}
+
+.festival-address {
+  z-index: 1;
+  position: absolute;
+}
+
+.festival-show-info {
+  margin-top: 20px;
+  padding: 20px 20px 0 20px;
+}
+
+.festival-show-button {
+  background: rgb(50, 203, 136);
+  color: white;
+  text-transform: uppercase;
+  font-size: 0.7em;
+}
+
+.festival-show-text {
+  margin-top: -25px;
+}
+
+.padding {
+  padding-top: 33px;
+  padding-left: 21px;
+}
+
+.weather-title {
+  text-transform: uppercase;
+  font-size: 0.6em;
+  font-weight: 600;
+}
+.weather-text {
+  font-size: 0.6em;
+  margin-top: 10px;
+}
+
+.weather-temp {
+  font-size: 0.8em;
+  margin-top: 10px;
+  font-weight: 600;
+}
+
+.find-ride-button {
+  width: 130px;
+}
+.public-transport-button {
+  width:130px;
+}
+
+.show-info {
+  border-top: white 1px solid;
+  height: 140px;
+  transition: color .4s ease-out,
+              height .4s ease-out,
+              color .2s .4s ease-out,
+              width .2s ease-out;
+  overflow: hidden;
+  color: white;
+  width: 100%;
+}
+
+.hide-info {
+  border-top: white 1px solid;
+  height: 0;
+  transition: color .4s ease-out,
+              height .4s ease-out,
+              color .2s  ease-out,
+              width .2s .2s ease-out;
+  overflow: hidden;
+  color: transparent;
+  width: 0;
+}
+
+.show-info-wrapper {
+  height: 320px;
+  position: relative;
+  background-color: rgba(0,0,0, .4);
+  padding: 10px 4px;
+  transition: height .2s ease-out;
+  margin-top: 15px;
+  border-top: rgba(255,255,255, .6) solid 1px;
+}
+.hide-info-wrapper {
+  height: 180px;
+  position: relative;
+  background-color: rgba(0,0,0, .4);
+  padding: 10px 4px;
+  transition: height .2s .2s ease-out;
+  margin-top: 15px;
+  border-top: rgba(255,255,255, .6) solid 1px;
+}
+
+////////////////// FESTIVAL SHOW //////////////////
+
+.festival-show-button {
+  margin-bottom: 8rem;
+}
+
+footer {
+  background-color: $footer-background-color;
+  color: #ffffff;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+  .subtitle {
+    color: #ffffff;
+    text-transform: uppercase;
+    margin: 0.5rem 0 0 0.5rem;
+  }
+  .columns {
+    margin: 0.5 0 0 0.5rem;
+  }
 }
