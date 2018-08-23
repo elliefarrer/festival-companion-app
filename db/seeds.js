@@ -21,104 +21,222 @@ const userData = [
 ];
 
 
-const festivalData = [{
-  name: 'LoveBox',
-  startDate: '2018-07-13',
-  endDate: '2018-07-14',
-  location: {
-    address: 'Gunnersbury Park',
-    postcode: 'W3 8LQ'
+const festivalData = [
+  {
+    name: 'LoveBox',
+    startDate: '2018-07-13',
+    endDate: '2018-07-14',
+    location: {
+      address: 'Gunnersbury Park',
+      postcode: 'W3 8LQ'
+    },
+    camping: 'No',
+    headlining: ['Childish Gambino', 'Skepta', 'SZA'],
+    photoUrl: 'https://www.ticketbooth.eu/wp-content/uploads/2018/04/lovebox.jpg',
+    createdBy: '',
+    attendees: [],
+    comments: [
+      {name: 'max', content: 'love this place go every year!'}
+    ]
   },
-  camping: 'No',
-  headlining: ['Childish Gambino', 'Skepta', 'SZA'],
-  photoUrl: 'https://24e8e3b95851cffc9b46-ce987c743c8a722dc56cea7f8eb55a8f.ssl.cf3.rackcdn.com/LBXLogoSimple.svg',
-  createdBy: '',
-  attendees: [],
-  comments: [
-    {name: 'max', content: 'love this place go every year!'}
-  ]
-}, {
-  name: 'Citadel Festival',
-  startDate: '2018-07-15',
-  endDate: '2018-07-15',
-  location: {
-    address: 'Gunnersbury Park',
-    postcode: 'W3 8LQ'
+  {
+    name: 'Citadel Festival',
+    startDate: '2018-07-15',
+    endDate: '2018-07-15',
+    location: {
+      address: 'Gunnersbury Park',
+      postcode: 'W3 8LQ'
+    },
+    camping: 'No',
+    headlining: ['Tame Impala', 'Leon Bridges', 'Honne'],
+    photoUrl: 'https://cdn.shopify.com/s/files/1/0601/5089/files/FB_header_2_1024x1024.jpg',
+    createdBy: '',
+    attendees: []
   },
-  camping: 'No',
-  headlining: ['Tame Impala', 'Leon Bridges', 'Honne'],
-  photoUrl: 'https://cdn.shopify.com/s/files/1/0601/5089/files/FB_header_2_1024x1024.jpg',
-  createdBy: '',
-  attendees: []
-},{
-  name: 'British Summer Time',
-  startDate: '2018-07-06',
-  endDate: '2018-07-15',
-  location: {
-    address: 'Hyde Park',
-    postcode: 'W2 2LG'
+  {
+    name: 'British Summer Time',
+    startDate: '2018-07-06',
+    endDate: '2018-07-15',
+    location: {
+      address: 'Hyde Park',
+      postcode: 'W2 2LG'
+    },
+    camping: 'No',
+    headlining: ['The Cure', 'Paul Simon', 'Bruno Mars'],
+    photoUrl: 'http://www.bst-hydepark.com/assets/img/BSTRW_900x560-f1dcd9adc1.jpg',
+    createdBy: '',
+    attendees: []
   },
-  camping: 'No',
-  headlining: ['The Cure', 'Paul Simon', 'Bruno Mars'],
-  photoUrl: 'https://www.bst-hydepark.com/assets/img/33-29429fc891.jpg',
-  createdBy: '',
-  attendees: []
-}];
+  {
+    name: 'Reading Festival',
+    startDate: '2018-08-24',
+    endDate: '2018-08-16',
+    location: {
+      address: 'Richfield Avenue',
+      postcode: 'RG1 8EQ'
+    },
+    camping: 'Yes',
+    headlining: ['Fall Out Boy', 'Kendrick Lemar', 'Kings of Leon'],
+    photoUrl: 'https://www.readingfestival.com/wp-content/uploads/2018/02/reading-og-master-image.jpg',
+    createdBy: '',
+    attendees: []
+  },
+  {
+    name: 'Wireless Festival',
+    startDate: '2018-07-06',
+    endDate: '2018-07-08',
+    location: {
+      address: 'Finsbury Park',
+      postcode: 'N4 2AP'
+    },
+    camping: 'No',
+    headlining: ['J. Cole', 'Stormzy', 'DJ Khaled'],
+    photoUrl: 'https://blog.ticketmaster.co.uk/wp-content/uploads/2018/01/Wireless-18_3880_TM_738x415.jpg',
+    createdBy: '',
+    attendees: []
+  },
+  {
+    name: 'Creamfields',
+    startDate: '2018-08-23',
+    endDate: '2018-08-16',
+    location: {
+      address: 'Daresbury',
+      postcode: 'WA4 4AG'
+    },
+    camping: 'Yes',
+    headlining: ['Chase and Status', 'Major Lazer', 'Tiësto'],
+    photoUrl: 'https://www.creamfields.com/wp-content/uploads/2018/02/CFSocial2018.jpg',
+    createdBy: '',
+    attendees: []
+  }
+];
 
-const carShareData = [{
-  createdBy: '', // doesn't work
-  festival: '', // does work
-  rideStartTime: '12.00PM',
-  estimatedRideEndTime: '3.30PM',
-  from: {
-    postcode: 'W2 1HQ',
-    lat: 51.5167,
-    lng: 0.1769
+const carShareData = [
+  {
+    createdBy: 'curtis', // doesn't work
+    festival: '', // LoveBox
+    rideStartTime: '12.00PM',
+    estimatedRideEndTime: '3.30PM',
+    from: {
+      postcode: 'LU1 2LT' // Luton
+      // lat: 51.5167,
+      // lng: 0.1769
+    }
+  },
+  {
+    createdBy: 'max',
+    festival: '', // BST
+    rideStartTime: '11.30AM',
+    estimatedRideEndTime: '12.30PM',
+    from: {
+      postcode: 'MK9 3NZ' // Milton Keynes
+      // lat: 51.5167,
+      // lng: 0.1769
+    }
+  },
+  {
+    createdBy: 'molly',
+    festival: '', // Citadel
+    rideStartTime: '10.00AM',
+    estimatedRideEndTime: '12.30PM',
+    from: {
+      postcode: 'HP5 1SP'
+      // lat: 51.5167,
+      // lng: 0.1769
+    }
+  },
+  {
+    createdBy: 'ellie',
+    festival: '', // Reading
+    rideStartTime: '10.00AM',
+    estimatedRideEndTime: '12.30PM',
+    from: {
+      postcode: 'W2 1HQ'
+      // lat: 51.5167,
+      // lng: 0.1769
+    }
+  },
+  {
+    createdBy: 'molly',
+    festival: '', // Reading
+    rideStartTime: '10.00AM',
+    estimatedRideEndTime: '12.30PM',
+    from: {
+      postcode: 'HP5 1SP'
+      // lat: 51.5167,
+      // lng: 0.1769
+    }
+  },
+  {
+    createdBy: 'ben',
+    festival: '', // Wireless
+    rideStartTime: '10.00AM',
+    estimatedRideEndTime: '12.30PM',
+    from: {
+      postcode: 'CO4 3EQ' // Essex
+      // lat: 51.5167,
+      // lng: 0.1769
+    }
+  },
+  {
+    createdBy: 'jasmine',
+    festival: '', // Creamfields
+    rideStartTime: '10.00AM',
+    estimatedRideEndTime: '12.30PM',
+    from: {
+      postcode: 'E3 2AX'
+      // lat: 51.5167,
+      // lng: 0.1769
+    }
+  },
+  {
+    createdBy: 'sam',
+    festival: '', // Creamfields
+    rideStartTime: '10.00AM',
+    estimatedRideEndTime: '12.30PM',
+    from: {
+      postcode: 'M13 9PL'
+      // lat: 51.5167,
+      // lng: 0.1769
+    }
   }
-}, {
-  createdBy: '',
-  festival: '',
-  rideStartTime: '11.30AM',
-  estimatedRideEndTime: '12.30PM',
-  from: {
-    postcode: 'W2 1HQ',
-    lat: 51.5167,
-    lng: 0.1769
-  }
-}, {
-  createdBy: '',
-  festival: '',
-  rideStartTime: '10.00AM',
-  estimatedRideEndTime: '12.30PM',
-  from: {
-    postcode: 'EC3N 1AH',
-    lat: 51.5167,
-    lng: 0.1769
-  }
-}];
+];
 
 User
-  .create(userData)
-  .then(users => {
-    console.log(`Created ${users.length} users.`);
-    festivalData[0].createdBy = users[0].id;
-    festivalData[1].createdBy = users[0].id;
-    festivalData[2].createdBy = users[0].id;
-    // festivalData[0].attendees.push(users[0].id);
-    // festivalData[1].attendees.push(users[1].id);
-    // festivalData[2].attendees.push(users[2].id);
-    return Festival.create(festivalData);
-  })
-  .then(festivals => {
-    console.log(`Created ${festivals.length} festivals.`);
-    carShareData[0].createdBy = festivals[0].createdBy;
-    carShareData[1].createdBy = festivals[1].createdBy;
-    carShareData[2].createdBy = festivals[0].createdBy;
-    carShareData[0].festival = festivals[1];
-    carShareData[1].festival = festivals[0];
-    carShareData[2].festival = festivals[1];
-    return carShare.create(carShareData);
-  })
-  .then(console.log(`Created ${carShare.length} carshares`))
-  .catch(err => console.log(err))
-  .finally(() => mongoose.connection.close());
+.create(userData)
+.then(users => {
+  console.log(`Created ${users.length} users.`);
+  festivalData[0].createdBy = users[0].id;
+  festivalData[1].createdBy = users[0].id;
+  festivalData[2].createdBy = users[0].id;
+  festivalData[3].createdBy = users[0].id;
+  festivalData[4].createdBy = users[0].id;
+  festivalData[5].createdBy = users[0].id;
+  // festivalData[0].attendees.push(users[0].id);
+  // festivalData[1].attendees.push(users[1].id);
+  // festivalData[2].attendees.push(users[2].id);
+  return Festival.create(festivalData);
+})
+.then(festivals => {
+  console.log(`Created ${festivals.length} festivals.`);
+  carShareData[0].createdBy = festivals[0].createdBy;
+  carShareData[1].createdBy = festivals[1].createdBy;
+  carShareData[2].createdBy = festivals[2].createdBy;
+  carShareData[3].createdBy = festivals[3].createdBy;
+  carShareData[4].createdBy = festivals[3].createdBy;
+  carShareData[5].createdBy = festivals[4].createdBy;
+  carShareData[6].createdBy = festivals[5].createdBy;
+  carShareData[7].createdBy = festivals[5].createdBy;
+  carShareData[0].festival = festivals[0];
+  carShareData[1].festival = festivals[1];
+  carShareData[2].festival = festivals[2];
+  carShareData[3].festival = festivals[3];
+  carShareData[4].festival = festivals[3];
+  carShareData[5].festival = festivals[4];
+  carShareData[6].festival = festivals[5];
+  carShareData[7].festival = festivals[5];
+  return carShare.create(carShareData);
+})
+.then(console.log(`Created ${carShare.length} carshares`))
+.catch(err => console.log(err))
+.finally(() => mongoose.connection.close());
