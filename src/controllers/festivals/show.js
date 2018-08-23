@@ -22,6 +22,8 @@ function FestivalsShowCtrl($http, $scope, $state, $auth, $timeout) {
     .then(res => {
       console.log('Found a festival', res.data);
       $scope.festival = res.data;
+      $scope.festival.startDate = moment($scope.festival.startDate).format('Do MMMM YYYY');
+      $scope.festival.endDate = moment($scope.festival.endDate).format('Do MMMM YYYY');
       $scope.attendance = $scope.festival.attendees.map(attendee =>   attendee._id).includes($scope.loggedInUser);
       festivalMap(res.data);
     });

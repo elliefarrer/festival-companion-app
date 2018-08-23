@@ -19,8 +19,8 @@ const userData = [
 
 const festivalData = [{
   name: 'LoveBox',
-  startDate: '13th July',
-  endDate: '14th July',
+  startDate: '2018-07-13',
+  endDate: '2018-07-14',
   location: {
     address: 'Gunnersbury Park',
     postcode: 'W3 8LQ'
@@ -35,8 +35,8 @@ const festivalData = [{
   ]
 }, {
   name: 'Citadel Festival',
-  startDate: '15th July',
-  endDate: '15th July',
+  startDate: '2018-07-15',
+  endDate: '2018-07-15',
   location: {
     address: 'Gunnersbury Park',
     postcode: 'W3 8LQ'
@@ -48,8 +48,8 @@ const festivalData = [{
   attendees: []
 },{
   name: 'British Summer Time',
-  startDate: '6th July',
-  endDate: '15th July',
+  startDate: '2018-07-06',
+  endDate: '2018-07-15',
   location: {
     address: 'Hyde Park',
     postcode: 'W2 2LG'

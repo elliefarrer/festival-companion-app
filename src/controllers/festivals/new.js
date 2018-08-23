@@ -8,6 +8,7 @@ function FestivalsNewCtrl($http, $scope, $state) {
     })
       .then(() => $state.go('festivalsIndex'));
   };
+
 }
 
 export default FestivalsNewCtrl;
