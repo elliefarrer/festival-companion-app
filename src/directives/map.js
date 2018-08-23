@@ -37,7 +37,7 @@ function Map() {
       //     console.log('Create map search map is', searchMap);
       //     $http({
       //       method: 'GET',
-      //       url: `http://www.mapquestapi.com/geocoding/v1/address?key=${API_KEY}&location=${searchMap}`
+      //       url: `https://www.mapquestapi.com/geocoding/v1/address?key=${API_KEY}&location=${searchMap}`
       //     })
       //       .then(res => {
       //         placeLat = res.data.results[0].locations[0].latLng.lat;

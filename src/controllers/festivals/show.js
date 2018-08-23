@@ -29,7 +29,7 @@ function FestivalsShowCtrl($http, $scope, $state, $auth) {
     console.log('Search for', postcode);
     $http({
       method: 'GET',
-      url: 'http://www.mapquestapi.com/geocoding/v1/address',
+      url: 'https://www.mapquestapi.com/geocoding/v1/address',
       params: {
         key: $scope.API_KEY,
         location: postcode
