@@ -13,7 +13,11 @@ carShare.collection.drop();
 const userData = [
   {firstName: 'Ellie', lastName: 'Farrer', userName: 'ellie', email: 'ellie@email.com', mobileNumber: '07770077070', password: 'pass', passwordConfirmation: 'pass', image: 'https://i.imgur.com/cgUj7q6.png'},
   {firstName: 'Curtis', lastName: 'Burns', userName: 'curtis', email: 'curtis@email.com', mobileNumber: '07770077070', password: 'pass', passwordConfirmation: 'pass', image: 'https://i.imgur.com/dudZjsL.jpg'},
-  {firstName: 'Max', lastName: 'Cramer', userName: 'max', email: 'max@email.com', currentLocation: 'W11 4PE', mobileNumber: '07770077070', password: 'pass', passwordConfirmation: 'pass', image: 'https://media.licdn.com/dms/image/C4D03AQFvQx1ZhFlX7Q/profile-displayphoto-shrink_200_200/0?e=1540425600&v=beta&t=7RkDFoQXRITS0S9A21Urami1OgIRXf3or8plFOthJTQ'}
+  {firstName: 'Max', lastName: 'Cramer', userName: 'max', email: 'max@email.com', currentLocation: 'W11 4PE', mobileNumber: '07770077070', password: 'pass', passwordConfirmation: 'pass', image: 'https://media.licdn.com/dms/image/C4D03AQFvQx1ZhFlX7Q/profile-displayphoto-shrink_200_200/0?e=1540425600&v=beta&t=7RkDFoQXRITS0S9A21Urami1OgIRXf3or8plFOthJTQ'},
+  {firstName: 'Ben', lastName: 'User', userName: 'ben', email: 'ben@email.com', mobileNumber: '07770077070', password: 'pass', passwordConfirmation: 'pass', image: 'https://i.imgur.com/F2stGoH.png'},
+  {firstName: 'Sam', lastName: 'User', userName: 'sam', email: 'sam@email.com', mobileNumber: '07770077070', password: 'pass', passwordConfirmation: 'pass', image: 'https://i.imgur.com/qUpD4GT.png'},
+  {firstName: 'Molly', lastName: 'User', userName: 'molly', email: 'molly@email.com', mobileNumber: '07770077070', password: 'pass', passwordConfirmation: 'pass', image: 'https://i.imgur.com/Bp9yrkl.png'},
+  {firstName: 'Jasmine', lastName: 'User', userName: 'jasmine', email: 'jasmine@email.com', mobileNumber: '07770077070', password: 'pass', passwordConfirmation: 'pass', image: 'https://i.imgur.com/dsKzIzc.png'}
 ];
 
 
@@ -62,8 +66,8 @@ const festivalData = [{
 }];
 
 const carShareData = [{
-  createdBy: '',
-  festival: '',
+  createdBy: '', // doesn't work
+  festival: '', // does work
   rideStartTime: '12.00PM',
   estimatedRideEndTime: '3.30PM',
   from: {
