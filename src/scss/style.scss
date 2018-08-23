@@ -8,13 +8,17 @@ body {
   background-color: #36223B
 }
 
+.add-shadow {
+  box-shadow: 0 5px 30px 2px rgba(20,20,20,.9);
+}
+
 .main-body {
   margin-top: 50px;
 }
 
 .map {
   height: 300px;
-  width: 90vw;
+  width: 100%;
 
 }
 
@@ -51,7 +55,6 @@ body {
 
 .car-share-section {
   padding: 10px;
-
 }
 .icon-wrapper {
   position: relative;
@@ -298,5 +301,152 @@ body {
   top: -20px;
   left: -10px;
   border: 4px solid #36223B;
+}
+////////////////////////////////////
 
+////////// Passenger Index /////////
+
+.festival-index-section {
+  padding-top: 30px;
+  margin-top: 10px;
+}
+
+.festival-panel {
+  background-color: #36223B;
+  margin: 0;
+  position: relative;
+}
+
+.festival-title {
+  text-transform: uppercase;
+}
+
+.festival-title-wrapper{
+    margin-left: -8px;
+}
+
+.festival-alt-icon {
+  position: absolute;
+  top: 15px;
+  right: 10px;
+  font-size: 1.2em;
+  color: white;
+}
+
+.attendees-index-link {
+  margin-top: 10px;
+}
+
+.festival-text {
+  padding-top: 20px;
+}
+
+.festival-show-artists {
+  letter-spacing: 0.3em;
+  font-weight: 400;
+  text-transform: uppercase;
+  border-left: rgb(50, 203, 136) 3px solid;
+  padding: 2px;
+  line-height: 1.2em;
+  font-size: 0.7em;
+}
+
+.artist-overlay {
+  position: relative;
+  background-color: rgba(0,0,0, .4);
+  padding: 10px 4px;
+  margin-top: 15px;
+  border-top: rgba(255,255,255, .6) solid 1px;
+}
+
+.festival-address {
+  z-index: 1;
+  position: absolute;
+}
+
+.festival-show-info {
+  margin-top: 20px;
+  padding: 20px 20px 0 20px;
+}
+
+.festival-show-button {
+  background: rgb(50, 203, 136);
+  color: white;
+  text-transform: uppercase;
+  font-size: 0.7em;
+}
+
+.festival-show-text {
+  margin-top: -25px;
+}
+
+.padding {
+  padding-top: 33px;
+  padding-left: 21px;
+}
+
+.weather-title {
+  text-transform: uppercase;
+  font-size: 0.6em;
+  font-weight: 600;
+}
+.weather-text {
+  font-size: 0.6em;
+  margin-top: 10px;
+}
+
+.weather-temp {
+  font-size: 0.8em;
+  margin-top: 10px;
+  font-weight: 600;
+}
+
+.find-ride-button {
+  width: 130px;
+}
+.public-transport-button {
+  width:130px;
+}
+
+.show-info {
+  border-top: white 1px solid;
+  height: 140px;
+  transition: color .4s ease-out,
+              height .4s ease-out,
+              color .2s .4s ease-out,
+              width .2s ease-out;
+  overflow: hidden;
+  color: white;
+  width: 100%;
+}
+
+.hide-info {
+  border-top: white 1px solid;
+  height: 0;
+  transition: color .4s ease-out,
+              height .4s ease-out,
+              color .2s  ease-out,
+              width .2s .2s ease-out;
+  overflow: hidden;
+  color: transparent;
+  width: 0;
+}
+
+.show-info-wrapper {
+  height: 320px;
+  position: relative;
+  background-color: rgba(0,0,0, .4);
+  padding: 10px 4px;
+  transition: height .2s ease-out;
+  margin-top: 15px;
+  border-top: rgba(255,255,255, .6) solid 1px;
+}
+.hide-info-wrapper {
+  height: 180px;
+  position: relative;
+  background-color: rgba(0,0,0, .4);
+  padding: 10px 4px;
+  transition: height .2s .2s ease-out;
+  margin-top: 15px;
+  border-top: rgba(255,255,255, .6) solid 1px;
 }

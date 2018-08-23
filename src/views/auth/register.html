@@ -1,5 +1,14 @@
 <p style="padding: 50px;">Welcome to your best festival companion! Already got an account? <a ui-sref="login">Log in!</a>Please register bellow</a>)</p>
 <form style="padding-left: 50px; padding-right: 50px"; ng-submit="register()" name="form" novalidate>
+
+  <div class="field">
+    <a class="button" ng-click="uploadImage()"> Pick an image</a>
+    <label class="label"  for="profilePicture" ng-model="user.image">Profile Picture (URL)</label>
+    <div class="control">
+      <input class="input" type="text" id="profilePicture" name="profilePicture">
+    </div>
+  </div>
+
   <div style="padding-top: 10px;" class="field">
     <label class="label" for="firstName">First Name</label>
     <input required minLength="2" ng-model="user.firstName" class="input" type="text" name="firstName"placeholder="">
