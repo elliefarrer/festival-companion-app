@@ -33,6 +33,7 @@ function commentCreate(req, res, next) { // This needs testing
       // console.log(req.body.createBy); //This needs testing
       carShare.comments.push(req.body);
       // console.log(carShare); // This needs testing
+      console.log('Req body is', req.body);
       return carShare.save();
     })
     .then(carShare => res.json(carShare))

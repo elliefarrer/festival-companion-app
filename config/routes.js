@@ -20,8 +20,6 @@ const passengerController = require('../controllers/passengerController');
 const weatherController = require('../controllers/weatherController');
 
 
-
-
 // TODO: Add secureRoutes once tested
 
 
