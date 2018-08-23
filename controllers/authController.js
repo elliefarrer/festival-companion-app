@@ -22,7 +22,7 @@ function login(req, res, next) {
       // USER IS AUTHENTICATED
       const token = jwt.sign({ sub: user.id, admin: false, firstName: user.firstName}, secret, { expiresIn: '1hr' });
       // console.log('Created token!!', token);
-      return res.json({ message: `Welcome back ${user.firstName}. Where's the party today?`, token });
+      return res.json({ message: `Welcome back ${user.id}. Where's the party today?`, token });
     })
     .catch(next);
 }

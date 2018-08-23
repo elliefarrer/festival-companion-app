@@ -30,12 +30,13 @@ function attendeeIndex(req, res, next) {
 
 
 function attendeeCreate(req, res, next) {
+  console.log('we are in attendee Create');
   getTokenFromHttpRequest(req);
   const festivalId = req.params.festivalId;
   User
     .findById(userId)
     .then(user => {
-      user.festivalsAttending.push(festivalId);
+      user.festivalsAttending = [].concat(...user.festivalsAttending, festivalId);
       return user.save();
     })
     .then(() => Festival.findById(festivalId))
