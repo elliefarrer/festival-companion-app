@@ -100,9 +100,9 @@ User
     festivalData[0].createdBy = users[0].id;
     festivalData[1].createdBy = users[0].id;
     festivalData[2].createdBy = users[0].id;
-    festivalData[0].attendees.push(users[0].id);
-    festivalData[1].attendees.push(users[1].id);
-    festivalData[2].attendees.push(users[2].id);
+    // festivalData[0].attendees.push(users[0].id);
+    // festivalData[1].attendees.push(users[1].id);
+    // festivalData[2].attendees.push(users[2].id);
     return Festival.create(festivalData);
   })
   .then(festivals => {

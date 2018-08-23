@@ -3,7 +3,8 @@ const User = require('../models/user');
 function usersShow(req, res, next) {
   User
     .findById(req.params.id)
-    .populate('festivalsAttending')
+    .populate({ path: 'festivalsAttending', populate: { path: 'attendees' }})
+    .exec()
     .then(user => res.json(user))
     .catch(next);
 }

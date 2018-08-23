@@ -64,8 +64,8 @@ router.route('/weather')
 
 router.route('/festivals/:festivalId/attendees')
   .get(attendeeController.index)
-  .post(attendeeController.create) //this adds the festival to the users list, and
-  .delete(attendeeController.delete);
+  .post(secureRoute, attendeeController.create) //this adds the festival to the users list, and
+  .delete(secureRoute, attendeeController.delete);
 // the user to the attendees list of the festival
 
 

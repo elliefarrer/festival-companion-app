@@ -18,6 +18,12 @@ function UsersShowCtrl($http, $scope, $state) {
   })
     .then((res) => $scope.user = res.data);
 
+  $http({
+    method: 'GET',
+    url: '/api/festivals/'
+  })
+    .then((res) => $scope.festivals = res.data);
+
   // console.log('We have arrived in the show controller');
   console.log('state.params.id is', $state.params.id);
   console.log('current user is', $scope.currentUser()._id);
