@@ -32,7 +32,7 @@
 
       <a ng-click="addFriend(friend._id)" class="button festival-button remove-button" ng-if="!friend.userFriends.includes(currentUser()._id)">Add friend</a>
 
-      <a ng-click="removeFriend(friend._id)" class="button festival-button remove-button" ng-if="friend.pendingFriends.includes(currentUser()._id)">Pending - cancel?</a>
+      <a ng-click="removeFriend(friend._id)" class="button festival-button remove-button" ng-if="!friend.userFriends.includes(currentUser()._id)">Pending - cancel?</a>
 
       <a ng-if="friend.userFriends.includes(currentUser()._id)" ng-click="removeFriend(friend._id)" class="button festival-button">Unfriend</a>
     </div>
