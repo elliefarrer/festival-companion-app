@@ -47,7 +47,7 @@ body {
   width: 100px;
   height: 50px;
   font-size: 15px;
-  margin-top: 50px;
+  // margin-top: 50px;
   margin-bottom: 30px;
   margin-left: 80px;
   background-color: #36223B;
@@ -62,9 +62,9 @@ body {
   width: 100px;
   height: 50px;
   font-size: 15px;
-  margin-top: 50px;
+  // margin-top: 50px;
   margin-bottom: 30px;
-  margin-left: 250px;
+  margin-left: 300px;
   background-color: #36223B;
   color: white;
   border: none
@@ -94,6 +94,7 @@ body {
 
 .color {
   color: white;
+  font-size: 17px;
 }
 
 #atfestdiv {
@@ -134,6 +135,21 @@ body {
 
 .topHalf {
   padding-top: 20px;
+}
+
+.nameSize {
+  font-size: 17px;
+}
+
+.festivalsAttending {
+  font-size: 15px;
+  height: 55px;
+  width: 85%;
+  background-color: #36223B;
+  margin-left: 40px;
+  margin-bottom: 10px;
+  display: flex;
+
 }
 
 .profileNamePosition {

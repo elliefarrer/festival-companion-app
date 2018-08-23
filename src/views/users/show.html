@@ -13,22 +13,15 @@
       </div>
     </div>
   </div>
-  <div class="contact">
+  <h2 id="atfest" class="subtitle is-7">Festivals Attending</h2>
+  <div ng-repeat="festival in user.festivalsAttending" class="festivalsAttending container" >
+    <a ui-sref="festivalsShow({ id: festival._id })">
+      <h3 class="color nameSize">{{ festival.name }}</h3>
+      <h3 class="color">{{ festival.startDate }}</h3>
+    </a>
   </div>
-  <div class="currentLocation">
-    <h2 class="subtitle is-7">Current Location</h2>
-    <section ng-if="currentUser()._id === user._id">
-
-      <div class="map" ng-map></div>
-
-    </section>
-  </div>
-  <div class="festivalsAttending">
-    <h2 id="atfest" class="subtitle is-7">Festivals Attending</h2>
-    <h2 id="atfestdiv" class="subtitle is-7">{{ user.festivalsAttending.festival.photoUrl }}</h2>
-  </div>
-  <span>>
+  <span>
     <button class="profileButton" ui-sref="usersEdit({ userId: currentUser()._id })">Edit Profile</button>
     <button class="deleteButton" ng-click="deleteUser()">Delete Account</button>
-  </span
+  </span>
 </section>
