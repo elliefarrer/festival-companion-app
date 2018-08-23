@@ -56,7 +56,36 @@ function CarSharesShowCtrl($http, $scope, $state, $auth) {
       });
   };
 
+  $scope.$watch('carShare', function() {
+    if($scope.carShare) {
+      console.log('Car share knows about the map');
+      const startPoint = $scope.carShare.from.postcode;
+      const endPoint = $scope.carShare.festival.location.postcode;
+      $http({
+        method: 'GET',
+        url: 'http://www.mapquestapi.com/directions/v2/route',
+        params: {
+          key: $scope.API_KEY,
+          from: startPoint,
+          to: endPoint
+        }
+      })
+        .then(res => {
+          console.log('Le res is', res.data);
+          const startLat = res.data.route.locations[0].latLng.lat;
+          const startLng = res.data.route.locations[0].latLng.lng;
+          const endLat = res.data.route.locations[1].latLng.lat;
+          const endLng = res.data.route.locations[1].latLng.lng;
+          $scope.map.setView([startLat, startLng], 8);
+          const startMarker = L.marker([startLat, startLng]).addTo($scope.map);
+          const endMarker = L.marker([endLat, endLng]).addTo($scope.map);
+        });
+    }
+  });
+
 }
+
+
 
 
 export default CarSharesShowCtrl;
