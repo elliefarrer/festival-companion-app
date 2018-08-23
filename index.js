@@ -22,13 +22,13 @@ app.use(express.static(`${__dirname}/public`));
 app.use(morgan('dev'));
 app.use(bodyParser.json()); // Allows other HTTP methods
 
-app.use((req, res, next) => {
-  res.append('Access-Control-Allow-Origin', ['*']);
-  res.append('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-  res.append('Access-Control-Allow-Header', 'Content-Type');
-  next();
-});
-
+// app.use((req, res, next) => {
+//   res.append('Access-Control-Allow-Origin', ['*']);
+//   res.append('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+//   res.append('Access-Control-Allow-Header', 'Content-Type');
+//   next();
+// });
+//
 app.use('/api', router); // Allows use of router
 
 app.use(errorHandler);
