@@ -5,6 +5,7 @@ import 'bulma';
 import './scss/style.scss';
 
 
+
 import Router from './config/routes';
 
 import Map from './directives/map';
