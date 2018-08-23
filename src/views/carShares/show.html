@@ -92,3 +92,28 @@
 
 
 </div>
+
+<div class="section add-comment-section">
+  <form ng-submit="createComment()">
+    <div class="field">
+      <input class="input" type="text" name="comments.content" placeholder="Add a comment">
+    </div>
+
+    <button class="button">Submit</button>
+  </form>
+</div>
+
+<div class="section comment-section">
+  <div class="section" ng-repeat="comment in carShare.comments">
+    <div class="columns">
+      <div class="column is-one-quarter">
+        <img ng-src={{comment.createdBy.image}} alt={{comment.createdBy.userName}}>
+      </div>
+      <div class="column is-three-quarters">
+        <p>{{comment.createdBy.userName}}</p>
+        <p>{{comment.content}}</p>
+        <p>{{comment.timeStamps}}</p>
+      </div>
+    </div>
+  </div>
+</div>
