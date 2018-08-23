@@ -47,77 +47,22 @@
 
 <div <div ng-class=" expand ? 'show-info-wrapper' : 'hide-info-wrapper'" class="weather-wrapper weather-overlay add-shadow columns is-mobile is-multiline festival-show-info has-text-white">
 
-      <div class="column is-one-fifth is-one-fifth-mobile">
-        <div ng-click="toggleExpand()">
-          <figure>
-            <canvas class="weathericon" id="{{todayIcon}}" width="50" height="50"></canvas>
-          </figure>
-          <p class="weather-title">Today</p>
-          <p class="weather-temp">{{ todayCelsius }}ºC</p>
-          <div ng-class=" expand ? 'show-info' : 'hide-info'" ng-click="toggleExpand()">
-            <p class="weather-text">{{ weather.currently.summary }}</p>
-            <p class="weather-text">Chance of rain: {{ todayRain }}%</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="column is-one-fifth is-one-fifth-mobile">
-        <div ng-click="toggleExpand()">
-          <figure>
-            <canvas id="{{tomorrowIcon}}" width="50" height="50"></canvas>
-          </figure>
-          <p class="weather-title">Tomorrow</p>
-          <p class="weather-temp">{{ tomorrowCelsius }}ºC</p>
-          <div ng-class=" expand ? 'show-info' : 'hide-info'" ng-click="toggleExpand()">
-            <p class="weather-text">{{ tomorrowWeather.summary }}</p>
-            <p class="weather-text">Chance of rain: {{ tomorrowRain }}%</p>
-          </div>
-        </div>
-      </div>
-
-
-      <div class="column is-one-fifth is-one-fifth-mobile">
-        <div ng-click="toggleExpand()">
-          <figure>
-            <canvas class="weather-icon"id="{{dayThreeIcon}}" width="50" height="50"></canvas>
-          </figure>
-          <p class="weather-title">{{ dayThreeDate }}</p>
-          <p class="weather-temp">{{ dayThreeCelsius }}ºC</p>
-        <div ng-class=" expand ? 'show-info' : 'hide-info'" ng-click="toggleExpand()">
-          <p class="weather-text">{{ dayThreeWeather.summary }}</p>
-          <p class="weather-text">Chance of rain: {{ dayThreeRain }}%</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="column is-one-fifth is-one-fifth-mobile">
-        <div ng-click="toggleExpand()">
-          <figure>
-            <canvas id="{{dayFourIcon}}" width="50" height="50"></canvas>
-          </figure>
-          <p class="weather-title">{{ dayFourDate }}</p>
-          <p class="weather-temp">{{ dayFourCelsius }}ºC</p>
-          <div ng-class=" expand ? 'show-info' : 'hide-info'" ng-click="toggleExpand()">
-            <p class="weather-text">{{ dayFourWeather.summary }}</p>
-            <p class="weather-text">Chance of rain: {{ dayFourRain }}%</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="column is-one-fifth is-one-fifth-mobile">
-        <div ng-click="toggleExpand()">
-          <figure>
-            <canvas id="{{dayFiveIcon}}" width="50" height="50"></canvas>
-          </figure>
-          <p class="weather-title">{{ dayFiveDate }}</p>
-          <p class="weather-temp">{{ dayFiveCelsius }}ºC</p>
-          <div ng-class=" expand ? 'show-info' : 'hide-info'" ng-click="toggleExpand()">
-            <p class="weather-text">{{ dayFiveWeather.summary }}</p>
-            <p class="weather-text">Chance of rain: {{ dayFiveRain }}%</p>
-          </div>
-        </div>
+  <div class="column is-one-fifth is-one-fifth-mobile" ng-repeat="weather in weatherDays">
+    <div ng-click="toggleExpand()">
+      <figure>
+        <ng-skycon icon="{{weather.icon}}">
+          <canvas class="weathericon" width="50" height="50"></canvas>
+        </ng-skycon>
+      </figure>
+      <p class="weather-title">{{weather.date}}</p>
+      <p class="weather-temp">{{ weather.temperature }}ºC</p>
+      <div ng-class=" expand ? 'show-info' : 'hide-info'" ng-click="toggleExpand()">
+        <p class="weather-text">Chance of rain: {{ weather.chanceOfRain }}%</p>
+        <p class="weather-text">UV Index: {{weather.uvIndex}}</p>
       </div>
     </div>
+  </div>
+</div>
 
 <div class="section">
   <button class="button festival-show-button" ui-sref="festivalsEdit({ id: festival._id })">Edit {{ festival.name }}</button>
