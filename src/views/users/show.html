@@ -1,5 +1,3 @@
-<!-- 5b7a7f6461c78610c5153d8a -->
-<div class="backgroundImage">
 <section ng-if="isAuthenticated()" class="" ng-controller="UsersShowCtrl">
 <div class="topHalf">
     <div class="profileNamePosition">
@@ -21,9 +19,10 @@
   </div>
   <div class="festivalsAttending">
     <h2 id="atfest" class="subtitle is-7">Festivals Attending</h2>
-    <h2 id="atfestdiv" class="subtitle is-7">{{ user.festivalsAttending }}</h2>
+    <h2 id="atfestdiv" class="subtitle is-7">{{ user.festivalsAttending.festival.photoUrl }}</h2>
   </div>
-  <button style="background-color: #36223B; color: white; border: none;" class="button profileButton" ui-sref="usersEdit({ userId: currentUser()._id })">Edit Profile</button>
-  <button style="background-color: #36223B; color: white; border: none;" class="button profileButton" ng-click="deleteUser()">Delete Account</button></section>
-
-</div>
+  <span>>
+    <button class="profileButton" ui-sref="usersEdit({ userId: currentUser()._id })">Edit Profile</button>
+    <button class="deleteButton" ng-click="deleteUser()">Delete Account</button>
+  </span
+</section>

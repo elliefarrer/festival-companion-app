@@ -37,9 +37,59 @@ body {
 }
 
 .profileButton {
+  align-items: center;
+  position: absolute;
+  text-align: center;
+  width: 100px;
+  height: 50px;
+  font-size: 15px;
   margin-top: 50px;
   margin-bottom: 30px;
-  margin-left: 60px;
+  margin-left: 80px;
+  background-color: #36223B;
+  color: white;
+  border: none
+}
+
+.deleteButton {
+  align-items: center;
+  position: absolute;
+  text-align: center;
+  width: 100px;
+  height: 50px;
+  font-size: 15px;
+  margin-top: 50px;
+  margin-bottom: 30px;
+  margin-left: 250px;
+  background-color: #36223B;
+  color: white;
+  border: none
+}
+
+.saveButton {
+  background-color: #36223B;
+  color: white;
+  width: 100px;
+  height: 50px;
+  border: none;
+  font-size: 15px;
+}
+
+.headingAlign {
+  padding-left: 70px;
+}
+
+.inputSize {
+  width: 300px;
+  height: 30px;
+}
+
+.alignProfileEdit {
+  padding-left: 70px;
+}
+
+.color {
+  color: white;
 }
 
 #atfestdiv {
@@ -75,7 +125,7 @@ body {
 
 .backgroundImage {
   background-image: url(https://i.imgur.com/Hk6NTtl.png);
-  background-size: 100vh;
+  background-size: 100%;
 }
 
 .topHalf {

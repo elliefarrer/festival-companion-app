@@ -7,6 +7,7 @@ function UsersShowCtrl($http, $scope, $state) {
       method: 'DELETE',
       url: `/api/user/${$state.params.id}`
     })
+      .then(() => $scope.logout())
       .then(() => $state.go('login'));
   };
 
@@ -29,21 +30,5 @@ function UsersShowCtrl($http, $scope, $state) {
         { timeout: 10000 });
     }
   });
-//   $scope.sendFriendRequest = function() {
-//     $http({
-//       method: 'POST',
-//       url: `/user/${$state.params.userId}/friends/${$state.params.friendId}`
-//     })
-//       .then(() => $state.go(`/user/${$state.params.id}`));
-//   };
-//
-//   $scope.removeFriend = function() {
-//     $http({
-//       method: 'DELETE',
-//       url: `/user/${$state.params.userId}/friends/${$state.params.friendId}`
-//     })
-//       .then(() => $state.go(`/user/${$state.params.id}`));
-//   };
-// }
 }
 export default UsersShowCtrl;
