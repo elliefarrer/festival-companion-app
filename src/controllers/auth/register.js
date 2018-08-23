@@ -1,11 +1,11 @@
 function AuthRegisterCtrl($auth, $scope, $state) {
 
   $scope.register = function() {
+    console.log('Saving user', $scope.user);
     $auth
       .signup($scope.user)
       .then(() => $auth.login($scope.user))
       .then(() => {
-        console.log('new user created...');
         $state.go('festivalsIndex');
       });
   };
@@ -28,11 +28,12 @@ function AuthRegisterCtrl($auth, $scope, $state) {
         // console.log('files are', res.filesUploaded[0].url);
         $scope.user = {};
         $scope.user.image = res.filesUploaded[0].url;
-        console.log($scope.user.image);
+        console.log('User is now', $scope.user);
         // console.log(fp);
         if ($scope.user.image) {
           $scope.imageUploaded = true;
         }
+        $scope.$apply();
       })
       .catch(err => console.log(err));
   };

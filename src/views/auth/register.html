@@ -7,7 +7,8 @@
   <form style="padding-left: 50px; padding-right: 50px"; ng-submit="register()" name="form" novalidate>
 
     <div class="field">
-      <a class="button" ng-click="uploadImage()"> Pick an image</a>
+      <a class="button" ng-click="uploadImage()" ng-if="!imageUploaded">Pick an image</a>
+      <a class="button" ng-click="uploadImage()" ng-if="imageUploaded">?!</a>
       <label class="label has-text-white"  for="profilePicture" >Profile Picture (URL)</label>
       <div class="control">
         <input ng-model="user.image" class="input" type="text" id="profilePicture" name="profilePicture">

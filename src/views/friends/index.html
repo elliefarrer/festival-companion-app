@@ -2,7 +2,6 @@
   <h2>{{user.firstName}}'s Friends List</h2>
 
   <a  class="button festival-button update-button" ng-if="user.userFriends.length > 0 || carShare.pendingPassengers.length > 0" ng-click=reloadRoute()>Update</a>
-{{user.pendingFriends}}
   <div class="passenger-panels add-shadow" ng-if="user._id === currentUser()._id" ng-repeat="pendingFriend in user.pendingFriends">
     <div class="passenger-text-wrapper">
       <img class="passenger-profile-picture-2" ng-src="{{ pendingFriend.image }}" alt="{{ pendingFriend.firstName }}">
@@ -26,9 +25,9 @@
 
     <img class="passenger-profile-picture-2" ng-src="{{ friend.image }}">
 
-    <!-- <a ng-if="carShare.createdBy === idCheck" ng-click="removePassenger(passenger._id)" class="button festival-button remove-button">Remove</a>
+    <a ng-if="carShare.createdBy === idCheck" ng-click="removePassenger(passenger._id)" class="button festival-button remove-button">Remove</a>
 
-    <a ng-if="carShare.createdBy !== idCheck" ng-click="removePassenger(passenger._id)" class="button festival-button">Cancel</a> -->
+    <a ng-if="carShare.createdBy !== idCheck" ng-click="removePassenger(passenger._id)" class="button festival-button">Cancel</a>
     </div>
   </div>
 
