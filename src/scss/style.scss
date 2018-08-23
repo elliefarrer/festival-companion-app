@@ -1,5 +1,6 @@
 .main-body {
-  margin-top: 100px;
+  margin-top: 61px;
+
 }
 
 .map {
@@ -8,10 +9,56 @@
 
 }
 
-.currentLocation {
-  color: white;
+#currentLocation {
+  font-style: 200px;
+  left: 30px;
 }
 
+.profileButton {
+  margin-top: 50px;
+  margin-bottom: 30px;
+  margin-left: 60px;
+}
+
+#atfestdiv {
+  height: 50px;
+  margin-bottom: 10px;
+  margin-left: 40px;
+  background-color: #36223B;
+  width: 85%
+}
+
+#atfest {
+  color: white;
+  font-size: 20px;
+  margin-left: 42px;
+  padding-top: 15px;
+  margin-bottom: 1px;
+}
+
+.friendlist {
+  margin-top: 17px;
+}
+
+.loginPage {
+  color: white;
+  padding-left: 20px;
+}
+
+.registerIntro {
+  text-align: center;
+  padding-top: 10px;
+  font-size: 20px;
+}
+
+.backgroundImage {
+  background-image: url(https://i.imgur.com/Hk6NTtl.png);
+  background-size: 100vh;
+}
+
+.topHalf {
+  padding-top: 20px;
+}
 
 .profileNamePosition {
   display: flex;
@@ -19,9 +66,9 @@
   justify-content: space-between;
   flex-direction: row;
   background-color: #36223B;
-  height: 300px;
+  height: 355px;
   width: 85%;
-  margin-left: 35px;
+  margin-left: 38px;
   .white{
     color: white;
     font-family: sans-serif;
@@ -44,10 +91,10 @@
   .userMap {
     color: white;
     position: absolute;
-    right: 90px;
-    padding-top: 100px;
-    height: 10px;
-    width: 50vw;
+    right: 15px;
+    padding-top: 160px;
+    height: 150px;
+    width: 70vw;
   }
 }
 
@@ -67,11 +114,13 @@
 
 .navbar-brand {
   background-color: #36223B;
-
-  .dropdown.is-active {
-    background-color: #36223B;
-  }
 }
+.dropdown.is-active {
+    background-color: #36223B;
+
+  }
+
+
 
 .burger-color {
   color: white;
@@ -81,4 +130,8 @@
   height: 50px;
   width: 50px;
   color: white;
+}
+
+.backgroundImage {
+  height: 655px;
 }

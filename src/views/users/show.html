@@ -1,31 +1,29 @@
 <!-- 5b7a7f6461c78610c5153d8a -->
-<section ng-if="isAuthenticated()" class="container" ng-controller="UsersShowCtrl">
+<div class="backgroundImage">
+<section ng-if="isAuthenticated()" class="" ng-controller="UsersShowCtrl">
 <div class="topHalf">
-  <div class="">
     <div class="profileNamePosition">
       <img style="border-radius: 100%;" class="profileImage" ng-src="{{ user.image }}" alt="{{ user.name }}">
       <h1 class="white title is-1">{{ user.firstName }}</h1>
       <h2 class="emailPosition subtitle is-7">Email: {{ user.email }}</h2>
       <h2 class="emailPosition subtitle is-7 white">Mobile: {{ user.mobileNumber }}</h2>
-      <h2 class="currentLocation subtitle is-7">Current Location</h2>
+      <h2 class="emailPosition subtitle is-7 white friendlist">Friends: {{ user.userFriends }}</h2>
       <div class="userMap">
-        <section class="userMap">
-          <div class="map" ng-map></div>
-
-        </section>
+          <h2 id="currentLocation" subtitle is-7>Current Location</h2>
+          <div class="userMap" ng-map></div>
 
       </div>
     </div>
-    <h2 class="white">{{ user.userFriends }}</h2>
   </div>
   <div class="contact">
   </div>
   <div class="currentLocation">
   </div>
   <div class="festivalsAttending">
-    <h2 class="subtitle is-7">Festivals Attending</h2>
-    <h2>{{ user.festivalsAttending }}</h2>
+    <h2 id="atfest" class="subtitle is-7">Festivals Attending</h2>
+    <h2 id="atfestdiv" class="subtitle is-7">{{ user.festivalsAttending }}</h2>
   </div>
+  <button style="background-color: #36223B; color: white; border: none;" class="button profileButton" ui-sref="usersEdit({ userId: currentUser()._id })">Edit Profile</button>
+  <button style="background-color: #36223B; color: white; border: none;" class="button profileButton" ng-click="deleteUser()">Delete Account</button></section>
 
-<button class="button" ui-sref="usersEdit({ userId: currentUser()._id })">Edit Profile</button></section>
-<button class="button" ng-click="deleteUser()">Delete Account</button></section>
+</div>

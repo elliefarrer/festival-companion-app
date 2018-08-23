@@ -1,30 +1,30 @@
-<p style="padding: 50px;">Welcome to your best festival companion! Already got an account? <a ui-sref="login">Log in!</a>Please register bellow</a>)</p>
-<form style="padding-left: 50px; padding-right: 50px"; ng-submit="register()" name="form" novalidate>
-  <div style="padding-top: 10px;" class="field">
-    <label class="label" for="firstName">First Name</label>
-    <input required minLength="2" ng-model="user.firstName" class="input" type="text" name="firstName"placeholder="">
+<div style="margin-top: -10px;" class="backgroundImage">
+  <div class="registerIntro">
+    <p style="color: white;" style="padding: 50px;">Welcome to your best festival companion!</p>
+    <p style="color: white;" style="padding: 50px;">Already got an account? <a ui-sref="login">Log in!</p>
+    <p style="color: white;" style="padding: 50px;"></a>Please register bellow</a></p>
   </div>
-
-  <!-- <div ng-messages="form.firstName.$error", ng-if="form.firstName.$dirty"> -->
-    <!-- <small ng-message="required">Please add first name</small> -->
-    <!-- <small ng-message="minlength">That name is to short</small> -->
-  <!-- </div> -->
-
-  <div class="field">
-    <label class="label" for="lastName">Last Name</label>
-    <input ng-model="user.lastName" class="input" type="text" name="lastName"placeholder="">
-  </div>
-  <div class="field">
-    <label class="label" for="email">Email</label>
-    <input ng-model="user.email" class="input" type="email" name="email"placeholder="">
-  </div>
-  <div class="field">
-    <label class="label" for="password">Password</label>
-    <input ng-model="user.password" class="input" type="password" name="password"placeholder="">
-  </div>
-  <div class="field">
-    <label class="label" for="passwordConfirmation">Confirm Password</label>
-    <input ng-model="user.passwordConfirmation" class="input" type="password" name="passwordConfirmation"placeholder="">
-  </div>
-  <button class="button">Sign up!</button>
-</form>
+  <form style="padding-left: 50px; padding-right: 50px"; ng-submit="register()" name="form" novalidate>
+    <div style="padding-top: 10px;" class="field">
+      <label style="color: white;" class="label" for="firstName">First Name</label>
+      <input required minLength="2" ng-model="user.firstName" class="input" type="text" name="firstName"placeholder="">
+    </div>
+    <div class="field">
+      <label style="color: white;" class="label" for="lastName">Last Name</label>
+      <input ng-model="user.lastName" class="input" type="text" name="lastName"placeholder="">
+    </div>
+    <div class="field">
+      <label style="color: white;" class="label" for="email">Email</label>
+      <input ng-model="user.email" class="input" type="email" name="email"placeholder="">
+    </div>
+    <div class="field">
+      <label style="color: white;" class="label" for="password">Password</label>
+      <input ng-model="user.password" class="input" type="password" name="password"placeholder="">
+    </div>
+    <div class="field">
+      <label style="color: white;" class="label" for="passwordConfirmation">Confirm Password</label>
+      <input ng-model="user.passwordConfirmation" class="input" type="password" name="passwordConfirmation"placeholder="">
+    </div>
+    <button style="background-color: #36223B; color: white; border: none;" class="button">Sign up!</button>
+  </form>
+</div>
