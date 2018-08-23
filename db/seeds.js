@@ -86,7 +86,7 @@ const festivalData = [
   {
     name: 'Reading Festival',
     startDate: '2018-08-24',
-    endDate: '2018-08-16',
+    endDate: '2018-08-26',
     location: {
       address: 'Richfield Avenue',
       postcode: 'RG1 8EQ'
@@ -125,7 +125,7 @@ const festivalData = [
   {
     name: 'Creamfields',
     startDate: '2018-08-23',
-    endDate: '2018-08-16',
+    endDate: '2018-08-26',
     location: {
       address: 'Daresbury',
       postcode: 'WA4 4AG'
