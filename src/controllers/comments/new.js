@@ -4,7 +4,7 @@ function CommentsNewCtrl($http, $scope, $state) {
     $http({
       method: 'POST',
       url: `/api/festivals/${$state.params.festivalId}/carShares/${$state.params.carShareId}/comments`,
-      data: $scope.comment
+      data: $scope.carShares.comments
     })
       .then(() => $state.go('carSharesShow'));
   };
