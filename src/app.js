@@ -14,6 +14,7 @@ import CarSharesIndexCtrl from './controllers/carShares/index';
 import CarSharesShowCtrl from './controllers/carShares/show';
 import CarSharesNewCtrl from './controllers/carShares/new';
 import CarSharesEditCtrl from './controllers/carShares/edit';
+import CommentsNewCtrl from './controllers/comments/new';
 import FestivalsIndexCtrl from './controllers/festivals/index';
 import FestivalsShowCtrl from './controllers/festivals/show';
 import FestivalsNewCtrl from './controllers/festivals/new';
@@ -33,6 +34,7 @@ angular.module('Festival Companion App', [
   .controller('CarSharesShowCtrl', CarSharesShowCtrl)
   .controller('CarSharesNewCtrl', CarSharesNewCtrl)
   .controller('CarSharesEditCtrl', CarSharesEditCtrl)
+  .controller('CommentsNewCtrl', CommentsNewCtrl)
   .controller('FestivalsIndexCtrl', FestivalsIndexCtrl)
   .controller('FestivalsShowCtrl', FestivalsShowCtrl)
   .controller('FestivalsNewCtrl', FestivalsNewCtrl)
