@@ -1,12 +1,17 @@
-<p>Welcome back to Whiskease. Please log in fucker! (Not got an account? <a>Sign Up!</a>)</p>
-<form style="padding-left: 50px; padding-right: 50px;" ng-submit="login()">
-  <div class="field">
-    <label class="label" for="email">Email</label>
-    <input ng-model="user.email"  class="input" type="text" name="email"placeholder="">
-  </div>
-  <div class="field">
-    <label class="label" for="password">Password</label>
-    <input ng-model="user.password" class="input" type="password" name="password" placeholder="">
-  </div>
-  <button class="button">Log In</button>
-</form>
+<div style="margin-top: -10px;"class="backgroundImage loginPage">
+  <p style="text-align: center; padding-top: 10px; font-size: 20px;">Please log in to continue</p>
+  <form style="padding-left: 50px; padding-right: 50px;" ng-submit="login()">
+    <div class="field">
+      <label style="color: white;" class="label" for="email">Email</label>
+      <input ng-model="user.email"  class="input" type="text" name="email"placeholder="">
+    </div>
+    <div class="field">
+      <label style="color: white;"class="label" for="password">Password</label>
+      <input ng-model="user.password" class="input" type="password" name="password" placeholder="">
+    </div>
+    <button style="background-color: #36223B; color: white; border: none;" class="button">Log In</button>
+    <p style="text-align: center; font-size: 20px;">Not got an account? <a ui-sref="register">Sign Up!</a></p>
+
+  </form>
+
+</div>

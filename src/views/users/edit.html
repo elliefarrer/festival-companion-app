@@ -1,0 +1,30 @@
+<h1 class="title is-2">Edit Profile</h1>
+<form ng-submit="updateUser()">
+  <div class="field">
+    <label for="firstName">First Name</label>
+    <input class="input" ng-model="user.firstName" type="name" name:"firstName">
+  </div>
+
+  <div class="field">
+    <label for="lastName">Surname</label>
+    <input class="input" type="text" name="surname" value="user.surname" ng-model="user.surname">
+  </div>
+
+  <div class="field">
+    <label for="image">Please enter a URL for a profile pic here</label>
+    <input class="input" type="text" name="image" value="user.image" ng-model="user.image">
+  </div>
+
+  <div class="field">
+    <label for="email">Please enter your email address</label>
+    <input class="input" type="email" name="email" value="user.email" ng-model="user.email">
+  </div>
+
+  <div class="field">
+    <label for="mobileNumber">Please enter your mobile number</label>
+    <input class="input" type="string" name="mobileNumber" value="user.mobileNumber" ng-model="user.mobileNumber">
+  </div>
+
+  <button class="button">Save Changes</button>
+
+</form>

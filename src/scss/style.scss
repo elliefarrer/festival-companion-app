@@ -1,3 +1,5 @@
+$footer-background-color: #36223B;
+
 body {
   background: url('https://i.imgur.com/pOeWpw2.png') fixed center/cover;
   min-height: 700px;
@@ -5,7 +7,17 @@ body {
 
 
 .navbar {
-  background-color: #36223B
+  background-color: #36223B;
+  .navbar-brand {
+    input {
+      margin: 0.5rem;
+      width: 40vw;
+    }
+    .navbar-burger {
+      height: 50px;
+      width: 50px;
+    }
+  }
 }
 
 .add-shadow {
@@ -19,13 +31,106 @@ body {
 .map {
   height: 300px;
   width: 100%;
+  z-index: 0;
 
 }
 
+#currentLocation {
+  font-style: 200px;
+  left: 30px;
+}
+
+.profileButton {
+  margin-top: 50px;
+  margin-bottom: 30px;
+  margin-left: 60px;
+}
+
+#atfestdiv {
+  height: 50px;
+  margin-bottom: 10px;
+  margin-left: 40px;
+  background-color: #36223B;
+  width: 85%
+}
+
+#atfest {
+  color: white;
+  font-size: 20px;
+  margin-left: 42px;
+  padding-top: 15px;
+  margin-bottom: 1px;
+}
+
+.friendlist {
+  margin-top: 17px;
+}
+
+.loginPage {
+  color: white;
+  padding-left: 20px;
+}
+
+.registerIntro {
+  text-align: center;
+  padding-top: 10px;
+  font-size: 20px;
+}
+
+.backgroundImage {
+  background-image: url(https://i.imgur.com/Hk6NTtl.png);
+  background-size: 100vh;
+}
+
+.topHalf {
+  padding-top: 20px;
+}
+
+.profileNamePosition {
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  flex-direction: row;
+  background-color: #36223B;
+  height: 355px;
+  width: 85%;
+  margin-left: 38px;
+  .white{
+    color: white;
+    font-family: sans-serif;
+    text-align: left;
+    padding-top: 50px;
+    padding-right: 50px;
+    position: absolute;
+    right: 20px;
+  }
+  .emailPosition {
+    color: white;
+    font-family: sans-serif;
+    text-align: left;
+    padding-top: 70px;
+    padding-right: 50px;
+    position: absolute;
+    right: 20px;
+    top: 50px;
+  }
+  .userMap {
+    color: white;
+    position: absolute;
+    right: 15px;
+    padding-top: 160px;
+    height: 150px;
+    width: 70vw;
+  }
+}
+
+
 
 .profileImage {
-  height: 150px;
-  width: 150px;
+  padding-top: 10px;
+  padding-left: 10px;
+  height: 160px;
+  width: 160px;
 }
 
 .headerImage {
@@ -33,16 +138,26 @@ body {
   width: 50px;
 }
 
-
-.navbar-burger {
-  height: 50px;
-  width: 50px;
+.navbar-brand {
+  background-color: #36223B;
 }
+.dropdown.is-active {
+    background-color: #36223B;
+
+  }
+
+
+
+.burger-color {
+  color: white;
+}
+
 
 
 .userMap {
   height: 150px;
   width: 90vw;
+  z-index: 0;
 }
 /////////// car share index /////////
 .car-share-title {
@@ -449,4 +564,28 @@ body {
   transition: height .2s .2s ease-out;
   margin-top: 15px;
   border-top: rgba(255,255,255, .6) solid 1px;
+}
+
+////////////////// FESTIVAL SHOW //////////////////
+
+.festival-show-button {
+  margin-bottom: 8rem;
+}
+
+footer {
+  background-color: $footer-background-color;
+  color: #ffffff;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+  .subtitle {
+    color: #ffffff;
+    text-transform: uppercase;
+    margin: 0.5rem 0 0 0.5rem;
+  }
+  .columns {
+    margin: 0.5 0 0 0.5rem;
+  }
 }

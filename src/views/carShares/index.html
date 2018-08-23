@@ -32,7 +32,7 @@
   </a>
 
 <div class="container">
-  <div class="ride-panels add-shadow" ng-repeat="ride in carShares">
+  <div class="ride-panels add-shadow" ng-repeat="ride in carShares | filter: searchBox">
     <a class="has-text-white" ui-sref="carSharesShow({ festivalId: festival._id, carShareId: ride._id })">
       <div class="columns is-mobile is-multiline ride-info-wrap">
 

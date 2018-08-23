@@ -1,6 +1,5 @@
-<div class="section festival-index-section">
-  <div ng-repeat="event in festivals">
-
+<div class="container section festival-index-section is-mobile">
+  <div ng-repeat="event in festivals | filter: searchBox">
     <a ui-sref="festivalsShow({ id: event._id })">
 
       <div class="festival-index-section">

@@ -47,7 +47,7 @@
 
 
 <div <div ng-class=" expand ? 'show-info-wrapper' : 'hide-info-wrapper'" class="weather-wrapper weather-overlay add-shadow columns is-mobile is-multiline festival-show-info has-text-white">
-  
+
       <div class="column is-one-fifth is-one-fifth-mobile">
         <div ng-click="toggleExpand()">
           <figure>
@@ -120,6 +120,9 @@
       </div>
     </div>
 
+<div class="section">
+  <button class="button festival-show-button" ui-sref="festivalsEdit({ id: festival._id })">Edit {{ festival.name }}</button>
+  <button class="button festival-show-button" ng-click="deleteFestival()">Delete {{ festival.name }}</button>
 </div>
 
 
@@ -143,7 +146,7 @@
         <p>{{ festival.startDate }}</p>
       </div>
     </div>
-    <div class="column is-7">
+    <div class="column is-half">
       <p>
         <span><i class="fab fa-youtube"></i></span>
         <span><i class="fab fa-vimeo-v"></i></span>
