@@ -76,9 +76,19 @@ function CarSharesShowCtrl($http, $scope, $state, $auth) {
           const startLng = res.data.route.locations[0].latLng.lng;
           const endLat = res.data.route.locations[1].latLng.lat;
           const endLng = res.data.route.locations[1].latLng.lng;
-          $scope.map.setView([startLat, startLng], 8);
+
+          $scope.map.setView([startLat, startLng]);
+
+          const boundingBox = res.data.route.boundingBox;
+          $scope.map.fitBounds([
+            [boundingBox.lr.lat, boundingBox.lr.lng],
+            [boundingBox.ul.lat, boundingBox.ul.lng]
+          ]);
           const startMarker = L.marker([startLat, startLng]).addTo($scope.map);
           const endMarker = L.marker([endLat, endLng]).addTo($scope.map);
+          startMarker.bindPopup(`<p>Start: ${$scope.carShare.festival.location.postcode}</p>`).openPopup();
+          endMarker.bindPopup(`<img src=${$scope.carShare.festival.photoUrl} alt=${$scope.carShare.festival.name}  /><p>${$scope.carShare.festival.name},   ${$scope.carShare.festival.location.address}</p>`).openPopup();
+
 
           const pointOneLat = res.data.route.legs[0].maneuvers[0].startPoint.lat;
           const pointOneLng = res.data.route.legs[0].maneuvers[0].startPoint.lng;
