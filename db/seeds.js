@@ -28,7 +28,7 @@ const festivalData = [
     endDate: '2018-07-14',
     location: {
       address: 'Gunnersbury Park',
-      postcode: 'W3 8LQ'
+      postcode: 'W5 4NX'
     },
     camping: 'No',
     headlining: ['Childish Gambino', 'Skepta', 'SZA'],
@@ -37,7 +37,13 @@ const festivalData = [
     attendees: [],
     comments: [
       {name: 'max', content: 'love this place go every year!'}
-    ]
+    ],
+    socialMedia: {
+      youtube: 'https://www.youtube.com/user/LoveboxTV',
+      instagram: 'https://www.instagram.com/loveboxfestival/',
+      twitter: 'https://twitter.com/loveboxfestival',
+      facebook: 'https://www.facebook.com/loveboxfestival'
+    }
   },
   {
     name: 'Citadel Festival',
@@ -45,13 +51,18 @@ const festivalData = [
     endDate: '2018-07-15',
     location: {
       address: 'Gunnersbury Park',
-      postcode: 'W3 8LQ'
+      postcode: 'W5 4NX'
     },
     camping: 'No',
     headlining: ['Tame Impala', 'Leon Bridges', 'Honne'],
     photoUrl: 'https://cdn.shopify.com/s/files/1/0601/5089/files/FB_header_2_1024x1024.jpg',
     createdBy: '',
-    attendees: []
+    attendees: [],
+    socialMedia: {
+      instagram: 'https://www.instagram.com/citadelfestival/',
+      twitter: 'https://twitter.com/CitadelFestival',
+      facebook: 'https://www.facebook.com/CitadelFestival/'
+    }
   },
   {
     name: 'British Summer Time',
@@ -65,7 +76,12 @@ const festivalData = [
     headlining: ['The Cure', 'Paul Simon', 'Bruno Mars'],
     photoUrl: 'http://www.bst-hydepark.com/assets/img/BSTRW_900x560-f1dcd9adc1.jpg',
     createdBy: '',
-    attendees: []
+    attendees: [],
+    socialMedia: {
+      instagram: 'https://www.instagram.com/bsthydepark/',
+      twitter: 'https://twitter.com/BSTHydePark',
+      facebook: 'https://www.facebook.com/BSTHydePark'
+    }
   },
   {
     name: 'Reading Festival',
@@ -79,7 +95,13 @@ const festivalData = [
     headlining: ['Fall Out Boy', 'Kendrick Lemar', 'Kings of Leon'],
     photoUrl: 'https://www.readingfestival.com/wp-content/uploads/2018/02/reading-og-master-image.jpg',
     createdBy: '',
-    attendees: []
+    attendees: [],
+    socialMedia: {
+      youtube: 'https://www.youtube.com/user/Readingfestival1',
+      instagram: 'https://www.instagram.com/officialrandl/',
+      twitter: 'https://twitter.com/OfficialRandL',
+      facebook: 'https://www.facebook.com/OfficialReadingFestival'
+    }
   },
   {
     name: 'Wireless Festival',
@@ -93,7 +115,12 @@ const festivalData = [
     headlining: ['J. Cole', 'Stormzy', 'DJ Khaled'],
     photoUrl: 'https://blog.ticketmaster.co.uk/wp-content/uploads/2018/01/Wireless-18_3880_TM_738x415.jpg',
     createdBy: '',
-    attendees: []
+    attendees: [],
+    socialMedia: {
+      instagram: 'https://www.instagram.com/wirelessfest/',
+      twitter: 'https://twitter.com/wirelessfest',
+      facebook: 'https://www.facebook.com/WirelessFestival'
+    }
   },
   {
     name: 'Creamfields',
@@ -107,7 +134,13 @@ const festivalData = [
     headlining: ['Chase and Status', 'Major Lazer', 'Tiësto'],
     photoUrl: 'https://www.creamfields.com/wp-content/uploads/2018/02/CFSocial2018.jpg',
     createdBy: '',
-    attendees: []
+    attendees: [],
+    socialMedia: {
+      youtube: 'https://www.youtube.com/user/creamfields',
+      instagram: 'https://www.instagram.com/creamfieldsofficial/',
+      twitter: 'https://twitter.com/creamfields',
+      facebook: 'https://www.facebook.com/OfficialCreamfields'
+    }
   }
 ];
 
@@ -118,7 +151,7 @@ const carShareData = [
     rideStartTime: '12.00PM',
     estimatedRideEndTime: '3.30PM',
     from: {
-      postcode: 'LU1 2LT' // Luton
+      postcode: 'LU1 2LT'
       // lat: 51.5167,
       // lng: 0.1769
     }
@@ -129,7 +162,7 @@ const carShareData = [
     rideStartTime: '11.30AM',
     estimatedRideEndTime: '12.30PM',
     from: {
-      postcode: 'MK9 3NZ' // Milton Keynes
+      postcode: 'MK9 3NZ'
       // lat: 51.5167,
       // lng: 0.1769
     }
@@ -173,7 +206,7 @@ const carShareData = [
     rideStartTime: '10.00AM',
     estimatedRideEndTime: '12.30PM',
     from: {
-      postcode: 'CO4 3EQ' // Essex
+      postcode: 'CO4 3EQ'
       // lat: 51.5167,
       // lng: 0.1769
     }
