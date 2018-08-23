@@ -70,6 +70,10 @@ const carShareData = [{
     postcode: 'W2 1HQ',
     lat: 51.5167,
     lng: 0.1769
+  },
+  comments: {
+    userName: 'max',
+    content: 'Testing'
   }
 }, {
   createdBy: '',
