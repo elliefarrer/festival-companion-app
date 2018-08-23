@@ -72,6 +72,8 @@ function CarSharesShowCtrl($http, $scope, $state, $auth) {
       })
         .then(res => {
           console.log('Le res is', res.data);
+          $scope.route = res.data.route;
+          $scope.distance = Math.round($scope.route.distance);
           const startLat = res.data.route.locations[0].latLng.lat;
           const startLng = res.data.route.locations[0].latLng.lng;
           const endLat = res.data.route.locations[1].latLng.lat;
@@ -90,22 +92,34 @@ function CarSharesShowCtrl($http, $scope, $state, $auth) {
           endMarker.bindPopup(`<img src=${$scope.carShare.festival.photoUrl} alt=${$scope.carShare.festival.name}  /><p>${$scope.carShare.festival.name},   ${$scope.carShare.festival.location.address}</p>`).openPopup();
 
 
-          const pointOneLat = res.data.route.legs[0].maneuvers[0].startPoint.lat;
-          const pointOneLng = res.data.route.legs[0].maneuvers[0].startPoint.lng;
-          const pointTwoLat = res.data.route.legs[0].maneuvers[1].startPoint.lat;
-          const pointTwoLng = res.data.route.legs[0].maneuvers[1].startPoint.lng;
-          const pointThreeLat = res.data.route.legs[0].maneuvers[2].startPoint.lat;
-          const pointThreeLng = res.data.route.legs[0].maneuvers[2].startPoint.lng;
-          const pointFourLat = res.data.route.legs[0].maneuvers[3].startPoint.lat;
-          const pointFourLng = res.data.route.legs[0].maneuvers[3].startPoint.lng;
-          const pointFiveLat = res.data.route.legs[0].maneuvers[4].startPoint.lat;
-          const pointFiveLng = res.data.route.legs[0].maneuvers[4].startPoint.lng;
-          const pointSixLat = res.data.route.legs[0].maneuvers[5].startPoint.lat;
-          const pointSixLng = res.data.route.legs[0].maneuvers[5].startPoint.lng;
-          const pointSevenLat = res.data.route.legs[0].maneuvers[6].startPoint.lat;
-          const pointSevenLng = res.data.route.legs[0].maneuvers[6].startPoint.lng;
+          // const pointOneLat = res.data.route.legs[0].maneuvers[0].startPoint.lat;
+          // const pointOneLng = res.data.route.legs[0].maneuvers[0].startPoint.lng;
+          // const pointTwoLat = res.data.route.legs[0].maneuvers[1].startPoint.lat;
+          // const pointTwoLng = res.data.route.legs[0].maneuvers[1].startPoint.lng;
+          // const pointThreeLat = res.data.route.legs[0].maneuvers[2].startPoint.lat;
+          // const pointThreeLng = res.data.route.legs[0].maneuvers[2].startPoint.lng;
+          // const pointFourLat = res.data.route.legs[0].maneuvers[3].startPoint.lat;
+          // const pointFourLng = res.data.route.legs[0].maneuvers[3].startPoint.lng;
+          // const pointFiveLat = res.data.route.legs[0].maneuvers[4].startPoint.lat;
+          // const pointFiveLng = res.data.route.legs[0].maneuvers[4].startPoint.lng;
+          // const pointSixLat = res.data.route.legs[0].maneuvers[5].startPoint.lat;
+          // const pointSixLng = res.data.route.legs[0].maneuvers[5].startPoint.lng;
+          // const pointSevenLat = res.data.route.legs[0].maneuvers[6].startPoint.lat;
+          // const pointSevenLng = res.data.route.legs[0].maneuvers[6].startPoint.lng;
 
-          L.polyline([[startLat, startLng],[pointOneLat, pointOneLng], [pointTwoLat, pointTwoLng], [pointThreeLat, pointThreeLng], [pointFourLat, pointFourLng], [pointFiveLat, pointFiveLng], [pointSixLat, pointSixLng], [pointSevenLat, pointSevenLng], [endLat, endLng]]).addTo($scope.map);
+
+
+          // const midPoints = [];
+
+          // for(let i = 0; i < res.data.route.legs[0].maneuvers.length; i++) {
+          //   const midLatLng = [];
+          //   midLatLng.push(res.data.route.legs[0].maneuvers[i].startPoint.lat);
+          //   midLatLng.push(res.data.route.legs[0].maneuvers[i].startPoint.lng);
+          //   midPoints.push(midLatLng);
+          //   console.log('Midpoints is', midPoints);
+          // }
+
+          L.polyline([[startLat, startLng], [endLat, endLng]]).addTo($scope.map);
         });
     }
   });
