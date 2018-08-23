@@ -22,6 +22,9 @@ function FestivalsShowCtrl($http, $scope, $state, $auth, $timeout) {
     .then(res => {
       console.log('Found a festival', res.data);
       $scope.festival = res.data;
+      $scope.festival.startDate = moment($scope.festival.startDate).format('Do MMMM YYYY');
+      $scope.festival.endDate = moment($scope.festival.endDate).format('Do MMMM YYYY');
+      // $scope.festival.headlining = $scope.festival.headlining.split(',');
       $scope.attendance = $scope.festival.attendees.map(attendee =>   attendee._id).includes($scope.loggedInUser);
       festivalMap(res.data);
     });
@@ -49,8 +52,6 @@ function FestivalsShowCtrl($http, $scope, $state, $auth, $timeout) {
       });
   }
 
-  let searchCoordsLat;
-  let searchCoordsLng;
 
   $scope.$watch('festival', function() {
     if($scope.festival) {
@@ -109,7 +110,7 @@ function FestivalsShowCtrl($http, $scope, $state, $auth, $timeout) {
 
 
               function getIcon() {
-                const icons = new Skycons({ 'color': '#36223B' });
+                const icons = new Skycons({ 'color': '#ffffff' });
                 const list = [ 'clear-day', 'clear-night', 'partly-cloudy-day','partly-cloudy-night',   'cloudy', 'rain', 'sleet', 'snow', 'wind', 'fog' ];
                 for(let i = list.length; i--; ){
                   icons.set(list[i], list[i]);
@@ -117,33 +118,39 @@ function FestivalsShowCtrl($http, $scope, $state, $auth, $timeout) {
                 icons.play();
               }
 
-              $scope.$watch('todayIcon', function() {
-                if($scope.todayIcon) {
-                  $timeout(getIcon, 1);
-                }
-              });
+              console.log('Weather scope is', $scope);
 
-              $scope.$watch('tomorrowIcon', function() {
-                if($scope.tomorrowIcon) {
-                  $timeout(getIcon, 1);
-                }
-              });
+              $scope.$watch('festival', function() {
+                if($scope.festival) {
+                  $scope.$watch('todayIcon', function() {
+                    if($scope.todayIcon) {
+                      $timeout(getIcon, 1);
+                    }
+                  });
 
-              $scope.$watch('dayThreeIcon', function() {
-                if($scope.dayThreeIcon) {
-                  $timeout(getIcon, 1);
-                }
-              });
+                  $scope.$watch('tomorrowIcon', function() {
+                    if($scope.tomorrowIcon) {
+                      $timeout(getIcon, 2);
+                    }
+                  });
 
-              $scope.$watch('dayFourIcon', function() {
-                if($scope.dayFourIcon) {
-                  $timeout(getIcon, 1);
-                }
-              });
+                  $scope.$watch('dayThreeIcon', function() {
+                    if($scope.dayThreeIcon) {
+                      $timeout(getIcon, 3);
+                    }
+                  });
 
-              $scope.$watch('dayFiveIcon', function() {
-                if($scope.dayFiveIcon) {
-                  $timeout(getIcon, 1);
+                  $scope.$watch('dayFourIcon', function() {
+                    if($scope.dayFourIcon) {
+                      $timeout(getIcon, 4);
+                    }
+                  });
+
+                  $scope.$watch('dayFiveIcon', function() {
+                    if($scope.dayFiveIcon) {
+                      $timeout(getIcon, 5);
+                    }
+                  });
                 }
               });
             });

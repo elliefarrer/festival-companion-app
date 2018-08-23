@@ -11,7 +11,7 @@
       <div class="column is-6-mobile padding">
 
         <div class="subtitle is-7 has-text-white" ng-if="festival.startDate !== festival.endDate">
-          <p <p class="festival-show-text">{{ festival.startDate }}-{{ festival.endDate }}</p>
+          <p class="festival-show-text">{{ festival.startDate }}-{{ festival.endDate }}</p>
         </div>
 
         <div class="subtitle is-7 has-text-white " ng-if="festival.startDate === festival.endDate">
@@ -41,7 +41,6 @@
         <div class="map" id="map" ng-map>
 
         </div>
-        <a ui-sref="mapsNew({id: festival._id})">Add points of interest</a>
         <hr>
 
 
