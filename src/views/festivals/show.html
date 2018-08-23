@@ -1,92 +1,144 @@
-<div class="section">
-  <img ng-src={{festival.photoUrl}} alt={{festival.name}}>
-  <ul ng-repeat="artist in festival.headlining">
-    <li>{{ artist }}</li>
-  </ul>
-  <p>{{ festival.location.address }}</p>
-  <p>Camping: {{ festival.camping }}</p>
-</div>
-<div class="section">
-  <a class="button" ng-if="!attendance" ng-click="attending()">Come along!</a>
-  <a class="button" ng-if="attendance" ng-click="notAttending()">Attending</a>
-<div>
-<div class="section">
-  <p>Instagram</p>
-</div>
+<div class="section festival-index-section">
+  <img class="add-shadow" ng-src={{festival.photoUrl}} alt={{festival.name}}>
+    <p class="has-text-white festival-title festival-address" ><b>{{ festival.location.address }}</b></p>
+    <div class="artist-overlay add-shadow has-text-centered">
+      <span ng-repeat="artist in festival.headlining" class="has-text-white festival-show-artists">
+        {{ artist }}
+      </span>
+    </div>
+    <div class="columns is-mobile is-multiline festival-show-info">
 
-<div class="section">
-  <a class="button" ui-sref="carSharesIndex({ festivalId: festival._id })">Find a Ride Here</a>
-  <a class="button" ui-sref="publicTransportIndex">Public Transport</a>
-</div>
+      <div class="column is-6-mobile padding">
 
-<div class="section">
-<div class="columns is-mobile">
-  <div class="column is-one-fifth">
-    <figure>
-      <canvas class="weathericon" id="{{todayIcon}}" width="50" height="50"></canvas>
-    </figure>
-    <p>Today</p>
-    <p>{{ todayCelsius }}ºC</p>
-    <p>{{ weather.currently.summary }}</p>
-    <p>Chance of rain: {{ todayRain }}%</p>
-  </div>
-  <div class="column is-one-fifth">
-    <figure>
-      <canvas id="{{tomorrowIcon}}" width="50" height="50"></canvas>
-    </figure>
-    <p>Tomorrow</p>
-    <p>{{ tomorrowCelsius }}ºC</p>
-    <p>{{ tomorrowWeather.summary }}</p>
-    <p>Chance of rain: {{ tomorrowRain }}%</p>
-  </div>
-  <div class="column is-one-fifth">
-    <figure>
-      <canvas id="{{dayThreeIcon}}" width="50" height="50"></canvas>
-    </figure>
-    <p>{{ dayThreeDate }}</p>
-    <p>{{ dayThreeCelsius }}ºC</p>
-    <p>{{ dayThreeWeather.summary }}</p>
-    <p>Chance of rain: {{ dayThreeRain }}%</p>
-  </div>
-  <div class="column is-one-fifth">
-    <figure>
-      <canvas id="{{dayFourIcon}}" width="50" height="50"></canvas>
-    </figure>
-    <p>{{ dayFourDate }}</p>
-    <p>{{ dayFourCelsius }}ºC</p>
-    <p>{{ dayFourWeather.summary }}</p>
-    <p>Chance of rain: {{ dayFourRain }}%</p>
-  </div>
-  <div class="column is-one-fifth">
-    <figure>
-      <canvas id="{{dayFiveIcon}}" width="50" height="50"></canvas>
-    </figure>
-    <p>{{ dayFiveDate }}</p>
-    <p>{{ dayFiveCelsius }}ºC</p>
-    <p>{{ dayFiveWeather.summary }}</p>
-    <p>Chance of rain: {{ dayFiveRain }}%</p>
-  </div>
-</div>
-</div>
+        <div class="subtitle is-7 has-text-white" ng-if="festival.startDate !== festival.endDate">
+          <p <p class="festival-show-text">{{ festival.startDate }}-{{ festival.endDate }}</p>
+        </div>
 
-<div class="section">
-  <hr>
-  <div class="map" id="map" ng-map>
+        <div class="subtitle is-7 has-text-white " ng-if="festival.startDate === festival.endDate">
+          <p class="festival-show-text">{{ festival.startDate }}</p>
+        </div>
 
-  </div>
-  <a ui-sref="mapsNew({id: festival._id})">Add points of interest</a>
-  <hr>
-</div>
+        <p class="has-text-white subtitle is-7 festival-show-text" >Camping: {{ festival.camping }}</p>
+
+      </div>
+
+      <div class="column is-6-mobile has-text-centered">
+          <a class="button festival-show-button" ng-if="!attendance" ng-click="attending()">Come along!</a>
+          <a class="button festival-show-button" ng-if="attendance" ng-click="notAttending()">Attending</a>
+      </div>
+
+      <div class="column is-6-mobile has-text-centered">
+        <a class="button festival-show-button find-ride-button" ui-sref="carSharesIndex({ festivalId: festival._id })">Find a Ride Here</a>
+      </div>
+
+      <div class="column is-6-mobile has-text-centered">
+          <a class="button festival-show-button public-transport-button" ui-sref="publicTransportIndex">Public Transport</a>
+      </div>
+
+    </div>
+
+        <hr>
+        <div class="map" id="map" ng-map>
+
+        </div>
+        <a ui-sref="mapsNew({id: festival._id})">Add points of interest</a>
+        <hr>
+
+
+
+<div <div ng-class=" expand ? 'show-info-wrapper' : 'hide-info-wrapper'" class="weather-wrapper weather-overlay add-shadow columns is-mobile is-multiline festival-show-info has-text-white">
+
+      <div class="column is-one-fifth is-one-fifth-mobile">
+        <div ng-click="toggleExpand()">
+          <figure>
+            <canvas class="weathericon" id="{{todayIcon}}" width="50" height="50"></canvas>
+          </figure>
+          <p class="weather-title">Today</p>
+          <p class="weather-temp">{{ todayCelsius }}ºC</p>
+          <div ng-class=" expand ? 'show-info' : 'hide-info'" ng-click="toggleExpand()">
+            <p class="weather-text">{{ weather.currently.summary }}</p>
+            <p class="weather-text">Chance of rain: {{ todayRain }}%</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="column is-one-fifth is-one-fifth-mobile">
+        <div ng-click="toggleExpand()">
+          <figure>
+            <canvas id="{{tomorrowIcon}}" width="50" height="50"></canvas>
+          </figure>
+          <p class="weather-title">Tomorrow</p>
+          <p class="weather-temp">{{ tomorrowCelsius }}ºC</p>
+          <div ng-class=" expand ? 'show-info' : 'hide-info'" ng-click="toggleExpand()">
+            <p class="weather-text">{{ tomorrowWeather.summary }}</p>
+            <p class="weather-text">Chance of rain: {{ tomorrowRain }}%</p>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="column is-one-fifth is-one-fifth-mobile">
+        <div ng-click="toggleExpand()">
+          <figure>
+            <canvas class="weather-icon"id="{{dayThreeIcon}}" width="50" height="50"></canvas>
+          </figure>
+          <p class="weather-title">{{ dayThreeDate }}</p>
+          <p class="weather-temp">{{ dayThreeCelsius }}ºC</p>
+        <div ng-class=" expand ? 'show-info' : 'hide-info'" ng-click="toggleExpand()">
+          <p class="weather-text">{{ dayThreeWeather.summary }}</p>
+          <p class="weather-text">Chance of rain: {{ dayThreeRain }}%</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="column is-one-fifth is-one-fifth-mobile">
+        <div ng-click="toggleExpand()">
+          <figure>
+            <canvas id="{{dayFourIcon}}" width="50" height="50"></canvas>
+          </figure>
+          <p class="weather-title">{{ dayFourDate }}</p>
+          <p class="weather-temp">{{ dayFourCelsius }}ºC</p>
+          <div ng-class=" expand ? 'show-info' : 'hide-info'" ng-click="toggleExpand()">
+            <p class="weather-text">{{ dayFourWeather.summary }}</p>
+            <p class="weather-text">Chance of rain: {{ dayFourRain }}%</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="column is-one-fifth is-one-fifth-mobile">
+        <div ng-click="toggleExpand()">
+          <figure>
+            <canvas id="{{dayFiveIcon}}" width="50" height="50"></canvas>
+          </figure>
+          <p class="weather-title">{{ dayFiveDate }}</p>
+          <p class="weather-temp">{{ dayFiveCelsius }}ºC</p>
+          <div ng-class=" expand ? 'show-info' : 'hide-info'" ng-click="toggleExpand()">
+            <p class="weather-text">{{ dayFiveWeather.summary }}</p>
+            <p class="weather-text">Chance of rain: {{ dayFiveRain }}%</p>
+          </div>
+        </div>
+      </div>
+    </div>
 
 <div class="section">
   <button class="button festival-show-button" ui-sref="festivalsEdit({ id: festival._id })">Edit {{ festival.name }}</button>
   <button class="button festival-show-button" ng-click="deleteFestival()">Delete {{ festival.name }}</button>
 </div>
 
+
+
+
+
+
+
+
+
+
 <footer div="footer">
-  <p class="subtitle is-3">{{ festival.name }}</p>
-  <div class="columms is-multiline">
-    <div class="column is-one-half">
+  <div class="section festival-index-section has-text-white">
+  <p class="subtitle is-3 has-text-white">{{ festival.name }}</p>
+  <div class="columms">
+    <div class="column is-5">
       <div ng-if="festival.startDate !== festival.endDate">
         <p>{{ festival.startDate }}-{{ festival.endDate }}</p>
       </div>
@@ -105,4 +157,5 @@
       </p>
     </div>
   </div>
+</div>
 </footer>

@@ -16,6 +16,12 @@
   <div class="contact">
   </div>
   <div class="currentLocation">
+    <h2 class="subtitle is-7">Current Location</h2>
+    <section ng-if="currentUser()._id === user._id">
+
+      <div class="map" ng-map></div>
+
+    </section>
   </div>
   <div class="festivalsAttending">
     <h2 id="atfest" class="subtitle is-7">Festivals Attending</h2>
