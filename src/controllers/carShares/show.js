@@ -1,3 +1,5 @@
+const moment = require('moment');
+
 function CarSharesShowCtrl($http, $scope, $state, $auth) {
   $scope.deleteCarShare = function() {
     $http({
@@ -14,6 +16,12 @@ function CarSharesShowCtrl($http, $scope, $state, $auth) {
     .then(res => {
       $scope.idCheck = $auth.getPayload().sub;
       $scope.carShare = res.data;
+
+      /////////////////////////////// DATES /////////////////////////////////////////
+      $scope.carShare.departureDate = moment($scope.carShare.departureDate).format('DD/MM/YY');
+      $scope.carShare.returnDate = moment($scope.carShare.returnDate).format('DD/MM/YY');
+      $scope.carShare.festival.startDate = moment($scope.carShare.festival.startDate).format('Do MMMM YYYY');
+      $scope.carShare.festival.endDate = moment($scope.carShare.festival.endDate).format('Do MMMM YYYY');
 
       if($scope.carShare.passengers.map(passenger => passenger._id).includes($scope.idCheck)) {
         $scope.passengerStatus = 'passenger';
