@@ -683,6 +683,22 @@ footer {
   }
 }
 
+.leaflet-popup-content-wrapper, .leaflet-popup-tip {
+  background-color: rgba(0,0,0, .7);
+}
+
+.leaflet-popup-content-wrapper {
+  width: auto;
+}
+
+.leaflet-popup-content {
+  color: #ffffff;
+}
+
+.pop-up-image {
+  border-radius: 100%;
+}
+
 ///////////////////// friends //////////////////////////
 .request-friend-wrapper {
   padding: 10px;
