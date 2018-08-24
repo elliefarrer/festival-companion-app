@@ -44,7 +44,7 @@ function carSharesCreate(req, res, next) {
     })
     .then(user => {
       user.carSharesOrganised.push(carShareId);
-      console.log(user);
+      // console.log(user);
       return user.save();
     })
     .then(() => CarShare.findById(carShareId))
