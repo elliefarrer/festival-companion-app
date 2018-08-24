@@ -15,7 +15,7 @@
         <a ui-sref="festivalsShow({ id: event._id })">
           <h2 class="festival-title title is-6 has-text-white">{{ event.name }}</h2>
 
-          <div class="subtitle is-7 has-text-white" ng-if="event.startDate !== event.endDate">
+          <div class="subtitle is-7 has-text-white festival-date" ng-if="event.startDate !== event.endDate">
             <p>{{ event.startDate }}-{{ event.endDate }}</p>
           </div>
 
@@ -27,7 +27,7 @@
 
 
 
-        <div class="column is-5-mobile">
+        <div class="column is-4-mobile">
           <a ui-sref="">
               <div class="columns attendees-index-link is-mobile">
                 <h4 class="subtitle is-7 has-text-white">Friends attending</h4>

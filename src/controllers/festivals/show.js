@@ -47,7 +47,15 @@ function FestivalsShowCtrl($http, $scope, $state, $auth, $timeout) {
       const popupImg = $scope.festival.photoUrl;
       const popupName = $scope.festival.name;
       const popupAddress = $scope.festival.location.address;
-      const marker = L.marker([placeLat, placeLng]).addTo($scope.map);
+
+      const markerOptions = {
+        icon: L.icon({
+          iconUrl: 'https://assets.mapquestapi.com/icon/v2/circle-md.png',
+          iconAnchor: [17, 20]
+        })
+      }
+
+      const marker = L.marker([placeLat, placeLng], markerOptions).addTo($scope.map);
       marker.bindPopup(`<img src=${popupImg} alt=${popupName}  /><p>${popupName},   ${popupAddress}</p>`).openPopup();
     });
   }

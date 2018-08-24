@@ -50,7 +50,26 @@ function UsersShowCtrl($http, $scope, $state, $auth) {
             const lat = position.coords.latitude;
             const lon = position.coords.longitude;
             $scope.map.setView([lat, lon], 13);
-            L.marker([lat, lon]).addTo($scope.map);
+
+            const markerOptions = {
+              icon: L.icon({
+                iconUrl: 'https://assets.mapquestapi.com/icon/v2/circle-md.png',
+                iconAnchor: [17, 20]
+              })
+            };
+
+            const marker = L.marker([lat, lon], markerOptions).addTo($scope.map);
+            marker.bindPopup(
+              `<div style="width: 100" class="columns mobile">
+                <div class="column is-half">
+                  <img class="image pop-up-image" src=${$scope.user.image} alt=${$scope.user.firstName}>
+                </div>
+                <div class="column is-half">
+                  <h3 class="subtitle is-3">${$scope.user.firstName}</h3>
+                </div>
+            </div>`
+          )
+              .openPopup();
           },
           err => console.log(err),
           { timeout: 10000 });
