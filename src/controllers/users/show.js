@@ -18,6 +18,11 @@ function UsersShowCtrl($http, $scope, $state, $auth) {
     .then(res => {
       $scope.idCheck = $auth.getPayload().sub;
       $scope.user = res.data;
+      $http({
+        method: 'GET',
+        url: '/api/festivals/'
+      })
+        .then((res) => $scope.festivals = res.data);
 
       if($scope.user.userFriends.map(friend => friend._id).includes($scope.idCheck)) {
         $scope.friendStatus = 'friend';

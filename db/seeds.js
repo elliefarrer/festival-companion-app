@@ -236,40 +236,38 @@ const carShareData = [
 ];
 
 User
-.create(userData)
-.then(users => {
-  console.log(`Created ${users.length} users.`);
-  festivalData[0].createdBy = users[0].id;
-  festivalData[1].createdBy = users[0].id;
-  festivalData[2].createdBy = users[0].id;
-  festivalData[3].createdBy = users[0].id;
-  festivalData[4].createdBy = users[0].id;
-  festivalData[5].createdBy = users[0].id;
-  // festivalData[0].attendees.push(users[0].id);
-  // festivalData[1].attendees.push(users[1].id);
-  // festivalData[2].attendees.push(users[2].id);
-  return Festival.create(festivalData);
-})
-.then(festivals => {
-  console.log(`Created ${festivals.length} festivals.`);
-  carShareData[0].createdBy = festivals[0].createdBy;
-  carShareData[1].createdBy = festivals[1].createdBy;
-  carShareData[2].createdBy = festivals[2].createdBy;
-  carShareData[3].createdBy = festivals[3].createdBy;
-  carShareData[4].createdBy = festivals[3].createdBy;
-  carShareData[5].createdBy = festivals[4].createdBy;
-  carShareData[6].createdBy = festivals[5].createdBy;
-  carShareData[7].createdBy = festivals[5].createdBy;
-  carShareData[0].festival = festivals[0];
-  carShareData[1].festival = festivals[1];
-  carShareData[2].festival = festivals[2];
-  carShareData[3].festival = festivals[3];
-  carShareData[4].festival = festivals[3];
-  carShareData[5].festival = festivals[4];
-  carShareData[6].festival = festivals[5];
-  carShareData[7].festival = festivals[5];
-  return carShare.create(carShareData);
-})
-.then(console.log(`Created ${carShare.length} carshares`))
-.catch(err => console.log(err))
-.finally(() => mongoose.connection.close());
+  .create(userData)
+  .then(users => {
+    console.log(`Created ${users.length} users.`);
+    festivalData[0].createdBy = users[0].id;
+    festivalData[1].createdBy = users[0].id;
+    festivalData[2].createdBy = users[0].id;
+    festivalData[3].createdBy = users[0].id;
+    festivalData[4].createdBy = users[0].id;
+    festivalData[5].createdBy = users[0].id;
+
+    return Festival.create(festivalData);
+  })
+  .then(festivals => {
+    console.log(`Created ${festivals.length} festivals.`);
+    carShareData[0].createdBy = festivals[0].createdBy;
+    carShareData[1].createdBy = festivals[1].createdBy;
+    carShareData[2].createdBy = festivals[2].createdBy;
+    carShareData[3].createdBy = festivals[3].createdBy;
+    carShareData[4].createdBy = festivals[3].createdBy;
+    carShareData[5].createdBy = festivals[4].createdBy;
+    carShareData[6].createdBy = festivals[5].createdBy;
+    carShareData[7].createdBy = festivals[5].createdBy;
+    carShareData[0].festival = festivals[0];
+    carShareData[1].festival = festivals[1];
+    carShareData[2].festival = festivals[2];
+    carShareData[3].festival = festivals[3];
+    carShareData[4].festival = festivals[3];
+    carShareData[5].festival = festivals[4];
+    carShareData[6].festival = festivals[5];
+    carShareData[7].festival = festivals[5];
+    return carShare.create(carShareData);
+  })
+  .then(console.log(`Created ${carShare.length} carshares`))
+  .catch(err => console.log(err))
+  .finally(() => mongoose.connection.close());
