@@ -7,7 +7,7 @@
       <h2 class="emailPosition subtitle is-7">Email: {{ user.email }}</h2>
       <h2 class="emailPosition subtitle is-7 white">Mobile: {{ user.mobileNumber }}</h2>
       <h2 class="emailPosition subtitle is-7 white friendlist">Friends: {{ user.userFriends }}</h2>
-
+§<a class="button festival-show-button friendsList-button" ui-sref="friendsIndex({id: user._id })">Friends list</a>
 
       <div class="userMap">
           <h2 id="currentLocation" subtitle is-7>Current Location</h2>
@@ -46,5 +46,3 @@
   <a ng-if="friendStatus === 'friend'" class=" request-seat-1 button" ng-click="removeFriend()">Friends</a>
 
 </div>
-
-<a class="button festival-show-button" ui-sref="friendsIndex({id: user._id })">Friends list</a>
