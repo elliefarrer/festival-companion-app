@@ -86,38 +86,26 @@ function CarSharesShowCtrl($http, $scope, $state, $auth) {
             [boundingBox.lr.lat, boundingBox.lr.lng],
             [boundingBox.ul.lat, boundingBox.ul.lng]
           ]);
-          const startMarker = L.marker([startLat, startLng]).addTo($scope.map);
-          const endMarker = L.marker([endLat, endLng]).addTo($scope.map);
+
+          const startMarkerOptions = {
+            icon: L.icon({
+              iconUrl: 'https://assets.mapquestapi.com/icon/v2/circle-start-md.png',
+              iconAnchor: [17, 20]
+            })
+          };
+
+          const endMarkerOptions = {
+            icon: L.icon({
+              iconUrl: 'https://assets.mapquestapi.com/icon/v2/circle-end-md.png',
+              iconAnchor: [17, 20]
+            })
+          }
+
+          const startMarker = L.marker([startLat, startLng], startMarkerOptions).addTo($scope.map);
+          const endMarker = L.marker([endLat, endLng], endMarkerOptions).addTo($scope.map);
           startMarker.bindPopup(`<p>Start: ${$scope.carShare.festival.location.postcode}</p>`).openPopup();
           endMarker.bindPopup(`<img src=${$scope.carShare.festival.photoUrl} alt=${$scope.carShare.festival.name}  /><p>${$scope.carShare.festival.name},   ${$scope.carShare.festival.location.address}</p>`).openPopup();
 
-
-          // const pointOneLat = res.data.route.legs[0].maneuvers[0].startPoint.lat;
-          // const pointOneLng = res.data.route.legs[0].maneuvers[0].startPoint.lng;
-          // const pointTwoLat = res.data.route.legs[0].maneuvers[1].startPoint.lat;
-          // const pointTwoLng = res.data.route.legs[0].maneuvers[1].startPoint.lng;
-          // const pointThreeLat = res.data.route.legs[0].maneuvers[2].startPoint.lat;
-          // const pointThreeLng = res.data.route.legs[0].maneuvers[2].startPoint.lng;
-          // const pointFourLat = res.data.route.legs[0].maneuvers[3].startPoint.lat;
-          // const pointFourLng = res.data.route.legs[0].maneuvers[3].startPoint.lng;
-          // const pointFiveLat = res.data.route.legs[0].maneuvers[4].startPoint.lat;
-          // const pointFiveLng = res.data.route.legs[0].maneuvers[4].startPoint.lng;
-          // const pointSixLat = res.data.route.legs[0].maneuvers[5].startPoint.lat;
-          // const pointSixLng = res.data.route.legs[0].maneuvers[5].startPoint.lng;
-          // const pointSevenLat = res.data.route.legs[0].maneuvers[6].startPoint.lat;
-          // const pointSevenLng = res.data.route.legs[0].maneuvers[6].startPoint.lng;
-
-
-
-          // const midPoints = [];
-
-          // for(let i = 0; i < res.data.route.legs[0].maneuvers.length; i++) {
-          //   const midLatLng = [];
-          //   midLatLng.push(res.data.route.legs[0].maneuvers[i].startPoint.lat);
-          //   midLatLng.push(res.data.route.legs[0].maneuvers[i].startPoint.lng);
-          //   midPoints.push(midLatLng);
-          //   console.log('Midpoints is', midPoints);
-          // }
 
           L.polyline([[startLat, startLng], [endLat, endLng]]).addTo($scope.map);
         });

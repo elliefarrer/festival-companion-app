@@ -1,8 +1,10 @@
+$navbar-height: 12%;
 $footer-background-color: #36223B;
 
 body {
   background: url('https://i.imgur.com/pOeWpw2.png') fixed center/cover;
-  min-height: 700px;
+  min-height: 100vh;
+  min-width: 100vw;
 }
 
 a {
@@ -16,28 +18,81 @@ a {
 
 
 .navbar {
+  height: $navbar-height;
   background-color: #36223B;
   .navbar-brand {
     input {
-      margin: 0.5rem;
+      margin: 1%;
       width: 40vw;
+      position: absolute;
+      height: 80%;
+    }
+    .container {
+      position: absolute;
+      left: 50%;
+      height: 100%;
+      a {
+        .headerImage {
+          border-radius: 100%;
+          margin: 0.5rem;
+        }
+      }
     }
     .navbar-burger {
-      height: 50px;
-      width: 50px;
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 3rem;
+      width: 3rem;
+      .burger-color {
+        color: white;
+      }
+    }
+  }
+  .navbar-menu {
+    .navbar-item {
+      a {
+        color: #ffffff;
+      }
+      :hover {
+        background-color: #ffffff;
+        color: #36223B;
+        border-radius: 20px;
+      }
+      .is-active {
+        background-color: #ffffff;
+        color: #36223B;
+        font-weight: 700;
+        border-radius: 20px;
+      }
     }
   }
 }
 
 
-.add-shadow {
-  box-shadow: 0 5px 30px 2px rgba(20,20,20,.9);
-}
-
 .main-body {
-  margin-top: 50px;
+  margin-top: 2rem;
+  .add-shadow {
+    box-shadow: 0 5px 30px 2px rgba(20,20,20,.9);
+    width: 96%;
+    margin-left: 2%;
+    .festival-title-wrapper{
+      .columns {
+        .is-7-mobile {
+          .festival-title {
+            text-transform: uppercase;
+          }
+        }
+        .is-5-mobile {
 
+        }
+      }
+    }
+  }
 }
+
+
+
 
 .map {
   height: 300px;
@@ -51,11 +106,6 @@ a {
   left: 30px;
 }
 
-.profileButton {
-  margin-top: 50px;
-  margin-bottom: 30px;
-  margin-left: 60px;
-}
 
 #atfestdiv {
   height: 50px;
@@ -143,25 +193,26 @@ a {
   height: 160px;
   width: 160px;
 }
-
-.headerImage {
-  height: 50px;
-  width: 50px;
-}
-
-.navbar-brand {
+.festivalsAttending {
+  font-size: 15px;
+  height: 55px;
+  min-height: 75px;
+  width: 85%;
   background-color: #36223B;
+  margin-left: 40px;
 }
+
+
+// .navbar-brand {
+//   background-color: #36223B;
+// }
 .dropdown.is-active {
-    background-color: #36223B;
+  background-color: #36223B;
 
-  }
-
-
-
-.burger-color {
-  color: white;
 }
+
+
+
 
 
 
@@ -176,7 +227,7 @@ a {
 }
 
 .car-share-title-wrapper{
-    margin-left: -8px;
+  margin-left: -8px;
 }
 
 .car-share-section {
@@ -443,13 +494,6 @@ a {
   position: relative;
 }
 
-.festival-title {
-  text-transform: uppercase;
-}
-
-.festival-title-wrapper{
-    margin-left: -8px;
-}
 
 .festival-alt-icon {
   position: absolute;
@@ -560,9 +604,9 @@ a {
   border-top: white 1px solid;
   height: 140px;
   transition: color .4s ease-out,
-              height .4s ease-out,
-              color .2s .4s ease-out,
-              width .2s ease-out;
+  height .4s ease-out,
+  color .2s .4s ease-out,
+  width .2s ease-out;
   overflow: hidden;
   color: white;
   width: 100%;
@@ -572,9 +616,9 @@ a {
   border-top: white 1px solid;
   height: 0;
   transition: color .4s ease-out,
-              height .4s ease-out,
-              color .2s  ease-out,
-              width .2s .2s ease-out;
+  height .4s ease-out,
+  color .2s  ease-out,
+  width .2s .2s ease-out;
   overflow: hidden;
   color: transparent;
   width: 0;
