@@ -13,11 +13,10 @@
 
     <div class="column is-5-mobile icon-wrapper">
       <p class="icon-bar">
-        <span><i class="fab fa-youtube car-share-icon"></i></span>
-        <span><i class="fab fa-vimeo-v car-share-icon"></i></span>
-        <span><i class="fab fa-instagram car-share-icon"></i></span>
-        <span><i class="fab fa-twitter car-share-icon"></i></span>
-        <span><i class="fab fa-facebook car-share-icon"></i></span>
+        <span ng-if=(carShare.festival.socialMedia.youtube)><a href={{carShare.festival.socialMedia.youtube}}><i class="fab fa-youtube"></i></a></span>
+        <span ng-if=(carShare.festival.socialMedia.instagram)><a href={{carShare.festival.socialMedia.instagram}}><i class="fab fa-instagram"></i></a></span>
+        <span ng-if=(carShare.festival.socialMedia.twitter)><a href={{carShare.festival.socialMedia.twitter}}><i class="fab fa-twitter"></i></a></span>
+        <span ng-if=(carShare.festival.socialMedia.facebook)><a href={{carShare.festival.socialMedia.facebook}}><i class="fab fa-facebook"></i></a></span>
         <span><i class="fas fa-share-alt car-share-icon"></i></span>
       </p>
     </div>
@@ -93,27 +92,8 @@
 
 </div>
 
-<div class="section add-comment-section">
-  <form ng-submit="createComment()">
-    <div class="field">
-      <input class="input" type="text" name="carShare.comments.content" placeholder="Add a comment">
-    </div>
 
-    <button class="button">Submit</button>
-  </form>
-</div>
+<div class="carShareMap" ng-map>
 
-<div class="section comment-section">
-  <div class="section" ng-repeat="comment in carShare.comments">
-    <div class="columns">
-      <div class="column is-one-quarter">
-        <img ng-src={{comment.createdBy.image}} alt={{comment.createdBy.userName}}>
-      </div>
-      <div class="column is-three-quarters">
-        <p>{{comment.createdBy.userName}}</p>
-        <p>{{comment.content}}</p>
-        <p>{{comment.timeStamps}}</p>
-      </div>
-    </div>
-  </div>
 </div>
+Distance: {{ distance }}km

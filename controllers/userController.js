@@ -3,6 +3,9 @@ const User = require('../models/user');
 function usersShow(req, res, next) {
   User
     .findById(req.params.id)
+    .populate({ path: 'festivalsAttending', populate: { path: 'attendees' }})
+    .populate('userFriends pendingFriends')
+    .exec()
     .then(user => res.json(user))
     .catch(next);
 }
@@ -28,7 +31,7 @@ function usersDelete(req, res, next) {
   User
     .findById(req.params.id)
     .then(user => {
-      console.log('This is the User', user);
+      // console.log('This is the User', user);
       user.remove();
     })
     .then(() => res.sendStatus(204))

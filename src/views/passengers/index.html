@@ -27,7 +27,7 @@
 
     <a ng-if="carShare.createdBy === idCheck" ng-click="removePassenger(passenger._id)" class="button festival-button remove-button">Remove</a>
 
-    <a ng-if="carShare.createdBy !== idCheck" ng-click="removePassenger(passenger._id)" class="button festival-button">Cancel</a>
+    <a ng-if="carShare.createdBy !== idCheck && passenger._id === idCheck" ng-click="removePassenger(passenger._id)" class="button festival-button">Cancel</a>
     </div>
   </div>
 

@@ -9,6 +9,7 @@ import './scss/style.scss';
 import Router from './config/routes';
 
 import Map from './directives/map';
+import ngSkycon from './directives/ngSkycon';
 
 import MainCtrl from './controllers/main';
 import CarSharesIndexCtrl from './controllers/carShares/index';
@@ -25,11 +26,13 @@ import UsersEditCtrl from './controllers/users/edit';
 import AuthLoginCtrl from './controllers/auth/login';
 import AuthRegisterCtrl from './controllers/auth/register';
 import PassengersIndexCtrl from './controllers/passengers/index';
+import FriendsIndexCtrl from './controllers/friends/index';
 
 angular.module('Festival Companion App', [
   'ui.router', 'satellizer'
 ])
   .directive('ngMap', Map)
+  .directive('ngSkycon', ngSkycon)
   .controller('MainCtrl', MainCtrl)
   .controller('CarSharesIndexCtrl', CarSharesIndexCtrl)
   .controller('CarSharesShowCtrl', CarSharesShowCtrl)
@@ -45,6 +48,7 @@ angular.module('Festival Companion App', [
   .controller('AuthLoginCtrl', AuthLoginCtrl)
   .controller('AuthRegisterCtrl', AuthRegisterCtrl)
   .controller('PassengersIndexCtrl', PassengersIndexCtrl)
+  .controller('FriendsIndexCtrl', FriendsIndexCtrl)
   .config(Router)
   .config(function($authProvider){
     $authProvider.loginUrl = '/api/login';

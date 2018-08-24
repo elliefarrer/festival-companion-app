@@ -1,32 +1,145 @@
+$navbar-height: auto 0;
 $footer-background-color: #36223B;
 
 body {
   background: url('https://i.imgur.com/pOeWpw2.png') fixed center/cover;
-  min-height: 700px;
+  min-height: 100vh;
+  min-width: 100vw;
+  padding-top: 10px;
+  font-family: 'Oxygen', sans-serif;
+}
+
+a {
+  color: #ffffff;
+}
+
+.welcome {
+  margin-top: 3rem;
+  margin-bottom: 0;
+}
+
+.welcome-sub {
+  // border-bottom: 0.5rem solid #36223B;
+}
+
+.welcome-title {
+  font-family: 'Shrikhand', cursive;
+  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color: #36223B;
+  margin-top: 0;
+  font-size: 3em;
+  color: rgba(255, 255, 255, .9);
+}
+
+.carShareMap {
+  height: 300px;
+  width: 100%;
+}
+
+.profileButton {
+  background-color: #36223B;
+  position: absolute;
+  color: white;
+  border: white solid 1px;
+  margin-top: 10px;
+  border-radius: 3px;
+  margin-left: 150px;
+  height: 40px;
+  width: 90px;
+  font-size: 15px;
+}
+
+.deleteButton {
+  background-color: #36223B;
+  position: absolute;
+  color: white;
+  border: white solid 1px;
+  margin-top: 10px;
+  border-radius: 3px;
+  margin-left: 300px;
+  height: 40px;
+  width: 90px;
+  font-size: 15px;
 }
 
 
 .navbar {
+  height: $navbar-height;
   background-color: #36223B;
   .navbar-brand {
     input {
-      margin: 0.5rem;
+      margin: 1%;
       width: 40vw;
+      position: absolute;
+      height: 80%;
+    }
+    .container {
+      position: absolute;
+      left: 50%;
+      height: 100%;
+      a {
+        .headerImage {
+          border-radius: 100%;
+          margin: 0.2rem;
+        }
+      }
     }
     .navbar-burger {
-      height: 50px;
-      width: 50px;
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 3rem;
+      width: 3rem;
+      .burger-color {
+        color: white;
+      }
+    }
+  }
+  .navbar-menu {
+    .navbar-item {
+      a {
+        color: #ffffff;
+      }
+      :hover {
+        background-color: #ffffff;
+        color: #36223B;
+        border-radius: 20px;
+      }
+      .is-active {
+        background-color: #ffffff;
+        color: #36223B;
+        font-weight: 700;
+        border-radius: 20px;
+      }
     }
   }
 }
 
-.add-shadow {
-  box-shadow: 0 5px 30px 2px rgba(20,20,20,.9);
-}
 
 .main-body {
-  margin-top: 50px;
+  padding-top: 25px;
+  // margin-top: 2rem;
+  .add-shadow {
+    box-shadow: 0 5px 30px 2px rgba(20,20,20,.9);
+    width: 96%;
+    margin-left: 2%;
+    .festival-title-wrapper{
+      .columns {
+        .is-7-mobile {
+          .festival-title {
+            text-transform: uppercase;
+          }
+        }
+        .is-5-mobile {
+
+        }
+      }
+    }
+  }
 }
+
+
+
 
 .map {
   height: 300px;
@@ -40,61 +153,6 @@ body {
   left: 30px;
 }
 
-.profileButton {
-  align-items: center;
-  position: absolute;
-  text-align: center;
-  width: 100px;
-  height: 50px;
-  font-size: 15px;
-  margin-top: 50px;
-  margin-bottom: 30px;
-  margin-left: 80px;
-  background-color: #36223B;
-  color: white;
-  border: none
-}
-
-.deleteButton {
-  align-items: center;
-  position: absolute;
-  text-align: center;
-  width: 100px;
-  height: 50px;
-  font-size: 15px;
-  margin-top: 50px;
-  margin-bottom: 30px;
-  margin-left: 250px;
-  background-color: #36223B;
-  color: white;
-  border: none
-}
-
-.saveButton {
-  background-color: #36223B;
-  color: white;
-  width: 100px;
-  height: 50px;
-  border: none;
-  font-size: 15px;
-}
-
-.headingAlign {
-  padding-left: 70px;
-}
-
-.inputSize {
-  width: 300px;
-  height: 30px;
-}
-
-.alignProfileEdit {
-  padding-left: 70px;
-}
-
-.color {
-  color: white;
-}
 
 #atfestdiv {
   height: 50px;
@@ -129,11 +187,12 @@ body {
 
 .backgroundImage {
   background-image: url(https://i.imgur.com/Hk6NTtl.png);
-  background-size: 100%;
+  background-size: 100vh;
 }
 
 .topHalf {
   padding-top: 20px;
+  padding-bottom: 1px;
 }
 
 .profileNamePosition {
@@ -182,25 +241,26 @@ body {
   height: 160px;
   width: 160px;
 }
-
-.headerImage {
-  height: 50px;
-  width: 50px;
-}
-
-.navbar-brand {
+.festivalsAttending {
+  font-size: 15px;
+  min-height: 75px;
+  width: 78%;
   background-color: #36223B;
+  margin-left: 60px;
+  margin-top: 10px;
 }
+
+
+// .navbar-brand {
+//   background-color: #36223B;
+// }
 .dropdown.is-active {
-    background-color: #36223B;
+  background-color: #36223B;
 
-  }
-
-
-
-.burger-color {
-  color: white;
 }
+
+
+
 
 
 
@@ -215,7 +275,7 @@ body {
 }
 
 .car-share-title-wrapper{
-    margin-left: -8px;
+  margin-left: -8px;
 }
 
 .car-share-section {
@@ -238,7 +298,7 @@ body {
 }
 
 .set-up-car-share {
-  background: rgb(50, 203, 136);
+  background: #36223B;
   color: white;
   text-transform: uppercase;
 }
@@ -295,13 +355,13 @@ body {
   height: 55px;
 }
 .request-seat-1 {
-  background: rgb(50, 203, 136);
+  background: #36223B;
   color: white;
   text-transform: uppercase;
   margin-top: -9px;
 }
 .request-seat-2 {
-  background: rgb(50, 203, 136);
+  background: #36223B;
   color: white;
   text-transform: uppercase;
   margin-top: -10px;
@@ -391,11 +451,15 @@ body {
 ////////// Passenger Index /////////
 
 .festival-button {
-  background: rgb(50, 203, 136);
+  background: #36223B;
   color: white;
   text-transform: uppercase;
   margin-top: -9px;
   font-size: 0.7em;
+}
+
+.profileTopPadding {
+  padding-top: 20px;
 }
 
 .passenger-section {
@@ -476,19 +540,16 @@ body {
   margin-top: 10px;
 }
 
+.profileStyling {
+  margin-bottom: 10px;
+}
+
 .festival-panel {
   background-color: #36223B;
   margin: 0;
   position: relative;
 }
 
-.festival-title {
-  text-transform: uppercase;
-}
-
-.festival-title-wrapper{
-    margin-left: -8px;
-}
 
 .festival-alt-icon {
   position: absolute;
@@ -535,7 +596,7 @@ body {
 }
 
 .festival-show-button {
-  background: rgb(50, 203, 136);
+  background: #36223B;
   color: white;
   text-transform: uppercase;
   font-size: 0.7em;
@@ -573,13 +634,35 @@ body {
   width:130px;
 }
 
+.festival-show-edit {
+  background: #36223B;
+  color: white;
+  text-transform: uppercase;
+  margin-top: -9px;
+  font-size: 0.6em;
+  max-width: 150px;
+  white-space: normal;
+  height: auto;
+}
+
+.festival-show-delete {
+  background: #36223B;
+  color: white;
+  text-transform: uppercase;
+  margin-top: -9px;
+  font-size: 0.6em;
+  max-width: 150px;
+  white-space: normal;
+  height: auto;
+}
+
 .show-info {
   border-top: white 1px solid;
   height: 140px;
   transition: color .4s ease-out,
-              height .4s ease-out,
-              color .2s .4s ease-out,
-              width .2s ease-out;
+  height .4s ease-out,
+  color .2s .4s ease-out,
+  width .2s ease-out;
   overflow: hidden;
   color: white;
   width: 100%;
@@ -589,16 +672,16 @@ body {
   border-top: white 1px solid;
   height: 0;
   transition: color .4s ease-out,
-              height .4s ease-out,
-              color .2s  ease-out,
-              width .2s .2s ease-out;
+  height .4s ease-out,
+  color .2s  ease-out,
+  width .2s .2s ease-out;
   overflow: hidden;
   color: transparent;
   width: 0;
 }
 
 .show-info-wrapper {
-  height: 320px;
+  height: 240px;
   position: relative;
   background-color: rgba(0,0,0, .4);
   padding: 10px 4px;
@@ -607,7 +690,7 @@ body {
   border-top: rgba(255,255,255, .6) solid 1px;
 }
 .hide-info-wrapper {
-  height: 180px;
+  height: 140px;
   position: relative;
   background-color: rgba(0,0,0, .4);
   padding: 10px 4px;
@@ -619,7 +702,7 @@ body {
 ////////////////// FESTIVAL SHOW //////////////////
 
 .festival-show-button {
-  margin-bottom: 8rem;
+  margin-bottom: 0.8rem;
 }
 
 footer {
@@ -630,12 +713,79 @@ footer {
   left: 0;
   width: 100%;
   z-index: 1;
+  height: 60px;
   .subtitle {
     color: #ffffff;
     text-transform: uppercase;
     margin: 0.5rem 0 0 0.5rem;
+
   }
   .columns {
     margin: 0.5 0 0 0.5rem;
   }
+  h3 {
+    position: absolute;
+    top: -10px;
+  }
+  .footer-date {
+    position: absolute;
+    top: 20px;
+    left: 8px;
+  }
+  .footer-icons {
+    position: absolute;
+    top: 25px;
+    left: -2px;
+  }
+}
+
+.leaflet-popup-content-wrapper, .leaflet-popup-tip {
+  background-color: rgba(0,0,0, .7);
+}
+
+.leaflet-popup-content-wrapper {
+  width: auto;
+}
+
+.leaflet-popup-content {
+  color: #ffffff;
+}
+
+.pop-up-image {
+  border-radius: 100%;
+}
+
+///////////////////// friends //////////////////////////
+.request-friend-wrapper {
+  padding: 10px;
+  position: relative;
+  height: 55px;
+}
+
+.update-button-2 {
+  position: absolute;
+  right: 10px;
+  top: 30px;
+}
+.remove-button-2 {
+  position: absolute;
+  right: 10px;
+  top: 15px;
+}
+
+.friendsList-button {
+  position: absolute;
+  right: 30px;
+  top: 43%;
+  z-index: 2;
+}
+
+
+.friend-request-button {
+  position: absolute;
+  right: 25px;
+  background: #36223B;
+  color: white;
+  text-transform: uppercase;
+  font-size: 0.7em;
 }

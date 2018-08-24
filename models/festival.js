@@ -18,7 +18,13 @@ const festivalSchema = mongoose.Schema({
   photoUrl: { type: String},
   createdBy: { type: mongoose.Schema.ObjectId, ref: 'User' },
   attendees: [{ type: mongoose.Schema.ObjectId, ref: 'User' }],
-  comments: [{ name: String, content: String }]
+  comments: [{ name: String, content: String }],
+  socialMedia: {
+    youtube: String,
+    instagram: String,
+    twitter: String,
+    facebook: String
+  }
 });
 
 module.exports= mongoose.model('Festival', festivalSchema);

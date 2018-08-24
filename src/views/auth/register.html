@@ -1,4 +1,4 @@
-<div style="margin-top: -10px;" class="backgroundImage">
+<div style="margin-top: -10px;">
   <div class="registerIntro">
     <p style="color: white;" style="padding: 50px;">Welcome to your best festival companion!</p>
     <p style="color: white;" style="padding: 50px;">Already got an account? <a ui-sref="login">Log in!</p>
@@ -7,13 +7,11 @@
   <form style="padding-left: 50px; padding-right: 50px"; ng-submit="register()" name="form" novalidate>
 
     <div class="field">
-      <a class="button" ng-click="uploadImage()"> Pick an image</a>
-      <label class="label"  for="profilePicture" ng-model="user.image">Profile Picture (URL)</label>
-      <div class="control">
-        <input class="input" type="text" id="profilePicture" name="profilePicture">
-      </div>
+      <label class="label has-text-white"  for="profilePicture" >Profile Picture</label>
+      <a class="button" ng-click="uploadImage()" ng-if="!imageUploaded">Pick an image</a>
+      <a class="button" ng-click="uploadImage()" ng-if="imageUploaded">Image uploaded</a>
     </div>
-    
+
     <div style="padding-top: 10px;" class="field">
       <label style="color: white;" class="label" for="firstName">First Name</label>
       <input required minLength="2" ng-model="user.firstName" class="input" type="text" name="firstName"placeholder="">

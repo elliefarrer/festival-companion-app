@@ -12,28 +12,29 @@ let userId;
 // make userId for comments required?
 
 
-function getTokenFromHttpRequest(req) {
-  token = req.headers.authorization.replace('Bearer ', '');
-  function retrieveUserIdFromToken(err, result) {
-    userId = result.sub;
-  }
-  jwt.verify(token, secret, retrieveUserIdFromToken);
-}
-
+// function getTokenFromHttpRequest(req) {
+//   token = req.headers.authorization.replace('Bearer ', '');
+//   function retrieveUserIdFromToken(err, result) {
+//     console.log('result is', result);
+//     userId = result.sub;
+//   }
+//   jwt.verify(token, secret, retrieveUserIdFromToken);
+// }
+//
 ///////////////////////////////////////////////////////////////////////////////
 
 ///which function runs first... is the userId saved for use?
 
 function commentCreate(req, res, next) { // This needs testing
-  getTokenFromHttpRequest(req);
+  // getTokenFromHttpRequest(req);
   CarShare
     .findById(req.params.carShareId) //carShareId is from the params as per the routes.js.
-    .then( carShare => {
+    .then(carShare => {
       req.body.createdBy = userId;
-      // console.log(req.body.createBy); //This needs testing
+      // console.log('req body created by', req.body.createdBy); //This needs testing
       carShare.comments.push(req.body);
-      // console.log(carShare); // This needs testing
-      console.log('Req body is', req.body);
+      // console.log('car share is', carShare); // This needs testing
+      // console.log('Req body is', req.body);
       return carShare.save();
     })
     .then(carShare => res.json(carShare))
