@@ -45,7 +45,15 @@ function UsersShowCtrl($http, $scope, $state, $auth) {
             const lat = position.coords.latitude;
             const lon = position.coords.longitude;
             $scope.map.setView([lat, lon], 13);
-            L.marker([lat, lon]).addTo($scope.map);
+
+            const markerOptions = {
+              icon: L.icon({
+                iconUrl: 'https://assets.mapquestapi.com/icon/v2/circle-md.png',
+                iconAnchor: [17, 20]
+              })
+            };
+
+            L.marker([lat, lon], markerOptions).addTo($scope.map);
           },
           err => console.log(err),
           { timeout: 10000 });
