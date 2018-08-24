@@ -63,7 +63,7 @@ function CarSharesShowCtrl($http, $scope, $state, $auth) {
       const endPoint = $scope.carShare.festival.location.postcode;
       $http({
         method: 'GET',
-        url: 'http://www.mapquestapi.com/directions/v2/optimizedroute',
+        url: 'https://www.mapquestapi.com/directions/v2/optimizedroute',
         params: {
           key: $scope.API_KEY,
           from: startPoint,
