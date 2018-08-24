@@ -23,7 +23,7 @@ function MainCtrl($auth, $scope, $state, $rootScope, $timeout) {
       $rootScope.loggedInUser = null;
       $rootScope.loggedInfirstName = null;
     });
-    $state.go('festivalsIndex');
+    $state.go('login');
   };
 }
 
