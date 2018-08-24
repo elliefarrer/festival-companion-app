@@ -1,6 +1,6 @@
 function UsersEditCtrl($http, $scope, $state) {
   $scope.updateUser = function() {
-    console.log('this is user data ',$scope.user, 'this is the url', `/api/user/${$state.params.userId}`);
+    // console.log('this is user data ',$scope.user, 'this is the url', `/api/user/${$state.params.userId}`);
     $http({
       method: 'PUT',
       url: `/api/user/${$state.params.userId}`,
@@ -29,7 +29,7 @@ function UsersEditCtrl($http, $scope, $state) {
       .then(res => {
         // console.log('files are', res.filesUploaded[0].url);
         $scope.user.image = res.filesUploaded[0].url;
-        console.log('User is now', $scope.user);
+        // console.log('User is now', $scope.user);
         // console.log(fp);
         if ($scope.user.image) {
           $scope.imageUploaded = true;

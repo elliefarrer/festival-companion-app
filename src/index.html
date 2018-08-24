@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://fonts.googleapis.com/css?family=Oxygen|Shrikhand" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Orbitron|Oxygen|Shrikhand" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css"
   integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
   crossorigin=""/>
@@ -42,6 +42,9 @@
           <div class="navbar-menu dropdown">
             <div class="navbar-item">
               <div><a ui-sref-active="is-active" ui-sref="festivalsIndex" class="navbar-item" ng-if="isAuthenticated()">Festivals</a></div>
+            </div>
+            <div class="navbar-item">
+              <div><a ui-sref-active="is-active" ui-sref="usersIndex" class="navbar-item" ng-if="isAuthenticated()">Find Friends</a></div>
             </div>
             <div class="navbar-item">
               <div><a ui-sref-active="is-active" ui-sref="usersShow({ id: currentUser()._id })" class="navbar-item" ng-if="isAuthenticated()">Profile</a></div>
