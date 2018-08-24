@@ -27,8 +27,14 @@ a {
   -webkit-text-stroke-width: 0.5px;
   -webkit-text-stroke-color: #36223B;
   margin-top: 0;
-  font-size: 3em;
+  font-size: 3rem;
   color: rgba(255, 255, 255, .9);
+  .orbitron {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    -webkit-text-stroke-width: 1px;
+    font-size: 3.5rem;
+  }
 }
 
 .carShareMap {
