@@ -1,4 +1,22 @@
-<!-- <div class="container section festival-index-section is-mobile">
-  <h1 class="white title is-1">Find your friends</h1>
+<div class="section">
 
-</div> -->
+
+  <div class="passenger-panels add-shadow" ng-repeat="user in users">
+    <div class="passenger-text-wrapper-2">
+
+    <p class="has-text-white passenger-index-text indent"><b>{{ user.firstName }} {{ user.lastName }}</b></p>
+
+
+    <img class="passenger-profile-picture-2" ng-src="{{ user.image }}">
+
+    <a ui-sref="usersShow({id: user._id})" class="button festival-button">See profile</a>
+
+    </div>
+  </div>
+
+
+
+
+  </div>
+
+</div>

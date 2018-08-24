@@ -43,6 +43,9 @@
               <div><a ui-sref-active="is-active" ui-sref="festivalsIndex" class="navbar-item" ng-if="isAuthenticated()">Festivals</a></div>
             </div>
             <div class="navbar-item">
+              <div><a ui-sref-active="is-active" ui-sref="usersIndex" class="navbar-item" ng-if="isAuthenticated()">Find Friends</a></div>
+            </div>
+            <div class="navbar-item">
               <div><a ui-sref-active="is-active" ui-sref="usersShow({ id: currentUser()._id })" class="navbar-item" ng-if="isAuthenticated()">Profile</a></div>
             </div>
             <div class="navbar-item">
