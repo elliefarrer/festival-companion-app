@@ -251,7 +251,7 @@ a {
 .festivalsAttending {
   font-size: 15px;
   min-height: 75px;
-  width: 78%;
+  width: 73%;
   background-color: #36223B;
   margin-left: 60px;
   margin-top: 10px;
@@ -796,4 +796,11 @@ footer {
   color: white;
   text-transform: uppercase;
   font-size: 0.7em;
+}
+
+.see-profile-button {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-15%);
 }

@@ -133,6 +133,8 @@ router.route('/festivals/:festivalId/carShares/:carShareId/comments/:commentId')
 ////////////////////////////// User routes ////////////////////////////////
 
 
+router.route('/user')
+  .get(userController.index);
 
 router.route('/user/:id')
   .all(secureRoute)

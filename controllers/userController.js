@@ -1,5 +1,14 @@
 const User = require('../models/user');
 
+function usersIndex(req, res, next) {
+  User
+    .find()
+    .populate({ path: 'festivalsAttending', populate: { path: 'attendees' }})
+    .exec()
+    .then(users => res.json(users))
+    .catch(next);
+}
+
 function usersShow(req, res, next) {
   User
     .findById(req.params.id)
@@ -41,5 +50,6 @@ function usersDelete(req, res, next) {
 module.exports = {
   show: usersShow,
   update: usersUpdate,
-  delete: usersDelete
+  delete: usersDelete,
+  index: usersIndex
 };
