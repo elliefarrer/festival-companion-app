@@ -44,7 +44,6 @@ function UsersShowCtrl($http, $scope, $state, $auth) {
   if($scope.currentUser()._id === $state.params.id) {
     $scope.$watch('map', function() {
       if($scope.map) {
-        console.log('The controller knows about the map');
         navigator.geolocation.getCurrentPosition(
           position => {
             const lat = position.coords.latitude;
@@ -83,10 +82,8 @@ function UsersShowCtrl($http, $scope, $state, $auth) {
       url: `/api/user/${$scope.currentUser()._id}/friends/${$state.params.id}`
     })
       .then(res => {
-        console.log('user data is', res.data);
         $scope.friendStatus = 'pending';
         $scope.user = res.data;
-        console.log('this is the friends status', $scope.friendStatus);
       });
   };
 
@@ -96,10 +93,8 @@ function UsersShowCtrl($http, $scope, $state, $auth) {
       url: `/api/user/${$scope.currentUser()._id}/friends/${$state.params.id}`
     })
       .then(res => {
-        console.log('user data is', res.data);
         $scope.friendStatus = 'nonFriend';
         $scope.user = res.data;
-        console.log('this is the friends status', $scope.friendStatus);
       });
   };
 }

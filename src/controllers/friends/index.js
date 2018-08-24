@@ -9,7 +9,6 @@ function FriendsIndexCtrl($http, $scope, $state) {
     url: `/api/user/${$state.params.id}/friends`
   })
     .then(res =>   {
-      console.log('The friends are', res.data.userFriends);
       $scope.user = res.data;
     });
 
@@ -19,7 +18,6 @@ function FriendsIndexCtrl($http, $scope, $state) {
       url: `/api/user/${$scope.currentUser()._id}/friends/${friendId}`
     })
       .then(res => {
-        console.log('user data is', res.data);
         $scope.user = res.data;
       });
   };
@@ -27,10 +25,9 @@ function FriendsIndexCtrl($http, $scope, $state) {
   $scope.removeFriend = function(friendId) {
     $http({
       method: 'DELETE',
-      url: `/api/user/$${$scope.currentUser()._id}/friends/${friendId}`
+      url: `/api/user/${$scope.currentUser()._id}/friends/${friendId}`
     })
       .then(res => {
-        console.log('user data is', res.data);
         $scope.user = res.data;
       });
   };

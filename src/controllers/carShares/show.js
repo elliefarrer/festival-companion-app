@@ -99,7 +99,7 @@ function CarSharesShowCtrl($http, $scope, $state, $auth) {
               iconUrl: 'https://assets.mapquestapi.com/icon/v2/circle-end-md.png',
               iconAnchor: [17, 20]
             })
-          }
+          };
 
           const startMarker = L.marker([startLat, startLng], startMarkerOptions).addTo($scope.map);
           const endMarker = L.marker([endLat, endLng], endMarkerOptions).addTo($scope.map);

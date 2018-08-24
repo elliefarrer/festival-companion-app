@@ -1,19 +1,11 @@
 /*global L*/
 
-// const { mapquestApiKey } = require('../../config/environment');
-// console.log('API key in directive is', mapquestApiKey);
-
-const { mapquestApiKey } = require('../../config/environment');
-console.log('API key in directive is', mapquestApiKey);
-
 function Map() {
 
   return {
     restrict: 'A',
     link($scope, $element) {
       const domElement = $element[0];
-      console.log('The map element is', domElement);
-      console.log('The scope is', $scope);
       $scope.API_KEY = 'DmK3IjydVb4R9lDw3X08xjNBNVV0WOks';
       L.mapquest.key = $scope.API_KEY;
       $scope.map = L.mapquest.map(domElement, {

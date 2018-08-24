@@ -14,8 +14,7 @@ function AuthLoginCtrl($auth, $http, $scope, $state, $rootScope) {
             $scope.storeCurrentUser(res.data);
             $state.go('festivalsIndex');
           });
-      })
-      .catch(err => console.log('There was an error', err));
+      });
   };
 }
 

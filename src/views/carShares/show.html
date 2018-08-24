@@ -43,11 +43,11 @@
 
     <div class="column is-6-mobile">
       <a ui-sref="passengersIndex({festivalId: carShare.festival._id, carShareId: carShare._id})">
-          <div class="columns passengers-index-link is-mobile">
-            <div class="column is-1-mobile img-wrapper" ng-repeat="passenger in carShare.passengers">
-              <img class="passenger-profile-picture" ng-src="{{passenger.image}}" alt="{{passenger.firstName}}">
-            </div>
+        <div class="columns passengers-index-link is-mobile">
+          <div class="column is-1-mobile img-wrapper" ng-repeat="passenger in carShare.passengers">
+            <img class="passenger-profile-picture" ng-src="{{passenger.image}}" alt="{{passenger.firstName}}">
           </div>
+        </div>
       </a>
     </div>
 
@@ -64,36 +64,35 @@
     </a>
 
 
-      <div class="column is-12 has-text-centered">
-        <p class="ride-show-panel-title" > Grab a ride with {{ carShare.createdBy.firstName }}</p>
-      </div>
-
-
-      <div class="column is-6-mobile">
-        <p class="subtitle is-7 has-text-white line-height remove-margin remove-margin-sides"> {{carShare.departureDate}} - {{carShare.returnDate}}</p>
-        <p class="subtitle is-7 has-text-white line-height remove-margin remove-margin-sides" >Price: £{{ carShare.price}}</p>
-      </div>
-
-      <div class="column is-6-mobile">
-        <p class="subtitle is-7 has-text-white line-height remove-margin remove-margin-sides" >Seats remaining: {{carShare.seatsRemaining}}</p>
-        <p class="subtitle is-7 has-text-white line-height remove-margin remove-margin-sides" >From: {{ carShare.from.postcode}}</p>
-      </div>
-
-      <a class="button car-share-show-edit"  ng-if=" idCheck === carShare.createdBy._id " ui-sref="carSharesEdit({ festivalId: carShare.festival._id, carShareId: carShare._id})"><i class="far fa-edit"></i></a>
-
-      <a class="button car-share-show-delete" ng-if=" idCheck === carShare.createdBy._id " ng-click="deleteCarShare()({festivalId: carShare.festival._id, carShareId: carShare._id})" > <i class="far fa-trash-alt"></i></a>
-
-      <span><i ng-class=" idCheck === carShare.createdBy._id? 'car-share-show-alt-icon-1' : 'car-share-show-alt-icon-2'" class=" fas fa-share-alt car-share-icon"></i></span>
+    <div class="column is-12 has-text-centered">
+      <p class="ride-show-panel-title" > Grab a ride with {{ carShare.createdBy.firstName }}</p>
     </div>
 
 
+    <div class="column is-6-mobile">
+      <p class="subtitle is-7 has-text-white line-height remove-margin remove-margin-sides"> {{carShare.departureDate}} - {{carShare.returnDate}}</p>
+      <p class="subtitle is-7 has-text-white line-height remove-margin remove-margin-sides" >Price: £{{ carShare.price}}</p>
+    </div>
 
+    <div class="column is-6-mobile">
+      <p class="subtitle is-7 has-text-white line-height remove-margin remove-margin-sides" >Seats remaining: {{carShare.seatsRemaining}}</p>
+      <p class="subtitle is-7 has-text-white line-height remove-margin remove-margin-sides" >From: {{ carShare.from.postcode}}</p>
+    </div>
+
+    <a class="button car-share-show-edit"  ng-if=" idCheck === carShare.createdBy._id " ui-sref="carSharesEdit({ festivalId: carShare.festival._id, carShareId: carShare._id})"><i class="far fa-edit"></i></a>
+
+    <a class="button car-share-show-delete" ng-if=" idCheck === carShare.createdBy._id " ng-click="deleteCarShare()({festivalId: carShare.festival._id, carShareId: carShare._id})" > <i class="far fa-trash-alt"></i></a>
+
+    <span><i ng-class=" idCheck === carShare.createdBy._id? 'car-share-show-alt-icon-1' : 'car-share-show-alt-icon-2'" class=" fas fa-share-alt car-share-icon"></i></span>
+  </div>
 
 
 </div>
 
+<div class="">
 
-<div class="carShareMap" ng-map>
+  <div class="carShareMap" ng-map>
 
+  </div>
 </div>
-Distance: {{ distance }}km
+<p class="has-text-white is-size-6">Distance: {{ distance }}mi</p>
