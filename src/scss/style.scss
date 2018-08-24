@@ -40,6 +40,7 @@ a {
 .carShareMap {
   height: 300px;
   width: 100%;
+
 }
 
 .profileButton {
@@ -791,12 +792,18 @@ footer {
 
 
 .friend-request-button {
+  background-color: #36223B;
   position: absolute;
-  right: 25px;
-  background: #36223B;
   color: white;
-  text-transform: uppercase;
-  font-size: 0.7em;
+  border: white solid 1px;
+  margin-top: 10px;
+  border-radius: 3px;
+  // margin-left: 300px;
+  left: 160px;
+  transform: translateY(-8px);
+  height: 40px;
+  width: 90px;
+  font-size: 15px;
 }
 
 .see-profile-button {
