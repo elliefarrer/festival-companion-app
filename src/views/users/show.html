@@ -5,7 +5,14 @@
       <h1 class="white title is-1">{{ user.firstName }}</h1>
       <h2 class="emailPosition subtitle is-7">Email: {{ user.email }}</h2>
       <h2 class="emailPosition subtitle is-7 white">Mobile: {{ user.mobileNumber }}</h2>
-      <h2 class="emailPosition subtitle is-7 white friendlist">Friends: {{ user.userFriends }}</h2>
+
+      <div ng-repeat="friend in user.friends" class="container">
+        <h2 class="emailPosition subtitle is-7 white friendlist">Friends: {{ friends.firstName }}</h2>
+      </div>
+
+      <a class="button festival-show-button friendsList-button" ui-sref="friendsIndex({id: user._id })">Friends list</a>
+
+
       <div class="userMap">
           <h2 id="currentLocation" subtitle is-7>Current Location</h2>
           <div class="userMap" ng-map></div>
@@ -28,6 +35,13 @@
       </a>
     </div>
   </div>
+
+  <div ng-if="currentUser()._id !== user._id" class="">
+   <a class="button friend-request-button" ng-click="sendFriendRequest()" ng-if="friendStatus === 'nonFriend'">Send friend request</a>
+   <a class="button friend-request-button" ng-click="removeFriend()" ng-if="friendStatus === 'pending'">Pending</a>
+   <a ng-if="friendStatus === 'friend'" class=" friend-request-button button" ng-click="removeFriend()">Friends</a>
+ </div>
+
   <span>
     <button class="profileButton" ui-sref="usersEdit({ userId: currentUser()._id })">Edit Profile</button>
     <button class="deleteButton" ng-click="deleteUser()">Delete Account</button>
