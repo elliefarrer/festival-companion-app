@@ -40,8 +40,9 @@ a {
   background-color: #36223B;
   position: absolute;
   color: white;
-  border: none;
-  margin-top: 100px;
+  border: white solid 1px;
+  margin-top: 10px;
+  border-radius: 3px;
   margin-left: 150px;
   height: 40px;
   width: 90px;
@@ -52,8 +53,9 @@ a {
   background-color: #36223B;
   position: absolute;
   color: white;
-  border: none;
-  margin-top: 100px;
+  border: white solid 1px;
+  margin-top: 10px;
+  border-radius: 3px;
   margin-left: 300px;
   height: 40px;
   width: 90px;
@@ -115,7 +117,8 @@ a {
 
 
 .main-body {
-  margin-top: 2rem;
+  padding-top: 25px;
+  // margin-top: 2rem;
   .add-shadow {
     box-shadow: 0 5px 30px 2px rgba(20,20,20,.9);
     width: 96%;
@@ -189,6 +192,7 @@ a {
 
 .topHalf {
   padding-top: 20px;
+  padding-bottom: 1px;
 }
 
 .profileNamePosition {
@@ -240,10 +244,10 @@ a {
 .festivalsAttending {
   font-size: 15px;
   min-height: 75px;
-  width: 85%;
+  width: 78%;
   background-color: #36223B;
-  margin-left: 40px;
-  margin-top: 20px;
+  margin-left: 60px;
+  margin-top: 10px;
 }
 
 
@@ -454,6 +458,10 @@ a {
   font-size: 0.7em;
 }
 
+.profileTopPadding {
+  padding-top: 20px;
+}
+
 .passenger-section {
   padding: 20px 10px;
 
@@ -530,6 +538,10 @@ a {
 .festival-index-section {
   padding-top: 30px;
   margin-top: 10px;
+}
+
+.profileStyling {
+  margin-bottom: 10px;
 }
 
 .festival-panel {
@@ -765,7 +777,7 @@ footer {
   position: absolute;
   right: 30px;
   top: 43%;
-  z-index: 1;
+  z-index: 2;
 }
 
 

@@ -238,7 +238,7 @@ const carShareData = [
 User
   .create(userData)
   .then(users => {
-    console.log(`Created ${users.length} users.`);
+    // console.log(`Created ${users.length} users.`);
     festivalData[0].createdBy = users[0].id;
     festivalData[1].createdBy = users[0].id;
     festivalData[2].createdBy = users[0].id;
@@ -249,7 +249,7 @@ User
     return Festival.create(festivalData);
   })
   .then(festivals => {
-    console.log(`Created ${festivals.length} festivals.`);
+    // console.log(`Created ${festivals.length} festivals.`);
     carShareData[0].createdBy = festivals[0].createdBy;
     carShareData[1].createdBy = festivals[1].createdBy;
     carShareData[2].createdBy = festivals[2].createdBy;
@@ -268,6 +268,6 @@ User
     carShareData[7].festival = festivals[5];
     return carShare.create(carShareData);
   })
-  .then(console.log(`Created ${carShare.length} carshares`))
+  // .then(console.log(`Created ${carShare.length} carshares`))
   .catch(err => console.log(err))
   .finally(() => mongoose.connection.close());

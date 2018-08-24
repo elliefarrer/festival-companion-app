@@ -22,7 +22,7 @@ function friendsIndex(req, res, next) {
     .findById(req.params.id)
     .populate('userFriends pendingFriends')
     .then(user => {
-      console.log('the user is', user);
+      // console.log('the user is', user);
       res.json(user);
     })
     .catch(next);
@@ -39,13 +39,13 @@ function friendsCreate(req, res, next) {
     .findById(userId)
     .then(user => {
       user.userFriends.push(friendId);
-      console.log('this is the user', user);
+      // console.log('this is the user', user);
       return user.save();
     })
     .then(() => User.findById(friendId))
     .then(friend => {
       friend.pendingFriends.push(userId);
-      console.log('this is the friend', friend);
+      // console.log('this is the friend', friend);
       return friend.save();
     })
     .then(() => User.findById(userId))

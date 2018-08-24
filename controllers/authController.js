@@ -10,12 +10,12 @@ function register(req, res, next) {
 }
 
 function login(req, res, next) {
-  console.log('this all of req.body', req.body);
+  // console.log('this all of req.body', req.body);
   User
     .findOne({ email: req.body.email }) //had to change this from user to userName to work.
     //Change back if this causes problems in the future.
     .then(user => {
-      console.log('this is the user we found', user);
+      // console.log('this is the user we found', user);
       if(!user || !user.validatePassword(req.body.password)) {
         return res.status(401).json({ message: 'Unauthorised or User not found, please try again!' });
       }
