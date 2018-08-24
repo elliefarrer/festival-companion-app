@@ -800,7 +800,7 @@ footer {
   border-radius: 3px;
   // margin-left: 300px;
   left: 160px;
-  transform: translateY(-8px);
+  transform: translateY(-10px);
   height: 40px;
   width: 90px;
   font-size: 15px;
@@ -811,4 +811,20 @@ footer {
   right: 10px;
   top: 50%;
   transform: translateY(-15%);
+}
+
+.attendee-index-button {
+  background: #36223B;
+  color: white;
+  text-transform: uppercase;
+  font-size: 0.7em;
+}
+
+.attendee-index-button-2 {
+  background: #36223B;
+  color: white;
+  text-transform: uppercase;
+  font-size: 0.6em;
+
+
 }
