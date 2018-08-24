@@ -11,7 +11,7 @@
 
     <div class="columns is-mobile festival-panel add-shadow">
 
-      <div class="column is-7-mobile festival-title-wrapper">
+      <div class="column is-6-mobile festival-title-wrapper">
         <a ui-sref="festivalsShow({ id: event._id })">
           <h2 class="festival-title title is-6 has-text-white">{{ event.name }}</h2>
 
@@ -27,17 +27,11 @@
 
 
 
-        <div class="column is-4-mobile">
-          <a ui-sref="">
-              <div class="columns attendees-index-link is-mobile">
-                <h4 class="subtitle is-7 has-text-white">Friends attending</h4>
-                <div class="column is-1-mobile img-wrapper" ng-repeat="attendee in event.attendees">
-                  <div ng-if="currentUser().userFriends.includes(attendee._id)">
-                    <img class="passenger-profile-picture" ng-src="{{attendee.image}}" alt="{{attendee.firstName}}">
-                  </div>
-                </div>
-              </div>
+        <div class="column is-6-mobile">
+          <a ui-sref="attendeesIndex({id: event._id})" class="button attendee-index-button-2">
+            <h3 class="color">See who else is attending </h3>
           </a>
+            </div>
         </div>
 
         <span><i class="fas fa-share-alt festival-alt-icon"></i></span>

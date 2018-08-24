@@ -1,10 +1,10 @@
 function attendeesIndexCtrl($http, $scope, $state) {
   $http({
     method: 'GET',
-    url: `/api/festival/${$state.params.id}/attendee`
+    url: `/api/festivals/${$state.params.id}/attendees`
   })
     .then(res => {
-      $scope.attendees = res.data;
+      $scope.festival = res.data;
     });
 }
 

@@ -1,0 +1,23 @@
+<div class="section">
+
+  <h2 class="title is-5 has-text-white"> Other people attending {{festival.name}} </h2>
+
+  <div class="passenger-panels add-shadow" ng-repeat="attendee in festival.attendees">
+    <div class="passenger-text-wrapper-2">
+
+    <p class="has-text-white passenger-index-text indent"><b>{{ attendee.firstName }} {{ attendee.lastName }}</b></p>
+
+
+    <img class="passenger-profile-picture-2" ng-src="{{ attendee.image }}">
+
+    <a ui-sref="usersShow({id: attendee._id})" class="button festival-button see-profile-button">See profile</a>
+
+    </div>
+  </div>
+
+
+
+
+  </div>
+
+</div>
