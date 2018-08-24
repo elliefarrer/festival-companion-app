@@ -42,7 +42,7 @@ function passengerCreate(req, res, next) {
     .findById(userId)
     .then(user => {
       user.carShares.push(carShareId);
-      console.log(user);
+      // console.log(user);
       return user.save();
     })
     .then(() => {
@@ -65,7 +65,7 @@ function passengerDelete(req, res, next) {
     .findById(passengerId)
     .then(user => {
       user.carShares = user.carShares.filter(carShare =>  carShare.toString() !== carShareId);
-      console.log(user);
+      // console.log(user);
       return user.save();
     })
     .then(() => {

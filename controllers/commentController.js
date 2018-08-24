@@ -31,10 +31,10 @@ function commentCreate(req, res, next) { // This needs testing
     .findById(req.params.carShareId) //carShareId is from the params as per the routes.js.
     .then(carShare => {
       req.body.createdBy = userId;
-      console.log('req body created by', req.body.createdBy); //This needs testing
+      // console.log('req body created by', req.body.createdBy); //This needs testing
       carShare.comments.push(req.body);
-      console.log('car share is', carShare); // This needs testing
-      console.log('Req body is', req.body);
+      // console.log('car share is', carShare); // This needs testing
+      // console.log('Req body is', req.body);
       return carShare.save();
     })
     .then(carShare => res.json(carShare))

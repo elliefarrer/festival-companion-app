@@ -30,7 +30,7 @@ function attendeeIndex(req, res, next) {
 
 
 function attendeeCreate(req, res, next) {
-  console.log('we are in attendee Create');
+  // console.log('we are in attendee Create');
   getTokenFromHttpRequest(req);
   const festivalId = req.params.festivalId;
   User

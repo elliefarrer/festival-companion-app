@@ -1,7 +1,7 @@
 const Festival = require('../models/festival');
 
 function markerCreate(req, res, next) {
-  console.log('req params is', req.params);
+  // console.log('req params is', req.params);
   const festivalId = req.params.id;
   Festival
     .findById(festivalId)

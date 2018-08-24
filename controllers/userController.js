@@ -31,7 +31,7 @@ function usersDelete(req, res, next) {
   User
     .findById(req.params.id)
     .then(user => {
-      console.log('This is the User', user);
+      // console.log('This is the User', user);
       user.remove();
     })
     .then(() => res.sendStatus(204))
