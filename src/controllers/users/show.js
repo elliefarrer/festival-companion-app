@@ -53,7 +53,18 @@ function UsersShowCtrl($http, $scope, $state, $auth) {
               })
             };
 
-            L.marker([lat, lon], markerOptions).addTo($scope.map);
+            const marker = L.marker([lat, lon], markerOptions).addTo($scope.map);
+            marker.bindPopup(
+              `<div style="width: 100" class="columns mobile">
+                <div class="column is-half">
+                  <img class="image pop-up-image" src=${$scope.user.image} alt=${$scope.user.firstName}>
+                </div>
+                <div class="column is-half">
+                  <h3 class="subtitle is-3">${$scope.user.firstName}</h3>
+                </div>
+            </div>`
+          )
+              .openPopup();
           },
           err => console.log(err),
           { timeout: 10000 });
