@@ -1,7 +1,7 @@
 <div class="section">
 
 
-  <div class="passenger-panels add-shadow" ng-repeat="user in users">
+  <div class="passenger-panels add-shadow" ng-repeat="user in users | filter: searchBox">
     <div class="passenger-text-wrapper-2">
 
     <p class="has-text-white passenger-index-text indent"><b>{{ user.firstName }} {{ user.lastName }}</b></p>

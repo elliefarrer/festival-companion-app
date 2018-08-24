@@ -6,7 +6,6 @@ function FestivalsIndexCtrl($http, $scope) {
     url: '/api/festivals'
   })
     .then(res => {
-      console.log('Festivals are', res.data);
       $scope.festivals = res.data;
 
       for(let i = 0; i < $scope.festivals.length; i ++) {
@@ -14,7 +13,6 @@ function FestivalsIndexCtrl($http, $scope) {
         $scope.festivals[i].endDate = moment($scope.festivals[i].endDate).format('Do MMMM YYYY');
       }
 
-      console.log('Attendees are', res.data.attendees);
     });
 }
 
