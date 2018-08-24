@@ -69,14 +69,30 @@ a {
   }
 }
 
-.add-shadow {
-  box-shadow: 0 5px 30px 2px rgba(20,20,20,.9);
-}
 
 .main-body {
-  margin-top: 50px;
-
+  margin-top: 2rem;
+  .add-shadow {
+    box-shadow: 0 5px 30px 2px rgba(20,20,20,.9);
+    width: 96%;
+    margin-left: 2%;
+    .festival-title-wrapper{
+      .columns {
+        .is-7-mobile {
+          .festival-title {
+            text-transform: uppercase;
+          }
+        }
+        .is-5-mobile {
+          
+        }
+      }
+    }
+  }
 }
+
+
+
 
 .map {
   height: 300px;
@@ -470,13 +486,6 @@ a {
   position: relative;
 }
 
-.festival-title {
-  text-transform: uppercase;
-}
-
-.festival-title-wrapper{
-  margin-left: -8px;
-}
 
 .festival-alt-icon {
   position: absolute;

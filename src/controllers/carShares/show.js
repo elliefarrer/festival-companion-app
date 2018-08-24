@@ -110,7 +110,7 @@ function CarSharesShowCtrl($http, $scope, $state, $auth) {
 
 
           // const midPoints = [];
-
+          //
           // for(let i = 0; i < res.data.route.legs[0].maneuvers.length; i++) {
           //   const midLatLng = [];
           //   midLatLng.push(res.data.route.legs[0].maneuvers[i].startPoint.lat);
@@ -118,6 +118,8 @@ function CarSharesShowCtrl($http, $scope, $state, $auth) {
           //   midPoints.push(midLatLng);
           //   console.log('Midpoints is', midPoints);
           // }
+          //
+          // console.log('Can I get my midpoints from here', midPoints);
 
           L.polyline([[startLat, startLng], [endLat, endLng]]).addTo($scope.map);
         });
