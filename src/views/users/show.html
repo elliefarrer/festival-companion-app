@@ -37,7 +37,7 @@
   </div>
 
   <div ng-if="currentUser()._id !== user._id" class="">
-   <a class="button friend-request-button" ng-click="sendFriendRequest()" ng-if="friendStatus === 'nonFriend'">Send friend request</a>
+   <a class="button friend-request-button" ng-click="sendFriendRequest()" ng-if="friendStatus === 'nonFriend'">Add friend</a>
    <a class="button friend-request-button" ng-click="removeFriend()" ng-if="friendStatus === 'pending'">Pending</a>
    <a ng-if="friendStatus === 'friend'" class=" friend-request-button button" ng-click="removeFriend()">Friends</a>
  </div>
