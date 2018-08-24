@@ -56,7 +56,7 @@ function FestivalsShowCtrl($http, $scope, $state, $auth, $timeout) {
       }
 
       const marker = L.marker([placeLat, placeLng], markerOptions).addTo($scope.map);
-      marker.bindPopup(`<img src=${popupImg} alt=${popupName}  /><p>${popupName},   ${popupAddress}</p>`).openPopup();
+      marker.bindPopup(`<img src=${popupImg} alt=${popupName}  /> <p><strong class="is-size-4 has-text-white">${popupName}  </strong><br><span class="is-size-6">${popupAddress}</span></p>`).openPopup();
     });
   }
 
