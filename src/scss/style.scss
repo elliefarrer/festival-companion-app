@@ -5,10 +5,36 @@ body {
   background: url('https://i.imgur.com/pOeWpw2.png') fixed center/cover;
   min-height: 100vh;
   min-width: 100vw;
+  padding-top: 10px;
+  font-family: 'Oxygen', sans-serif;
 }
 
 a {
   color: #ffffff;
+}
+
+.welcome {
+  margin-top: 3rem;
+  margin-bottom: 0;
+}
+
+.welcome-sub {
+  // border-bottom: 0.5rem solid #36223B;
+}
+
+.welcome-title {
+  font-family: 'Shrikhand', cursive;
+  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color: #36223B;
+  margin-top: 0;
+  font-size: 3rem;
+  color: rgba(255, 255, 255, .9);
+  .orbitron {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    -webkit-text-stroke-width: 1px;
+    font-size: 3.5rem;
+  }
 }
 
 .carShareMap {
@@ -20,9 +46,10 @@ a {
   background-color: #36223B;
   position: absolute;
   color: white;
-  border: none;
+  border: white solid 1px;
   margin-top: 10px;
-  margin-left: 150px;
+  border-radius: 3px;
+  left: 20px;
   height: 40px;
   width: 90px;
   font-size: 15px;
@@ -32,9 +59,11 @@ a {
   background-color: #36223B;
   position: absolute;
   color: white;
-  border: none;
+  border: white solid 1px;
   margin-top: 10px;
-  margin-left: 300px;
+  border-radius: 3px;
+  // margin-left: 300px;
+  right: 20px;
   height: 40px;
   width: 90px;
   font-size: 15px;
@@ -187,7 +216,7 @@ a {
     font-family: sans-serif;
     text-align: left;
     padding-top: 50px;
-    padding-right: 50px;
+    // padding-right: 50px;
     position: absolute;
     right: 20px;
   }
@@ -196,7 +225,7 @@ a {
     font-family: sans-serif;
     text-align: left;
     padding-top: 70px;
-    padding-right: 50px;
+    // padding-right: 50px;
     position: absolute;
     right: 20px;
     top: 50px;
@@ -204,7 +233,7 @@ a {
   .userMap {
     color: white;
     position: absolute;
-    right: 15px;
+    right: 5px;
     padding-top: 160px;
     height: 150px;
     width: 70vw;
@@ -559,8 +588,9 @@ a {
   position: relative;
   background-color: rgba(0,0,0, .4);
   padding: 10px 4px;
-  margin-top: 15px;
+  margin-top: 25px;
   border-top: rgba(255,255,255, .6) solid 1px;
+
 }
 
 .festival-address {
