@@ -32,10 +32,6 @@
       <a ui-sref="festivalsShow({ id: festival._id })">
         <h3 class="color nameSize">{{ festival.name }}</h3>
         <h3 class="color">{{ festival.startDate }}</h3>
-        <h3 class="color">Attendees: </h3>
-        <div ng-repeat="attendee in festival.attendees">
-          <h3 class="color">{{ attendee.firstName }}</h3>
-        </div>
       </a>
     </div>
   </div>
