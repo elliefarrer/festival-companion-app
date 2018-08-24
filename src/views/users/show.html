@@ -11,6 +11,9 @@
         <h2 class="emailPosition subtitle is-7 white friendlist">Friends: {{ friends.firstName }}</h2>
       </div>
 
+      <a class="button festival-show-button friendsList-button" ui-sref="friendsIndex({id: user._id })">Friends list</a>
+
+
       <div class="userMap">
           <h2 id="currentLocation" subtitle is-7>Current Location</h2>
           <div class="userMap" ng-map></div>
