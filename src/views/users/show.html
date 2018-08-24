@@ -20,8 +20,12 @@
       </div>
     </div>
   </div>
-  <div class="contact">
-  </div>
+
+  <span>
+    <button class="profileButton" ui-sref="usersEdit({ userId: currentUser()._id })">Edit Profile</button>
+    <button class="deleteButton" ng-click="deleteUser()">Delete Account</button>
+  </span>
+
   <h2 id="atfest" class="profileStyling subtitle is-7">Festivals Attending</h2>
   <div class="festivalsAttending">
     <div ng-repeat="festival in user.festivalsAttending" class="festivalsAttending container" >
@@ -42,8 +46,5 @@
    <a ng-if="friendStatus === 'friend'" class=" friend-request-button button" ng-click="removeFriend()">Friends</a>
  </div>
 
-  <span>
-    <button class="profileButton" ui-sref="usersEdit({ userId: currentUser()._id })">Edit Profile</button>
-    <button class="deleteButton" ng-click="deleteUser()">Delete Account</button>
-  </span>
+
 </section>
