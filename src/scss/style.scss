@@ -23,7 +23,7 @@ a {
   border: white solid 1px;
   margin-top: 10px;
   border-radius: 3px;
-  margin-left: 150px;
+  left: 20px;
   height: 40px;
   width: 90px;
   font-size: 15px;
@@ -36,7 +36,8 @@ a {
   border: white solid 1px;
   margin-top: 10px;
   border-radius: 3px;
-  margin-left: 300px;
+  // margin-left: 300px;
+  right: 20px;
   height: 40px;
   width: 90px;
   font-size: 15px;
@@ -189,7 +190,7 @@ a {
     font-family: sans-serif;
     text-align: left;
     padding-top: 50px;
-    padding-right: 50px;
+    // padding-right: 50px;
     position: absolute;
     right: 20px;
   }
@@ -198,7 +199,7 @@ a {
     font-family: sans-serif;
     text-align: left;
     padding-top: 70px;
-    padding-right: 50px;
+    // padding-right: 50px;
     position: absolute;
     right: 20px;
     top: 50px;
@@ -206,7 +207,7 @@ a {
   .userMap {
     color: white;
     position: absolute;
-    right: 15px;
+    right: 5px;
     padding-top: 160px;
     height: 150px;
     width: 70vw;
