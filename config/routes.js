@@ -45,12 +45,12 @@ router.route('/sessions/delete')
 
 router.route('/festivals')
   .get(festivalController.index)
-  .post(festivalController.create);
+  .post(secureRoute, festivalController.create);
 
 router.route('/festivals/:id')
   .get(festivalController.show)
-  .put(festivalController.update)
-  .delete(festivalController.delete);
+  .put(secureRoute, festivalController.update)
+  .delete(secureRoute, festivalController.delete);
 
 
 /////////////////////////////// Weather //////////////////////////////////////////////
@@ -75,10 +75,10 @@ router.route('/festivals/:festivalId/attendees')
 
 router.route('/festivals/:id/carShares')
   .get(carShareController.index)
-  .post(/*secureRoute,*/ carShareController.create);
+  .post(secureRoute, carShareController.create);
 
 router.route('/festivals/:festivalId/carShares/:carShareId')
-  // .all(secureRoute)
+  .all(secureRoute)
   .get(carShareController.show)
   .put(carShareController.update)
   .delete(carShareController.delete);
@@ -108,9 +108,10 @@ router.route('/festivals/:festivalId/carShares/:carShareId/passengers/:passenger
 
 
 router.route('/festivals/:festivalId/carShares/:carShareId/pendingPassengers') //Shows pending passengers to user's car shares, only organiser can see this.
-  .get(pendingPassengerRequestController.index);
+  .get(secureRoute, pendingPassengerRequestController.index);
 
 router.route('/festivals/:festivalId/carShares/:carShareId/pendingPassengers/:passengerId')
+  .all(secureRoute)
   .post(pendingPassengerRequestController.create)//accepts request
 // only organiser can do this.
   .delete(pendingPassengerRequestController.delete); //We can change the route of this if necessary,rejects request - only organiser can do this.
@@ -122,10 +123,10 @@ router.route('/festivals/:festivalId/carShares/:carShareId/pendingPassengers/:pa
 
 
 router.route('/festivals/:festivalId/carShares/:carShareId/comments')
-  .post(commentController.create);
+  .post(secureRoute, commentController.create);
 
 router.route('/festivals/:festivalId/carShares/:carShareId/comments/:commentId')
-  .delete(commentController.delete);
+  .delete(secureRoute, commentController.delete);
 
 
 
@@ -134,6 +135,7 @@ router.route('/festivals/:festivalId/carShares/:carShareId/comments/:commentId')
 
 
 router.route('/user/:id')
+  .all(secureRoute)
   .get(userController.show)
   .put(userController.update)
   .delete(userController.delete);
@@ -144,9 +146,10 @@ router.route('/user/:id')
 
 
 router.route('/user/:id/pendingFriends')
-  .get(pendingFriendRequestController.index); // Lists pending friends.
+  .get(secureRoute, pendingFriendRequestController.index); // Lists pending friends.
 
 router.route('/user/:userId/pendingFriends/:friendId')
+  .all(secureRoute)
   .delete(pendingFriendRequestController.delete)
   .post(pendingFriendRequestController.create); // When you accept a pending friend request.
 // When you accept a pending friend request.
@@ -156,10 +159,11 @@ router.route('/user/:userId/pendingFriends/:friendId')
 ////////////////////////////// Friends routes ////////////////////////////////
 
 router.route('/user/:id/friends')
-  .get(friendController.index);
+  .get(secureRoute, friendController.index);
 
 
 router.route('/user/:userId/friends/:friendId')
+  .all(secureRoute)
   .delete(friendController.delete) //removing friend
   .post(friendController.create); //This adds to users friends
 //list, but the friends pending list. User cannot

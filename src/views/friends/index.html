@@ -1,7 +1,7 @@
 <div class="section passenger-section passenger-wrapper">
-  <h2>{{user.firstName}}'s Friends List</h2>
+  <h2 class="title is-4 has-text-white">{{user.firstName}}'s Friends List</h2>
 
-  <a  class="button festival-button update-button" ng-if="user.userFriends.length > 0 || user.pendingFriends.length > 0" ng-click=reloadRoute()>Update</a>
+  <a  class="button festival-button update-button-2" ng-if="user.userFriends.length > 0 || user.pendingFriends.length > 0" ng-click=reloadRoute()>Update</a>
 
 
   <div class="passenger-panels add-shadow" ng-if="user._id === currentUser()._id" ng-repeat="pendingFriend in user.pendingFriends">
@@ -30,11 +30,11 @@
 
       <img class="passenger-profile-picture-2" ng-src="{{ friend.image }}">
 
-      <a ng-click="addFriend(friend._id)" class="button festival-button remove-button" ng-if="!friend.userFriends.includes(currentUser()._id)">Add friend</a>
+      <a ng-click="addFriend(friend._id)" class="button festival-button remove-button-2" ng-if="!friend.userFriends.includes(currentUser()._id)">Add friend</a>
 
-      <a ng-click="removeFriend(friend._id)" class="button festival-button remove-button" ng-if="!friend.userFriends.includes(currentUser()._id)">Pending - cancel?</a>
+      <a ng-click="removeFriend(friend._id)" class="button festival-button remove-button-2" ng-if="friend.pendingFriends.includes(currentUser()._id) && friend.userFriends.includes(currentUser()._id) ">Pending - cancel?</a>
 
-      <a ng-if="friend.userFriends.includes(currentUser()._id)" ng-click="removeFriend(friend._id)" class="button festival-button">Unfriend</a>
+      <a ng-if="friend.userFriends.includes(currentUser()._id)" ng-click="removeFriend(friend._id)" class="button festival-button remove-button-2">Unfriend</a>
     </div>
   </div>
 
