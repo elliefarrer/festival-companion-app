@@ -767,3 +767,10 @@ footer {
   text-transform: uppercase;
   font-size: 0.7em;
 }
+
+.see-profile-button {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-15%);
+}

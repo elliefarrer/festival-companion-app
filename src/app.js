@@ -21,6 +21,7 @@ import FestivalsIndexCtrl from './controllers/festivals/index';
 import FestivalsShowCtrl from './controllers/festivals/show';
 import FestivalsNewCtrl from './controllers/festivals/new';
 import FestivalsEditCtrl from './controllers/festivals/edit';
+import UsersIndexCtrl from './controllers/users/index';
 import UsersShowCtrl from './controllers/users/show';
 import UsersEditCtrl from './controllers/users/edit';
 import AuthLoginCtrl from './controllers/auth/login';
@@ -44,6 +45,7 @@ angular.module('Festival Companion App', [
   .controller('FestivalsNewCtrl', FestivalsNewCtrl)
   .controller('FestivalsEditCtrl', FestivalsEditCtrl)
   .controller('UsersShowCtrl', UsersShowCtrl)
+  .controller('UsersIndexCtrl', UsersIndexCtrl)
   .controller('UsersEditCtrl', UsersEditCtrl)
   .controller('AuthLoginCtrl', AuthLoginCtrl)
   .controller('AuthRegisterCtrl', AuthRegisterCtrl)

@@ -103,7 +103,7 @@ function Router($stateProvider, $urlRouterProvider) {
     })
 
     .state('usersIndex', {
-      templateUrl: './views/users/show.html',
+      templateUrl: './views/users/index.html',
       url: '/findFriend',
       controller: 'UsersIndexCtrl'
     })
