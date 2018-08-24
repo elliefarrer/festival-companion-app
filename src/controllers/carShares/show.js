@@ -103,11 +103,16 @@ function CarSharesShowCtrl($http, $scope, $state, $auth) {
 
           const startMarker = L.marker([startLat, startLng], startMarkerOptions).addTo($scope.map);
           const endMarker = L.marker([endLat, endLng], endMarkerOptions).addTo($scope.map);
-          startMarker.bindPopup(`<p>Start: ${$scope.carShare.festival.location.postcode}</p>`).openPopup();
-          endMarker.bindPopup(`<img src=${$scope.carShare.festival.photoUrl} alt=${$scope.carShare.festival.name}  /><p>${$scope.carShare.festival.name},   ${$scope.carShare.festival.location.address}</p>`).openPopup();
+          startMarker.bindPopup(`<img class="pop-up-image"src=${$scope.carShare.createdBy.image} alt=${$scope.carShare.createdBy.firstName} /> <p><strong class="is-size-4 has-text-white">${$scope.carShare.createdBy.firstName}</strong><br><span class="is-size-6">${$scope.carShare.from.postcode}</span></p>`);
+          endMarker.bindPopup(`<img src=${$scope.carShare.festival.photoUrl} alt=${$scope.carShare.festival.name}  /> <p><strong class="is-size-4 has-text-white">${$scope.carShare.festival.name}  </strong><br><span class="is-size-6">${$scope.carShare.festival.location.address}</span></p>`);
 
 
-          L.polyline([[startLat, startLng], [endLat, endLng]]).addTo($scope.map);
+
+
+          const polyline = L.polyline([[startLat, startLng], [endLat, endLng]]).addTo($scope.map);
+          polyline.setStyle({
+            color: '#36223B'
+          })
         });
     }
   });

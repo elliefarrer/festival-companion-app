@@ -65,10 +65,10 @@ function UsersShowCtrl($http, $scope, $state, $auth) {
                   <img class="image pop-up-image" src=${$scope.user.image} alt=${$scope.user.firstName}>
                 </div>
                 <div class="column is-half">
-                  <h3 class="subtitle is-3">${$scope.user.firstName}</h3>
+                  <h3 class="title is-3 has-text-white">${$scope.user.firstName}</h3>
                 </div>
             </div>`
-          )
+            )
               .openPopup();
           },
           err => console.log(err),
