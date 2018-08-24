@@ -48,7 +48,8 @@ function friendsCreate(req, res, next) {
       // console.log('this is the friend', friend);
       return friend.save();
     })
-    .then(friend => res.status(201).json(friend))
+    .then(() => User.findById(friendId).populate('festivalsAttending'))
+    .then(friend => res.json(friend))
     .catch(next);
 }
 
@@ -73,6 +74,7 @@ function friendsDelete(req, res, next) {
         unfriendId.toString() !== userId);
       return friend.save();
     })
+    .then(() => User.findById(friendId).populate('festivalsAttending'))
     .then(friend => res.json(friend))
     .catch(next);
 }
