@@ -31,11 +31,6 @@ function pendingPassengersCreate(req, res, next) {
       return carShare.save();
     })
     .then(() => User.findById(passengerId)) //This bit needs testing
-    .then(acceptedPassenger => {
-      // console.log('the rejected passenger is', rejectedPassenger);
-      acceptedPassenger.carShares.push(carShareId);
-      return acceptedPassenger.save();
-    })
     .then(() => res.sendStatus(201))
     .catch(next);
 }

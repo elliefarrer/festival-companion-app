@@ -19,11 +19,28 @@ function pendingFriendsIndex(req, res, next) {
   User
     .findById(userId)
     .populate('pendingFriends')
-    .then(user => res.json(user.pendingFriends))
+    .then(user => res.json(user))
+    .catch(next);
+}
+function pendingFriendsCreate(req, res, next) {
+
+  const friendId = req.params.friendId;
+  User
+    .findById(userId)
+    .then(user => {
+      user.pendingFriends = user.pendingFriends.filter(pendingFriend =>
+        pendingFriend.toString() !== friendId
+      );
+      user.userFriends.push(friendId);
+      return user.save();
+    })
+    .then(() => User.findById(friendId)) //This bit needs testing
+    .then((friend) => res.json(friend))
     .catch(next);
 }
 
-// rejects the friend request and deletes from requester's friend list
+// rejects the friend request and deletes from requester's friend list pending
+// may not need this //
 function pendingFriendsDelete(req, res, next) {
   getTokenFromHttpRequest(req);
   const friendId = req.params.friendId;
@@ -46,5 +63,6 @@ function pendingFriendsDelete(req, res, next) {
 
 module.exports = {
   index: pendingFriendsIndex,
-  delete: pendingFriendsDelete
+  delete: pendingFriendsDelete,
+  create: pendingFriendsCreate
 };

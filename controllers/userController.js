@@ -4,6 +4,7 @@ function usersShow(req, res, next) {
   User
     .findById(req.params.id)
     .populate({ path: 'festivalsAttending', populate: { path: 'attendees' }})
+    .populate('userFriends pendingFriends')
     .exec()
     .then(user => res.json(user))
     .catch(next);

@@ -1,12 +1,13 @@
+<!-- 5b7a7f6461c78610c5153d8a -->
 <section ng-if="isAuthenticated()" class="" ng-controller="UsersShowCtrl">
-<div class="topHalf">
+  <div class="topHalf">
     <div class="profileNamePosition">
       <img style="border-radius: 100%;" class="profileImage" ng-src="{{ user.image }}" alt="{{ user.name }}">
       <h1 class="white title is-1">{{ user.firstName }}</h1>
       <h2 class="emailPosition subtitle is-7">Email: {{ user.email }}</h2>
       <h2 class="emailPosition subtitle is-7 white">Mobile: {{ user.mobileNumber }}</h2>
 
-      <div ng-repeat="freind in user.friends" class="container">
+      <div ng-repeat="friend in user.friends" class="container">
         <h2 class="emailPosition subtitle is-7 white friendlist">Friends: {{ friends.firstName }}</h2>
       </div>
 
@@ -27,8 +28,31 @@
       </div>
     </a>
   </div>
-  <span>
-    <button class="profileButton" ui-sref="usersEdit({ userId: currentUser()._id })">Edit Profile</button>
-    <button class="deleteButton" ng-click="deleteUser()">Delete Account</button>
-  </span>
+
+
+
+
+  <div class="festivalsAttending">
+    <h2 id="atfest" class="subtitle is-7">Festivals Attending</h2>
+    <h2 id="atfestdiv" class="subtitle is-7">{{ user.festivalsAttending }}</h2>
+  </div>
+  <button style="background-color: #36223B; color: white; border: none;" class="button profileButton" ui-sref="usersEdit({ userId: currentUser()._id })">Edit Profile</button>
+  <button style="background-color: #36223B; color: white; border: none;" class="button profileButton" ng-click="deleteUser()">Delete Account</button>
+
 </section>
+
+  <!-- testing -->
+
+
+
+
+
+<div ng-if="currentUser()._id !== user._id" class="">
+
+  <a class="button request-seat-1" ng-click="sendFriendRequest()" ng-if="friendStatus === 'nonFriend'">Send friend request</a>
+
+  <a class="button request-seat-1" ng-click="removeFriend()" ng-if="friendStatus === 'pending'">Pending</a>
+
+  <a ng-if="friendStatus === 'friend'" class=" request-seat-1 button" ng-click="removeFriend()">Friends</a>
+
+</div>

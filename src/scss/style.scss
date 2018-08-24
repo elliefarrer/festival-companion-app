@@ -5,6 +5,15 @@ body {
   min-height: 700px;
 }
 
+a {
+  color: #ffffff;
+}
+
+.carShareMap {
+  height: 300px;
+  width: 100%;
+}
+
 
 .navbar {
   background-color: #36223B;
@@ -20,12 +29,14 @@ body {
   }
 }
 
+
 .add-shadow {
   box-shadow: 0 5px 30px 2px rgba(20,20,20,.9);
 }
 
 .main-body {
   margin-top: 50px;
+
 }
 
 .map {
@@ -41,60 +52,9 @@ body {
 }
 
 .profileButton {
-  align-items: center;
-  position: absolute;
-  text-align: center;
-  width: 100px;
-  height: 50px;
-  font-size: 15px;
-  // margin-top: 50px;
+  margin-top: 50px;
   margin-bottom: 30px;
-  margin-left: 80px;
-  background-color: #36223B;
-  color: white;
-  border: none
-}
-
-.deleteButton {
-  align-items: center;
-  position: absolute;
-  text-align: center;
-  width: 100px;
-  height: 50px;
-  font-size: 15px;
-  // margin-top: 50px;
-  margin-bottom: 30px;
-  margin-left: 300px;
-  background-color: #36223B;
-  color: white;
-  border: none
-}
-
-.saveButton {
-  background-color: #36223B;
-  color: white;
-  width: 100px;
-  height: 50px;
-  border: none;
-  font-size: 15px;
-}
-
-.headingAlign {
-  padding-left: 70px;
-}
-
-.inputSize {
-  width: 300px;
-  height: 30px;
-}
-
-.alignProfileEdit {
-  padding-left: 70px;
-}
-
-.color {
-  color: white;
-  font-size: 17px;
+  margin-left: 60px;
 }
 
 #atfestdiv {
@@ -130,26 +90,11 @@ body {
 
 .backgroundImage {
   background-image: url(https://i.imgur.com/Hk6NTtl.png);
-  background-size: 100%;
+  background-size: 100vh;
 }
 
 .topHalf {
   padding-top: 20px;
-}
-
-.nameSize {
-  font-size: 17px;
-}
-
-.festivalsAttending {
-  font-size: 15px;
-  min-height: 75px;
-  width: 85%;
-  background-color: #36223B;
-  margin-left: 40px;
-  margin-bottom: 10px;
-  display: flex;
-
 }
 
 .profileNamePosition {
@@ -254,7 +199,7 @@ body {
 }
 
 .set-up-car-share {
-  background: rgb(50, 203, 136);
+  background: #36223B;
   color: white;
   text-transform: uppercase;
 }
@@ -311,13 +256,13 @@ body {
   height: 55px;
 }
 .request-seat-1 {
-  background: rgb(50, 203, 136);
+  background: #36223B;
   color: white;
   text-transform: uppercase;
   margin-top: -9px;
 }
 .request-seat-2 {
-  background: rgb(50, 203, 136);
+  background: #36223B;
   color: white;
   text-transform: uppercase;
   margin-top: -10px;
@@ -407,7 +352,7 @@ body {
 ////////// Passenger Index /////////
 
 .festival-button {
-  background: rgb(50, 203, 136);
+  background: #36223B;
   color: white;
   text-transform: uppercase;
   margin-top: -9px;
@@ -551,7 +496,7 @@ body {
 }
 
 .festival-show-button {
-  background: rgb(50, 203, 136);
+  background: #36223B;
   color: white;
   text-transform: uppercase;
   font-size: 0.7em;
@@ -587,6 +532,28 @@ body {
 }
 .public-transport-button {
   width:130px;
+}
+
+.festival-show-edit {
+  background: #36223B;
+  color: white;
+  text-transform: uppercase;
+  margin-top: -9px;
+  font-size: 0.6em;
+  max-width: 150px;
+  white-space: normal;
+  height: auto;
+}
+
+.festival-show-delete {
+  background: #36223B;
+  color: white;
+  text-transform: uppercase;
+  margin-top: -9px;
+  font-size: 0.6em;
+  max-width: 150px;
+  white-space: normal;
+  height: auto;
 }
 
 .show-info {
@@ -635,7 +602,7 @@ body {
 ////////////////// FESTIVAL SHOW //////////////////
 
 .festival-show-button {
-  margin-bottom: 8rem;
+  margin-bottom: 0.8rem;
 }
 
 footer {
@@ -646,12 +613,48 @@ footer {
   left: 0;
   width: 100%;
   z-index: 1;
+  height: 60px;
   .subtitle {
     color: #ffffff;
     text-transform: uppercase;
     margin: 0.5rem 0 0 0.5rem;
+
   }
   .columns {
     margin: 0.5 0 0 0.5rem;
   }
+  h3 {
+    position: absolute;
+    top: -10px;
+  }
+  .footer-date {
+    position: absolute;
+    top: 20px;
+    left: 8px;
+  }
+  .footer-icons {
+    position: absolute;
+    top: 25px;
+    left: -2px;
+  }
+}
+
+///////////////////// friends //////////////////////////
+.request-friend-wrapper {
+  padding: 10px;
+  position: relative;
+  height: 55px;
+}
+
+.update-button-2 {
+  position: absolute;
+  right: 10px;
+  top: 30px;
+}
+
+.friendsList-button {
+  position: absolute;
+  right: 30px;
+  top: 43%;
+  z-index: 1;
 }
