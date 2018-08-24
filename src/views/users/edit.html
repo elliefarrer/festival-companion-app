@@ -1,13 +1,12 @@
+<div class="section">
+
 <h1 style="padding-top: 10px;"class="color headingAlign title is-2 has-text-white">Edit Profile</h1>
 <div style="margin-top: -10px;" >
   <form style="padding-left: 50px; padding-right: 50px"; ng-submit="updateUser()" name="form" novalidate>
       <div class="field">
-        <label class="label has-text-white"  for="profilePicture" >Profile Picture (URL)</label>
+        <label class="label has-text-white"  for="profilePicture" >Profile Picture</label>
         <a class="button" ng-click="uploadImage()" ng-if="!imageUploaded">Pick an image</a>
         <a class="button" ng-click="uploadImage()" ng-if="imageUploaded">Image uploaded</a>
-        <div class="control">
-          <input ng-model="user.image" class="input" type="text" id="profilePicture" name="profilePicture">
-        </div>
       </div>
 
       <div style="padding-top: 10px;" class="field">
@@ -27,3 +26,5 @@
     </form>
 
   </div>
+
+</div>

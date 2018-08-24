@@ -1,5 +1,5 @@
-<section ng-if="isAuthenticated()" class="" ng-controller="UsersShowCtrl">
-<div class="topHalf">
+<section ng-if="isAuthenticated()" class="profileTopPadding" ng-controller="UsersShowCtrl">
+<div class="topHalf section">
     <div class="profileNamePosition">
       <img style="border-radius: 100%;" class="profileImage" ng-src="{{ user.image }}" alt="{{ user.name }}">
       <h1 class="white title is-1">{{ user.firstName }}</h1>
@@ -22,8 +22,8 @@
   </div>
   <div class="contact">
   </div>
+  <h2 id="atfest" class="profileStyling subtitle is-7">Festivals Attending</h2>
   <div class="festivalsAttending">
-    <h2 id="atfest" class="subtitle is-7">Festivals Attending</h2>
     <div ng-repeat="festival in user.festivalsAttending" class="festivalsAttending container" >
       <a ui-sref="festivalsShow({ id: festival._id })">
         <h3 class="color nameSize">{{ festival.name }}</h3>
