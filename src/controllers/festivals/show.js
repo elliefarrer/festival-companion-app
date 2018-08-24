@@ -1,7 +1,7 @@
 /* global L */
 const moment = require('moment');
 
-function FestivalsShowCtrl($http, $scope, $state, $auth, $timeout) {
+function FestivalsShowCtrl($http, $scope, $state, $auth) {
 
   $scope.loggedInUser = $auth.getPayload().sub;
 
@@ -10,28 +10,26 @@ function FestivalsShowCtrl($http, $scope, $state, $auth, $timeout) {
       method: 'DELETE',
       url: `/api/festivals/${$state.params.id}`
     })
-    .then(res => {
-      console.log('Deleted festival', res.data);
-      $state.go('festivalsIndex');
-    });
+      .then(res => {
+        console.log('Deleted', res.data);
+        $state.go('festivalsIndex');
+      });
   };
   $http({
     method: 'GET',
     url: `/api/festivals/${$state.params.id}`
   })
-  .then(res => {
-    console.log('Found a festival', res.data);
-    $scope.festival = res.data;
-    $scope.festival.startDate = moment($scope.festival.startDate).format('Do MMMM YYYY');
-    $scope.festival.endDate = moment($scope.festival.endDate).format('Do MMMM YYYY');
+    .then(res => {
+      $scope.festival = res.data;
+      $scope.festival.startDate = moment($scope.festival.startDate).format('Do MMMM YYYY');
+      $scope.festival.endDate = moment($scope.festival.endDate).format('Do MMMM YYYY');
 
-    $scope.attendance = $scope.festival.attendees.map(attendee =>   attendee._id).includes($scope.loggedInUser);
-    festivalMap(res.data);
-  });
+      $scope.attendance = $scope.festival.attendees.map(attendee =>     attendee._id).includes($scope.loggedInUser);
+      festivalMap(res.data);
+    });
 
   function festivalMap(festival) {
     const postcode = festival.location.postcode;
-    console.log('Search for', postcode);
     $http({
       method: 'GET',
       url: 'http://www.mapquestapi.com/geocoding/v1/address',
@@ -40,24 +38,24 @@ function FestivalsShowCtrl($http, $scope, $state, $auth, $timeout) {
         location: postcode
       }
     })
-    .then(res => {
-      const placeLat = res.data.results[0].locations[0].latLng.lat;
-      const placeLng = res.data.results[0].locations[0].latLng.lng;
-      $scope.map.setView([placeLat, placeLng], 13);
-      const popupImg = $scope.festival.photoUrl;
-      const popupName = $scope.festival.name;
-      const popupAddress = $scope.festival.location.address;
+      .then(res => {
+        const placeLat = res.data.results[0].locations[0].latLng.lat;
+        const placeLng = res.data.results[0].locations[0].latLng.lng;
+        $scope.map.setView([placeLat, placeLng], 13);
+        const popupImg = $scope.festival.photoUrl;
+        const popupName = $scope.festival.name;
+        const popupAddress = $scope.festival.location.address;
 
-      const markerOptions = {
-        icon: L.icon({
-          iconUrl: 'https://assets.mapquestapi.com/icon/v2/circle-md.png',
-          iconAnchor: [17, 20]
-        })
-      }
+        const markerOptions = {
+          icon: L.icon({
+            iconUrl: 'https://assets.mapquestapi.com/icon/v2/circle-md.png',
+            iconAnchor: [17, 20]
+          })
+        };
 
-      const marker = L.marker([placeLat, placeLng], markerOptions).addTo($scope.map);
-      marker.bindPopup(`<img src=${popupImg} alt=${popupName}  /> <p><strong class="is-size-4 has-text-white">${popupName}  </strong><br><span class="is-size-6">${popupAddress}</span></p>`).openPopup();
-    });
+        const marker = L.marker([placeLat, placeLng], markerOptions).addTo($scope.map);
+        marker.bindPopup(`<img src=${popupImg} alt=${popupName}  /> <p><strong class="is-size-4   has-text-white">${popupName}  </strong><br><span  class="is-size-6">${popupAddress}</span></p>`).openPopup();
+      });
   }
 
 
@@ -69,19 +67,15 @@ function FestivalsShowCtrl($http, $scope, $state, $auth, $timeout) {
       })
         .then(res => {
           const searchCoords = res.data.sort((a, b) => a.importance < b.importance)[0];
-          console.log('Found them', searchCoords);
           $scope.searchCoords = searchCoords;
 
-          console.log('Y u no work', searchCoords.lat, searchCoords.lon);
           $http({
             method: 'GET',
             url: '/api/weather',
             params: { lat: searchCoords.lat, lon: searchCoords.lon }
           })
             .then(res => {
-              console.log('Y u still no work', $scope.searchCoords);
               $scope.weather = res.data;
-              console.log('The weather is', $scope.weather);
 
               const weatherDays = [
                 {}, {}, {}, {}, {}
@@ -108,7 +102,6 @@ function FestivalsShowCtrl($http, $scope, $state, $auth, $timeout) {
 
   $scope.expand = false;
   $scope.toggleExpand = function() {
-    console.log('im firing');
     if($scope.expand) {
       $scope.expand = false;
     } else {
@@ -121,11 +114,11 @@ function FestivalsShowCtrl($http, $scope, $state, $auth, $timeout) {
       method: 'POST',
       url: `/api/festivals/${$state.params.id}/attendees`
     })
-    .then(res=> {
-      // console.log(res.data);
-      $scope.attendance = res.data.festivalsAttending.toString().includes($scope.festival._id);
-      // console.log('this is the attendance', $scope.attendance);
-    });
+      .then(res=> {
+        // console.log(res.data);
+        $scope.attendance = res.data.festivalsAttending.toString().includes($scope.festival._id);
+        // console.log('this is the attendance', $scope.attendance);
+      });
   };
 
   $scope.notAttending = function() {
@@ -133,11 +126,11 @@ function FestivalsShowCtrl($http, $scope, $state, $auth, $timeout) {
       method: 'DELETE',
       url: `/api/festivals/${$state.params.id}/attendees`
     })
-    .then(res => {
-      // console.log(res.data);
-      $scope.attendance = res.data.festivalsAttending.toString().includes($scope.festival._id);
-      // console.log('this is the attendance', $scope.attendance);
-    });
+      .then(res => {
+        // console.log(res.data);
+        $scope.attendance = res.data.festivalsAttending.toString().includes($scope.festival._id);
+        // console.log('this is the attendance', $scope.attendance);
+      });
 
   };
 

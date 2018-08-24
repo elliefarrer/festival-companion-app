@@ -6,7 +6,6 @@ function CarSharesIndexCtrl($http, $scope, $state) {
     url: `/api/festivals/${$state.params.festivalId}/carShares`
   })
     .then(res => {
-      console.log('Car shares are', res.data);
       $scope.carShares = res.data;
     });
 

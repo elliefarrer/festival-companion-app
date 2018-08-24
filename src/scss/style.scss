@@ -27,14 +27,8 @@ a {
   -webkit-text-stroke-width: 0.5px;
   -webkit-text-stroke-color: #36223B;
   margin-top: 0;
-  font-size: 3rem;
+  font-size: 3em;
   color: rgba(255, 255, 255, .9);
-  .orbitron {
-    font-family: 'Orbitron', sans-serif;
-    font-weight: 700;
-    -webkit-text-stroke-width: 1px;
-    font-size: 3.5rem;
-  }
 }
 
 .carShareMap {
@@ -50,7 +44,7 @@ a {
   border: white solid 1px;
   margin-bottom: 10px;
   border-radius: 3px;
-  left: 20px;
+  margin-left: 150px;
   height: 40px;
   width: 90px;
   font-size: 15px;
@@ -217,7 +211,7 @@ a {
     font-family: sans-serif;
     text-align: left;
     padding-top: 50px;
-    // padding-right: 50px;
+    padding-right: 50px;
     position: absolute;
     right: 20px;
   }
@@ -226,7 +220,7 @@ a {
     font-family: sans-serif;
     text-align: left;
     padding-top: 70px;
-    // padding-right: 50px;
+    padding-right: 50px;
     position: absolute;
     right: 20px;
     top: 50px;
@@ -234,7 +228,7 @@ a {
   .userMap {
     color: white;
     position: absolute;
-    right: 5px;
+    right: 15px;
     padding-top: 160px;
     height: 150px;
     width: 70vw;
@@ -252,7 +246,7 @@ a {
 .festivalsAttending {
   font-size: 15px;
   min-height: 75px;
-  width: 73%;
+  width: 78%;
   background-color: #36223B;
   margin-left: 60px;
   margin-top: 10px;
@@ -590,9 +584,8 @@ a {
   position: relative;
   background-color: rgba(0,0,0, .4);
   padding: 10px 4px;
-  margin-top: 25px;
+  margin-top: 15px;
   border-top: rgba(255,255,255, .6) solid 1px;
-
 }
 
 .festival-address {

@@ -20,7 +20,6 @@ function CarSharesNewCtrl($http, $scope, $state) {
     url: `/api/festivals/${$state.params.festivalId}`
   })
     .then((res) => {
-      // console.log('festival is', res.data);
       $scope.festival = res.data;
       // Prepopulate the form with festival data
       $scope.carShare = {};
