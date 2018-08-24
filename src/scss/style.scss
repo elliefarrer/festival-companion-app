@@ -54,6 +54,17 @@ a {
       a {
         color: #ffffff;
       }
+      :hover {
+        background-color: #ffffff;
+        color: #36223B;
+        border-radius: 20px;
+      }
+      .is-active {
+        background-color: #ffffff;
+        color: #36223B;
+        font-weight: 700;
+        border-radius: 20px;
+      }
     }
   }
 }
