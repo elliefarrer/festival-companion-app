@@ -5,11 +5,14 @@
       <h1 class="white title is-1">{{ user.firstName }}</h1>
       <h2 class="emailPosition subtitle is-7">Email: {{ user.email }}</h2>
       <h2 class="emailPosition subtitle is-7 white">Mobile: {{ user.mobileNumber }}</h2>
-      <h2 class="emailPosition subtitle is-7 white friendlist">Friends: {{ user.userFriends }}</h2>
+
+      <div ng-repeat="freind in user.friends" class="container">
+        <h2 class="emailPosition subtitle is-7 white friendlist">Friends: {{ friends.firstName }}</h2>
+      </div>
+
       <div class="userMap">
           <h2 id="currentLocation" subtitle is-7>Current Location</h2>
           <div class="userMap" ng-map></div>
-
       </div>
     </div>
   </div>
@@ -18,6 +21,7 @@
     <a ui-sref="festivalsShow({ id: festival._id })">
       <h3 class="color nameSize">{{ festival.name }}</h3>
       <h3 class="color">{{ festival.startDate }}</h3>
+      <h3 class="color">Attendees: </h3>
       <div ng-repeat="attendee in festival.attendees">
         <h3 class="color">{{ attendee.firstName }}</h3>
       </div>

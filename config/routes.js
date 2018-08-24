@@ -154,7 +154,7 @@ router.route('/user/:userId/pendingFriends/:friendId')
 ////////////////////////////// Friends routes ////////////////////////////////
 
 router.route('/user/:id/friends')
-  .get(friendController.index);
+  .get(secureRoute, friendController.index);
 
 
 router.route('/user/:userId/friends/:friendId')
