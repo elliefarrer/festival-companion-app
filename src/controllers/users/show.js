@@ -68,7 +68,7 @@ function UsersShowCtrl($http, $scope, $state, $auth) {
                   <h3 class="subtitle is-3">${$scope.user.firstName}</h3>
                 </div>
             </div>`
-          )
+            )
               .openPopup();
           },
           err => console.log(err),

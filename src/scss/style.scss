@@ -625,7 +625,7 @@ a {
 }
 
 .show-info-wrapper {
-  height: 320px;
+  height: 240px;
   position: relative;
   background-color: rgba(0,0,0, .4);
   padding: 10px 4px;
@@ -634,7 +634,7 @@ a {
   border-top: rgba(255,255,255, .6) solid 1px;
 }
 .hide-info-wrapper {
-  height: 180px;
+  height: 140px;
   position: relative;
   background-color: rgba(0,0,0, .4);
   padding: 10px 4px;
@@ -706,4 +706,14 @@ footer {
   right: 30px;
   top: 43%;
   z-index: 1;
+}
+
+
+.friend-request-button {
+  position: absolute;
+  right: 25px;
+  background: #36223B;
+  color: white;
+  text-transform: uppercase;
+  font-size: 0.7em;
 }
