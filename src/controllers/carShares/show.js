@@ -112,7 +112,7 @@ function CarSharesShowCtrl($http, $scope, $state, $auth) {
           const polyline = L.polyline([[startLat, startLng], [endLat, endLng]]).addTo($scope.map);
           polyline.setStyle({
             color: '#36223B'
-          })
+          });
         });
     }
   });
