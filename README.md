@@ -112,6 +112,25 @@ We began by building and testing the back end, to make sure it was solid. First,
 
 Next came front end, followed by external APIs. Whilst everyone had a role in every part of the app, I found myself focussing on these APIs towards the end of the project, handling every one of them apart from Filestack.
 
+### Featured Piece of Code no. 1
+This is how I built the five day forecast with the Dark Skies API, with Skycons. I created an empty array of objects, then created a for loop to go through each and fill it in. If I did not do it this way, I could not print the same Skycon to the page more than once. From src/controllers/festivals/show.js
+
+```javascript
+const weatherDays = [
+  {}, {}, {}, {}, {}
+];
+
+for (let day = 0; day < 5; day++) {
+  const dataOnDay = res.data.daily.data[day];
+  weatherDays[day].date = moment.unix(res.data.daily.data[day].time).format('dddd');
+  weatherDays[day].weather = dataOnDay;
+  weatherDays[day].chanceOfRain = parseInt((dataOnDay.precipProbability) * 100);
+  weatherDays[day].uvIndex = dataOnDay.uvIndex;
+  weatherDays[day].temperature = Math.round(((dataOnDay.temperatureHigh - 32) * 5) / 9);
+  weatherDays[day].icon = dataOnDay.icon;
+}
+```
+
 
 ### Styling
 We chose a black and dark purple for our colour scheme. The typography is made up of three Google fonts: Orbitron and Shrikhand for the logo, and Oxygen for everything else. Because the app needed to be mobile first (due to the nature of the app itself), we used Bulma to take advantage of its cross-device capabilities. At the time of delivery, Festinate was optimised for iPhone 8, and worked on phones of similar screen sizes. However it was not styled so well for larger or smaller screens (e.g. iPhone 5).
