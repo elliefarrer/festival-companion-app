@@ -1,8 +1,36 @@
-# General Assembly WDI Project 3: Festinate (Group Project)
+![Festinate](festinate.png)
 
 [Heroku](https://festinate.herokuapp.com/)
 
 [GitHub Repo](https://github.com/platypotomus/festival-companion-app)
+
+Festinate is a one-page, full-stack festival companion app, designed for mobile first. Users have access to a variety of features, such as adding festivals, adding and deleting other users as friends, and creating and managing car shares. It also features external APIs to offer useful, up-to-date information about the festival.
+
+Festinate was my third project done on General Assembly's Web Development Immersive. It was my first go at MEAN stack technologies. Festinate was a group project that I built with two colleagues in ten days.
+
+Each one of us had a hand on every aspect of the project, from back end and testing, to front end and styling.
+
+#### Welcome/Login
+![Login](./screenshots/login.png)
+
+#### Festival Index
+![Festivals Index](./screenshots/festivals-index.png)
+
+#### Festival Show
+![Festival Show](./screenshots/festivals-show.png)
+
+![Festival Show](./screenshots/festivals-show2.png)
+
+#### Car Share Index
+![Car Shares Index](./screenshots/car-shares-index.png)
+
+#### User Index
+![User Index](./screenshots/find-friends.png)
+
+#### Profile Page
+![Profile Page](./screenshots/profile-page.png)
+
+---
 
 ## Brief
 Your instructors will partner you with other classmates to design and collaboratively build a MEAN stack app of your own design.
@@ -17,10 +45,6 @@ Your app must:
 * Use Angular to build a front-end that consumes your API
 * Use SCSS instead of CSS
 * Use Webpack & Yarn to manage your dependencies and compile your source code
-
-
-## App Description
-Festinate is a festival companion app, designed for mobile first. Users have access to a variety of features, such as adding festivals, adding and deleting other users as friends, and creating and managing car shares. It also features external APIs to offer useful, up-to-date information about the festival.
 
 
 ## Technologies Used
@@ -84,49 +108,32 @@ We began wireframing on Sketch, using a Sketch template as a guide. We then move
 
 
 ### Functionality
-We started out by building and testing the back end, before building the front end and styling. Everyone in the group worked on a part of each section.
+We began by building and testing the back end, to make sure it was solid. First, we worked on getting the basic RESTful routes working for users, festivals, and car shares; before moving onto extras such as friend and passenger requests.
 
-We started out by getting the basic RESTful routes working (users, festivals, and car shares) before moving onto extras such as friend and passenger requests, which took longer.
-
-APIs came a little later, which, apart from Filestack, were handled by me. We did have a list of other APIs we wanted to include, which are potential future features.
+Next came front end, followed by external APIs. Whilst everyone had a role in every part of the app, I found myself focussing on these APIs towards the end of the project, handling every one of them apart from Filestack.
 
 
 ### Styling
-We chose a neutral black and dark purple for our colour scheme. We used three Google fonts: Oxygen for all the text apart from the app name on the login page, for which we used Orbitron and Shrikhand.
+We chose a black and dark purple for our colour scheme. The typography is made up of three Google fonts: Orbitron and Shrikhand for the logo, and Oxygen for everything else. Because the app needed to be mobile first (due to the nature of the app itself), we used Bulma to take advantage of its cross-device capabilities. At the time of delivery, Festinate was optimised for iPhone 8, and worked on phones of similar screen sizes. However it was not styled so well for larger or smaller screens (e.g. iPhone 5).
 
-Since most people would use this app on mobile, perhaps even whilst at a festival, we designed for mobile first. So we used Bulma to take advantage of its cross-device capabilities. At the time of delivery, Festinate was optimised for iPhone 8 (and other phones of similar screen sizes,) and was not styled so well for larger or smaller screens. However, this is something to change in the future.
-
-
-### Finished Product
-
-#### Welcome/Login
-![Login](./screenshots/login.png)
-
-#### Festival Index
-![Festivals Index](./screenshots/festivals-index.png)
-
-#### Festival Show
-![Festival Show](./screenshots/festivals-show.png)
-![Festival Show](./screenshots/festivals-show2.png)
-
-#### Car Share Index
-![Car Shares Index](./screenshots/car-shares-index.png)
-
-#### User Index
-![User Index](./screenshots/find-friends.png)
-
-#### Profile Page
-![Profile Page](./screenshots/profile-page.png)
 
 ## Wins and Blockers
-As a team, I would say the styling was a huge win. We were really pleased with the design, both of small components, and the bigger picture. Our biggest blocker was probably getting friend requests, passenger requests, and attendees working on both the front end and the back end. I think it would have been good to start these more difficult elements earlier than we did.
+As a team, I would say the styling was a huge win. We were all really pleased with the design from that of the small components, to the bigger picture.
 
-In terms of the elements I built, the biggest win was working with the APIs, in particular MapQuest, which I had never used prior to starting this project. It was harder to get to grips with than Leaflet, which I had used before. But we loved MapQuest's tiles and markers so I persisted. I looked at getting a road map on the car share show page with MapQuest's direction endpoint, instead of the straight line. I could see how I could do it in a rough way, but it didn't come together, so this is something I would like to add as a future feature.
+OUr biggest blocker was getting friend requests, passenger requests, and attendees working on both the front and back ends. In hindsight, it would have been better to start this earlier on, and to use objects instead of arrays.
 
-My biggest blocker was probably testing. The main difficulty was when tests broke, it was hard to know whether that was because the code was wrong, or because the tests weren't written properly.
+In terms of the elements I built, the biggest win was working with the APIs. I had dabbled with both Nominatim and Dark Skies before, but MapQuest was completely new. It took a little time to get to grips with, but its beautiful tiles and markers - coupled with its many different endpoints - were a wonderful reward. Getting the Skycons working on Dark Skies was also a challenge, but one that was very visually rewarding.
+
+My biggest blocker was testing. I had only done this a little bit before, so it was hard to know if the test was written incorrectly, or if the code was wrong when the tests broke. It was also hard to know exactly what to test for, particularly on the authentication side.
 
 
 ## Future Features
-Among the APIs we would like to add in the future are Twilio to send SMS messages about car shares, and TfL and Transport API to incorporate public transport timetables and service updates. The latter especially is something I would like to focus on next.
+There are a number of extra features we would like to add, including:
 
-We would also like to allow the festival organisers to place points on the site map to show where the stage, toilets, entrances and exits etc were. Then the user could mark the location of their tent, and navigate around the festival site easier.
+* Sending SMS or emails from the app about car shares, perhaps using an API like Twilio.
+* Integrating the TfL API and Transport API to give users access to public transport timetables and service updates.
+* Another map feature which allows festival organisers to place points on the site to mark the stage(s), toilets, entrances/exits etc. Then the user could mark the location of their tent, and navigate around the site more easily.
+* Improve the friends feature so users gain certain permissions to view another user's profile etc when they're friends.
+* An in-app instant messenger.
+* Improve the car share map feature.
+* Improve the responsiveness.
