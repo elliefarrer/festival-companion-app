@@ -148,7 +148,7 @@ We chose a black and dark purple for our colour scheme. The typography is made u
 ## Wins and Blockers
 As a team, I would say the styling was a huge win. We were all really pleased with the design from that of the small components, to the bigger picture.
 
-OUr biggest blocker was getting friend requests, passenger requests, and attendees working on both the front and back ends. In hindsight, it would have been better to start this earlier on, and to use objects instead of arrays.
+Our biggest blocker was getting friend requests, passenger requests, and attendees working on both the front and back ends. In hindsight, it would have been better to start this earlier on, and to use objects instead of arrays.
 
 In terms of the elements I built, the biggest win was working with the APIs. I had dabbled with both Nominatim and Dark Skies before, but MapQuest was completely new. It took a little time to get to grips with, but its beautiful tiles and markers - coupled with its many different endpoints - were a wonderful reward. Getting the Skycons working on Dark Skies was also a challenge, but one that was very visually rewarding.
 
